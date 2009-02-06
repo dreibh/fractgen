@@ -47,7 +47,7 @@ ColorSchemeInterface::ColorSchemeInterface(const char* identifier, const char* n
 // ###### Constructor #######################################################
 ColorSchemeInterface::~ColorSchemeInterface()
 {
-   ColorSchemeList->removeOne(this);
+   ColorSchemeList->removeAll(this);
 }
 
 

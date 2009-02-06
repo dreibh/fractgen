@@ -51,7 +51,7 @@ FractalAlgorithmInterface::FractalAlgorithmInterface(const char* identifier, con
 // ###### Destructor ########################################################
 FractalAlgorithmInterface::~FractalAlgorithmInterface()
 {
-   AlgorithmList->removeOne(this);
+   AlgorithmList->removeAll(this);
 }
 
 

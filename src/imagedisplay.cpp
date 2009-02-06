@@ -57,7 +57,7 @@ bool ImageDisplay::reset(const unsigned int width, const unsigned int height)
    if(Image) {
      delete Image;
    }
-   Image = new QImage(width, height, QImage::Format_RGB888);
+   Image = new QImage(width, height, QImage::Format_RGB32);
    Q_CHECK_PTR(Image);
    for(int y = 0;y < Image->height();y++) {
       for(int x = 0;x < Image->width();x++) {
