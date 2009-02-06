@@ -1,0 +1,16 @@
+Source: fractgen
+Section: net
+Priority: optional
+Maintainer: Thomas Dreibholz <dreibh@iem.uni-due.de>
+Homepage: http://www.iem.uni-due.de/~dreibh
+Build-Depends: debhelper (>= 5), cdbs, libqt4-dev
+Standards-Version: 3.8.0
+
+Package: fractgen
+Section: graphics
+Priority: optional
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Fractal Generator
+ A simple Qt-based fractal generator program. The image size is only
+ limited by virtual memory.

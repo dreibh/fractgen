@@ -1,0 +1,78 @@
+Log for qt3to4 on Do Jan 15 12:04:09 2009. Number of log entries: 69
+In file /home/dreibh/src/fractalgenerator/fg2/src/colorschemeinterface.cpp: Added the following include directives:
+	#include <Q3PtrList> 
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/colorschemeinterface.h
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/configentry.h
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/doubleconfigentry.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/doubleconfigentry.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalalgorithminterface.cpp: Added the following include directives:
+	#include <Q3PtrList> 
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalalgorithminterface.h
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalbuffer.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalbuffer.h
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalcalculationthread.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalcalculationthread.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractaldisplay.cpp: Added the following include directives:
+	#include <QResizeEvent> 	#include <QMouseEvent> 	#include <QPaintEvent> 
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractaldisplay.h: Added the following include directives:
+	#include <QResizeEvent> 	#include <QMouseEvent> 	#include <QPaintEvent> 
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalgenerator.cpp
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratordoc.cpp at line 155 column 30: IO_ReadOnly -> QIODevice::ReadOnly
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratordoc.cpp at line 219 column 19: QPtrListIterator -> Q3PtrListIterator
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratordoc.cpp at line 294 column 20: QPtrListIterator -> Q3PtrListIterator
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratordoc.cpp at line 334 column 27: IO_WriteOnly -> QIODevice::WriteOnly
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratordoc.h
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/fractalgenerator.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratorview.cpp at line 59 column 14: QGridLayout -> Q3GridLayout
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratorview.cpp at line 59 column 40: QGridLayout -> Q3GridLayout
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratorview.cpp: Added the following include directives:
+	#include <QResizeEvent> 	#include <Q3GridLayout> 	#include <QEvent> 
+In file /home/dreibh/src/fractalgenerator/fg2/src/fractalgeneratorview.h: Added the following include directives:
+	#include <QResizeEvent> 	#include <QEvent> 
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/main.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/mandelbrot.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/mandelbrot.h
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/mandelbrotn.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/mandelbrotn.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/mylistviewitem.cpp at line 4 column 40: QListView -> Q3ListView
+In file /home/dreibh/src/fractalgenerator/fg2/src/mylistviewitem.cpp at line 4 column 98: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/mylistviewitem.h at line 6 column 19: qlistview.h -> q3listview.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/mylistviewitem.h at line 10 column 43: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/mylistviewitem.h at line 13 column 25: QListView -> Q3ListView
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 26 column 18: qptrlist.h -> q3ptrlist.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 27 column 16: qtable.h -> q3table.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 31 column 72: QPtrList -> Q3PtrList
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 33 column 14: QVBoxLayout -> Q3VBoxLayout
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 33 column 37: QVBoxLayout -> Q3VBoxLayout
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 40 column 9: QFrame -> Q3Frame
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 40 column 29: QFrame -> Q3Frame
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 41 column 30: QFrame -> Q3Frame
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 41 column 47: QFrame -> Q3Frame
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 43 column 14: QVBoxLayout -> Q3VBoxLayout
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 43 column 38: QVBoxLayout -> Q3VBoxLayout
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 48 column 29: QListView -> Q3ListView
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 54 column 47: QListView -> Q3ListView
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 55 column 41: QListView -> Q3ListView
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 61 column 20: QPtrListIterator -> Q3PtrListIterator
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 68 column 53: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 68 column 90: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 69 column 58: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 69 column 124: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 87 column 46: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 94 column 51: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp at line 98 column 20: QPtrListIterator -> Q3PtrListIterator
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.cpp: Added the following include directives:
+	#include <Q3VBoxLayout> 	#include <Q3Frame> 
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.h at line 18 column 19: qlistview.h -> q3listview.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.h at line 20 column 18: qptrlist.h -> q3ptrlist.h
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.h at line 29 column 62: QPtrList -> Q3PtrList
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.h at line 34 column 13: QListView -> Q3ListView
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.h at line 35 column 12: QPtrList -> Q3PtrList
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.h at line 39 column 35: QListViewItem -> Q3ListViewItem
+In file /home/dreibh/src/fractalgenerator/fg2/src/optionsdialog.h at line 40 column 40: QListViewItem -> Q3ListViewItem
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/simplehsv.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/simplehsv.h
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/uintconfigentry.cpp
+No changes made to file /home/dreibh/src/fractalgenerator/fg2/src/uintconfigentry.h
+In file src.pro: Added entry QT +=  
+
