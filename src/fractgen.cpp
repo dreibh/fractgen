@@ -24,13 +24,29 @@
 #include "fractalgenerator.h"
 
 #include <QApplication>
+#include <QFile>
 
 
 // ###### Main program ######################################################
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
-   FractalGeneratorApp* fractalGeneratorApp = new FractalGeneratorApp(NULL);
-   fractalGeneratorApp->show();
+
+   FractalGeneratorApp* fractalGeneratorApp = NULL;
+   for(int i = 1;i < argc;i++) {
+      const QString fileName = argv[i];
+      if( (fractalGeneratorApp == NULL) &&
+          (fileName.right(4) == ".fsf") &&
+          (QFile::exists(fileName)) ) {
+         fractalGeneratorApp = new FractalGeneratorApp(NULL, fileName);
+         fractalGeneratorApp->show();
+      }
+   }
+
+   if(fractalGeneratorApp == NULL) {
+      fractalGeneratorApp = new FractalGeneratorApp(NULL);
+      fractalGeneratorApp->show();
+   }
+
    return application.exec();
 }

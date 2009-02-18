@@ -40,7 +40,7 @@
 
 
 // ###### Constructor #######################################################
-FractalGeneratorApp::FractalGeneratorApp(QWidget* parent)
+FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileName)
    : QMainWindow(parent)
 {
    View = new FractalGeneratorView(this);
@@ -58,7 +58,6 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent)
 
    QMenu* fileMenu = menuBar()->addMenu(tr("&File"));
    Q_CHECK_PTR(fileMenu);
-   fileMenu->addAction(tr("New &Window"), this, SLOT(slotFileNewWindow()), QKeySequence(QKeySequence::New));
    fileMenu->addAction(tr("&Open"), this, SLOT(slotFileOpen()), QKeySequence(QKeySequence::Open));
    fileMenu->addAction(tr("&Save"), this, SLOT(slotFileSave()), QKeySequence(QKeySequence::Save));
    fileMenu->addAction(tr("Save As"), this, SLOT(slotFileSaveAs()));
@@ -129,6 +128,11 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent)
    Printer.setOutputFileName(tr("Fractal.pdf"));
 
    statusBar()->showMessage("Welcome to Fractal Generator!", 3000);
+
+   if(fileName != "") {
+      Document->openDocument(fileName);
+   }
+
    show();
 }
 
@@ -136,14 +140,6 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent)
 // ###### Destructor ########################################################
 FractalGeneratorApp::~FractalGeneratorApp()
 {
-}
-
-
-// ###### New ###############################################################
-void FractalGeneratorApp::slotFileNewWindow()
-{
-   FractalGeneratorApp* newWindow = new FractalGeneratorApp(NULL);
-   newWindow->show();
 }
 
 

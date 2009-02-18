@@ -46,7 +46,7 @@ class FractalGeneratorApp : public QMainWindow
    friend class FractalGeneratorView;
 
    public:
-   FractalGeneratorApp(QWidget* parent);
+   FractalGeneratorApp(QWidget* parent, const QString& fileName = "");
    ~FractalGeneratorApp();
 
    protected:
@@ -56,7 +56,6 @@ class FractalGeneratorApp : public QMainWindow
    void initView();
 
    public slots:
-   void slotFileNewWindow();
    void slotFileOpen();
    void slotFileSave();
    void slotFileExportImage();

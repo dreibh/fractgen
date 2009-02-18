@@ -165,7 +165,7 @@ void FractalGeneratorView::slotSelectionUpdate(unsigned int x1, unsigned int y1,
                                       C1.imag() + y1 * ((C2.imag() - C1.imag()) / Display->imageHeight()));
    SelectionC2 = std::complex<double>(C1.real() + x2 * ((C2.real() - C1.real()) / Display->imageWidth()),
                                       C1.imag() + y2 * ((C2.imag() - C1.imag()) / Display->imageHeight()));
-   printf("Selected: %d %d - %d %d\n",x1,y1,x2,y2);
+   // printf("Selected: %d %d - %d %d\n",x1,y1,x2,y2);
    if((x1 != x2) && (y1 != y2)) {
       Selection = true;
    }
