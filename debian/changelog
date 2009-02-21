@@ -1,5 +1,5 @@
-fractgen (2.0.3-1ubuntu1) jaunty; urgency=low
+fractgen (2.0.3-4ubuntu1) jaunty; urgency=low
 
-  * Initial Ubuntu package (LP #xxxxxx).
+  * Initial Ubuntu package (LP: #332530).
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Tue, 06 Feb 2009 08:49:32 +0200
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Tue, 21 Feb 2009 15:57:32 +0200
