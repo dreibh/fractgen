@@ -25,6 +25,8 @@
 #include "fractalgeneratordoc.h"
 #include "fractalgenerator.h"
 
+#include <stdio.h>
+
 #include <QPainter>
 #include <QImage>
 #include <QApplication>
