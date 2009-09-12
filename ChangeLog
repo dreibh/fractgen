@@ -1,4 +1,24 @@
 ------------------------------------------------------------------------
+r253 | dreibh | 2009-06-03 11:47:34 +0200 (Wed, 03 Jun 2009) | 1 line
+Changed paths:
+   M /trunk/fractgen2/make-ppa
+
+
+------------------------------------------------------------------------
+r252 | dreibh | 2009-06-03 11:45:52 +0200 (Wed, 03 Jun 2009) | 1 line
+Changed paths:
+   M /trunk/fractgen2/ChangeLog
+
+
+------------------------------------------------------------------------
+r251 | dreibh | 2009-06-03 11:45:24 +0200 (Wed, 03 Jun 2009) | 1 line
+Changed paths:
+   M /trunk/fractgen2/debian/changelog
+   M /trunk/fractgen2/make-dist
+   A /trunk/fractgen2/make-ppa
+
+
+------------------------------------------------------------------------
 r182 | dreibh | 2009-05-02 10:17:45 +0200 (Sat, 02 May 2009) | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
