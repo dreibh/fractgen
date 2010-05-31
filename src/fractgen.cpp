@@ -3,7 +3,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2009 by Thomas Dreibholz
+ * Copyright (C) 2003-2010 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,74 +27,10 @@
 #include <QFile>
 
 
-static QString parseToken(QString& string)
-{
-    QString token;
-    bool    inString  = false;
-    bool    isSpecial = false;         
-
-    string = string.trimmed();
-    while(string.size() > 0) {
-        const QChar c = string[0];
-        string.remove(0, 1);
-        if(c == '\\') {
-            if(isSpecial) {
-                token.append(c);
-                isSpecial = false;
-            }
-            else {
-                isSpecial = true;
-            }
-        }
-        else {
-            if((c == '\"') && (!isSpecial)) {
-                inString = !inString;
-                if(!inString) {
-                   break;
-                }
-            }
-            else if((c == ':') && (!inString)) {
-                token += c;
-                break;
-            }
-            else if((c == ' ') && (!inString)) {
-                break;
-            }
-            else {
-                token += c;
-            }
-            isSpecial = false;
-        }
-    }
-    return(token.trimmed());
-}
-
-void parse(QString s)
-{
-   printf("s=<%s>\n", s.toLocal8Bit().constData());
-   while(s != "") {
-      QString c = parseToken(s);
-      printf("   c=<%s>\n", c.toLocal8Bit().constData());
-//       printf("   c=<%s>   <rest=%s>\n", c.toLocal8Bit().constData(), s.toLocal8Bit().constData());
-   }
-}
-
-
 // ###### Main program ######################################################
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
-
-
-parse(QString("# Kommentar title: \"pc 88\" token: \"ssh pc88 -c ls dh0:\""));
-parse(QString("title: \"pc 88\" token: \"ssh pc88 -c ls dh0:\""));
-parse(QString("title: PC-71 token: \"ssh pc88 -c ls dh0:\""));
-parse(QString("title: PC-71 token: \"ssh pc88 -c ls dh0:"));
-parse(QString("title: PC-71 token: \"ssh pc88 -c ls dh0:\" profile: xy"));
-   
-return 0;   
-   
-   
    FractalGeneratorApp* fractalGeneratorApp = NULL;
    for(int i = 1;i < argc;i++) {
       const QString fileName = argv[i];

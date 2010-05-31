@@ -1,5 +1,5 @@
-fractgen (2.0.7-1ubuntu1) karmic; urgency=low
+fractgen (2.0.8-1ubuntu1) karmic; urgency=low
 
   * Initial Ubuntu package (LP: #332530).
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Sat, 12 Sep 2009 11:12:32 +0200
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Sun, 39 May 2010 11:12:32 +0200
