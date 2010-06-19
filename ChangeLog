@@ -1,4 +1,53 @@
 ------------------------------------------------------------------------
+r561 | dreibh | 2010-05-31 11:53:52 +0200 (Mon, 31 May 2010) | 1 line
+Changed paths:
+   M /trunk/fractgen2/ChangeLog
+
+
+------------------------------------------------------------------------
+r557 | dreibh | 2010-05-31 11:49:24 +0200 (Mon, 31 May 2010) | 2 lines
+Changed paths:
+   M /trunk/fractgen2/debian/changelog
+   M /trunk/fractgen2/make-dist
+   M /trunk/fractgen2/make-ppa
+   M /trunk/fractgen2/src/colorschemeinterface.cpp
+   M /trunk/fractgen2/src/colorschemeinterface.h
+   M /trunk/fractgen2/src/configentry.h
+   M /trunk/fractgen2/src/doubleconfigentry.cpp
+   M /trunk/fractgen2/src/doubleconfigentry.h
+   M /trunk/fractgen2/src/dreibholz1.cpp
+   M /trunk/fractgen2/src/dreibholz1.h
+   M /trunk/fractgen2/src/fractalalgorithminterface.cpp
+   M /trunk/fractgen2/src/fractalalgorithminterface.h
+   M /trunk/fractgen2/src/fractalbuffer.cpp
+   M /trunk/fractgen2/src/fractalbuffer.h
+   M /trunk/fractgen2/src/fractalcalculationthread.cpp
+   M /trunk/fractgen2/src/fractalcalculationthread.h
+   M /trunk/fractgen2/src/fractalgenerator.cpp
+   M /trunk/fractgen2/src/fractalgenerator.h
+   M /trunk/fractgen2/src/fractalgeneratordoc.cpp
+   M /trunk/fractgen2/src/fractalgeneratordoc.h
+   M /trunk/fractgen2/src/fractalgeneratorview.cpp
+   M /trunk/fractgen2/src/fractalgeneratorview.h
+   M /trunk/fractgen2/src/fractgen.cpp
+   M /trunk/fractgen2/src/imagedisplay.cpp
+   M /trunk/fractgen2/src/imagedisplay.h
+   M /trunk/fractgen2/src/mandelbrot.cpp
+   M /trunk/fractgen2/src/mandelbrot.h
+   M /trunk/fractgen2/src/mandelbrotn.cpp
+   M /trunk/fractgen2/src/mandelbrotn.h
+   M /trunk/fractgen2/src/optionsdialog.cpp
+   M /trunk/fractgen2/src/optionsdialog.h
+   M /trunk/fractgen2/src/simplehsv.cpp
+   M /trunk/fractgen2/src/simplehsv.h
+   M /trunk/fractgen2/src/simplergb.cpp
+   M /trunk/fractgen2/src/simplergb.h
+   M /trunk/fractgen2/src/uintconfigentry.cpp
+   M /trunk/fractgen2/src/uintconfigentry.h
+
+Version update.
+
+------------------------------------------------------------------------
 r465 | dreibh | 2009-09-12 11:00:23 +0200 (Sat, 12 Sep 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/ChangeLog

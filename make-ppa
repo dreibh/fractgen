@@ -2,5 +2,5 @@
 
 ./make-dist && \
 ./clean-deb && \
-./make-deb hardy intrepid jaunty karmic lucid maverick && \
+./make-deb hardy jaunty karmic lucid maverick && \
 dput ppa *.changes
