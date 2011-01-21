@@ -1,7 +1,7 @@
-fractgen (2.0.9-2ubuntu1) maverick; urgency=low
+fractgen (2.0.10-1ubuntu1) natty; urgency=low
 
   [ Thomas Dreibholz ]
   * Initial Ubuntu package (LP: #332530).
   * Switch to dpkg-source 3.0 (quilt) format
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Sat, 19 Jun 2010 13:10:47 +0200
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Fri, 21 Jan 2011 13:10:47 +0200

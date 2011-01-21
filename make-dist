@@ -1,8 +1,12 @@
 #!/bin/bash
 
-VERSION=2.0.9
+VERSION=2.0.10
 
 . ./debian.conf
+
+CHANGELOG_HEADER="`head -n1 debian/changelog`"
+PACKAGE=`echo $CHANGELOG_HEADER | sed -e "s/(.*//" -e "s/ //g"`
+
 if [ -e $PACKAGE-$VERSION ] ; then
    rm -rf $PACKAGE-$VERSION
 fi

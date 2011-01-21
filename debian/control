@@ -3,8 +3,8 @@ Section: graphics
 Priority: optional
 Maintainer: Thomas Dreibholz <dreibh@iem.uni-due.de>
 Homepage: http://www.iem.uni-due.de/~dreibh
-Build-Depends: debhelper (>= 5), cdbs, libqt4-dev
-Standards-Version: 3.8.4
+Build-Depends: debhelper (>= 7), cdbs, libqt4-dev
+Standards-Version: 3.9.1
 
 Package: fractgen
 Architecture: any
