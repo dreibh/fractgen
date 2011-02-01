@@ -3,12 +3,18 @@ Section: graphics
 Priority: optional
 Maintainer: Thomas Dreibholz <dreibh@iem.uni-due.de>
 Homepage: http://www.iem.uni-due.de/~dreibh
-Build-Depends: debhelper (>= 7), cdbs, libqt4-dev
+Build-Depends: cdbs,
+               debhelper (>= 7),
+               libqt4-dev
 Standards-Version: 3.9.1
 
 Package: fractgen
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: rsplib-tools
 Description: Fractal Generator
- A simple Qt-based fractal generator program. The image size is only
- limited by virtual memory.
+ FractGen is a simple Qt-based fractal generator program. The image size is
+ only limited by virtual memory. The intention of this program is to
+ generate graphics to be post-processed by other image tools, e.g. in order
+ to generate since screen backgrounds.
