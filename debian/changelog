@@ -1,6 +1,5 @@
 fractgen (2.0.11-3ubuntu1) natty; urgency=low
 
-  [ Thomas Dreibholz ]
   * Initial Ubuntu package (LP: #332530).
   * Switch to dpkg-source 3.0 (quilt) format
 
