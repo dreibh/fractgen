@@ -1,4 +1,4 @@
-.\" $Id: fractgen.8 148 2009-01-30 08:25:43Z dreibh $
+.\" $Id$
 .\"
 .\" Fractal Generator
 .\" Copyright (C) 2003-2011 by Thomas Dreibholz
@@ -19,7 +19,7 @@
 .\" Contact: dreibh@iem.uni-due.de
 .\"
 .\" ###### Setup ############################################################
-.Dd January 21, 2011
+.Dd May 4, 2011
 .Dt fractgen 1
 .Os fractgen
 .\" ###### Name #############################################################
@@ -32,8 +32,13 @@
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
 .Nm fractgen
-is a simple Qt-based fractal generator program. The image size is only limited
-by virtual memory.
+ FractGen is a simple Qt-based fractal generator program for Mandelbrot
+ fractals. The image size is only limited by virtual memory. It is possible
+ to zoom into images. Image parameters can be saved in XML files and loaded
+ from XML files. Calculated images can be exported as PNG files.
+.br
+ The intention of this program is to generate graphics to be post-processed
+ by other image tools, e.g. in order to generate nice screen backgrounds.
 .Pp
 .\" ###### Authors ##########################################################
 .Sh AUTHORS

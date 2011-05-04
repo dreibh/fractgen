@@ -37,12 +37,14 @@ int main(int argc, char *argv[])
       if( (fractalGeneratorApp == NULL) &&
           (fileName.right(4) == ".fsf") &&
           (QFile::exists(fileName)) ) {
+         // Open file provided by argument ...
          fractalGeneratorApp = new FractalGeneratorApp(NULL, fileName);
          fractalGeneratorApp->show();
       }
    }
 
    if(fractalGeneratorApp == NULL) {
+      // Start new image, if no file has been opened.
       fractalGeneratorApp = new FractalGeneratorApp(NULL);
       fractalGeneratorApp->show();
    }

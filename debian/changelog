@@ -1,4 +1,4 @@
-fractgen (2.0.11-1ubuntu1) oneiric; urgency=low
+fractgen (2.0.12-0ubuntu1) oneiric; urgency=low
 
   * Initial Ubuntu package (LP: #332530).
 
