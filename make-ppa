@@ -1,6 +1,5 @@
 #!/bin/bash
 
-./bootstrap && \
 ./clean-deb && \
 ./make-deb karmic lucid maverick natty oneiric && \
 dput ppa *.changes
