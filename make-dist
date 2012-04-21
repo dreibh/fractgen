@@ -15,7 +15,7 @@ mkdir $PACKAGE-$VERSION || exit 1
 
 # ---------------------------------------------------------
 mkdir $PACKAGE-$VERSION/src
-cp NEWS README BUGS COPYING ChangeLog $PACKAGE-$VERSION
+cp NEWS README BUGS COPYING ChangeLog *.lsm $PACKAGE-$VERSION
 cp *.pro $PACKAGE-$VERSION
 cp src/*.pro $PACKAGE-$VERSION/src
 cp src/*.cpp $PACKAGE-$VERSION/src

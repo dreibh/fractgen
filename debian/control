@@ -20,4 +20,5 @@ Description: calculates fractal images
  from XML files. Calculated images can be exported as PNG files.
  .
  The intention of this program is to generate graphics to be post-processed
- by other image tools, e.g. in order to generate nice screen backgrounds.
+ by other image tools, e.g. in order to generate nice screen backgrounds or
+ book covers.

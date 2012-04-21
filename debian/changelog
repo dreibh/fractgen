@@ -1,3 +1,10 @@
+fractgen (2.0.13-1ubuntu1) precise; urgency=low
+
+  * Packaging of new upstream version.
+  * Initial Debian package (Closes: #669893).
+
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Fri, 20 Apr 2012 22:22:22 +0800
+
 fractgen (2.0.12-0ubuntu1) oneiric; urgency=low
 
   * Initial Ubuntu package (LP: #332530).
