@@ -6,7 +6,7 @@ Homepage: http://www.exp-math.uni-essen.de/~dreibh/fractalgenerator/index.html
 Build-Depends: cdbs,
                debhelper (>= 7),
                libqt4-dev
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 
 Package: fractgen
 Architecture: any
