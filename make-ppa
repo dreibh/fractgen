@@ -1,5 +1,5 @@
 #!/bin/bash
 
 ./clean-deb && \
-./make-deb karmic lucid maverick natty oneiric precise quantal && \
+./make-deb karmic lucid maverick natty oneiric precise quantal raring && \
 dput ppa *.changes
