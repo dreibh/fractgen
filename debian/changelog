@@ -1,8 +1,8 @@
-fractgen (2.0.15~rc1-1ubuntu1) saucy; urgency=low
+fractgen (2.0.16~rc1-1ubuntu1) trusty; urgency=low
 
   * Packaging of new upstream version.
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Thu, 30 May 2013 08:08:08 +0800
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Wed, 23 Oct 2013 08:08:08 +0800
 
 fractgen (2.0.14-1ubuntu1) precise; urgency=low
 
