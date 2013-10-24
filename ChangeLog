@@ -1,4 +1,10 @@
 ------------------------------------------------------------------------
+r1684 | dreibh | 2013-10-23 13:32:30 +0200 (Wed, 23 Oct 2013) | 1 line
+Changed paths:
+   M /trunk/fractgen2/ChangeLog
+
+Updated ChangeLog.
+------------------------------------------------------------------------
 r1683 | dreibh | 2013-10-23 13:31:08 +0200 (Wed, 23 Oct 2013) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
