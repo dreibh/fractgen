@@ -1,6 +1,7 @@
 fractgen (2.0.16-1ubuntu1) trusty; urgency=low
 
   * Packaging of new upstream version.
+  * New upstream version (Closes: #xxxxxx).
 
  -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Wed, 23 Oct 2013 08:08:08 +0800
 
