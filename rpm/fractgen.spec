@@ -2,13 +2,14 @@ Name: fractgen
 Version: 2.0.16
 Release: 1%{?dist}
 Summary: Fractal Generator
-Group: Productivity/Graphics/Visualization/Other
+Group: Applications/Multimedia
 License: GPLv3
-Source: %{name}-%{version}.tar.gz
-URL: http://www.iem.uni-due.de/~dreibh/fractalgenerator/download/fractgen-2.0.16.tar.gz
+URL: http://www.iem.uni-due.de/~dreibh/fractalgenerator/
+Source: http://www.iem.uni-due.de/~dreibh/fractalgenerator/download/%{name}-%{version}.tar.gz
 
 AutoReqProv: on
 BuildRequires: qt-devel
+BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 %define _unpackaged_files_terminate_build 0
 
@@ -21,10 +22,11 @@ FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals.
 
 %build
 qmake-qt4 -makefile
-make %{?_smp_mflags} PREFIX=%{buildroot}
+make %{?_smp_mflags}
 
 %install
-make PREFIX=%{buildroot} install
+mkdir -p %{buildroot}%{_bindir}/
+install -m 755 -p %{_builddir}/%{buildsubdir}/src/fractgen %{buildroot}%{_bindir}/
 
 %files
 %{_bindir}/fractgen
