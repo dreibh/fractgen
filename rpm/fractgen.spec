@@ -1,6 +1,6 @@
 Name: fractgen
 Version: 2.0.16
-Release: 1%{?dist}
+Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
 License: GPLv3
