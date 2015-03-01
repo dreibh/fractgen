@@ -1,4 +1,14 @@
 ------------------------------------------------------------------------
+r1980 | dreibh | 2015-03-01 13:31:41 +0100 | 2 lines
+Changed paths:
+   M /trunk/fractgen2/ChangeLog
+   M /trunk/fractgen2/debian/copyright
+   M /trunk/fractgen2/make-dist
+   M /trunk/fractgen2/rpm/fractgen.spec
+
+Packaging updates.
+
+------------------------------------------------------------------------
 r1978 | dreibh | 2015-03-01 13:13:24 +0100 | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog

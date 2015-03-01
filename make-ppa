@@ -1,6 +1,5 @@
 #!/bin/bash
 
-./bootstrap && \
 ./clean-deb && \
 ./make-deb precise trusty utpoic vivid && \
 dput ppa *.changes
