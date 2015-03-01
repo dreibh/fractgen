@@ -1,3 +1,14 @@
+fractgen (2.0.17~rc1-1ubuntu1) trusty; urgency=low
+
+  * Packaging of new upstream version.
+  * New upstream version (Closes: #xxxxxx).
+  * debian/copyright: changed to machine-readable format.
+  * debian/control: updated standards version.
+  * debian/watch: added pgpsigurlmangle option.
+  * debian/upstream/signing-key.asc: added upstream public key.
+
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Sun, 01 Mar 2015 08:08:08 +0800
+
 fractgen (2.0.16-1ubuntu1) trusty; urgency=low
 
   * Packaging of new upstream version.
