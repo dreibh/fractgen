@@ -1,11 +1,132 @@
 ------------------------------------------------------------------------
-r1684 | dreibh | 2013-10-23 13:32:30 +0200 (Wed, 23 Oct 2013) | 1 line
+r1978 | dreibh | 2015-03-01 13:13:24 +0100 | 2 lines
+Changed paths:
+   M /trunk/fractgen2/debian/changelog
+   M /trunk/fractgen2/debian/control
+   A /trunk/fractgen2/debian/upstream
+   A /trunk/fractgen2/debian/upstream/signing-key.asc
+   M /trunk/fractgen2/debian/watch
+   M /trunk/fractgen2/fractgen.lsm
+   M /trunk/fractgen2/make-dist
+   M /trunk/fractgen2/make-ppa
+
+Packaging updates.
+
+------------------------------------------------------------------------
+r1867 | dreibh | 2014-07-04 18:38:55 +0200 (fr., 04 juli 2014) | 2 lines
+Changed paths:
+   A /trunk/fractgen2/rpm.conf
+   M /trunk/netperfmeter/rpm/netperfmeter.spec
+   M /trunk/subnetcalc/rpm/subnetcalc.spec
+   A /trunk/tsctp/rpm.conf
+
+F20 build script updates.
+
+------------------------------------------------------------------------
+r1849 | dreibh | 2014-06-24 11:54:13 +0200 (ti., 24 juni 2014) | 2 lines
+Changed paths:
+   M /trunk/bibtexconv/make-rpm
+   M /trunk/fractgen2/make-rpm
+   M /trunk/mptcp-kernel/make-rpm
+   M /trunk/netperfmeter/make-rpm
+   M /trunk/subnetcalc/make-rpm
+   M /trunk/tsctp/make-rpm
+
+Removed debug output.
+
+------------------------------------------------------------------------
+r1747 | dreibh | 2013-11-15 20:47:33 +0100 (fr., 15 nov. 2013) | 2 lines
+Changed paths:
+   M /trunk/bibtexconv/make-rpm
+   M /trunk/fractgen2/make-rpm
+   M /trunk/netperfmeter/make-rpm
+
+Build script updates.
+
+------------------------------------------------------------------------
+r1743 | dreibh | 2013-11-11 09:44:44 +0100 (ma., 11 nov. 2013) | 2 lines
+Changed paths:
+   M /trunk/bibtexconv/make-rpm
+   M /trunk/fractgen2/make-rpm
+   M /trunk/netperfmeter/make-rpm
+   M /trunk/subnetcalc/make-rpm
+   M /trunk/tsctp/make-rpm
+
+Updated make-rpm.
+
+------------------------------------------------------------------------
+r1735 | dreibh | 2013-11-05 16:42:50 +0100 (ti., 05 nov. 2013) | 1 line
+Changed paths:
+   A /trunk/bibtexconv/make-rpm (from /trunk/subnetcalc/make-rpm:1734)
+   M /trunk/bibtexconv/rpm/bibtexconv.spec
+   A /trunk/fractgen2/make-rpm (from /trunk/subnetcalc/make-rpm:1734)
+   M /trunk/fractgen2/rpm/fractgen.spec
+   A /trunk/netperfmeter/make-rpm (from /trunk/subnetcalc/make-rpm:1734)
+   M /trunk/netperfmeter/rpm/netperfmeter.spec
+   M /trunk/progtest/loglevel.h
+   M /trunk/progtest/progclient.cc
+   M /trunk/progtest/progpacket.h
+   M /trunk/progtest/progserver.cc
+   M /trunk/progtest/progviewer.cc
+   M /trunk/progtest/progviewer.h
+   M /trunk/progtest/progviewer.moc
+   M /trunk/progtest/tools.cc
+   M /trunk/progtest/tools.h
+   M /trunk/subnetcalc/make-rpm
+
+Improved RPM packaging.
+------------------------------------------------------------------------
+r1729 | dreibh | 2013-11-05 13:18:43 +0100 (ti., 05 nov. 2013) | 1 line
+Changed paths:
+   M /trunk/fractgen2/rpm/fractgen.spec
+
+Updated spec file.
+------------------------------------------------------------------------
+r1728 | dreibh | 2013-11-05 12:17:51 +0100 (ti., 05 nov. 2013) | 2 lines
+Changed paths:
+   A /trunk/fractgen2/rpm
+   A /trunk/fractgen2/rpm/fractgen.spec
+
+Added RPM spec file. Not working yet.
+
+------------------------------------------------------------------------
+r1702 | dreibh | 2013-10-24 22:43:05 +0200 (to., 24 okt. 2013) | 2 lines
+Changed paths:
+   M /trunk/fractgen2/debian/changelog
+
+Packaging file update.
+
+------------------------------------------------------------------------
+r1700 | dreibh | 2013-10-24 22:29:08 +0200 (to., 24 okt. 2013) | 2 lines
+Changed paths:
+   M /trunk/fractgen2/fractgen.lsm
+
+Updated LSM entry.
+
+------------------------------------------------------------------------
+r1699 | dreibh | 2013-10-24 22:11:03 +0200 (to., 24 okt. 2013) | 2 lines
+Changed paths:
+   M /trunk/fractgen2/make-ppa
+
+Updated make-ppa.
+
+------------------------------------------------------------------------
+r1695 | dreibh | 2013-10-24 21:56:20 +0200 (to., 24 okt. 2013) | 2 lines
+Changed paths:
+   M /trunk/fractgen2/ChangeLog
+   M /trunk/fractgen2/debian/changelog
+   M /trunk/fractgen2/make-dist
+
+Version update.
+
+------------------------------------------------------------------------
+r1684 | dreibh | 2013-10-23 13:32:30 +0200 (on., 23 okt. 2013) | 1 line
 Changed paths:
    M /trunk/fractgen2/ChangeLog
 
 Updated ChangeLog.
 ------------------------------------------------------------------------
-r1683 | dreibh | 2013-10-23 13:31:08 +0200 (Wed, 23 Oct 2013) | 1 line
+r1683 | dreibh | 2013-10-23 13:31:08 +0200 (on., 23 okt. 2013) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/make-dist
@@ -13,7 +134,7 @@ Changed paths:
 
 Packaging file updates.
 ------------------------------------------------------------------------
-r1671 | dreibh | 2013-10-18 23:52:07 +0200 (Fri, 18 Oct 2013) | 2 lines
+r1671 | dreibh | 2013-10-18 23:52:07 +0200 (fr., 18 okt. 2013) | 2 lines
 Changed paths:
    M /trunk/bibtexconv/make-ppa
    M /trunk/dia-experimental/make-ppa
@@ -28,7 +149,7 @@ Changed paths:
 Updated make-ppa.
 
 ------------------------------------------------------------------------
-r1651 | dreibh | 2013-05-30 14:34:44 +0200 (Thu, 30 May 2013) | 1 line
+r1651 | dreibh | 2013-05-30 14:34:44 +0200 (to., 30 mai 2013) | 1 line
 Changed paths:
    M /trunk/fractgen2/build-deb
    M /trunk/fractgen2/clean-deb
@@ -40,7 +161,7 @@ Changed paths:
 
 Build script updates.
 ------------------------------------------------------------------------
-r1525 | dreibh | 2012-10-20 23:50:30 +0200 (Sat, 20 Oct 2012) | 1 line
+r1525 | dreibh | 2012-10-20 23:50:30 +0200 | 1 line
 Changed paths:
    M /trunk/bibtexconv/make-ppa
    M /trunk/dia-experimental/make-ppa
@@ -54,7 +175,7 @@ Changed paths:
 
 Build script updates.
 ------------------------------------------------------------------------
-r1500 | dreibh | 2012-08-25 21:45:17 +0200 (Sat, 25 Aug 2012) | 2 lines
+r1500 | dreibh | 2012-08-25 21:45:17 +0200 | 2 lines
 Changed paths:
    A /trunk/fractgen2/build-deb (from /trunk/bibtexconv/build-deb:1498)
    M /trunk/fractgen2/debian/changelog
@@ -66,7 +187,7 @@ Changed paths:
 Updated build scripts.
 
 ------------------------------------------------------------------------
-r1365 | dreibh | 2012-04-21 21:21:13 +0200 (Sat, 21 Apr 2012) | 2 lines
+r1365 | dreibh | 2012-04-21 21:21:13 +0200 | 2 lines
 Changed paths:
    M /trunk/fractgen2/clean-deb
    M /trunk/fractgen2/debian/changelog
@@ -83,7 +204,7 @@ Changed paths:
 Packaging update.
 
 ------------------------------------------------------------------------
-r1363 | dreibh | 2012-04-21 20:26:51 +0200 (Sat, 21 Apr 2012) | 2 lines
+r1363 | dreibh | 2012-04-21 20:26:51 +0200 | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/control
    M /trunk/fractgen2/debian/copyright
@@ -92,14 +213,14 @@ Changed paths:
 Version updates.
 
 ------------------------------------------------------------------------
-r1046 | dreibh | 2011-05-13 17:58:52 +0200 (Fri, 13 May 2011) | 2 lines
+r1046 | dreibh | 2011-05-13 17:58:52 +0200 (fr., 13 mai 2011) | 2 lines
 Changed paths:
    M /trunk/fractgen2/make-ppa
 
 Script fix.
 
 ------------------------------------------------------------------------
-r1034 | dreibh | 2011-05-04 08:40:35 +0200 (Wed, 04 May 2011) | 3 lines
+r1034 | dreibh | 2011-05-04 08:40:35 +0200 (on., 04 mai 2011) | 3 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian/compat
@@ -112,7 +233,7 @@ Changed paths:
 - Updated manpage, added some code comments.
 
 ------------------------------------------------------------------------
-r1032 | dreibh | 2011-05-04 07:50:40 +0200 (Wed, 04 May 2011) | 2 lines
+r1032 | dreibh | 2011-05-04 07:50:40 +0200 (on., 04 mai 2011) | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian/control
@@ -120,7 +241,7 @@ Changed paths:
 Version update.
 
 ------------------------------------------------------------------------
-r1029 | dreibh | 2011-05-03 19:47:13 +0200 (Tue, 03 May 2011) | 2 lines
+r1029 | dreibh | 2011-05-03 19:47:13 +0200 (ti., 03 mai 2011) | 2 lines
 Changed paths:
    M /trunk/fractgen2/make-ppa
    M /trunk/netperfmeter/configure.in
@@ -131,7 +252,7 @@ Changed paths:
 Updated packaging scripts.
 
 ------------------------------------------------------------------------
-r1013 | dreibh | 2011-03-23 05:21:29 +0100 (Wed, 23 Mar 2011) | 2 lines
+r1013 | dreibh | 2011-03-23 05:21:29 +0100 (on., 23 mars 2011) | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian/copyright
@@ -139,7 +260,7 @@ Changed paths:
 Updated packaging files.
 
 ------------------------------------------------------------------------
-r1012 | dreibh | 2011-03-23 05:08:50 +0100 (Wed, 23 Mar 2011) | 2 lines
+r1012 | dreibh | 2011-03-23 05:08:50 +0100 (on., 23 mars 2011) | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian/control
@@ -148,7 +269,7 @@ Changed paths:
 Updated Ubuntu packaging files.
 
 ------------------------------------------------------------------------
-r989 | dreibh | 2011-02-11 23:34:41 +0100 (Fri, 11 Feb 2011) | 2 lines
+r989 | dreibh | 2011-02-11 23:34:41 +0100 (fr., 11 feb. 2011) | 2 lines
 Changed paths:
    M /trunk/bibtexconv/debian/changelog
    M /trunk/bibtexconv/make-deb
@@ -161,51 +282,51 @@ Changed paths:
 Updated packaging files.
 
 ------------------------------------------------------------------------
-r985 | dreibh | 2011-02-02 15:19:25 +0100 (Wed, 02 Feb 2011) | 1 line
+r985 | dreibh | 2011-02-02 15:19:25 +0100 (on., 02 feb. 2011) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
 
 
 ------------------------------------------------------------------------
-r982 | dreibh | 2011-02-02 15:18:50 +0100 (Wed, 02 Feb 2011) | 1 line
+r982 | dreibh | 2011-02-02 15:18:50 +0100 (on., 02 feb. 2011) | 1 line
 Changed paths:
    M /trunk/fractgen2/make-deb
 
 make-deb update.
 ------------------------------------------------------------------------
-r977 | dreibh | 2011-02-01 15:24:59 +0100 (Tue, 01 Feb 2011) | 1 line
+r977 | dreibh | 2011-02-01 15:24:59 +0100 (ti., 01 feb. 2011) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/make-deb
 
 Packaging update.
 ------------------------------------------------------------------------
-r968 | dreibh | 2011-02-01 13:07:15 +0100 (Tue, 01 Feb 2011) | 2 lines
+r968 | dreibh | 2011-02-01 13:07:15 +0100 (ti., 01 feb. 2011) | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/control
 
 Updated Debian control file.
 
 ------------------------------------------------------------------------
-r962 | dreibh | 2011-02-01 08:46:46 +0100 (Tue, 01 Feb 2011) | 1 line
+r962 | dreibh | 2011-02-01 08:46:46 +0100 (ti., 01 feb. 2011) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
 
 Debian packaging update.
 ------------------------------------------------------------------------
-r957 | dreibh | 2011-02-01 08:27:03 +0100 (Tue, 01 Feb 2011) | 1 line
+r957 | dreibh | 2011-02-01 08:27:03 +0100 (ti., 01 feb. 2011) | 1 line
 Changed paths:
    M /trunk/fractgen2/make-deb
 
 Updated make-deb script.
 ------------------------------------------------------------------------
-r932 | dreibh | 2011-01-22 16:13:14 +0100 (Sat, 22 Jan 2011) | 1 line
+r932 | dreibh | 2011-01-22 16:13:14 +0100 | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
 
 
 ------------------------------------------------------------------------
-r930 | dreibh | 2011-01-22 15:56:22 +0100 (Sat, 22 Jan 2011) | 2 lines
+r930 | dreibh | 2011-01-22 15:56:22 +0100 | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian/fractgen.1
@@ -248,14 +369,14 @@ Changed paths:
 Header updates.
 
 ------------------------------------------------------------------------
-r929 | dreibh | 2011-01-22 15:53:31 +0100 (Sat, 22 Jan 2011) | 2 lines
+r929 | dreibh | 2011-01-22 15:53:31 +0100 | 2 lines
 Changed paths:
    M /trunk/fractgen2/make-dist
 
 Updated packaging script to include GPL file.
 
 ------------------------------------------------------------------------
-r928 | dreibh | 2011-01-22 15:30:12 +0100 (Sat, 22 Jan 2011) | 2 lines
+r928 | dreibh | 2011-01-22 15:30:12 +0100 | 2 lines
 Changed paths:
    M /trunk/bibtexconv/debian/changelog
    M /trunk/bibtexconv/make-deb
@@ -272,25 +393,25 @@ Changed paths:
 make-deb updates.
 
 ------------------------------------------------------------------------
-r922 | dreibh | 2011-01-22 11:40:19 +0100 (Sat, 22 Jan 2011) | 1 line
+r922 | dreibh | 2011-01-22 11:40:19 +0100 | 1 line
 Changed paths:
    M /trunk/fractgen2/make-deb
 
 Packaging script update.
 ------------------------------------------------------------------------
-r915 | dreibh | 2011-01-22 00:40:28 +0100 (Sat, 22 Jan 2011) | 1 line
+r915 | dreibh | 2011-01-22 00:40:28 +0100 | 1 line
 Changed paths:
    M /trunk/fractgen2/clean-deb
 
 Updated clean-deb.
 ------------------------------------------------------------------------
-r908 | dreibh | 2011-01-22 00:06:51 +0100 (Sat, 22 Jan 2011) | 1 line
+r908 | dreibh | 2011-01-22 00:06:51 +0100 | 1 line
 Changed paths:
    M /trunk/fractgen2/make-deb
 
 Fix for building unstable/default distribution packages.
 ------------------------------------------------------------------------
-r899 | dreibh | 2011-01-21 22:26:09 +0100 (Fri, 21 Jan 2011) | 2 lines
+r899 | dreibh | 2011-01-21 22:26:09 +0100 (fr., 21 jan. 2011) | 2 lines
 Changed paths:
    M /trunk/fractgen2/ChangeLog
    M /trunk/fractgen2/clean-deb
@@ -305,20 +426,20 @@ Changed paths:
 Made Debian packaging compatible to format "3.0 (quilt)".
 
 ------------------------------------------------------------------------
-r881 | dreibh | 2011-01-12 11:29:02 +0100 (Wed, 12 Jan 2011) | 1 line
+r881 | dreibh | 2011-01-12 11:29:02 +0100 (on., 12 jan. 2011) | 1 line
 Changed paths:
    D /trunk/fractgen2/debian/source
    D /trunk/netperfmeter/debian/source
 
 
 ------------------------------------------------------------------------
-r579 | dreibh | 2010-06-19 13:37:22 +0200 (Sat, 19 Jun 2010) | 1 line
+r579 | dreibh | 2010-06-19 13:37:22 +0200 | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
 
 
 ------------------------------------------------------------------------
-r578 | dreibh | 2010-06-19 13:19:40 +0200 (Sat, 19 Jun 2010) | 2 lines
+r578 | dreibh | 2010-06-19 13:19:40 +0200 | 2 lines
 Changed paths:
    M /trunk/fractgen2/ChangeLog
    M /trunk/fractgen2/debian/changelog
@@ -333,13 +454,13 @@ Changed paths:
 Scripts updates.
 
 ------------------------------------------------------------------------
-r561 | dreibh | 2010-05-31 11:53:52 +0200 (Mon, 31 May 2010) | 1 line
+r561 | dreibh | 2010-05-31 11:53:52 +0200 (ma., 31 mai 2010) | 1 line
 Changed paths:
    M /trunk/fractgen2/ChangeLog
 
 
 ------------------------------------------------------------------------
-r557 | dreibh | 2010-05-31 11:49:24 +0200 (Mon, 31 May 2010) | 2 lines
+r557 | dreibh | 2010-05-31 11:49:24 +0200 (ma., 31 mai 2010) | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/make-dist
@@ -382,7 +503,7 @@ Changed paths:
 Version update.
 
 ------------------------------------------------------------------------
-r465 | dreibh | 2009-09-12 11:00:23 +0200 (Sat, 12 Sep 2009) | 1 line
+r465 | dreibh | 2009-09-12 11:00:23 +0200 | 1 line
 Changed paths:
    M /trunk/fractgen2/ChangeLog
    M /trunk/fractgen2/debian/changelog
@@ -392,19 +513,19 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r253 | dreibh | 2009-06-03 11:47:34 +0200 (Wed, 03 Jun 2009) | 1 line
+r253 | dreibh | 2009-06-03 11:47:34 +0200 (on., 03 juni 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/make-ppa
 
 
 ------------------------------------------------------------------------
-r252 | dreibh | 2009-06-03 11:45:52 +0200 (Wed, 03 Jun 2009) | 1 line
+r252 | dreibh | 2009-06-03 11:45:52 +0200 (on., 03 juni 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/ChangeLog
 
 
 ------------------------------------------------------------------------
-r251 | dreibh | 2009-06-03 11:45:24 +0200 (Wed, 03 Jun 2009) | 1 line
+r251 | dreibh | 2009-06-03 11:45:24 +0200 (on., 03 juni 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/make-dist
@@ -412,7 +533,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r182 | dreibh | 2009-05-02 10:17:45 +0200 (Sat, 02 May 2009) | 2 lines
+r182 | dreibh | 2009-05-02 10:17:45 +0200 | 2 lines
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian.conf
@@ -422,27 +543,27 @@ Changed paths:
 Update to Karmic Koala.
 
 ------------------------------------------------------------------------
-r174 | dreibh | 2009-04-25 12:21:03 +0200 (Sat, 25 Apr 2009) | 1 line
+r174 | dreibh | 2009-04-25 12:21:03 +0200 | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/make-dist
 
 
 ------------------------------------------------------------------------
-r173 | dreibh | 2009-02-21 16:02:36 +0100 (Sat, 21 Feb 2009) | 1 line
+r173 | dreibh | 2009-02-21 16:02:36 +0100 | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian/control
 
 
 ------------------------------------------------------------------------
-r172 | dreibh | 2009-02-21 15:38:03 +0100 (Sat, 21 Feb 2009) | 1 line
+r172 | dreibh | 2009-02-21 15:38:03 +0100 | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
 
 
 ------------------------------------------------------------------------
-r170 | dreibh | 2009-02-18 09:38:19 +0100 (Wed, 18 Feb 2009) | 1 line
+r170 | dreibh | 2009-02-18 09:38:19 +0100 (on., 18 feb. 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/src/fractalgenerator.cpp
@@ -452,7 +573,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r169 | dreibh | 2009-02-17 10:30:35 +0100 (Tue, 17 Feb 2009) | 1 line
+r169 | dreibh | 2009-02-17 10:30:35 +0100 (ti., 17 feb. 2009) | 1 line
 Changed paths:
    D /trunk/fractgen2/Makefile
    M /trunk/fractgen2/make-deb
@@ -460,7 +581,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r159 | dreibh | 2009-02-06 11:26:44 +0100 (Fri, 06 Feb 2009) | 1 line
+r159 | dreibh | 2009-02-06 11:26:44 +0100 (fr., 06 feb. 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/changelog
    M /trunk/fractgen2/debian/control
@@ -468,13 +589,13 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r158 | dreibh | 2009-02-06 10:30:08 +0100 (Fri, 06 Feb 2009) | 1 line
+r158 | dreibh | 2009-02-06 10:30:08 +0100 (fr., 06 feb. 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/debian/watch
 
 
 ------------------------------------------------------------------------
-r157 | dreibh | 2009-02-06 09:53:00 +0100 (Fri, 06 Feb 2009) | 1 line
+r157 | dreibh | 2009-02-06 09:53:00 +0100 (fr., 06 feb. 2009) | 1 line
 Changed paths:
    M /trunk/fractgen2/Makefile
    M /trunk/fractgen2/debian/changelog
@@ -485,14 +606,14 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r155 | dreibh | 2009-02-06 09:36:57 +0100 (Fri, 06 Feb 2009) | 1 line
+r155 | dreibh | 2009-02-06 09:36:57 +0100 (fr., 06 feb. 2009) | 1 line
 Changed paths:
    D /trunk/fractalgenerator/fg2
    A /trunk/fractgen2 (from /trunk/fractalgenerator/fg2:154)
 
 
 ------------------------------------------------------------------------
-r154 | dreibh | 2009-02-06 09:33:31 +0100 (Fri, 06 Feb 2009) | 1 line
+r154 | dreibh | 2009-02-06 09:33:31 +0100 (fr., 06 feb. 2009) | 1 line
 Changed paths:
    A /trunk/fractalgenerator/fg2/AUTHORS
    A /trunk/fractalgenerator/fg2/BUGS
@@ -527,7 +648,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r147 | dreibh | 2009-01-27 22:04:08 +0100 (Tue, 27 Jan 2009) | 1 line
+r147 | dreibh | 2009-01-27 22:04:08 +0100 (ti., 27 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/doubleconfigentry.cpp
    M /trunk/fractalgenerator/fg2/src/dreibholz1.cpp
@@ -543,7 +664,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r146 | dreibh | 2009-01-27 21:27:08 +0100 (Tue, 27 Jan 2009) | 1 line
+r146 | dreibh | 2009-01-27 21:27:08 +0100 (ti., 27 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.cpp
    M /trunk/fractalgenerator/fg2/src/dreibholz1.cpp
@@ -558,7 +679,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r145 | dreibh | 2009-01-27 12:43:24 +0100 (Tue, 27 Jan 2009) | 1 line
+r145 | dreibh | 2009-01-27 12:43:24 +0100 (ti., 27 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.cpp
    M /trunk/fractalgenerator/fg2/src/fractalalgorithminterface.cpp
@@ -579,7 +700,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r144 | dreibh | 2009-01-24 12:36:00 +0100 (Sat, 24 Jan 2009) | 1 line
+r144 | dreibh | 2009-01-24 12:36:00 +0100 | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/fractalgenerator.cpp
    M /trunk/fractalgenerator/fg2/src/fractalgenerator.h
@@ -591,14 +712,14 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r143 | dreibh | 2009-01-23 08:46:32 +0100 (Fri, 23 Jan 2009) | 1 line
+r143 | dreibh | 2009-01-23 08:46:32 +0100 (fr., 23 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/fractalcalculationthread.cpp
    M /trunk/fractalgenerator/fg2/src/fractalgeneratordoc.cpp
 
 
 ------------------------------------------------------------------------
-r142 | dreibh | 2009-01-23 08:43:40 +0100 (Fri, 23 Jan 2009) | 1 line
+r142 | dreibh | 2009-01-23 08:43:40 +0100 (fr., 23 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.cpp
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.h
@@ -633,7 +754,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r141 | dreibh | 2009-01-21 15:56:19 +0100 (Wed, 21 Jan 2009) | 1 line
+r141 | dreibh | 2009-01-21 15:56:19 +0100 (on., 21 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.cpp
    M /trunk/fractalgenerator/fg2/src/fractalalgorithminterface.cpp
@@ -644,7 +765,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r140 | dreibh | 2009-01-20 09:44:37 +0100 (Tue, 20 Jan 2009) | 1 line
+r140 | dreibh | 2009-01-20 09:44:37 +0100 (ti., 20 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/fractaldisplay.cpp
    M /trunk/fractalgenerator/fg2/src/fractaldisplay.h
@@ -655,7 +776,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r139 | dreibh | 2009-01-19 11:49:32 +0100 (Mon, 19 Jan 2009) | 1 line
+r139 | dreibh | 2009-01-19 11:49:32 +0100 (ma., 19 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.cpp
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.h
@@ -679,14 +800,14 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r138 | dreibh | 2009-01-15 13:16:30 +0100 (Thu, 15 Jan 2009) | 1 line
+r138 | dreibh | 2009-01-15 13:16:30 +0100 (to., 15 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/dreibholz1.cpp
    M /trunk/fractalgenerator/fg2/src/dreibholz1.h
 
 
 ------------------------------------------------------------------------
-r137 | dreibh | 2009-01-15 13:13:43 +0100 (Thu, 15 Jan 2009) | 1 line
+r137 | dreibh | 2009-01-15 13:13:43 +0100 (to., 15 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.cpp
    M /trunk/fractalgenerator/fg2/src/colorschemeinterface.h
@@ -727,7 +848,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r136 | dreibh | 2009-01-15 12:29:57 +0100 (Thu, 15 Jan 2009) | 1 line
+r136 | dreibh | 2009-01-15 12:29:57 +0100 (to., 15 jan. 2009) | 1 line
 Changed paths:
    M /trunk/fractalgenerator/fg2/src/fractalgenerator.h
    M /trunk/fractalgenerator/fg2/src/fractalgeneratordoc.h
@@ -735,7 +856,7 @@ Changed paths:
 
 
 ------------------------------------------------------------------------
-r135 | dreibh | 2009-01-15 12:18:54 +0100 (Thu, 15 Jan 2009) | 1 line
+r135 | dreibh | 2009-01-15 12:18:54 +0100 (to., 15 jan. 2009) | 1 line
 Changed paths:
    A /trunk/fractalgenerator/fg2
    A /trunk/fractalgenerator/fg2/bin
