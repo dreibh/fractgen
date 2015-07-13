@@ -1,0 +1,26 @@
+Source: fractgen
+Section: graphics
+Priority: optional
+Maintainer: Hugo Lefeuvre <hugo6390@orange.fr>
+Build-Depends: debhelper (>= 9),
+               libqt4-dev
+Standards-Version: 3.9.6
+Homepage: https://www.uni-due.de/~be0001/fractalgenerator/
+Vcs-Svn: svn://anonscm.debian.org/collab-maint/deb-maint/qtop/trunk/
+Vcs-Browser: http://anonscm.debian.org/viewvc/collab-maint/deb-maint/qtop/trunk/
+
+Package: fractgen
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Extensible Fractal Generator
+ FractalGenerator is a Qt-based program to generate fractal images (e.g. 
+ Mandelbrot set). The size of the calculated images is only limited by the 
+ computer's virtual memory. That is, images may use the full printer 
+ resolution !
+ .
+ It is possible to zoom into images. Image parameters can be saved in XML files
+ and loaded from XML files. Calculated images can be exported as PNG files.  
+ .
+ The intention of this program is to generate graphics to be post-processed by 
+ other image tools, e.g. in order to generate nice screen backgrounds or book 
+ covers.

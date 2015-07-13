@@ -1,0 +1,5 @@
+fractgen (2.0.17-1) unstable; urgency=low
+
+  * Initial release (Closes: #669893)
+
+ -- Hugo Lefeuvre <hugo6390@orange.fr>  Mon, 13 Jul 2015 12:25:02 +0200
