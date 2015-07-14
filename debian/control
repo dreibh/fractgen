@@ -6,8 +6,8 @@ Build-Depends: debhelper (>= 9),
                libqt4-dev
 Standards-Version: 3.9.6
 Homepage: https://www.uni-due.de/~be0001/fractalgenerator/
-Vcs-Svn: svn://anonscm.debian.org/collab-maint/deb-maint/qtop/trunk/
-Vcs-Browser: http://anonscm.debian.org/viewvc/collab-maint/deb-maint/qtop/trunk/
+Vcs-Svn: svn://anonscm.debian.org/collab-maint/deb-maint/fractgen/trunk/
+Vcs-Browser: http://anonscm.debian.org/viewvc/collab-maint/deb-maint/fractgen/trunk/
 
 Package: fractgen
 Architecture: any
