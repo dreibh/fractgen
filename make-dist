@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=2.0.17
+VERSION=2.0.18
 
 . ./debian.conf
 
@@ -15,11 +15,13 @@ mkdir $PACKAGE-$VERSION || exit 1
 
 # ---------------------------------------------------------
 mkdir $PACKAGE-$VERSION/src
+mkdir $PACKAGE-$VERSION/src/examples
 cp NEWS README BUGS COPYING ChangeLog *.lsm $PACKAGE-$VERSION
 cp *.pro $PACKAGE-$VERSION
 cp src/*.pro $PACKAGE-$VERSION/src
 cp src/*.cpp $PACKAGE-$VERSION/src
 cp src/*.h   $PACKAGE-$VERSION/src
+cp src/examples/*.fsf $PACKAGE-$VERSION/src/examples
 find $PACKAGE-$VERSION/src -name "moc_*" | xargs rm -f
 # ---------------------------------------------------------
 
