@@ -1,3 +1,20 @@
+fractgen (2.0.18-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Bump Standards-Version to 3.9.7.
+    - Update the maintainer's e-mail address.
+    - Update Vcs-Browser field to use an encrypted transport protocol.
+  * debian/copyright:
+    - Update copyright years.
+    - Update the maintainer's e-mail address.
+  * debian/rules:
+    - Enable all hardening options to compile as a PIE and add the bindnow
+      flag.
+  * Remove debian/menu to make the package CTTE #741573 compliant.
+
+ -- Hugo Lefeuvre <hle@debian.org>  Mon, 28 Mar 2016 12:09:13 +0200
+
 fractgen (2.0.17-1) unstable; urgency=low
 
   * Initial release (Closes: #669893)

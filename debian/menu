@@ -1,6 +1,0 @@
-?package(fractgen):\
-  needs="X11"\
-  section="Applications/Graphics"\
-  title="fractgen"\
-  description="Extensible Fractal Generator."\
-  command="/usr/bin/fractgen"
