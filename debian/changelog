@@ -1,3 +1,13 @@
+fractgen (2.0.19-1ubuntu1) xenial; urgency=low
+
+  * Packaging of new upstream version.
+  * debian/compat: now using debhelper 9.
+  * debian/control: Updated standards version. Using debhelper 9 now.
+    Fixed homepage URL.
+  * debian/control: added dependency dpkg-dev for hardening options.
+
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Wed, 06 Apr 2016 08:08:08 +0800
+
 fractgen (2.0.18-1ubuntu1) xenial; urgency=low
 
   * Packaging of new upstream version.
