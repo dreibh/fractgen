@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 2.0.18
+Version: 2.0.19
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
