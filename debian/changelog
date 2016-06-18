@@ -1,3 +1,11 @@
+fractgen (2.0.19-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Bump Standards-Version to 3.9.8.
+
+ -- Hugo Lefeuvre <hle@debian.org>  Sat, 18 Jun 2016 17:25:43 +0200
+
 fractgen (2.0.18-1) unstable; urgency=low
 
   * New upstream release.

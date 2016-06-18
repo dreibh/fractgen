@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Hugo Lefeuvre <hle@debian.org>
 Build-Depends: debhelper (>= 9),
                libqt4-dev
-Standards-Version: 3.9.7
+Standards-Version: 3.9.8
 Homepage: https://www.uni-due.de/~be0001/fractalgenerator/
 Vcs-Svn: svn://anonscm.debian.org/collab-maint/deb-maint/fractgen/trunk/
 Vcs-Browser: https://anonscm.debian.org/viewvc/collab-maint/deb-maint/fractgen/trunk/
