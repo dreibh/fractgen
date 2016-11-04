@@ -29,10 +29,9 @@
 #include <config.h>
 #endif
 
-#include <QApplication>
-#include <QMainWindow>
-#include <QAction>
-#include <QPrinter>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtPrintSupport/QPrinter>
 
 
 class FractalGeneratorDoc;

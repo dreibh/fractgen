@@ -26,8 +26,8 @@
 #include "fractalgenerator.h"
 #include "fractalgeneratorview.h"
 
+#include <QtWidgets/QMessageBox>
 #include <QFile>
-#include <QMessageBox>
 #include <QDomDocument>
 #include <QDomElement>
 #include <QDataStream>

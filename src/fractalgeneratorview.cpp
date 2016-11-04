@@ -27,11 +27,11 @@
 
 #include <stdio.h>
 
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QPainter>
 #include <QImage>
-#include <QApplication>
 #include <QResizeEvent>
-#include <QGridLayout>
 #include <QEvent>
 
 

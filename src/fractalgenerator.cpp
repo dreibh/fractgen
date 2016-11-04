@@ -28,15 +28,16 @@
 #include "colorschemeinterface.h"
 #include "optionsdialog.h"
 
-#include <QDir>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QInputDialog>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QMenu>
+#include <QtPrintSupport/QPrintDialog>
 #include <QPainter>
-#include <QStatusBar>
-#include <QInputDialog>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QMenuBar>
-#include <QMenu>
-#include <QPrintDialog>
+#include <QDir>
 
 
 // ###### Constructor #######################################################

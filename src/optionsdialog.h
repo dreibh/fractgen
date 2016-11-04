@@ -24,9 +24,9 @@
 #ifndef OPTIONSDIALOG_H
 #define OPTIONSDIALOG_H
 
-#include <QWidget>
-#include <QDialog>
-#include <QTableWidget>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QTableWidget>
 
 #include "configentry.h"
 

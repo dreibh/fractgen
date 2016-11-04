@@ -24,7 +24,7 @@
 #ifndef IMAGEDISPLAY_H
 #define IMAGEDISPLAY_H
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include <QImage>
 #include <QPainter>
 #include <QDateTime>

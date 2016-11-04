@@ -34,13 +34,13 @@
 #include "fractalcalculationthread.h"
 #include "colorschemeinterface.h"
 
-#include <QWidget>
-#include <QScrollBar>
-#include <QLayout>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QScrollBar>
+#include <QtWidgets/QLayout>
+#include <QtWidgets/QLabel>
+#include <QtPrintSupport/QPrinter>
 #include <QResizeEvent>
 #include <QEvent>
-#include <QPrinter>
-#include <QLabel>
 
 
 class FractalGeneratorDoc;

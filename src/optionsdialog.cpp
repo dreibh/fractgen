@@ -23,9 +23,9 @@
 
 #include "optionsdialog.h"
 
-#include <QHeaderView>
-#include <QPushButton>
-#include <QVBoxLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 
 
 // ###### Constructor #######################################################
@@ -66,7 +66,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, QList<ConfigEntry*>* configEntries
    }
    connect(TableWidget, SIGNAL(itemChanged(QTableWidgetItem*)), SLOT(slotItemChanged(QTableWidgetItem*)));
 
-   TableWidget->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+   TableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
    TableWidget->setMinimumSize(560,420);
    layout->addWidget(TableWidget);
 

@@ -23,7 +23,7 @@
 
 #include "fractalgenerator.h"
 
-#include <QApplication>
+#include <QtWidgets/QApplication>
 #include <QFile>
 
 

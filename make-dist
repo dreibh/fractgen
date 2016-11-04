@@ -11,7 +11,7 @@ if [ -e $PACKAGE-$VERSION ] ; then
    rm -rf $PACKAGE-$VERSION
 fi
 mkdir $PACKAGE-$VERSION || exit 1
-# ( qmake-qt4 && make clean) || exit 1
+# ( qtchooser -qt=5 -run-tool=qmake && make clean) || exit 1
 
 # ---------------------------------------------------------
 mkdir $PACKAGE-$VERSION/src
