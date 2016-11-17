@@ -96,7 +96,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
       fractalAlgorithmGroup->addAction(item);
       item->setData(fractalAlgorithmID);
       item->setCheckable(true);
-      item->setChecked((fractalAlgorithmID == 0));
+      item->setChecked((fractalAlgorithm == View->getAlgorithm()));
       FractalAlgorithmActionList.append(item);
       fractalAlgorithmID++;
    }
@@ -114,7 +114,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
       colorSchemeGroup->addAction(item);
       item->setData(colorSchemeID);
       item->setCheckable(true);
-      item->setChecked((colorSchemeID == 0));
+      item->setChecked((colorScheme == View->getColorScheme()));
       ColorSchemeActionList.append(item);
       colorSchemeID++;
    }
