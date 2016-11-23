@@ -1,9 +1,9 @@
-fractgen (2.1.0~rc1-1ubuntu1) zasty; urgency=low
+fractgen (2.1.0-1ubuntu1) zasty; urgency=low
 
   * New upstream release.
   * debian/rules: using qmake via qtchooser now.
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Fri, 04 Nov 2016 08:08:08 +0800
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Wed, 23 Nov 2016 08:08:08 +0800
 
 fractgen (2.0.19-1ubuntu1) xenial; urgency=low
 
