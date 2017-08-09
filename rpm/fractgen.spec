@@ -32,5 +32,5 @@ install -m 755 -p %{_builddir}/%{buildsubdir}/src/fractgen %{buildroot}%{_bindir
 %{_bindir}/fractgen
 
 %changelog
-* Thu Sep 26 2016 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.0.16
+* Wed Aug 09 2017 Thomas Dreibholz <dreibh@iem.uni-due.de> 2.0.16
 - Created RPM package.
