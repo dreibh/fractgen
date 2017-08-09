@@ -1,3 +1,87 @@
+commit 064e22316ff2f35df3397f23ab0cff5e44dd11d2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 10:55:08 2017 +0200
+
+    Header updates.
+
+ UpdateDoc1.sed                    |  3 +++
+ UpdateDocFiles                    | 25 +++++++++++++++++++++++++
+ build-deb                         |  2 +-
+ clean-deb                         |  2 +-
+ debian/copyright                  |  4 ++--
+ debian/fractgen.1                 |  4 ++--
+ debian/watch                      |  2 +-
+ filter-empty-entries              |  2 +-
+ fractgen.lsm                      |  4 ++--
+ make-deb                          |  2 +-
+ make-rpm                          |  2 +-
+ rpm/fractgen.spec                 |  4 ++--
+ src/colorschemeinterface.cpp      |  2 +-
+ src/colorschemeinterface.h        |  2 +-
+ src/configentry.h                 |  2 +-
+ src/doubleconfigentry.cpp         |  2 +-
+ src/doubleconfigentry.h           |  2 +-
+ src/dreibholz1.cpp                |  2 +-
+ src/dreibholz1.h                  |  2 +-
+ src/fractalalgorithminterface.cpp |  2 +-
+ src/fractalalgorithminterface.h   |  2 +-
+ src/fractalbuffer.cpp             |  2 +-
+ src/fractalbuffer.h               |  2 +-
+ src/fractalcalculationthread.cpp  |  2 +-
+ src/fractalcalculationthread.h    |  2 +-
+ src/fractalgenerator.cpp          |  4 ++--
+ src/fractalgenerator.h            |  2 +-
+ src/fractalgeneratordoc.cpp       |  2 +-
+ src/fractalgeneratordoc.h         |  2 +-
+ src/fractalgeneratorview.cpp      |  2 +-
+ src/fractalgeneratorview.h        |  2 +-
+ src/fractgen.cpp                  |  2 +-
+ src/imagedisplay.cpp              |  2 +-
+ src/imagedisplay.h                |  2 +-
+ src/mandelbrot.cpp                |  2 +-
+ src/mandelbrot.h                  |  2 +-
+ src/mandelbrotn.cpp               |  2 +-
+ src/mandelbrotn.h                 |  2 +-
+ src/optionsdialog.cpp             |  2 +-
+ src/optionsdialog.h               |  2 +-
+ src/simplehsv.cpp                 |  2 +-
+ src/simplehsv.h                   |  2 +-
+ src/simplergb.cpp                 |  2 +-
+ src/simplergb.h                   |  2 +-
+ src/uintconfigentry.cpp           |  2 +-
+ src/uintconfigentry.h             |  2 +-
+ 46 files changed, 77 insertions(+), 49 deletions(-)
+
+commit 003d7e896ff49702ba775b735c30f6612074c6b6
+Merge: 3f7774d c354f8e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 10:52:30 2017 +0200
+
+    Merge remote-tracking branch 'origin/master' into qt5
+
+commit c354f8e62607866086102d9714dd018fcdb420fc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 10:52:11 2017 +0200
+
+    A fix.
+
+ rpm/fractgen.spec | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3f7774d509029fafe684d1ff29c500c09955a5d9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 23 13:52:49 2016 +0100
+
+    New release.
+
+ ChangeLog        | 2042 ++++++++++++++++++++++++++++++------------------------
+ debian/changelog |    4 +-
+ fractgen.lsm     |    6 +-
+ make-dist        |    2 +-
+ make-ppa         |    2 +-
+ update-changelog |    2 +-
+ 6 files changed, 1139 insertions(+), 919 deletions(-)
+
 commit 6fad5b9031690a95e439f94cd039204090ce4941
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Thu Nov 17 11:06:25 2016 +0100
