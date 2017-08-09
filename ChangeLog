@@ -1,3 +1,24 @@
+commit 3afb20b8b3648b6839c9ef3da4ac1785f7598878
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 11:00:04 2017 +0200
+
+    Version bump.
+
+ UpdateDoc1.sed    | 4 ++--
+ debian/changelog  | 6 ++++++
+ make-dist         | 2 +-
+ rpm/fractgen.spec | 7 ++++---
+ 4 files changed, 13 insertions(+), 6 deletions(-)
+
+commit bc990b5d456429ca91b355c7494f4c6e3f2f1e15
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 10:55:21 2017 +0200
+
+    Updated ChangeLog.
+
+ ChangeLog | 84 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+
 commit 064e22316ff2f35df3397f23ab0cff5e44dd11d2
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Aug 9 10:55:08 2017 +0200
