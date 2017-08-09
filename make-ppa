@@ -1,5 +1,5 @@
 #!/bin/bash
 
 ./clean-deb && \
-./make-deb trusty xenial yakkety zesty artful unstable && \
+./make-deb trusty xenial vivid yakkety zesty artful unstable && \
 dput ppa *.changes
