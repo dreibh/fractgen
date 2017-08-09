@@ -1,3 +1,9 @@
+fractgen (2.1.1-1ubuntu2) artful; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Wed, 09 Aug 2017 10:58:59 +0200
+
 fractgen (2.1.0-1ubuntu1) zasty; urgency=low
 
   * New upstream release.
