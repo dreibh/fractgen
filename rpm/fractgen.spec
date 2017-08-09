@@ -17,9 +17,10 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-build
 %description
 FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals. The image size is only limited by virtual memory. It is possible to zoom into images. Image parameters can be saved in XML files and loaded from XML files. Calculated images can be exported as PNG files. The intention of this program is to generate graphics to be post-processed by other image tools, e.g. in order to generate nice screen backgrounds or book covers.
 
+%global debug_package %{nil}
+
 %prep
 %setup -q
-
 
 %build
 qtchooser -qt=5 -run-tool=qmake
