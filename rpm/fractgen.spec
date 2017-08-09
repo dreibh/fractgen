@@ -4,8 +4,8 @@ Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
 License: GPLv3
-URL: http://www.iem.uni-due.de/~dreibh/fractalgenerator/
-Source: http://www.iem.uni-due.de/~dreibh/fractalgenerator/download/%{name}-%{version}.tar.gz
+URL: https://www.uni-due.de/~be0001/fractalgenerator/
+Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{version}.tar.gz
 
 AutoReqProv: on
 BuildRequires: qt-devel
