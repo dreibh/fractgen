@@ -1,3 +1,13 @@
+fractgen (2.1.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    - Bump Standards-Version to 4.1.0.
+    - Update debhelper dependency from >= 9 to >= 10.
+  * Bump compat from 9 to 10.
+
+ -- Hugo Lefeuvre <hle@debian.org>  Thu, 05 Oct 2017 22:28:33 +0200
+
 fractgen (2.1.0-1) unstable; urgency=medium
 
   * New upstream release.
