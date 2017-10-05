@@ -5,6 +5,8 @@ fractgen (2.1.1-1) unstable; urgency=medium
     - Bump Standards-Version to 4.1.0.
     - Update debhelper dependency from >= 9 to >= 10.
   * Bump compat from 9 to 10.
+  * Remove patches adding desktop file: Instead, add it to debian/.
+  * Update copyright years.
 
  -- Hugo Lefeuvre <hle@debian.org>  Thu, 05 Oct 2017 22:28:33 +0200
 
