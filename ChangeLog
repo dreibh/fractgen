@@ -1,3 +1,82 @@
+commit d65911fcbfd010a58da9d716ab6faf7eaed31879
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 5 15:34:37 2017 +0100
+
+    Improved build script.
+
+ make-dist | 38 +++++++++++++++++++++++---------------
+ 1 file changed, 23 insertions(+), 15 deletions(-)
+
+commit 7124f03ecd937d3b5a9e5d142b7a33d43c7b7f6d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 5 15:34:26 2017 +0100
+
+    Added configuration file.
+
+ website.config | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 511bc7c3b2faafa5a7f000eb6c172071b2d0dbfb
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 5 14:31:02 2017 +0100
+
+    Got rid of obsolete SVN Id tag.
+
+ debian/fractgen.1                 | 4 +---
+ src/colorschemeinterface.cpp      | 3 +--
+ src/colorschemeinterface.h        | 3 +--
+ src/configentry.h                 | 3 +--
+ src/doubleconfigentry.cpp         | 3 +--
+ src/doubleconfigentry.h           | 3 +--
+ src/dreibholz1.cpp                | 3 +--
+ src/dreibholz1.h                  | 3 +--
+ src/fractalalgorithminterface.cpp | 3 +--
+ src/fractalalgorithminterface.h   | 3 +--
+ src/fractalbuffer.cpp             | 3 +--
+ src/fractalbuffer.h               | 3 +--
+ src/fractalcalculationthread.cpp  | 3 +--
+ src/fractalcalculationthread.h    | 3 +--
+ src/fractalgenerator.cpp          | 3 +--
+ src/fractalgenerator.h            | 3 +--
+ src/fractalgeneratordoc.cpp       | 3 +--
+ src/fractalgeneratordoc.h         | 3 +--
+ src/fractalgeneratorview.cpp      | 3 +--
+ src/fractalgeneratorview.h        | 3 +--
+ src/fractgen.cpp                  | 3 +--
+ src/imagedisplay.cpp              | 3 +--
+ src/imagedisplay.h                | 3 +--
+ src/mandelbrot.cpp                | 3 +--
+ src/mandelbrot.h                  | 3 +--
+ src/mandelbrotn.cpp               | 3 +--
+ src/mandelbrotn.h                 | 3 +--
+ src/optionsdialog.cpp             | 3 +--
+ src/optionsdialog.h               | 3 +--
+ src/simplehsv.cpp                 | 3 +--
+ src/simplehsv.h                   | 3 +--
+ src/simplergb.cpp                 | 3 +--
+ src/simplergb.h                   | 3 +--
+ src/uintconfigentry.cpp           | 3 +--
+ src/uintconfigentry.h             | 3 +--
+ 35 files changed, 35 insertions(+), 71 deletions(-)
+
+commit 3d859ef94fb2fe594b66005e6165de780b0f249c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 5 14:28:14 2017 +0100
+
+    Build script updates.
+
+ ChangeLog            | 89 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ build-deb            |  3 +-
+ clean-deb            |  3 +-
+ debian/changelog     |  6 ++++
+ filter-empty-entries |  3 +-
+ make-deb             |  9 +++---
+ make-dist            |  2 +-
+ make-ppa             | 33 ++++++++++++++++---
+ make-rpm             |  5 ++-
+ rpm/fractgen.spec    |  2 +-
+ 10 files changed, 135 insertions(+), 20 deletions(-)
+
 commit 49ef91b8a78de919bd68a309f3c9bce069281db6
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sun Nov 5 14:23:10 2017 +0100
