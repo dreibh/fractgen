@@ -1,3 +1,9 @@
+fractgen (2.1.2~rc1-1ubuntu2) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Sun, 05 Nov 2017 10:58:59 +0200
+
 fractgen (2.1.1-1ubuntu2) artful; urgency=medium
 
   * New upstream release.

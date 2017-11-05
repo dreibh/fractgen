@@ -1,3 +1,92 @@
+commit 49ef91b8a78de919bd68a309f3c9bce069281db6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 5 14:23:10 2017 +0100
+
+    Header updates.
+
+ UpdateDoc1.sed                    | 4 ++--
+ src/colorschemeinterface.cpp      | 2 +-
+ src/colorschemeinterface.h        | 2 +-
+ src/configentry.h                 | 2 +-
+ src/doubleconfigentry.cpp         | 2 +-
+ src/doubleconfigentry.h           | 2 +-
+ src/dreibholz1.cpp                | 2 +-
+ src/dreibholz1.h                  | 2 +-
+ src/fractalalgorithminterface.cpp | 2 +-
+ src/fractalalgorithminterface.h   | 2 +-
+ src/fractalbuffer.cpp             | 2 +-
+ src/fractalbuffer.h               | 2 +-
+ src/fractalcalculationthread.cpp  | 2 +-
+ src/fractalcalculationthread.h    | 2 +-
+ src/fractalgenerator.cpp          | 4 ++--
+ src/fractalgenerator.h            | 2 +-
+ src/fractalgeneratordoc.cpp       | 2 +-
+ src/fractalgeneratordoc.h         | 2 +-
+ src/fractalgeneratorview.cpp      | 2 +-
+ src/fractalgeneratorview.h        | 2 +-
+ src/fractgen.cpp                  | 2 +-
+ src/imagedisplay.cpp              | 2 +-
+ src/imagedisplay.h                | 2 +-
+ src/mandelbrot.cpp                | 2 +-
+ src/mandelbrot.h                  | 2 +-
+ src/mandelbrotn.cpp               | 2 +-
+ src/mandelbrotn.h                 | 2 +-
+ src/optionsdialog.cpp             | 2 +-
+ src/optionsdialog.h               | 2 +-
+ src/simplehsv.cpp                 | 2 +-
+ src/simplehsv.h                   | 2 +-
+ src/simplergb.cpp                 | 2 +-
+ src/simplergb.h                   | 2 +-
+ src/uintconfigentry.cpp           | 2 +-
+ src/uintconfigentry.h             | 2 +-
+ 35 files changed, 37 insertions(+), 37 deletions(-)
+
+commit 3da4671ac368caef251d74b9dc12ef8a5676b310
+Merge: 2389d9e f581f8c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 14:49:17 2017 +0200
+
+    Merge branch 'master' of https://github.com/dreibh/fractgen
+
+commit 2389d9e82b59c80fb24e38889541f5b298c0c1c8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 14:48:47 2017 +0200
+
+    RPM fix.
+
+ rpm/fractgen.spec | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit f581f8cc55d6d418ce81e36825a0ce81e5ba0a8a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 11:40:42 2017 +0200
+
+    Script update.
+
+ make-ppa | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 623630a025de09247183b8a9d835b35004f1224b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 11:13:51 2017 +0200
+
+    Script updates.
+
+ make-deb | 4 ++--
+ make-ppa | 3 +--
+ make-rpm | 4 ++--
+ 3 files changed, 5 insertions(+), 6 deletions(-)
+
+commit 203698dfbf9506339272ee982c7ba3b399e4c88d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 9 11:07:19 2017 +0200
+
+    Versionb bump.
+
+ ChangeLog    | 21 +++++++++++++++++++++
+ fractgen.lsm |  6 +++---
+ 2 files changed, 24 insertions(+), 3 deletions(-)
+
 commit 3afb20b8b3648b6839c9ef3da4ac1785f7598878
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Aug 9 11:00:04 2017 +0200
