@@ -1,9 +1,8 @@
-/* $Id$
- * ==========================================================================
+/* ==========================================================================
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2016 by Thomas Dreibholz
+ * Copyright (C) 2003-2018 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,8 +25,8 @@
 #include "fractalgenerator.h"
 #include "fractalgeneratorview.h"
 
+#include <QtWidgets/QMessageBox>
 #include <QFile>
-#include <QMessageBox>
 #include <QDomDocument>
 #include <QDomElement>
 #include <QDataStream>

@@ -1,9 +1,8 @@
-/* $Id$
- * ==========================================================================
+/* ==========================================================================
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2016 by Thomas Dreibholz
+ * Copyright (C) 2003-2018 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,9 +22,9 @@
 
 #include "optionsdialog.h"
 
-#include <QHeaderView>
-#include <QPushButton>
-#include <QVBoxLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 
 
 // ###### Constructor #######################################################
@@ -66,7 +65,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, QList<ConfigEntry*>* configEntries
    }
    connect(TableWidget, SIGNAL(itemChanged(QTableWidgetItem*)), SLOT(slotItemChanged(QTableWidgetItem*)));
 
-   TableWidget->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+   TableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
    TableWidget->setMinimumSize(560,420);
    layout->addWidget(TableWidget);
 

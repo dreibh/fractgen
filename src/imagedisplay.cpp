@@ -1,9 +1,8 @@
-/* $Id$
- * ==========================================================================
+/* ==========================================================================
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2016 by Thomas Dreibholz
+ * Copyright (C) 2003-2018 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -132,9 +131,10 @@ void ImageDisplay::mousePressEvent(QMouseEvent* mouseEvent)
    if(mouseEvent->button() & Qt::LeftButton) {
       selection(0, 0, 0, 0);   // Unmark
       getMarkPosition(mouseEvent, MarkX1, MarkY1);
-      MarkX2  = MarkX1;
-      MarkY2  = MarkY1;
-      Marking = true;
+      MarkX2           = MarkX1;
+      MarkY2           = MarkY1;
+      Marking          = true;
+      LastOffsetUpdate = QTime::currentTime();
       update();
    }
 }

@@ -1,9 +1,8 @@
-/* $Id$
- * ==========================================================================
+/* ==========================================================================
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2016 by Thomas Dreibholz
+ * Copyright (C) 2003-2018 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,15 +27,16 @@
 #include "colorschemeinterface.h"
 #include "optionsdialog.h"
 
-#include <QDir>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QMessageBox>
+#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QInputDialog>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QMenu>
+#include <QtPrintSupport/QPrintDialog>
 #include <QPainter>
-#include <QStatusBar>
-#include <QInputDialog>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QMenuBar>
-#include <QMenu>
-#include <QPrintDialog>
+#include <QDir>
 
 
 // ###### Constructor #######################################################
@@ -95,7 +95,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
       fractalAlgorithmGroup->addAction(item);
       item->setData(fractalAlgorithmID);
       item->setCheckable(true);
-      item->setChecked((fractalAlgorithmID == 0));
+      item->setChecked((fractalAlgorithm == View->getAlgorithm()));
       FractalAlgorithmActionList.append(item);
       fractalAlgorithmID++;
    }
@@ -113,7 +113,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
       colorSchemeGroup->addAction(item);
       item->setData(colorSchemeID);
       item->setCheckable(true);
-      item->setChecked((colorSchemeID == 0));
+      item->setChecked((colorScheme == View->getColorScheme()));
       ColorSchemeActionList.append(item);
       colorSchemeID++;
    }
@@ -244,7 +244,7 @@ void FractalGeneratorApp::slotHelpAbout()
    QMessageBox::information(this,
       tr("FractalGenerator II"),
       tr("FractalGenerator II\n") +
-         "Copyright (C) 2003-2016 by Thomas Dreibholz",
+         "Copyright (C) 2003-2018 by Thomas Dreibholz",
       tr("Okay"));
 }
 

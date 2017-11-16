@@ -43,4 +43,4 @@ simplehsv.h \
 simplergb.h \
 uintconfigentry.h
 
-QT += xml
+QT += xml widgets printsupport

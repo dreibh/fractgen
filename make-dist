@@ -1,29 +1,37 @@
 #!/bin/bash
 
-VERSION=2.0.19
+CHANGELOG_HEADER="`head -n1 debian/changelog`"
+PACKAGE=`echo $CHANGELOG_HEADER | sed -e "s/(.*//" -e "s/ //g"`
+UPSTREAM_VERSION=`echo $CHANGELOG_HEADER | sed -e "s/[a-zA-Z0-9 \-]*(//" -e "s/).*//" -e "s/[0-9]*$//" -e "s/ //g" -e "s/^[0-9]*://" -e "s/-[^ ]*$//g"`
+
+echo "######################################################################"
+echo "CHANGELOG_HEADER:   $CHANGELOG_HEADER"
+echo "PACKAGE:            $PACKAGE"
+echo "UPSTREAM_VERSION:   $UPSTREAM_VERSION"
+echo "######################################################################"
 
 . ./debian.conf
 
 CHANGELOG_HEADER="`head -n1 debian/changelog`"
 PACKAGE=`echo $CHANGELOG_HEADER | sed -e "s/(.*//" -e "s/ //g"`
 
-if [ -e $PACKAGE-$VERSION ] ; then
-   rm -rf $PACKAGE-$VERSION
+if [ -e $PACKAGE-$UPSTREAM_VERSION ] ; then
+   rm -rf $PACKAGE-$UPSTREAM_VERSION
 fi
-mkdir $PACKAGE-$VERSION || exit 1
-# ( qmake-qt4 && make clean) || exit 1
+mkdir $PACKAGE-$UPSTREAM_VERSION || exit 1
+# ( qtchooser -qt=5 -run-tool=qmake && make clean) || exit 1
 
 # ---------------------------------------------------------
-mkdir $PACKAGE-$VERSION/src
-mkdir $PACKAGE-$VERSION/src/examples
-cp NEWS README BUGS COPYING ChangeLog *.lsm $PACKAGE-$VERSION
-cp *.pro $PACKAGE-$VERSION
-cp src/*.pro $PACKAGE-$VERSION/src
-cp src/*.cpp $PACKAGE-$VERSION/src
-cp src/*.h   $PACKAGE-$VERSION/src
-cp src/examples/*.fsf $PACKAGE-$VERSION/src/examples
-find $PACKAGE-$VERSION/src -name "moc_*" | xargs rm -f
+mkdir $PACKAGE-$UPSTREAM_VERSION/src
+mkdir $PACKAGE-$UPSTREAM_VERSION/src/examples
+cp NEWS README BUGS COPYING ChangeLog *.lsm $PACKAGE-$UPSTREAM_VERSION
+cp *.pro $PACKAGE-$UPSTREAM_VERSION
+cp src/*.pro $PACKAGE-$UPSTREAM_VERSION/src
+cp src/*.cpp $PACKAGE-$UPSTREAM_VERSION/src
+cp src/*.h   $PACKAGE-$UPSTREAM_VERSION/src
+cp src/examples/*.fsf $PACKAGE-$UPSTREAM_VERSION/src/examples
+find $PACKAGE-$UPSTREAM_VERSION/src -name "moc_*" | xargs rm -f
 # ---------------------------------------------------------
 
-tar czvf $PACKAGE-$VERSION.tar.gz $PACKAGE-$VERSION
-rm -rf $PACKAGE-$VERSION
+tar czvf $PACKAGE-$UPSTREAM_VERSION.tar.gz $PACKAGE-$UPSTREAM_VERSION
+rm -rf $PACKAGE-$UPSTREAM_VERSION
