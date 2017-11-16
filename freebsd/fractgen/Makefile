@@ -9,10 +9,10 @@ MASTER_SITES=	https://www.uni-due.de/~be0001/fractalgenerator/download/
 MAINTAINER=	dreibh@iem.uni-due.de
 COMMENT=	Fractal Generator
 
-LICENSE=	GPLv3
+LICENSE=	GPLv3+
+LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		qmake
-USE_QT5=        core qmake_build buildtools_build
-QT_DIST=        base
+USE_QT5=        core gui sql widgets buildtools_build qmake_build
 
 .include <bsd.port.mk>
