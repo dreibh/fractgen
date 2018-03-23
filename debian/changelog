@@ -8,6 +8,7 @@ fractgen (2.1.2-1) unstable; urgency=medium
   * Update copyright years.
   * Update Vcs-* fields (migrated to Git/Salsa).
   * Remove trailing whitespaces.
+  * debian/examples: Install examples from src/examples.
 
  -- Hugo Lefeuvre <hle@debian.org>  Fri, 23 Mar 2018 13:16:47 +0100
 
