@@ -4,11 +4,11 @@ Source: https://www.uni-due.de/~be0001/fractalgenerator/
 Upstream-Contact: Thomas Dreibholz <dreibh@iem.uni-due.de>
 
 Files: *
-Copyright: 2003-2017 Thomas Dreibholz <dreibh@iem.uni-due.de>
+Copyright: 2003-2018 Thomas Dreibholz <dreibh@iem.uni-due.de>
 License: GPL-3
 
 Files: debian/*
-Copyright: 2015-2017 Hugo Lefeuvre <hle@debian.org>
+Copyright: 2015-2018 Hugo Lefeuvre <hle@debian.org>
 License: GPL-3
 
 License: GPL-3
