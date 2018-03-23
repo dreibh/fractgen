@@ -6,6 +6,7 @@ fractgen (2.1.2-1) unstable; urgency=medium
     - Update debhelper dependency from >= 10 to >= 11.
   * Bump compat from 10 to 11.
   * Update copyright years.
+  * Update Vcs-* fields (migrated to Git/Salsa).
 
  -- Hugo Lefeuvre <hle@debian.org>  Fri, 23 Mar 2018 13:16:47 +0100
 
