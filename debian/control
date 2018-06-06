@@ -10,7 +10,7 @@ Build-Depends: cdbs,
                qtbase5-dev,
                qtbase5-dev-tools,
                qtchooser
-Standards-Version: 3.9.7
+Standards-Version: 4.1.4
 
 Package: fractgen
 Architecture: any
