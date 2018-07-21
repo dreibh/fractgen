@@ -1,3 +1,84 @@
+commit 943798d5708a1cb083ba9144cff82ff1eea864ca
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Jun 6 15:27:56 2018 +0200
+
+    Updated build scripts.
+
+ build-deb |  5 +++--
+ clean-deb |  8 ++++++--
+ make-deb  | 51 ++++++++++++++++++++++++++-------------------------
+ make-ppa  |  2 +-
+ 4 files changed, 36 insertions(+), 30 deletions(-)
+
+commit 6c34a17f10880c9eff0aeab1ab550a19933cec8d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Jun 6 15:27:19 2018 +0200
+
+    Updated packaging files.
+
+ debian/changelog | 8 ++++++++
+ debian/control   | 2 +-
+ debian/copyright | 4 ++--
+ 3 files changed, 11 insertions(+), 3 deletions(-)
+
+commit 57e9884bc119958742e543dc8f953666773b4acf
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Nov 16 23:16:23 2017 +0100
+
+    Minor update.
+
+ freebsd/fractgen/Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit f4f31753fa0a38fd0619862b630e114a88d6838a
+Merge: 3bfac15 01b5b5e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Nov 16 22:53:36 2017 +0100
+
+    Merge branch 'master' of https://github.com/dreibh/fractgen
+
+commit 3bfac15096dcfb0d5178b9c621b15b4929c9d6d4
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Nov 16 22:52:15 2017 +0100
+
+    Updated FreeBSD packaging files.
+
+ freebsd/fractgen/Makefile       |  5 +--
+ freebsd/fractgen/make-diff      | 51 +++++++++++++++++++++++++++++
+ freebsd/fractgen/make-shar      |  3 ++
+ freebsd/fractgen/test-packaging | 71 +++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 128 insertions(+), 2 deletions(-)
+
+commit 203239a7f361a9786d8e971f2705e02e2109f887
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Nov 16 22:36:30 2017 +0100
+
+    Added FreeBSD packaging files.
+
+ freebsd/fractgen/Makefile  | 17 +++++++++++++++++
+ freebsd/fractgen/distinfo  |  2 ++
+ freebsd/fractgen/pkg-descr |  8 ++++++++
+ 3 files changed, 27 insertions(+)
+
+commit 01b5b5ed3fd9e40a7988d8cca027ba7a09b4b403
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 5 15:50:33 2017 +0100
+
+    Updated LSM entry.
+
+ fractgen.lsm | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit f558ef088b65c6c4ba00e6b8bc658d3d713102c2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 5 15:48:21 2017 +0100
+
+    Version bump.
+
+ ChangeLog        | 79 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ debian/changelog |  2 +-
+ 2 files changed, 80 insertions(+), 1 deletion(-)
+
 commit d65911fcbfd010a58da9d716ab6faf7eaed31879
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sun Nov 5 15:34:37 2017 +0100
