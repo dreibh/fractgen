@@ -1,0 +1,2 @@
+# upstream does not provide any icon at the moment
+fractgen: desktop-entry-lacks-icon-entry usr/share/applications/fractgen.desktop
