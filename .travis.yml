@@ -105,10 +105,10 @@ matrix:
     # ###### Fedora Linux ###################################################
 
     # ====== MacOS X ========================================================
-    #- os: osx
-    #  osx_image: xcode9.4
-    #  compiler: clang
-    #  group: travis_latest
+    - os: osx
+      osx_image: xcode9.4
+      compiler: clang
+      group: travis_latest
 
 
 before_install:
@@ -127,9 +127,9 @@ install:
     if [ "$TRAVIS_OS_NAME" = "linux" ] ; then
        if [ "$VARIANT" = "ubuntu" ] ; then
           sudo docker exec -t ubuntu-test bash -c "apt-get update"
-          sudo docker exec -t ubuntu-test bash -c "apt-get install -y gcc g++ clang make qtbase5-dev qtbase5-dev-tools qtchooser"
+          sudo docker exec -t ubuntu-test bash -c "apt-get install -y cmake gcc g++ clang make qtbase5-dev"
        elif [ "$VARIANT" = "fedora" ] ; then
-          sudo docker exec -t ubuntu-test bash -c "dnf install -y gcc gcc-c++ clang make qt5-qtbase-devel qtchooser"
+          sudo docker exec -t ubuntu-test bash -c "dnf install -y cmake gcc gcc-c++ clang make qt5-qtbase-devel"
        fi
     fi
 
@@ -138,9 +138,9 @@ script:
   - |
     if [ "$TRAVIS_OS_NAME" = "linux" ] ; then
        sudo docker exec -t ubuntu-test bash -c "echo OPTIONS: CC=$COMPILER_C CXX=$COMPILER_CXX"
-       sudo docker exec -t ubuntu-test bash -c "env CC=$COMPILER_C CXX=$COMPILER_CXX ./bootstrap"
+       sudo docker exec -t ubuntu-test bash -c "env CC=$COMPILER_C CXX=$COMPILER_CXX cmake -DCMAKE_INSTALL_PREFIX=/usr ."
        sudo docker exec -t ubuntu-test bash -c "make VERBOSE=1"
     elif [ "$TRAVIS_OS_NAME" = "osx" ] ; then
-       ./bootstrap
+       cmake -DCMAKE_INSTALL_PREFIX=/usr
        make VERBOSE=1
     fi
