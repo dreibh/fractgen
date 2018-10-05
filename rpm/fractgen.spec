@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 2.1.3
+Version: 2.1.4~rc1.0
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
@@ -8,8 +8,8 @@ URL: https://www.uni-due.de/~be0001/fractalgenerator/
 Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{version}.tar.gz
 
 AutoReqProv: on
+BuildRequires: cmake
 BuildRequires: qt5-qtbase-devel
-BuildRequires: qtchooser
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 %define _unpackaged_files_terminate_build 0
@@ -23,7 +23,7 @@ FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals.
 %setup -q
 
 %build
-qtchooser -qt=5 -run-tool=qmake
+%cmake -DCMAKE_INSTALL_PREFIX=/usr .
 make %{?_smp_mflags}
 
 %install
