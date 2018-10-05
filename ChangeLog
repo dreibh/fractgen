@@ -1,3 +1,32 @@
+commit e4033eec61680ecb7ade46442f86abfbfb04ef8c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Oct 4 18:06:24 2018 +0100
+
+    Added Travis CI configuration.
+
+ .travis.yml | 146 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 146 insertions(+)
+
+commit f2b0039422e279b8af829e032ee52fb3e1c841d1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Jun 11 13:12:43 2018 +0200
+
+    Updated LSM entry.
+
+ fractgen.lsm | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 12dc8a9d5016bab9aad584571ed47332bb474d6f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Jun 6 15:51:18 2018 +0200
+
+    Version bump
+
+ ChangeLog         | 81 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ debian/changelog  |  2 +-
+ rpm/fractgen.spec |  2 +-
+ 3 files changed, 83 insertions(+), 2 deletions(-)
+
 commit 943798d5708a1cb083ba9144cff82ff1eea864ca
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Jun 6 15:27:56 2018 +0200
@@ -386,9 +415,8 @@ Date:   Fri Nov 4 23:14:05 2016 +0100
 
     Renamed file.
 
- fg2.pro      | 2 --
- fractgen.pro | 2 ++
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ fg2.pro => fractgen.pro | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
 
 commit 7aff774b3dc59d08aa39e2692fd386e5561642c6
 Author: Priv.-Doz. Dr. Thomas Dreibholz <dreibh@iem.uni-due.de>
