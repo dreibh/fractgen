@@ -200,7 +200,7 @@ unsigned int Dreibholz1::calculatePoint(const unsigned int x,
    std::complex<double> z(0.0, 0.0);
    std::complex<double> z2(0.0, 0.0);
    std::complex<double> z3(0.0, 0.0);
-   std::complex<double> c2;
+   // std::complex<double> c2;
    unsigned int         i;
 
    // const double d = abs(c);
