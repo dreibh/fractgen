@@ -27,11 +27,11 @@ FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals.
 make %{?_smp_mflags}
 
 %install
-mkdir -p %{buildroot}%{_bindir}/
-install -m 755 -p %{_builddir}/%{buildsubdir}/src/fractgen %{buildroot}%{_bindir}/
+make DESTDIR=%{buildroot} install
 
 %files
 %{_bindir}/fractgen
+%{_datadir}/fractgen/examples/*.fsf
 
 %changelog
 * Wed Aug 09 2017 Thomas Dreibholz <dreibh@iem.uni-due.de> 2.0.16
