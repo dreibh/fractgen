@@ -2,23 +2,23 @@ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # ###### Program ############################################################
 ADD_EXECUTABLE(fractgen
-   colorschemeinterface.cpp
-   doubleconfigentry.cpp
-   dreibholz1.cpp
-   fractalalgorithminterface.cpp
-   fractalbuffer.cpp
-   fractalcalculationthread.cpp
-   fractgen.cpp
-   imagedisplay.cpp
-   fractalgenerator.cpp
-   fractalgeneratordoc.cpp
-   fractalgeneratorview.cpp
-   mandelbrot.cpp
-   mandelbrotn.cpp
-   optionsdialog.cpp
-   simplehsv.cpp
-   simplergb.cpp
-   uintconfigentry.cpp)
+   colorschemeinterface.cc
+   doubleconfigentry.cc
+   dreibholz1.cc
+   fractalalgorithminterface.cc
+   fractalbuffer.cc
+   fractalcalculationthread.cc
+   fractgen.cc
+   imagedisplay.cc
+   fractalgenerator.cc
+   fractalgeneratordoc.cc
+   fractalgeneratorview.cc
+   mandelbrot.cc
+   mandelbrotn.cc
+   optionsdialog.cc
+   simplehsv.cc
+   simplergb.cc
+   uintconfigentry.cc)
 
 TARGET_LINK_LIBRARIES(fractgen Qt5::Widgets Qt5::Xml Qt5::Core Qt5::PrintSupport)
 INSTALL(TARGETS             fractgen
