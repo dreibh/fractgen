@@ -1,11 +1,116 @@
+commit b029f4366610683de133125191371afc8bd5c2ca
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 17:29:12 2018 +0200
+
+    Updated LSM entry.
+
+commit 0b1469ab7beb06c707dc1e18a27c589afc7c81e2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 17:24:20 2018 +0200
+
+    Updated FreeBSD packaging files.
+
+commit 84eac5dccf6c2802f82d6e41b3e644e33ef49f99
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 15:39:06 2018 +0200
+
+    Version bump.
+
+commit f6e716aeef00d8fe665f8071249ff54bec582ad2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 15:20:06 2018 +0200
+
+    Minor clean-ups.
+
+commit 45f480814e682787c01ea733798ee55063c7118f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 15:09:37 2018 +0200
+
+    Added tests control file.
+
+commit b3b25ea45cd1da563f8180cb835000b597f99b07
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 15:07:27 2018 +0200
+
+    Added metadata file.
+
+commit 04bc23f0ddbca39b28ee54365522a8daf99308b3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 14:41:49 2018 +0200
+
+    Updated helper script.
+
+commit b4c835b6c471974a7f9ccd338d052b0efe6607cc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 14:38:33 2018 +0200
+
+    Packaging script updates.
+
+commit 4447096d8d8167a3b9306df8ea4acd5bfd73ab20
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 14:33:53 2018 +0200
+
+    More clean-ups for CMakeLists.txt.
+
+commit cd4eb1f500bdc7149d15eba95f0d1a4f71352d95
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 14:25:28 2018 +0200
+
+    Cleaned up CMakeLists.txt.
+
+commit 975263a191ad7ff2d3547d43d213cbde46866e4b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 12:56:56 2018 +0100
+
+    Removed declaration of unused variable.
+
+commit 42822258d542032d20ecc261b2a44dcdbd81218b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 12:35:58 2018 +0100
+
+    Minor fixes.
+
+commit 95c49ea9d6841c4cb90b618382c584e36624a545
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 11:56:14 2018 +0100
+
+    Packaging updates.
+
+commit f8b819311fc93abd0242afa696ed189aadf8737e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 12:31:55 2018 +0200
+
+    Updated RPM spec file.
+
+commit cdd7a9d201867a5a6dd7a4ca2aaa3fdc8c9375e9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 10:56:28 2018 +0100
+
+    Updated RPM packaging files.
+
+commit 372f372d60b93d009442e52e05bd7e9f5e0ab9e0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 10:55:00 2018 +0100
+
+    Updated Ubuntu packaging files.
+
+commit eb9cfd1da98b5cda6166836f80c3cb8f68c8f90d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 10:48:18 2018 +0100
+
+    Changed the build system to CMake.
+
+commit 50a459957942aa1bcde2fa3fd0a3af5e3d1f2ac6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Oct 5 09:18:55 2018 +0100
+
+    Updated ChangeLog.
+
 commit e4033eec61680ecb7ade46442f86abfbfb04ef8c
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Thu Oct 4 18:06:24 2018 +0100
 
     Added Travis CI configuration.
-
- .travis.yml | 146 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 146 insertions(+)
 
 commit f2b0039422e279b8af829e032ee52fb3e1c841d1
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -13,19 +118,11 @@ Date:   Mon Jun 11 13:12:43 2018 +0200
 
     Updated LSM entry.
 
- fractgen.lsm | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
 commit 12dc8a9d5016bab9aad584571ed47332bb474d6f
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Jun 6 15:51:18 2018 +0200
 
     Version bump
-
- ChangeLog         | 81 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
- debian/changelog  |  2 +-
- rpm/fractgen.spec |  2 +-
- 3 files changed, 83 insertions(+), 2 deletions(-)
 
 commit 943798d5708a1cb083ba9144cff82ff1eea864ca
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -33,31 +130,17 @@ Date:   Wed Jun 6 15:27:56 2018 +0200
 
     Updated build scripts.
 
- build-deb |  5 +++--
- clean-deb |  8 ++++++--
- make-deb  | 51 ++++++++++++++++++++++++++-------------------------
- make-ppa  |  2 +-
- 4 files changed, 36 insertions(+), 30 deletions(-)
-
 commit 6c34a17f10880c9eff0aeab1ab550a19933cec8d
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Jun 6 15:27:19 2018 +0200
 
     Updated packaging files.
 
- debian/changelog | 8 ++++++++
- debian/control   | 2 +-
- debian/copyright | 4 ++--
- 3 files changed, 11 insertions(+), 3 deletions(-)
-
 commit 57e9884bc119958742e543dc8f953666773b4acf
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Thu Nov 16 23:16:23 2017 +0100
 
     Minor update.
-
- freebsd/fractgen/Makefile | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
 
 commit f4f31753fa0a38fd0619862b630e114a88d6838a
 Merge: 3bfac15 01b5b5e
@@ -72,22 +155,11 @@ Date:   Thu Nov 16 22:52:15 2017 +0100
 
     Updated FreeBSD packaging files.
 
- freebsd/fractgen/Makefile       |  5 +--
- freebsd/fractgen/make-diff      | 51 +++++++++++++++++++++++++++++
- freebsd/fractgen/make-shar      |  3 ++
- freebsd/fractgen/test-packaging | 71 +++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 128 insertions(+), 2 deletions(-)
-
 commit 203239a7f361a9786d8e971f2705e02e2109f887
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Thu Nov 16 22:36:30 2017 +0100
 
     Added FreeBSD packaging files.
-
- freebsd/fractgen/Makefile  | 17 +++++++++++++++++
- freebsd/fractgen/distinfo  |  2 ++
- freebsd/fractgen/pkg-descr |  8 ++++++++
- 3 files changed, 27 insertions(+)
 
 commit 01b5b5ed3fd9e40a7988d8cca027ba7a09b4b403
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -95,18 +167,11 @@ Date:   Sun Nov 5 15:50:33 2017 +0100
 
     Updated LSM entry.
 
- fractgen.lsm | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
 commit f558ef088b65c6c4ba00e6b8bc658d3d713102c2
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sun Nov 5 15:48:21 2017 +0100
 
     Version bump.
-
- ChangeLog        | 79 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- debian/changelog |  2 +-
- 2 files changed, 80 insertions(+), 1 deletion(-)
 
 commit d65911fcbfd010a58da9d716ab6faf7eaed31879
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -114,17 +179,11 @@ Date:   Sun Nov 5 15:34:37 2017 +0100
 
     Improved build script.
 
- make-dist | 38 +++++++++++++++++++++++---------------
- 1 file changed, 23 insertions(+), 15 deletions(-)
-
 commit 7124f03ecd937d3b5a9e5d142b7a33d43c7b7f6d
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sun Nov 5 15:34:26 2017 +0100
 
     Added configuration file.
-
- website.config | 2 ++
- 1 file changed, 2 insertions(+)
 
 commit 511bc7c3b2faafa5a7f000eb6c172071b2d0dbfb
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -132,103 +191,17 @@ Date:   Sun Nov 5 14:31:02 2017 +0100
 
     Got rid of obsolete SVN Id tag.
 
- debian/fractgen.1                 | 4 +---
- src/colorschemeinterface.cpp      | 3 +--
- src/colorschemeinterface.h        | 3 +--
- src/configentry.h                 | 3 +--
- src/doubleconfigentry.cpp         | 3 +--
- src/doubleconfigentry.h           | 3 +--
- src/dreibholz1.cpp                | 3 +--
- src/dreibholz1.h                  | 3 +--
- src/fractalalgorithminterface.cpp | 3 +--
- src/fractalalgorithminterface.h   | 3 +--
- src/fractalbuffer.cpp             | 3 +--
- src/fractalbuffer.h               | 3 +--
- src/fractalcalculationthread.cpp  | 3 +--
- src/fractalcalculationthread.h    | 3 +--
- src/fractalgenerator.cpp          | 3 +--
- src/fractalgenerator.h            | 3 +--
- src/fractalgeneratordoc.cpp       | 3 +--
- src/fractalgeneratordoc.h         | 3 +--
- src/fractalgeneratorview.cpp      | 3 +--
- src/fractalgeneratorview.h        | 3 +--
- src/fractgen.cpp                  | 3 +--
- src/imagedisplay.cpp              | 3 +--
- src/imagedisplay.h                | 3 +--
- src/mandelbrot.cpp                | 3 +--
- src/mandelbrot.h                  | 3 +--
- src/mandelbrotn.cpp               | 3 +--
- src/mandelbrotn.h                 | 3 +--
- src/optionsdialog.cpp             | 3 +--
- src/optionsdialog.h               | 3 +--
- src/simplehsv.cpp                 | 3 +--
- src/simplehsv.h                   | 3 +--
- src/simplergb.cpp                 | 3 +--
- src/simplergb.h                   | 3 +--
- src/uintconfigentry.cpp           | 3 +--
- src/uintconfigentry.h             | 3 +--
- 35 files changed, 35 insertions(+), 71 deletions(-)
-
 commit 3d859ef94fb2fe594b66005e6165de780b0f249c
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sun Nov 5 14:28:14 2017 +0100
 
     Build script updates.
 
- ChangeLog            | 89 ++++++++++++++++++++++++++++++++++++++++++++++++++++
- build-deb            |  3 +-
- clean-deb            |  3 +-
- debian/changelog     |  6 ++++
- filter-empty-entries |  3 +-
- make-deb             |  9 +++---
- make-dist            |  2 +-
- make-ppa             | 33 ++++++++++++++++---
- make-rpm             |  5 ++-
- rpm/fractgen.spec    |  2 +-
- 10 files changed, 135 insertions(+), 20 deletions(-)
-
 commit 49ef91b8a78de919bd68a309f3c9bce069281db6
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sun Nov 5 14:23:10 2017 +0100
 
     Header updates.
-
- UpdateDoc1.sed                    | 4 ++--
- src/colorschemeinterface.cpp      | 2 +-
- src/colorschemeinterface.h        | 2 +-
- src/configentry.h                 | 2 +-
- src/doubleconfigentry.cpp         | 2 +-
- src/doubleconfigentry.h           | 2 +-
- src/dreibholz1.cpp                | 2 +-
- src/dreibholz1.h                  | 2 +-
- src/fractalalgorithminterface.cpp | 2 +-
- src/fractalalgorithminterface.h   | 2 +-
- src/fractalbuffer.cpp             | 2 +-
- src/fractalbuffer.h               | 2 +-
- src/fractalcalculationthread.cpp  | 2 +-
- src/fractalcalculationthread.h    | 2 +-
- src/fractalgenerator.cpp          | 4 ++--
- src/fractalgenerator.h            | 2 +-
- src/fractalgeneratordoc.cpp       | 2 +-
- src/fractalgeneratordoc.h         | 2 +-
- src/fractalgeneratorview.cpp      | 2 +-
- src/fractalgeneratorview.h        | 2 +-
- src/fractgen.cpp                  | 2 +-
- src/imagedisplay.cpp              | 2 +-
- src/imagedisplay.h                | 2 +-
- src/mandelbrot.cpp                | 2 +-
- src/mandelbrot.h                  | 2 +-
- src/mandelbrotn.cpp               | 2 +-
- src/mandelbrotn.h                 | 2 +-
- src/optionsdialog.cpp             | 2 +-
- src/optionsdialog.h               | 2 +-
- src/simplehsv.cpp                 | 2 +-
- src/simplehsv.h                   | 2 +-
- src/simplergb.cpp                 | 2 +-
- src/simplergb.h                   | 2 +-
- src/uintconfigentry.cpp           | 2 +-
- src/uintconfigentry.h             | 2 +-
- 35 files changed, 37 insertions(+), 37 deletions(-)
 
 commit 3da4671ac368caef251d74b9dc12ef8a5676b310
 Merge: 2389d9e f581f8c
@@ -243,17 +216,11 @@ Date:   Wed Aug 9 14:48:47 2017 +0200
 
     RPM fix.
 
- rpm/fractgen.spec | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
 commit f581f8cc55d6d418ce81e36825a0ce81e5ba0a8a
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Aug 9 11:40:42 2017 +0200
 
     Script update.
-
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit 623630a025de09247183b8a9d835b35004f1224b
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -261,20 +228,11 @@ Date:   Wed Aug 9 11:13:51 2017 +0200
 
     Script updates.
 
- make-deb | 4 ++--
- make-ppa | 3 +--
- make-rpm | 4 ++--
- 3 files changed, 5 insertions(+), 6 deletions(-)
-
 commit 203698dfbf9506339272ee982c7ba3b399e4c88d
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Aug 9 11:07:19 2017 +0200
 
     Versionb bump.
-
- ChangeLog    | 21 +++++++++++++++++++++
- fractgen.lsm |  6 +++---
- 2 files changed, 24 insertions(+), 3 deletions(-)
 
 commit 3afb20b8b3648b6839c9ef3da4ac1785f7598878
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -282,74 +240,17 @@ Date:   Wed Aug 9 11:00:04 2017 +0200
 
     Version bump.
 
- UpdateDoc1.sed    | 4 ++--
- debian/changelog  | 6 ++++++
- make-dist         | 2 +-
- rpm/fractgen.spec | 7 ++++---
- 4 files changed, 13 insertions(+), 6 deletions(-)
-
 commit bc990b5d456429ca91b355c7494f4c6e3f2f1e15
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Aug 9 10:55:21 2017 +0200
 
     Updated ChangeLog.
 
- ChangeLog | 84 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 84 insertions(+)
-
 commit 064e22316ff2f35df3397f23ab0cff5e44dd11d2
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Aug 9 10:55:08 2017 +0200
 
     Header updates.
-
- UpdateDoc1.sed                    |  3 +++
- UpdateDocFiles                    | 25 +++++++++++++++++++++++++
- build-deb                         |  2 +-
- clean-deb                         |  2 +-
- debian/copyright                  |  4 ++--
- debian/fractgen.1                 |  4 ++--
- debian/watch                      |  2 +-
- filter-empty-entries              |  2 +-
- fractgen.lsm                      |  4 ++--
- make-deb                          |  2 +-
- make-rpm                          |  2 +-
- rpm/fractgen.spec                 |  4 ++--
- src/colorschemeinterface.cpp      |  2 +-
- src/colorschemeinterface.h        |  2 +-
- src/configentry.h                 |  2 +-
- src/doubleconfigentry.cpp         |  2 +-
- src/doubleconfigentry.h           |  2 +-
- src/dreibholz1.cpp                |  2 +-
- src/dreibholz1.h                  |  2 +-
- src/fractalalgorithminterface.cpp |  2 +-
- src/fractalalgorithminterface.h   |  2 +-
- src/fractalbuffer.cpp             |  2 +-
- src/fractalbuffer.h               |  2 +-
- src/fractalcalculationthread.cpp  |  2 +-
- src/fractalcalculationthread.h    |  2 +-
- src/fractalgenerator.cpp          |  4 ++--
- src/fractalgenerator.h            |  2 +-
- src/fractalgeneratordoc.cpp       |  2 +-
- src/fractalgeneratordoc.h         |  2 +-
- src/fractalgeneratorview.cpp      |  2 +-
- src/fractalgeneratorview.h        |  2 +-
- src/fractgen.cpp                  |  2 +-
- src/imagedisplay.cpp              |  2 +-
- src/imagedisplay.h                |  2 +-
- src/mandelbrot.cpp                |  2 +-
- src/mandelbrot.h                  |  2 +-
- src/mandelbrotn.cpp               |  2 +-
- src/mandelbrotn.h                 |  2 +-
- src/optionsdialog.cpp             |  2 +-
- src/optionsdialog.h               |  2 +-
- src/simplehsv.cpp                 |  2 +-
- src/simplehsv.h                   |  2 +-
- src/simplergb.cpp                 |  2 +-
- src/simplergb.h                   |  2 +-
- src/uintconfigentry.cpp           |  2 +-
- src/uintconfigentry.h             |  2 +-
- 46 files changed, 77 insertions(+), 49 deletions(-)
 
 commit 003d7e896ff49702ba775b735c30f6612074c6b6
 Merge: 3f7774d c354f8e
@@ -364,22 +265,11 @@ Date:   Wed Aug 9 10:52:11 2017 +0200
 
     A fix.
 
- rpm/fractgen.spec | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 commit 3f7774d509029fafe684d1ff29c500c09955a5d9
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Nov 23 13:52:49 2016 +0100
 
     New release.
-
- ChangeLog        | 2042 ++++++++++++++++++++++++++++++------------------------
- debian/changelog |    4 +-
- fractgen.lsm     |    6 +-
- make-dist        |    2 +-
- make-ppa         |    2 +-
- update-changelog |    2 +-
- 6 files changed, 1139 insertions(+), 919 deletions(-)
 
 commit 6fad5b9031690a95e439f94cd039204090ce4941
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -387,18 +277,11 @@ Date:   Thu Nov 17 11:06:25 2016 +0100
 
     Using qmake via qtchooser now.
 
- debian/changelog | 1 +
- debian/rules     | 2 +-
- 2 files changed, 2 insertions(+), 1 deletion(-)
-
 commit af1b7a9a983e36684ac35f039fc6ec2faeaffad1
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Thu Nov 17 11:00:19 2016 +0100
 
     Bugfix: correctly set checked algorithm name on startup.
-
- src/fractalgenerator.cpp | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
 commit 8f5698798b46685286ae2253b1e18bc2238eccbb
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -406,17 +289,11 @@ Date:   Thu Nov 17 11:00:14 2016 +0100
 
     Added test file.
 
- src/examples/test2.fsf | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
-
 commit 315c9ddb9d0dde24f5e42e1d59517b641ac1968d
 Author: Priv.-Doz. Dr. Thomas Dreibholz <dreibh@iem.uni-due.de>
 Date:   Fri Nov 4 23:14:05 2016 +0100
 
     Renamed file.
-
- fg2.pro => fractgen.pro | 0
- 1 file changed, 0 insertions(+), 0 deletions(-)
 
 commit 7aff774b3dc59d08aa39e2692fd386e5561642c6
 Author: Priv.-Doz. Dr. Thomas Dreibholz <dreibh@iem.uni-due.de>
@@ -424,20 +301,11 @@ Date:   Fri Nov 4 23:09:56 2016 +0100
 
     Added bootstrap script and example file.
 
- bootstrap              |  2 ++
- src/examples/test1.fsf | 17 +++++++++++++++++
- 2 files changed, 19 insertions(+)
-
 commit 0262d84295f5bc7b4f1b19f2bac8a4b5bdd44a70
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Nov 4 17:20:35 2016 +0100
 
     Updated dependencies.
-
- debian/changelog | 6 ++++++
- debian/control   | 4 +++-
- make-dist        | 2 +-
- 3 files changed, 10 insertions(+), 2 deletions(-)
 
 commit b045cb308c899290a9d805637ce83d017b06897f
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -445,18 +313,11 @@ Date:   Fri Nov 4 17:14:00 2016 +0100
 
     Bugfix: need to set LastOffsetUpdate on mouse press event.
 
- src/imagedisplay.cpp | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
-
 commit f845fdbb8c50788d8708a21187b98362c7894819
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Nov 4 16:46:25 2016 +0100
 
     Also linking now.
-
- fg2.pro     | 1 -
- src/src.pro | 2 +-
- 2 files changed, 1 insertion(+), 2 deletions(-)
 
 commit cc3a33c9d57876e136e34ce263891f12033a70a0
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -464,27 +325,11 @@ Date:   Fri Nov 4 16:42:31 2016 +0100
 
     Compiling with Qt5. Not linking yet.
 
- fg2.pro                      |  1 +
- make-dist                    |  2 +-
- src/fractalgenerator.cpp     | 17 +++++++++--------
- src/fractalgenerator.h       |  7 +++----
- src/fractalgeneratordoc.cpp  |  2 +-
- src/fractalgeneratorview.cpp |  4 ++--
- src/fractalgeneratorview.h   | 10 +++++-----
- src/fractgen.cpp             |  2 +-
- src/imagedisplay.h           |  2 +-
- src/optionsdialog.cpp        |  8 ++++----
- src/optionsdialog.h          |  6 +++---
- 11 files changed, 31 insertions(+), 30 deletions(-)
-
 commit 7637c886cf273764a1713cacec99d810dc1560fd
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Nov 4 12:08:04 2016 +0100
 
     Script update.
-
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit a36b153bbe9f7b8068c3a8dc812add9910f57f38
 Author: Thomas Dreibholz <dreibh@simula.no>
@@ -492,71 +337,17 @@ Date:   Wed May 18 15:49:26 2016 +0200
 
     RPM version update.
 
- rpm/fractgen.spec | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 commit e8b80c03147a8f774e5a257b72c104547348602a
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Apr 6 14:36:42 2016 +0200
 
     Updated LSM entry.
 
- fractgen.lsm | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
 commit c9f801d3066f013b3539dce32dd5d1bfcfac5567
 Author: Priv.-Doz. Dr. Thomas Dreibholz <dreibh@iem.uni-due.de>
 Date:   Wed Apr 6 14:35:08 2016 +0200
 
     Packaging file updates.
-
- build-deb                         |  2 +-
- clean-deb                         |  2 +-
- debian/changelog                  | 10 ++++++++++
- debian/compat                     |  2 +-
- debian/control                    |  8 +++++---
- debian/copyright                  |  2 +-
- debian/fractgen.1                 |  2 +-
- debian/rules                      |  4 ++++
- make-deb                          |  2 +-
- make-dist                         |  2 +-
- make-rpm                          |  2 +-
- rpm/fractgen.spec                 |  2 +-
- src/colorschemeinterface.cpp      |  2 +-
- src/colorschemeinterface.h        |  2 +-
- src/configentry.h                 |  2 +-
- src/doubleconfigentry.cpp         |  2 +-
- src/doubleconfigentry.h           |  2 +-
- src/dreibholz1.cpp                |  2 +-
- src/dreibholz1.h                  |  2 +-
- src/fractalalgorithminterface.cpp |  2 +-
- src/fractalalgorithminterface.h   |  2 +-
- src/fractalbuffer.cpp             |  2 +-
- src/fractalbuffer.h               |  2 +-
- src/fractalcalculationthread.cpp  |  2 +-
- src/fractalcalculationthread.h    |  2 +-
- src/fractalgenerator.cpp          |  4 ++--
- src/fractalgenerator.h            |  2 +-
- src/fractalgeneratordoc.cpp       |  2 +-
- src/fractalgeneratordoc.h         |  2 +-
- src/fractalgeneratorview.cpp      |  2 +-
- src/fractalgeneratorview.h        |  2 +-
- src/fractgen.cpp                  |  2 +-
- src/imagedisplay.cpp              |  2 +-
- src/imagedisplay.h                |  2 +-
- src/mandelbrot.cpp                |  2 +-
- src/mandelbrot.h                  |  2 +-
- src/mandelbrotn.cpp               |  2 +-
- src/mandelbrotn.h                 |  2 +-
- src/optionsdialog.cpp             |  2 +-
- src/optionsdialog.h               |  2 +-
- src/simplehsv.cpp                 |  2 +-
- src/simplehsv.h                   |  2 +-
- src/simplergb.cpp                 |  2 +-
- src/simplergb.h                   |  2 +-
- src/uintconfigentry.cpp           |  2 +-
- src/uintconfigentry.h             |  2 +-
- 46 files changed, 63 insertions(+), 47 deletions(-)
 
 commit 1e7b8a1d639b8875253fc12cc8dffc38517d780d
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -567,9 +358,6 @@ Date:   Tue Oct 27 09:24:22 2015 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@2041 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 commit ef17e097b93444745366a1baca7f40dfe817bc05
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Tue Oct 27 09:17:42 2015 +0000
@@ -578,13 +366,6 @@ Date:   Tue Oct 27 09:17:42 2015 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@2040 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog  | 6 ++++++
- fractgen.lsm      | 6 +++---
- make-dist         | 4 +++-
- make-ppa          | 2 +-
- rpm/fractgen.spec | 2 +-
- 5 files changed, 14 insertions(+), 6 deletions(-)
 
 commit 4fe8c20e3dc24cf6e83b814b3fd97ff9ccefa625
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -595,17 +376,6 @@ Date:   Tue Oct 27 09:13:21 2015 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@2039 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- src/examples/alpha01.fsf      | 18 ++++++++++++++++++
- src/examples/alpha02.fsf      | 18 ++++++++++++++++++
- src/examples/alpha03.fsf      | 18 ++++++++++++++++++
- src/examples/alpha04.fsf      | 18 ++++++++++++++++++
- src/examples/alpha05.fsf      | 18 ++++++++++++++++++
- src/examples/alpha06.fsf      | 18 ++++++++++++++++++
- src/examples/alpha07.fsf      | 18 ++++++++++++++++++
- src/examples/alpha08.fsf      | 18 ++++++++++++++++++
- src/examples/demo-fractal.fsf | 18 ++++++++++++++++++
- 9 files changed, 162 insertions(+)
-
 commit f8b89e2e1c26b06dff53c9a806ad46550f06c964
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sun Mar 1 15:23:28 2015 +0000
@@ -614,9 +384,6 @@ Date:   Sun Mar 1 15:23:28 2015 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1986 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-ppa | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
 
 commit 2a02326fdebbcc7391b367a443672dde0d59c7af
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -627,12 +394,6 @@ Date:   Sun Mar 1 12:49:16 2015 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1982 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- ChangeLog        | 10 ++++++++++
- debian/changelog |  2 +-
- make-dist        |  2 +-
- make-ppa         |  1 -
- 4 files changed, 12 insertions(+), 3 deletions(-)
-
 commit 801ada06ebd2f69693fb592c0393926588bf6ec2
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sun Mar 1 12:31:41 2015 +0000
@@ -641,12 +402,6 @@ Date:   Sun Mar 1 12:31:41 2015 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1980 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- ChangeLog         | 245 ++++++++++++++++++++++++++++++++++++++++--------------
- debian/copyright  |  50 +++++------
- make-dist         |   2 +-
- rpm/fractgen.spec |   2 +-
- 4 files changed, 208 insertions(+), 91 deletions(-)
 
 commit 7993d48e741564a3d8d3633a37885d426dac710c
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -657,15 +412,6 @@ Date:   Sun Mar 1 12:13:24 2015 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1978 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog                |  11 ++
- debian/control                  |   2 +-
- debian/upstream/signing-key.asc | 405 ++++++++++++++++++++++++++++++++++++++++
- debian/watch                    |   1 +
- fractgen.lsm                    |   6 +-
- make-dist                       |   2 +-
- make-ppa                        |   3 +-
- 7 files changed, 424 insertions(+), 6 deletions(-)
-
 commit 9251f362ffbdeb179d93bedb659046b3ee26a261
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Fri Jul 4 16:38:55 2014 +0000
@@ -674,9 +420,6 @@ Date:   Fri Jul 4 16:38:55 2014 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1867 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- rpm.conf | 6 ++++++
- 1 file changed, 6 insertions(+)
 
 commit 2ff4f10d6c3e57384889d7a014e4d36da47c3f2f
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -687,9 +430,6 @@ Date:   Tue Jun 24 09:54:13 2014 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1849 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-rpm | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
 commit 8359578b620ef0c9ec573f0559350c497941341d
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Fri Nov 15 19:47:33 2013 +0000
@@ -698,9 +438,6 @@ Date:   Fri Nov 15 19:47:33 2013 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1747 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-rpm | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
 
 commit 16e0eb61f9144709017dea62cedd67c34f15623f
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -711,9 +448,6 @@ Date:   Mon Nov 11 08:44:44 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1743 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-rpm | 109 +++++++++++++++++++++++++++++++++++++--------------------------
- 1 file changed, 65 insertions(+), 44 deletions(-)
-
 commit d7efd579ec1a0a4d8aeb19c3c7120e0203ed4048
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Tue Nov 5 15:42:50 2013 +0000
@@ -722,10 +456,6 @@ Date:   Tue Nov 5 15:42:50 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1735 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-rpm          | 148 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
- rpm/fractgen.spec |   2 +-
- 2 files changed, 149 insertions(+), 1 deletion(-)
-
 commit 7cc7774fb2c0406a820b5e5d1da888b0f341d513
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Tue Nov 5 12:18:43 2013 +0000
@@ -733,9 +463,6 @@ Date:   Tue Nov 5 12:18:43 2013 +0000
     Updated spec file.
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1729 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- rpm/fractgen.spec | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
 
 commit f680569b36e5f953e7af78562e944cc71823a389
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -746,9 +473,6 @@ Date:   Tue Nov 5 11:17:51 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1728 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- rpm/fractgen.spec | 34 ++++++++++++++++++++++++++++++++++
- 1 file changed, 34 insertions(+)
-
 commit ef0886984341a9c4ddf700d4b566b29b3b02ad3f
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Thu Oct 24 20:43:05 2013 +0000
@@ -757,9 +481,6 @@ Date:   Thu Oct 24 20:43:05 2013 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1702 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 1 +
- 1 file changed, 1 insertion(+)
 
 commit f7032f47cfc908d79b3247c7893a8f463e8c1a2e
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -770,9 +491,6 @@ Date:   Thu Oct 24 20:29:08 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1700 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- fractgen.lsm | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
 commit 5daa3f056b4b1bd56bc59403ff301aef62eaf5c5
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Thu Oct 24 20:11:03 2013 +0000
@@ -781,9 +499,6 @@ Date:   Thu Oct 24 20:11:03 2013 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1699 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit 5653484e08a1be6cb4319a6d31bcccf3c6cf973e
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -794,11 +509,6 @@ Date:   Thu Oct 24 19:56:20 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1695 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- ChangeLog        | 6 ++++++
- debian/changelog | 2 +-
- make-dist        | 2 +-
- 3 files changed, 8 insertions(+), 2 deletions(-)
-
 commit 761416192ab73e9f91c31da7009457a67bedad40
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed Oct 23 11:32:30 2013 +0000
@@ -807,9 +517,6 @@ Date:   Wed Oct 23 11:32:30 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1684 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- ChangeLog | 638 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 638 insertions(+)
-
 commit e6405f322eb64171066cade78afcc85cb9d0566e
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed Oct 23 11:31:08 2013 +0000
@@ -817,11 +524,6 @@ Date:   Wed Oct 23 11:31:08 2013 +0000
     Packaging file updates.
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1683 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 4 ++--
- make-dist        | 2 +-
- update-changelog | 4 ++++
- 3 files changed, 7 insertions(+), 3 deletions(-)
 
 commit 2d376f876f7159e7dc75929d5e836cd7dabc6ae9
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -832,9 +534,6 @@ Date:   Fri Oct 18 21:52:07 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1671 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 commit 3f36599efbf669657223b37d2de59f8c26a9458d
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Thu May 30 12:34:44 2013 +0000
@@ -843,15 +542,6 @@ Date:   Thu May 30 12:34:44 2013 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1651 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- build-deb        |  99 +++++++++++++++++++++++-----
- clean-deb        |   2 +-
- debian/changelog |   6 ++
- debian/control   |   2 +-
- make-deb         | 195 +++++++++++++++++++++++++++++++++----------------------
- make-dist        |   2 +-
- make-ppa         |   2 +-
- 7 files changed, 210 insertions(+), 98 deletions(-)
-
 commit 7adc8b40ed2fd94f4e8a63ea1225bbdbae60d336
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Oct 20 21:50:30 2012 +0000
@@ -859,9 +549,6 @@ Date:   Sat Oct 20 21:50:30 2012 +0000
     Build script updates.
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1525 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit 0e46a982494fc394c87995b90a2102c200b84d03
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -872,14 +559,6 @@ Date:   Sat Aug 25 19:45:17 2012 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1500 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- build-deb        | 45 +++++++++++++++++++++++++++++++++++++++++++++
- debian.conf      |  1 +
- debian/changelog |  4 ++--
- make-deb         | 24 ++++++++++++++----------
- make-dist        |  2 +-
- make-ppa         |  2 +-
- 6 files changed, 64 insertions(+), 14 deletions(-)
-
 commit 7a47ecbe108d48fbeaa5741375f54e713d2f848d
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Apr 21 19:21:13 2012 +0000
@@ -888,19 +567,6 @@ Date:   Sat Apr 21 19:21:13 2012 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1365 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- clean-deb            |  2 +-
- debian.conf          |  2 ++
- debian/changelog     |  7 ++++++
- debian/control       |  3 ++-
- debian/fractgen.1    |  5 +++--
- debian/rules         |  1 -
- filter-empty-entries | 61 ++++++++++++++++++++++++++++++++++++++++++++++++++++
- fractgen.lsm         | 21 ++++++++++++++++++
- make-deb             |  6 +++---
- make-dist            |  2 +-
- make-ppa             |  2 +-
- 11 files changed, 102 insertions(+), 10 deletions(-)
 
 commit 80977d1f30525706eb6086264073974cf0bcb0b2
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -911,11 +577,6 @@ Date:   Sat Apr 21 18:26:51 2012 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1363 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/control   | 2 +-
- debian/copyright | 2 +-
- make-dist        | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
-
 commit 535692d85ab52c7d94209c3a4c0ed896798736a3
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Fri May 13 15:58:52 2011 +0000
@@ -924,9 +585,6 @@ Date:   Fri May 13 15:58:52 2011 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1046 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-ppa | 1 -
- 1 file changed, 1 deletion(-)
 
 commit f1118d06a7016afd060a1f5b605fa4b170ced3fd
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -938,14 +596,6 @@ Date:   Wed May 4 06:40:35 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1034 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog  |  2 +-
- debian/compat     |  2 +-
- debian/fractgen.1 | 13 +++++++++----
- make-dist         |  2 +-
- make-ppa          |  4 ++--
- src/fractgen.cpp  |  2 ++
- 6 files changed, 16 insertions(+), 9 deletions(-)
-
 commit 829877ddfdcb1171ca129271325d9ed3b14ebee4
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed May 4 05:50:40 2011 +0000
@@ -954,10 +604,6 @@ Date:   Wed May 4 05:50:40 2011 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1032 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 4 ++--
- debian/control   | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
 
 commit deff74881b3120c37f26335630de18f64c1dda91
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -968,9 +614,6 @@ Date:   Tue May 3 17:47:13 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1029 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 commit 5f65bb60cf7ab1806f6a68c9b306c0a317cfd526
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed Mar 23 04:21:29 2011 +0000
@@ -979,10 +622,6 @@ Date:   Wed Mar 23 04:21:29 2011 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1013 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 2 +-
- debian/copyright | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
 
 commit 12ac06193e076a548b6ffcf6c050ae2586383e48
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -993,11 +632,6 @@ Date:   Wed Mar 23 04:08:50 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@1012 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog |  5 ++---
- debian/control   | 15 +++++++++------
- debian/copyright |  4 ++--
- 3 files changed, 13 insertions(+), 11 deletions(-)
-
 commit f50964bd27e61e52a5ecddbd0f8e56ba15c9b37f
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Fri Feb 11 22:34:41 2011 +0000
@@ -1007,17 +641,11 @@ Date:   Fri Feb 11 22:34:41 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@989 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-deb | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
 commit 5a48677228a13d7b47bca2c3a34439ca03d0fce0
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed Feb 2 14:19:25 2011 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@985 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 1 -
- 1 file changed, 1 deletion(-)
 
 commit 339b7145a87a51b9d4d5c56bd0de8759b1e0e6bd
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1027,9 +655,6 @@ Date:   Wed Feb 2 14:18:50 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@982 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-deb | 28 ++++++++++++++++++++++------
- 1 file changed, 22 insertions(+), 6 deletions(-)
-
 commit a0d5f381ec8f5bb3c2bd1fe76e6c7ba34e72682d
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Tue Feb 1 14:24:59 2011 +0000
@@ -1037,10 +662,6 @@ Date:   Tue Feb 1 14:24:59 2011 +0000
     Packaging update.
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@977 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog |  2 +-
- make-deb         | 14 +++++++++-----
- 2 files changed, 10 insertions(+), 6 deletions(-)
 
 commit 0c2ae4cc5cfe0d3a8287f10d22b5f13b4e8754b7
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1051,9 +672,6 @@ Date:   Tue Feb 1 12:07:15 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@968 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/control | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
-
 commit 1fc8b04323fe107bf146b3c0d6783d099811f896
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Tue Feb 1 07:46:46 2011 +0000
@@ -1061,9 +679,6 @@ Date:   Tue Feb 1 07:46:46 2011 +0000
     Debian packaging update.
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@962 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit 1a9db85e1b5ac6e9fc5693724b657e81892dd03b
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1073,17 +688,11 @@ Date:   Tue Feb 1 07:27:03 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@957 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-deb | 114 ++++++++++++++++++++++++++++++++++++++++++++++++++-------------
- 1 file changed, 91 insertions(+), 23 deletions(-)
-
 commit 3439fa89b8a870f8a2f6ce3d19790ecada845d30
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Jan 22 15:13:14 2011 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@932 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit b0b40fd7e0dd96118e0cfa8038a380860fa250a6
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1094,45 +703,6 @@ Date:   Sat Jan 22 14:56:22 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@930 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog                  |  2 +-
- debian/fractgen.1                 |  4 +-
- src/colorschemeinterface.cpp      |  2 +-
- src/colorschemeinterface.h        |  2 +-
- src/configentry.h                 |  2 +-
- src/doubleconfigentry.cpp         |  2 +-
- src/doubleconfigentry.h           |  2 +-
- src/dreibholz1.cpp                |  2 +-
- src/dreibholz1.h                  |  2 +-
- src/fractalalgorithminterface.cpp |  2 +-
- src/fractalalgorithminterface.h   |  2 +-
- src/fractalbuffer.cpp             |  2 +-
- src/fractalbuffer.h               |  2 +-
- src/fractalcalculationthread.cpp  |  2 +-
- src/fractalcalculationthread.h    |  2 +-
- src/fractalgenerator.cpp          |  4 +-
- src/fractalgenerator.h            |  2 +-
- src/fractalgeneratordoc.cpp       |  2 +-
- src/fractalgeneratordoc.h         |  2 +-
- src/fractalgeneratorview.cpp      |  2 +-
- src/fractalgeneratorview.h        |  2 +-
- src/fractgen.cpp                  |  2 +-
- src/imagedisplay.cpp              |  2 +-
- src/imagedisplay.h                |  2 +-
- src/mandelbrot.cpp                |  2 +-
- src/mandelbrot.h                  |  2 +-
- src/mandelbrotn.cpp               |  2 +-
- src/mandelbrotn.h                 |  2 +-
- src/optionsdialog.cpp             |  2 +-
- src/optionsdialog.h               |  2 +-
- src/portinglog.txt                | 78 ---------------------------------------
- src/simplehsv.cpp                 |  2 +-
- src/simplehsv.h                   |  2 +-
- src/simplergb.cpp                 |  2 +-
- src/simplergb.h                   |  2 +-
- src/uintconfigentry.cpp           |  2 +-
- src/uintconfigentry.h             |  2 +-
- 37 files changed, 38 insertions(+), 116 deletions(-)
-
 commit dd4a9221780caec502f0cd93eac00cabeed6785d
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Jan 22 14:53:31 2011 +0000
@@ -1141,9 +711,6 @@ Date:   Sat Jan 22 14:53:31 2011 +0000
     
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@929 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-dist | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
 
 commit 7ff667b5fe59214967be16fb04966624d7f243df
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1154,10 +721,6 @@ Date:   Sat Jan 22 14:30:12 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@928 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog |  2 +-
- make-deb         | 20 +++++++++++++-------
- 2 files changed, 14 insertions(+), 8 deletions(-)
-
 commit 7af8f38aead4e3be7b99c6e37a5578f780bc6894
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Jan 22 10:40:19 2011 +0000
@@ -1165,9 +728,6 @@ Date:   Sat Jan 22 10:40:19 2011 +0000
     Packaging script update.
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@922 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-deb | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
 
 commit 0057a328e002fc36a1591cc8f246194c6dc65f67
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1177,9 +737,6 @@ Date:   Fri Jan 21 23:40:28 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@915 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- clean-deb | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 commit abdf6119aee8fa9f39b41a6696b59a869cc5b420
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Fri Jan 21 23:06:51 2011 +0000
@@ -1187,9 +744,6 @@ Date:   Fri Jan 21 23:06:51 2011 +0000
     Fix for building unstable/default distribution packages.
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@908 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- make-deb | 1 +
- 1 file changed, 1 insertion(+)
 
 commit 60bc5332c05c182a80a797ffedcc6e35d50bc735
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1200,33 +754,17 @@ Date:   Fri Jan 21 21:26:09 2011 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@899 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- ChangeLog            | 336 ++-------------------------------------------------
- clean-deb            |   3 +
- debian.conf          |   3 -
- debian/changelog     |   4 +-
- debian/control       |   4 +-
- debian/source/format |   1 +
- make-deb             |  76 ++++++++----
- make-dist            |   6 +-
- 8 files changed, 76 insertions(+), 357 deletions(-)
-
 commit 297ab9a24ffae0155dfb13c86819da19e9893071
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed Jan 12 10:29:02 2011 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@881 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/source/format | 1 -
- 1 file changed, 1 deletion(-)
-
 commit 097d4ecfdf61372046772c1412173d8d14d98d5a
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Jun 19 11:37:22 2010 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@579 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit 42f249c67c6833c2d73bddba4bbf3478348dbaab
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1237,24 +775,11 @@ Date:   Sat Jun 19 11:19:40 2010 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@578 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- ChangeLog            | 49 +++++++++++++++++++++++++++++++++++++++++++++++++
- debian.conf          |  2 +-
- debian/changelog     |  6 ++++--
- debian/control       |  2 +-
- debian/source/format |  1 +
- make-deb             |  4 ++--
- make-dist            |  2 +-
- make-ppa             |  2 +-
- 8 files changed, 60 insertions(+), 8 deletions(-)
-
 commit 0273bff016db24de908b196e5fe3cedc45f64990
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Mon May 31 09:53:52 2010 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@561 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- ChangeLog | 10 ++++++++++
- 1 file changed, 10 insertions(+)
 
 commit 34c7e38e55059a9338803e964a7bd16dc509a7b0
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1265,57 +790,11 @@ Date:   Mon May 31 09:49:24 2010 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@557 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog                  |  4 +--
- make-dist                         |  2 +-
- make-ppa                          |  2 +-
- src/colorschemeinterface.cpp      |  2 +-
- src/colorschemeinterface.h        |  2 +-
- src/configentry.h                 |  2 +-
- src/doubleconfigentry.cpp         |  2 +-
- src/doubleconfigentry.h           |  2 +-
- src/dreibholz1.cpp                |  2 +-
- src/dreibholz1.h                  |  2 +-
- src/fractalalgorithminterface.cpp |  2 +-
- src/fractalalgorithminterface.h   |  2 +-
- src/fractalbuffer.cpp             |  2 +-
- src/fractalbuffer.h               |  2 +-
- src/fractalcalculationthread.cpp  |  2 +-
- src/fractalcalculationthread.h    |  2 +-
- src/fractalgenerator.cpp          |  4 +--
- src/fractalgenerator.h            |  2 +-
- src/fractalgeneratordoc.cpp       |  2 +-
- src/fractalgeneratordoc.h         |  2 +-
- src/fractalgeneratorview.cpp      |  2 +-
- src/fractalgeneratorview.h        |  2 +-
- src/fractgen.cpp                  | 66 +--------------------------------------
- src/imagedisplay.cpp              |  2 +-
- src/imagedisplay.h                |  2 +-
- src/mandelbrot.cpp                |  2 +-
- src/mandelbrot.h                  |  2 +-
- src/mandelbrotn.cpp               |  2 +-
- src/mandelbrotn.h                 |  2 +-
- src/optionsdialog.cpp             |  2 +-
- src/optionsdialog.h               |  2 +-
- src/simplehsv.cpp                 |  2 +-
- src/simplehsv.h                   |  2 +-
- src/simplergb.cpp                 |  2 +-
- src/simplergb.h                   |  2 +-
- src/uintconfigentry.cpp           |  2 +-
- src/uintconfigentry.h             |  2 +-
- 37 files changed, 39 insertions(+), 103 deletions(-)
-
 commit e894bc5dcff1389aafdc21541da2f5a6dd5fce91
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Sep 12 09:00:23 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@465 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- ChangeLog        | 20 ++++++++++++++++++
- debian/changelog |  4 ++--
- make-dist        |  2 +-
- make-ppa         |  2 +-
- src/fractgen.cpp | 63 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 5 files changed, 87 insertions(+), 4 deletions(-)
 
 commit 0a9557c6baa49a88ea1704e67045a06f125be91f
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1323,28 +802,17 @@ Date:   Wed Jun 3 09:47:34 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@253 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- make-ppa | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
 commit 9871d644f2c03ec4cdc95f77cd78d6c6e8530827
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed Jun 3 09:45:52 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@252 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- ChangeLog | 367 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 367 insertions(+)
-
 commit c7cee801db7f24b3fb2b5b28a0d3b34d320605c0
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Wed Jun 3 09:45:24 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@251 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 4 ++--
- make-dist        | 2 +-
- make-ppa         | 6 ++++++
- 3 files changed, 9 insertions(+), 3 deletions(-)
 
 commit 7cfd3c13e88d30142ae0dec64181beefb0fbcbc5
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1355,21 +823,11 @@ Date:   Sat May 2 08:17:45 2009 +0000
     
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@182 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian.conf                  | 2 +-
- debian/changelog             | 4 ++--
- make-dist                    | 2 +-
- src/fractalgeneratorview.cpp | 2 ++
- 4 files changed, 6 insertions(+), 4 deletions(-)
-
 commit 75b20a9b8be931f5412fcb8f69e957400bc28d98
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Apr 25 10:21:03 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@174 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 4 ++--
- make-dist        | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
 
 commit 511061c0009594950adb997f8792c1b984fb1c73
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1377,18 +835,11 @@ Date:   Sat Feb 21 15:02:36 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@173 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog | 6 +++---
- debian/control   | 2 --
- 2 files changed, 3 insertions(+), 5 deletions(-)
-
 commit 165d7fcd5adad1324ddd1f8f151e3aa04be81ceb
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Sat Feb 21 14:38:03 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@172 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/changelog | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
 commit c4f0a1233372750cef1a1071d3b4530c552dd591
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1396,23 +847,11 @@ Date:   Wed Feb 18 08:38:19 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@170 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog             |  2 +-
- src/fractalgenerator.cpp     | 16 ++++++----------
- src/fractalgenerator.h       |  3 +--
- src/fractalgeneratorview.cpp |  2 +-
- src/fractgen.cpp             | 20 ++++++++++++++++++--
- 5 files changed, 27 insertions(+), 16 deletions(-)
-
 commit 0c04a307d4d1f3ebd06ab8068f8b918c104d74eb
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Tue Feb 17 09:30:35 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@169 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- Makefile  | 112 --------------------------------------------------------------
- make-deb  |  49 +++++++++++++++++++++++++--
- make-dist |   2 +-
- 3 files changed, 48 insertions(+), 115 deletions(-)
 
 commit f1966553e6fdd894d3116e938a38e573b9cda24f
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1420,19 +859,11 @@ Date:   Fri Feb 6 10:26:44 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@159 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- debian/changelog | 2 +-
- debian/control   | 2 +-
- make-dist        | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
-
 commit 4643955636a94e0895b2d54a57113b05999a0f44
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Fri Feb 6 09:30:08 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@158 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- debian/watch | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
 
 commit 5661606165700aefeb533c5bee5a847976f8732c
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
@@ -1440,74 +871,8 @@ Date:   Fri Feb 6 08:53:00 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@157 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
 
- Makefile                          | 16 ++++++++--------
- debian/changelog                  |  2 +-
- make-dist                         |  2 +-
- src/colorschemeinterface.cpp      |  2 +-
- src/fractalalgorithminterface.cpp |  2 +-
- src/imagedisplay.cpp              |  2 +-
- 6 files changed, 13 insertions(+), 13 deletions(-)
-
 commit f1a4e302df2af1d0c258010d6d7352e7c812e7de
 Author: dreibh <dreibh@acdd8558-d4fd-0310-b0a5-8cf3c1ec824a>
 Date:   Fri Feb 6 08:36:57 2009 +0000
 
     git-svn-id: https://svn.tdr.iem.uni-due.de:8443/svn/sctp-misc/trunk/fractgen2@155 acdd8558-d4fd-0310-b0a5-8cf3c1ec824a
-
- AUTHORS                           |   1 +
- BUGS                              |   0
- COPYING                           | 674 ++++++++++++++++++++++++++++++++++++++
- ChangeLog                         |   0
- Makefile                          | 112 +++++++
- NEWS                              |   0
- README                            |   0
- clean-deb                         |  25 ++
- debian.conf                       |  10 +
- debian/changelog                  |   5 +
- debian/compat                     |   1 +
- debian/control                    |  16 +
- debian/copyright                  |  27 ++
- debian/fractgen.1                 |  45 +++
- debian/manpages                   |   1 +
- debian/rules                      |   7 +
- debian/watch                      |   3 +
- fg2.pro                           |   2 +
- make-deb                          | 112 +++++++
- make-dist                         |  22 ++
- src/colorschemeinterface.cpp      |  91 +++++
- src/colorschemeinterface.h        |  56 ++++
- src/configentry.h                 |  40 +++
- src/doubleconfigentry.cpp         |  61 ++++
- src/doubleconfigentry.h           |  47 +++
- src/dreibholz1.cpp                | 231 +++++++++++++
- src/dreibholz1.h                  |  51 +++
- src/fractalalgorithminterface.cpp | 122 +++++++
- src/fractalalgorithminterface.h   |  80 +++++
- src/fractalbuffer.cpp             |  76 +++++
- src/fractalbuffer.h               |  69 ++++
- src/fractalcalculationthread.cpp  |  94 ++++++
- src/fractalcalculationthread.h    |  64 ++++
- src/fractalgenerator.cpp          | 387 ++++++++++++++++++++++
- src/fractalgenerator.h            |  90 +++++
- src/fractalgeneratordoc.cpp       | 264 +++++++++++++++
- src/fractalgeneratordoc.h         |  71 ++++
- src/fractalgeneratorview.cpp      | 432 ++++++++++++++++++++++++
- src/fractalgeneratorview.h        | 123 +++++++
- src/fractgen.cpp                  |  36 ++
- src/imagedisplay.cpp              | 214 ++++++++++++
- src/imagedisplay.h                |  97 ++++++
- src/mandelbrot.cpp                |  74 +++++
- src/mandelbrot.h                  |  48 +++
- src/mandelbrotn.cpp               |  64 ++++
- src/mandelbrotn.h                 |  47 +++
- src/optionsdialog.cpp             | 104 ++++++
- src/optionsdialog.h               |  49 +++
- src/portinglog.txt                |  78 +++++
- src/simplehsv.cpp                 |  48 +++
- src/simplehsv.h                   |  44 +++
- src/simplergb.cpp                 |  98 ++++++
- src/simplergb.h                   |  47 +++
- src/src.pro                       |  46 +++
- src/uintconfigentry.cpp           |  61 ++++
- src/uintconfigentry.h             |  47 +++
- 56 files changed, 4714 insertions(+)
