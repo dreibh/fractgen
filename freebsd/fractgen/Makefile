@@ -14,6 +14,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 GNU_CONFIGURE=  yes
 USES=           cmake
+CMAKE_ARGS+=    -DCMAKE_INSTALL_MANDIR=${PREFIX}/man
 USE_QT5=        core gui sql widgets buildtools_build qmake_build
 
 .include <bsd.port.mk>
