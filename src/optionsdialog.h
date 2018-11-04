@@ -41,7 +41,7 @@ class OptionsDialog : public QDialog  {
    QTableWidget*        TableWidget;
    QList<ConfigEntry*>* ConfigEntries;
 
-   public slots:
+   public Q_SLOTS:
    void slotItemChanged(QTableWidgetItem* item);
 };
 

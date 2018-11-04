@@ -5,6 +5,7 @@ Maintainer: Thomas Dreibholz <dreibh@iem.uni-due.de>
 Homepage: http://www.iem.uni-due/~dreibh/fractalgenerator/index.html
 Build-Depends: cmake,
                debhelper (>= 9),
+               extra-cmake-modules,
                libfile-fcntllock-perl,
                qtbase5-dev
 Standards-Version: 4.1.4

@@ -53,7 +53,7 @@ class FractalGeneratorDoc : public QObject
    bool saveModified();
    void closeDocument();
 
-   signals:
+   Q_SIGNALS:
    void updateFileName(const QString& fileName);
 
    private:

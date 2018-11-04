@@ -32,9 +32,9 @@ int main(int argc, char *argv[])
    QApplication application(argc, argv);
    FractalGeneratorApp* fractalGeneratorApp = NULL;
    for(int i = 1;i < argc;i++) {
-      const QString fileName = argv[i];
+      const QString fileName = QString::fromLocal8Bit(argv[i]);
       if( (fractalGeneratorApp == NULL) &&
-          (fileName.right(4) == ".fsf") &&
+          (fileName.right(4) == QStringLiteral(".fsf")) &&
           (QFile::exists(fileName)) ) {
          // Open file provided by argument ...
          fractalGeneratorApp = new FractalGeneratorApp(NULL, fileName);

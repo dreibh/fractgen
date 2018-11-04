@@ -51,7 +51,7 @@ IF (ENABLE_KDE)
    uintconfigentry.cc)
 
    SET_TARGET_PROPERTIES(kfractgen PROPERTIES COMPILE_FLAGS "-DWITH_KDE")
-   TARGET_LINK_LIBRARIES(kfractgen Qt5::Widgets Qt5::Xml Qt5::Core Qt5::PrintSupport KF5::CoreAddons KF5::I18n KF5::WidgetsAddons)
+   TARGET_LINK_LIBRARIES(kfractgen Qt5::Widgets Qt5::Xml Qt5::Core Qt5::PrintSupport KF5::CoreAddons KF5::WidgetsAddons KF5::XmlGui)
    INSTALL(TARGETS             kfractgen
            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
            BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})

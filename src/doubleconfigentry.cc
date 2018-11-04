@@ -26,7 +26,7 @@
 // ###### Constructor #######################################################
 DoubleConfigEntry::DoubleConfigEntry(double* valuePtr, const char* name)
 {
-   EntryName = name;
+   EntryName = QString::fromLocal8Bit(name);
    ValuePtr  = valuePtr;
 }
 

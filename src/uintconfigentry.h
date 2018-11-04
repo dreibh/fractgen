@@ -34,9 +34,9 @@ class UIntConfigEntry : public ConfigEntry  {
    UIntConfigEntry(unsigned int* valuePtr, const char* name);
    ~UIntConfigEntry();
 
-   virtual QString getName() const;
-   virtual QString getValueAsString() const;
-   virtual void setValueFromString(const QString& valueString);
+   virtual QString getName() const override;
+   virtual QString getValueAsString() const override;
+   virtual void setValueFromString(const QString& valueString) override;
 
    private:
    QString       EntryName;
