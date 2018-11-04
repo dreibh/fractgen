@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,10 +23,6 @@
 #ifndef FRACTALGENERATOR_H
 #define FRACTALGENERATOR_H
 
-
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
