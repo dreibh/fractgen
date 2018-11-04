@@ -348,7 +348,7 @@ void FractalGeneratorApp::slotUpdateZoomInPossible()
    const bool zoomInPossible = View->isZoomInPossible();
    ViewZoomIn->setEnabled(zoomInPossible);
    if(zoomInPossible) {
-      statusBar()->showMessage(tr("Click middle mount button or choose \"View -> Zoom In\" to magnify selected area!"));
+      statusBar()->showMessage(tr("Click middle mouse button or choose \"View -> Zoom In\" to magnify selected area!"));
    }
    else {
       statusBar()->showMessage(tr("Ready."));
