@@ -35,16 +35,6 @@ matrix:
       group: travis_latest
       env: DOCKER="ubuntu:xenial" VARIANT="ubuntu" COMPILER_C="clang" COMPILER_CXX="clang++"
 
-    # ====== Ubuntu 14.04 (Trusty Tahr) ====================================
-    - os: linux
-      dist: xenial
-      group: travis_latest
-      env: DOCKER="ubuntu:trusty" VARIANT="ubuntu" COMPILER_C="gcc" COMPILER_CXX="g++"
-    - os: linux
-      dist: xenial
-      group: travis_latest
-      env: DOCKER="ubuntu:trusty" VARIANT="ubuntu" COMPILER_C="clang" COMPILER_CXX="clang++"
-
 
      # ###### Debian Linux ##################################################
 
@@ -127,9 +117,9 @@ install:
     if [ "$TRAVIS_OS_NAME" = "linux" ] ; then
        if [ "$VARIANT" = "ubuntu" ] ; then
           sudo docker exec -t ubuntu-test bash -c "apt-get update"
-          sudo docker exec -t ubuntu-test bash -c "apt-get install -y cmake gcc g++ clang make qtbase5-dev"
+          sudo docker exec -t ubuntu-test bash -c "apt-get install -y cmake gcc g++ clang make qtbase5-dev extra-cmake-modules libfile-fcntllock-perl libkf5coreaddons-dev libkf5widgetsaddons-dev libkf5xmlgui-dev"
        elif [ "$VARIANT" = "fedora" ] ; then
-          sudo docker exec -t ubuntu-test bash -c "dnf install -y cmake gcc gcc-c++ clang make qt5-qtbase-devel"
+          sudo docker exec -t ubuntu-test bash -c "dnf install -y cmake gcc gcc-c++ clang make qt5-qtbase-devel extra-cmake-modules kf5-kxmlgui-devel kf5-kcoreaddons-devel kf5-kwidgetsaddons"
        fi
     fi
 
@@ -138,7 +128,7 @@ script:
   - |
     if [ "$TRAVIS_OS_NAME" = "linux" ] ; then
        sudo docker exec -t ubuntu-test bash -c "echo OPTIONS: CC=$COMPILER_C CXX=$COMPILER_CXX"
-       sudo docker exec -t ubuntu-test bash -c "env CC=$COMPILER_C CXX=$COMPILER_CXX cmake -DCMAKE_INSTALL_PREFIX=/usr ."
+       sudo docker exec -t ubuntu-test bash -c "env CC=$COMPILER_C CXX=$COMPILER_CXX cmake -DCMAKE_INSTALL_PREFIX=/usr -DENABLE_KDE=1 ."
        sudo docker exec -t ubuntu-test bash -c "make VERBOSE=1"
     elif [ "$TRAVIS_OS_NAME" = "osx" ] ; then
        cmake -DCMAKE_INSTALL_PREFIX=/usr
