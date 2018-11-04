@@ -28,12 +28,11 @@
 #include <QtWidgets/QMainWindow>
 #include <QtPrintSupport/QPrinter>
 #ifdef WITH_KDE
-#include <KDE/KXmlGuiWindow>
+#include <KXmlGui/KXmlGuiWindow>
 #endif
 
 class FractalGeneratorDoc;
 class FractalGeneratorView;
-
 
 class FractalGeneratorApp
 #ifndef WITH_KDE
