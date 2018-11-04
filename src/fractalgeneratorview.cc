@@ -58,9 +58,15 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    YScrollBar = new QScrollBar(Qt::Vertical, this);
    Q_CHECK_PTR(YScrollBar);
    connect(YScrollBar, SIGNAL(valueChanged(int)), this, SLOT(slotYScrollBarChange(int)));
+
+ #ifndef WITH_KDE
    ControlLED = new QLabel(this);
    Q_CHECK_PTR(ControlLED);
    ControlLED->setFrameStyle(QFrame::Panel|QFrame::Sunken);
+#else
+   ControlLED = new KLed(QColor(Qt::red), KLed::State::Off, KLed::Look::Raised, KLed::Shape::Circular, this);
+   Q_CHECK_PTR(ControlLED);
+#endif
 
    QGridLayout* layout = new QGridLayout(this);
    Q_CHECK_PTR(layout);
@@ -99,10 +105,6 @@ FractalGeneratorView::~FractalGeneratorView()
 {
    delete Buffer;
    Buffer = NULL;
-   delete GreenLED;
-   GreenLED = NULL;
-   delete RedLED;
-   RedLED = NULL;
 }
 
 
@@ -219,9 +221,13 @@ void FractalGeneratorView::updateScrollBars()
 // ###### Update status LED #################################################
 void FractalGeneratorView::updateLED(const bool busy)
 {
+#ifndef WITH_KDE
    QPixmap pixmap(16, 16);
    pixmap.fill((busy == true) ? Qt::red : Qt::green);
    ControlLED->setPixmap(pixmap);
+#else
+   ControlLED->setState((busy == true) ? KLed::State::On : KLed::State::Off);
+#endif
 }
 
 

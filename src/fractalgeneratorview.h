@@ -37,6 +37,10 @@
 #include <QResizeEvent>
 #include <QEvent>
 
+#ifdef WITH_KDE
+#include <KWidgetsAddons/KLed>
+#endif
+
 
 class FractalGeneratorDoc;
 class FractalGeneratorApp;
@@ -93,9 +97,11 @@ class FractalGeneratorView : public QWidget
 
    QScrollBar*                XScrollBar;
    QScrollBar*                YScrollBar;
+#ifndef WITH_KDE
    QLabel*                    ControlLED;
-   QPixmap*                   GreenLED;
-   QPixmap*                   RedLED;
+#else
+   KLed*                      ControlLED;
+#endif
    ImageDisplay*              Display;
    FractalBuffer*             Buffer;
 
