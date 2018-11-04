@@ -97,11 +97,15 @@ IF (ENABLE_KDE)
    INCLUDE(KDEInstallDirs)
    INCLUDE(KDECMakeSettings)
    INCLUDE(KDECompilerSettings NO_POLICY_SCOPE)
-   INCLUDE(FeatureSummary)
+   INCLUDE(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
    SET(KF5_MIN_VERSION "5.28.0")
-   FIND_PACKAGE(KF5 "5.28.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons I18n)
+   FIND_PACKAGE(KF5 "5.28.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui I18n)
+
 ENDIF()
+
+INCLUDE(FeatureSummary)
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 
 #############################################################################

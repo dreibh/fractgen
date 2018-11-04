@@ -36,7 +36,7 @@ class MandelbrotN : public Mandelbrot  {
    ~MandelbrotN();
 
    virtual unsigned int calculatePoint(const unsigned int x,
-                                       const unsigned int y);
+                                       const unsigned int y) override;
 
    private:
    static MandelbrotN* Registration;

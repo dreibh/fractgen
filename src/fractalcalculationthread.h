@@ -47,7 +47,7 @@ class FractalCalculationThread : public QThread {
    void stop();
 
    private:
-   void run();
+   void run() override;
 
    private:
    QObject*                   Parent;

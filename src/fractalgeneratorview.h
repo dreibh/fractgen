@@ -81,8 +81,8 @@ class FractalGeneratorView : public QWidget
    void updateColorScheme();
 
    protected:
-   void resizeEvent(QResizeEvent* resizeEvent);
-   bool eventFilter(QObject* object, QEvent* event);
+   void resizeEvent(QResizeEvent* resizeEvent) override;
+   bool eventFilter(QObject* object, QEvent* event) override;
 
    private:
    void updateScrollBars();

@@ -35,10 +35,10 @@ class Mandelbrot : public FractalAlgorithmInterface  {
               const char* name       = "Mandelbrot z[i+1]=z[i]^2-c");
    ~Mandelbrot();
 
-   virtual std::complex<double> defaultC1() const;
-   virtual std::complex<double> defaultC2() const;
+   virtual std::complex<double> defaultC1() const override;
+   virtual std::complex<double> defaultC2() const override;
    virtual unsigned int calculatePoint(const unsigned int x,
-                                       const unsigned int y);
+                                       const unsigned int y) override;
 
    private:
    static Mandelbrot* Registration;

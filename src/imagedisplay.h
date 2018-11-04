@@ -72,11 +72,11 @@ class ImageDisplay : public QWidget {
    void zoom();
 
    protected:
-   void resizeEvent(QResizeEvent* resizeEvent);
-   void paintEvent(QPaintEvent* paintEvent);
-   void mousePressEvent(QMouseEvent* mouseEvent);
-   void mouseReleaseEvent(QMouseEvent* mouseEvent);
-   void mouseMoveEvent(QMouseEvent* mouseEvent);
+   void resizeEvent(QResizeEvent* resizeEvent) override;
+   void paintEvent(QPaintEvent* paintEvent) override;
+   void mousePressEvent(QMouseEvent* mouseEvent) override;
+   void mouseReleaseEvent(QMouseEvent* mouseEvent) override;
+   void mouseMoveEvent(QMouseEvent* mouseEvent) override;
 
    private:
    void getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y);
