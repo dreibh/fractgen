@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
 PROJECT(fractgen)
 
 SET(BUILD_MAJOR "2")
@@ -85,10 +85,22 @@ ENDIF()
 #############################################################################
 
 # ###### Qt #################################################################
-OPTION(ENABLE_QT "Include Qt programs" 1)
-IF (ENABLE_QT)
-   SET(CMAKE_AUTOMOC ON)
-   FIND_PACKAGE(Qt5 COMPONENTS Core Xml Widgets PrintSupport REQUIRED)
+SET(CMAKE_AUTOMOC ON)
+FIND_PACKAGE(Qt5 COMPONENTS Core Xml Widgets PrintSupport REQUIRED)
+
+# ###### KDE ################################################################
+OPTION(ENABLE_KDE "Include KDE version" 0)
+IF (ENABLE_KDE)
+   FIND_PACKAGE(ECM "5.35.0" NO_MODULE REQUIRED)
+   SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+   INCLUDE(KDEInstallDirs)
+   INCLUDE(KDECMakeSettings)
+   INCLUDE(KDECompilerSettings NO_POLICY_SCOPE)
+   INCLUDE(FeatureSummary)
+
+   SET(KF5_MIN_VERSION "5.28.0")
+   FIND_PACKAGE(KF5 "5.28.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons I18n)
 ENDIF()
 
 
