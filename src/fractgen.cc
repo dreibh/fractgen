@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
    for(int i = 1;i < argc;i++) {
       const QString fileName = QString::fromLocal8Bit(argv[i]);
       if( (fractalGeneratorApp == NULL) &&
-          (fileName.right(4) == QString::fromLocal8Bit(".fsf")) &&
+          (fileName.right(4) == QStringLiteral(".fsf")) &&
           (QFile::exists(fileName)) ) {
          // Open file provided by argument ...
          fractalGeneratorApp = new FractalGeneratorApp(NULL, fileName);

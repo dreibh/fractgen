@@ -72,7 +72,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    }
 
    // ====== Parse XML document =============================================
-   QDomDocument doc(QString::fromLocal8Bit("XMLFractalSave"));
+   QDomDocument doc(QStringLiteral("XMLFractalSave"));
    QString      errorText;
    int          line, column;
    if(!doc.setContent(&file, false, &errorText, &line, &column)) {
@@ -83,7 +83,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
 
    // ====== Get fractal configuration ======================================
    // ------ Get algorithm --------------------------------------------------
-   const QDomElement algorithmNameField = doc.elementsByTagName(QString::fromLocal8Bit("AlgorithmName")).item(0).toElement();
+   const QDomElement algorithmNameField = doc.elementsByTagName(QStringLiteral("AlgorithmName")).item(0).toElement();
    const QString     algorithmName      = algorithmNameField.firstChild().toText().data();
    unsigned int      algorithmID        = 0;
    FractalAlgorithmInterface* fractalAlgorithm;
@@ -100,7 +100,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    }
 
    // ------ Get color scheme -----------------------------------------------
-   const QDomElement colorSchemeField = doc.elementsByTagName(QString::fromLocal8Bit("ColorSchemeName")).item(0).toElement();
+   const QDomElement colorSchemeField = doc.elementsByTagName(QStringLiteral("ColorSchemeName")).item(0).toElement();
    const QString     colorSchemeName  = colorSchemeField.firstChild().toText().data();
    unsigned int      colorSchemeID    = 0;
    ColorSchemeInterface* colorScheme;
@@ -117,10 +117,10 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    }
 
    // ------ Get C1 and C2 --------------------------------------------------
-   const double c1real = doc.elementsByTagName(QString::fromLocal8Bit("C1Real")).item(0).firstChild().toText().data().toDouble();
-   const double c1imag = doc.elementsByTagName(QString::fromLocal8Bit("C1Imag")).item(0).firstChild().toText().data().toDouble();
-   const double c2real = doc.elementsByTagName(QString::fromLocal8Bit("C2Real")).item(0).firstChild().toText().data().toDouble();
-   const double c2imag = doc.elementsByTagName(QString::fromLocal8Bit("C2Imag")).item(0).firstChild().toText().data().toDouble();
+   const double c1real = doc.elementsByTagName(QStringLiteral("C1Real")).item(0).firstChild().toText().data().toDouble();
+   const double c1imag = doc.elementsByTagName(QStringLiteral("C1Imag")).item(0).firstChild().toText().data().toDouble();
+   const double c2real = doc.elementsByTagName(QStringLiteral("C2Real")).item(0).firstChild().toText().data().toDouble();
+   const double c2imag = doc.elementsByTagName(QStringLiteral("C2Imag")).item(0).firstChild().toText().data().toDouble();
    const std::complex<double> C1(c1real, c1imag);
    const std::complex<double> C2(c2real, c2imag);
    View->changeC1C2(C1, C2);
@@ -132,7 +132,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
                                    C1, C2,*(View->getAlgorithm()->getMaxIterations()));
 
    // ------ Set user options -----------------------------------------------
-   QDomElement userOptionsBranch = doc.elementsByTagName(QString::fromLocal8Bit("Useroptions")).item(0).toElement();
+   QDomElement userOptionsBranch = doc.elementsByTagName(QStringLiteral("Useroptions")).item(0).toElement();
    QDomNode    userOptionsChild  = userOptionsBranch.firstChild();
    while(!userOptionsChild.isNull()) {
       QListIterator<ConfigEntry*> iterator(*(View->getAlgorithm()->getConfigEntries()));
@@ -166,47 +166,47 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
 // ###### Save document #####################################################
 bool FractalGeneratorDoc::saveDocument(const QString& fileName)
 {
-   QDomDocument doc(QString::fromLocal8Bit("XMLFractalSave"));
-   QDomElement root = doc.createElement(QString::fromLocal8Bit("FractalV1"));
+   QDomDocument doc(QStringLiteral("XMLFractalSave"));
+   QDomElement root = doc.createElement(QStringLiteral("FractalV1"));
    doc.appendChild(root);
 
    // Create Algorithm branch
-   QDomElement algorithm = doc.createElement(QString::fromLocal8Bit("Algorithm"));
+   QDomElement algorithm = doc.createElement(QStringLiteral("Algorithm"));
    root.appendChild(algorithm);
 
    // Algorithm Name
-   QDomElement tag = doc.createElement(QString::fromLocal8Bit("AlgorithmName"));
+   QDomElement tag = doc.createElement(QStringLiteral("AlgorithmName"));
    algorithm.appendChild(tag);
 
    QDomText text = doc.createTextNode(QString::fromLocal8Bit(View->getAlgorithm()->getIdentifier()));
    tag.appendChild(text);
 
    // Algorithm C1Real
-   QDomElement C = doc.createElement(QString::fromLocal8Bit("C1Real"));
+   QDomElement C = doc.createElement(QStringLiteral("C1Real"));
    algorithm.appendChild(C);
    text = doc.createTextNode(QString().setNum(View->getAlgorithm()->getC1().real(), 'e', 64));
    C.appendChild(text);
 
    // Algorithm C1Imag
-   C = doc.createElement(QString::fromLocal8Bit("C1Imag"));
+   C = doc.createElement(QStringLiteral("C1Imag"));
    algorithm.appendChild(C);
    text = doc.createTextNode(QString().setNum(View->getAlgorithm()->getC1().imag(), 'e', 64));
    C.appendChild(text);
 
    // Algorithm C2Real
-   C = doc.createElement(QString::fromLocal8Bit("C2Real"));
+   C = doc.createElement(QStringLiteral("C2Real"));
    algorithm.appendChild(C);
    text = doc.createTextNode(QString().setNum(View->getAlgorithm()->getC2().real(), 'e', 64));
    C.appendChild(text);
 
    // Algorithm C2Imag
-   C = doc.createElement(QString::fromLocal8Bit("C2Imag"));
+   C = doc.createElement(QStringLiteral("C2Imag"));
    algorithm.appendChild(C);
    text = doc.createTextNode(QString().setNum(View->getAlgorithm()->getC2().imag(), 'e', 64));
    C.appendChild(text);
 
    // Create UserOptions branch
-   QDomElement optionRoot = doc.createElement(QString::fromLocal8Bit("Useroptions"));
+   QDomElement optionRoot = doc.createElement(QStringLiteral("Useroptions"));
    algorithm.appendChild(optionRoot);
 
    QDomElement option;
@@ -220,16 +220,16 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
    }
 
    // Create ColorScheme branch
-   QDomElement colorScheme = doc.createElement(QString::fromLocal8Bit("ColorScheme"));
+   QDomElement colorScheme = doc.createElement(QStringLiteral("ColorScheme"));
    root.appendChild(colorScheme);
-   tag = doc.createElement(QString::fromLocal8Bit("ColorSchemeName"));
+   tag = doc.createElement(QStringLiteral("ColorSchemeName"));
    colorScheme.appendChild(tag);
 
    text = doc.createTextNode(QString::fromLocal8Bit(View->getColorScheme()->getIdentifier()));
    tag.appendChild(text);
 
    // Resolution
-   QDomElement resolution = doc.createElement(QString::fromLocal8Bit("Resolution"));
+   QDomElement resolution = doc.createElement(QStringLiteral("Resolution"));
    root.appendChild( resolution );
 
    QString CurrentSize;
@@ -242,8 +242,8 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
 
    // Write XML document to file
    QString newFileName = fileName;
-   if(newFileName.right(4) != QString::fromLocal8Bit(".fsf")) {
-      newFileName += QString::fromLocal8Bit(".fsf");
+   if(newFileName.right(4) != QStringLiteral(".fsf")) {
+      newFileName += QStringLiteral(".fsf");
    }
    QFile file(newFileName);
    file.open(QIODevice::WriteOnly);

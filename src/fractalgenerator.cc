@@ -248,7 +248,7 @@ void FractalGeneratorApp::slotHelpAbout()
    QMessageBox::information(this,
       tr("FractalGenerator II"),
       tr("FractalGenerator II\n") +
-      QString::fromLocal8Bit("Copyright (C) 2003-2019 by Thomas Dreibholz"),
+      QStringLiteral("Copyright (C) 2003-2019 by Thomas Dreibholz"),
       tr("Okay"));
 }
 
@@ -270,8 +270,8 @@ void FractalGeneratorApp::slotViewSetImageSize()
                      tr("Please enter new size in the format x*y:"),
                      QLineEdit::Normal, CurrentSize, &ok);
    if((ok) || (!text.isEmpty())) {
-      const unsigned int newX = text.section(QString::fromLocal8Bit("*"), 0, 0).toUInt();
-      const unsigned int newY = text.section(QString::fromLocal8Bit("*"), 1, 1).toUInt();
+      const unsigned int newX = text.section(QStringLiteral("*"), 0, 0).toUInt();
+      const unsigned int newY = text.section(QStringLiteral("*"), 1, 1).toUInt();
 
       if((0 < newX) && (0 < newY)) {
          View->changeSize(newX, newY);
@@ -281,7 +281,7 @@ void FractalGeneratorApp::slotViewSetImageSize()
          QMessageBox::information( this, tr("Image Size"),
          tr("Change to ")
          + QString().setNum(newX)
-         + QString::fromLocal8Bit("*")
+         + QStringLiteral("*")
          + QString().setNum(newY)
          + tr(" failed!"));
       }
@@ -338,7 +338,7 @@ void FractalGeneratorApp::slotUpdateColorScheme()
 // ###### Update file name ##################################################
 void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 {
-   setWindowTitle(fileName + QString::fromLocal8Bit(" - ") + tr("Fractal Generator II"));
+   setWindowTitle(fileName + QStringLiteral(" - ") + tr("Fractal Generator II"));
 }
 
 
