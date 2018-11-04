@@ -69,7 +69,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, QList<ConfigEntry*>* configEntries
    TableWidget->setMinimumSize(560,420);
    layout->addWidget(TableWidget);
 
-   QPushButton* button = new QPushButton("&Okay");
+   QPushButton* button = new QPushButton(tr("&Okay"));
    connect(button, SIGNAL(clicked()), SLOT(accept()));
    layout->addWidget(button);
 }

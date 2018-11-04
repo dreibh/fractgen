@@ -66,7 +66,7 @@ class ImageDisplay : public QWidget {
    inline bool saveImage(QString &path, const char *format) {
        return Image->save(path, format); }
 
-   signals:
+   Q_SIGNALS:
    void offsetUpdate(int newOffsetX, int newOffsetY);
    void selection(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2);
    void zoom();

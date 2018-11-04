@@ -65,7 +65,7 @@ class FractalGeneratorView : public QWidget
    void changeC1C2(std::complex<double> newC1, std::complex<double> newC2);
 
 
-   public slots:
+   public Q_SLOTS:
    void slotXScrollBarChange(int value);
    void slotYScrollBarChange(int value);
    void slotOffsetUpdate(int newOffsetX, int newOffsetY);
@@ -74,7 +74,7 @@ class FractalGeneratorView : public QWidget
    void zoomBack();
    void zoomReset();
 
-   signals:
+   Q_SIGNALS:
    void updateZoomInPossible();
    void updateZoomBackPossible();
    void updateFractalAlgorithm();

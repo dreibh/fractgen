@@ -26,7 +26,7 @@
 // ###### Constructor #######################################################
 UIntConfigEntry::UIntConfigEntry(unsigned int* valuePtr, const char* name)
 {
-   EntryName = name;
+   EntryName = QString::fromLocal8Bit(name);
    ValuePtr  = valuePtr;
 }
 

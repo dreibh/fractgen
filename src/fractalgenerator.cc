@@ -41,7 +41,11 @@
 
 // ###### Constructor #######################################################
 FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileName)
+#ifndef WITH_KDE
    : QMainWindow(parent)
+#else
+   : KXmlGuiWindow(parent)
+#endif
 {
    View = new FractalGeneratorView(this);
    Q_CHECK_PTR(View);
@@ -90,7 +94,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    QStringList                fractalAlgorithmList;
    unsigned int               fractalAlgorithmID = 0;
    while((fractalAlgorithm = FractalAlgorithmInterface::getAlgorithm(fractalAlgorithmID))) {
-      QAction* item = fractalAlgorithmMenu->addAction(fractalAlgorithm->getName());
+      QAction* item = fractalAlgorithmMenu->addAction(QString::fromLocal8Bit(fractalAlgorithm->getName()));
       Q_CHECK_PTR(item);
       fractalAlgorithmGroup->addAction(item);
       item->setData(fractalAlgorithmID);
@@ -108,7 +112,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    QStringList           colorSchemeList;
    unsigned int          colorSchemeID = 0;
    while((colorScheme = ColorSchemeInterface::getColorScheme(colorSchemeID))) {
-      QAction* item = colorSchemeMenu->addAction(colorScheme->getName());
+      QAction* item = colorSchemeMenu->addAction(QString::fromLocal8Bit(colorScheme->getName()));
       Q_CHECK_PTR(item);
       colorSchemeGroup->addAction(item);
       item->setData(colorSchemeID);
@@ -127,9 +131,9 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    Printer.setOrientation(QPrinter::Landscape);
    Printer.setOutputFileName(tr("Fractal.pdf"));
 
-   statusBar()->showMessage("Welcome to Fractal Generator!", 3000);
+   statusBar()->showMessage(tr("Welcome to Fractal Generator!"), 3000);
 
-   if(fileName != "") {
+   if(!fileName.isEmpty()) {
       Document->openDocument(fileName);
    }
 
@@ -180,7 +184,7 @@ void FractalGeneratorApp::slotFileSave()
    bool overwrite = true;
    if(QFile::exists(Document->getFileName())) {
       if(QMessageBox::warning(this, tr("Fractal Generator II"),
-                              tr("Overwrite existing file") + " " + Document->getFileName() + "?",
+                              tr("Overwrite existing file ") + Document->getFileName() + tr("?"),
                               QMessageBox::Save|QMessageBox::Cancel, QMessageBox::Save) == QMessageBox::Cancel) {
          overwrite = false;
       }
@@ -244,7 +248,7 @@ void FractalGeneratorApp::slotHelpAbout()
    QMessageBox::information(this,
       tr("FractalGenerator II"),
       tr("FractalGenerator II\n") +
-         "Copyright (C) 2003-2019 by Thomas Dreibholz",
+      QString::fromLocal8Bit("Copyright (C) 2003-2019 by Thomas Dreibholz"),
       tr("Okay"));
 }
 
@@ -266,8 +270,8 @@ void FractalGeneratorApp::slotViewSetImageSize()
                      tr("Please enter new size in the format x*y:"),
                      QLineEdit::Normal, CurrentSize, &ok);
    if((ok) || (!text.isEmpty())) {
-      const unsigned int newX = text.section("*", 0, 0).toUInt();
-      const unsigned int newY = text.section("*", 1, 1).toUInt();
+      const unsigned int newX = text.section(QString::fromLocal8Bit("*"), 0, 0).toUInt();
+      const unsigned int newY = text.section(QString::fromLocal8Bit("*"), 1, 1).toUInt();
 
       if((0 < newX) && (0 < newY)) {
          View->changeSize(newX, newY);
@@ -275,11 +279,11 @@ void FractalGeneratorApp::slotViewSetImageSize()
       }
       else {
          QMessageBox::information( this, tr("Image Size"),
-         "Change to "
+         tr("Change to ")
          + QString().setNum(newX)
-         + "*"
+         + QString::fromLocal8Bit("*")
          + QString().setNum(newY)
-         + " failed!");
+         + tr(" failed!"));
       }
       ViewZoomBack->setEnabled(View->isZoomBackPossible());
    }
@@ -334,7 +338,7 @@ void FractalGeneratorApp::slotUpdateColorScheme()
 // ###### Update file name ##################################################
 void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 {
-   setWindowTitle(fileName + " - " + tr("Fractal Generator II"));
+   setWindowTitle(fileName + QString::fromLocal8Bit(" - ") + tr("Fractal Generator II"));
 }
 
 

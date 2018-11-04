@@ -27,20 +27,27 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtPrintSupport/QPrinter>
-
+#ifdef WITH_KDE
+#include <KDE/KXmlGuiWindow>
+#endif
 
 class FractalGeneratorDoc;
 class FractalGeneratorView;
 
 
-class FractalGeneratorApp : public QMainWindow
+class FractalGeneratorApp
+#ifndef WITH_KDE
+   : public QMainWindow
+#else
+   : public KXmlGuiWindow
+#endif
 {
    Q_OBJECT
 
    friend class FractalGeneratorView;
 
    public:
-   FractalGeneratorApp(QWidget* parent, const QString& fileName = "");
+   FractalGeneratorApp(QWidget* parent, const QString& fileName = QString());
    ~FractalGeneratorApp();
 
    protected:
@@ -49,7 +56,7 @@ class FractalGeneratorApp : public QMainWindow
    void initDocument();
    void initView();
 
-   public slots:
+   public Q_SLOTS:
    void slotFileOpen();
    void slotFileSave();
    void slotFileExportImage();

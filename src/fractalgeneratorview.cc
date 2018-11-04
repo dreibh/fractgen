@@ -230,12 +230,13 @@ void FractalGeneratorView::print(QPrinter* printer)
 {
    int width  = Display->imageWidth();
    int height = Display->imageHeight();
-   char title[512];
-   snprintf((char*)&title, sizeof(title), "%s  -  c1=%f - %fi; c2=%f - %fi; %d iterations",
+   char titleString[512];
+   snprintf((char*)&titleString, sizeof(titleString), "%s  -  c1=%f - %fi; c2=%f - %fi; %d iterations",
             Algorithm->getName(),
             C1.real(), C1.imag(), C2.real(), C2.imag(), *Algorithm->getMaxIterations());
+   const QString title = QString::fromLocal8Bit(titleString);
 
-   QFont font("Times", 9);
+   QFont font(QString::fromLocal8Bit("Times"), 9);
    font.setBold(true);
    QFontMetrics fontMetrics(font);
    QRect        boundingRect = fontMetrics.boundingRect(title);
@@ -243,7 +244,7 @@ void FractalGeneratorView::print(QPrinter* printer)
    const int textheight = boundingRect.height();
 
    printer->setDocName(title);
-   printer->setCreator("Thomas Dreibholz's Fractal Generator II");
+   printer->setCreator(QString::fromLocal8Bit("Thomas Dreibholz's Fractal Generator II"));
 
    int pagesx = 1;
    int pagesy = 1;
