@@ -91,7 +91,7 @@ FIND_PACKAGE(Qt5 COMPONENTS Core Xml Widgets PrintSupport REQUIRED)
 # ###### KDE ################################################################
 OPTION(ENABLE_KDE "Include KDE version" 0)
 IF (ENABLE_KDE)
-   FIND_PACKAGE(ECM "5.35.0" NO_MODULE REQUIRED)
+   FIND_PACKAGE(ECM "1.0.0" NO_MODULE REQUIRED)
    SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
    INCLUDE(KDEInstallDirs)
