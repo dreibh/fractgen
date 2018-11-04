@@ -6,7 +6,7 @@ Homepage: http://www.iem.uni-due/~dreibh/fractalgenerator/index.html
 Build-Depends: cmake,
                debhelper (>= 9),
                libfile-fcntllock-perl,
-               qtbase5-dev,extra-cmake-modules,libkf5coreaddons-dev,libkf5widgetsaddons-dev
+               qtbase5-dev
 Standards-Version: 4.1.4
 
 Package: fractgen
