@@ -23,10 +23,6 @@
 #ifndef FRACTALGENERATORDOC_H
 #define FRACTALGENERATORDOC_H
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <QObject>
 #include <QString>
 #include <QList>

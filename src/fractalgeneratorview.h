@@ -23,10 +23,6 @@
 #ifndef FRACTALGENERATORVIEW_H
 #define FRACTALGENERATORVIEW_H
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include "imagedisplay.h"
 #include "fractalbuffer.h"
 #include "fractalalgorithminterface.h"

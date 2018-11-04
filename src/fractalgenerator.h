@@ -24,10 +24,6 @@
 #define FRACTALGENERATOR_H
 
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtPrintSupport/QPrinter>
