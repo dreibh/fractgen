@@ -99,8 +99,7 @@ IF (ENABLE_KDE)
    INCLUDE(KDECompilerSettings NO_POLICY_SCOPE)
    INCLUDE(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
-   SET(KF5_MIN_VERSION "5.28.0")
-   FIND_PACKAGE(KF5 "5.28.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui)
+   FIND_PACKAGE(KF5 "5.2.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui)
 ENDIF()
 
 INCLUDE(FeatureSummary)
