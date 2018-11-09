@@ -1,3 +1,10 @@
+fractgen (2.1.5~rc1.0-1ubuntu2) disco; urgency=medium
+
+  * New upstream release.
+  * debian/*: Change of build system to CMake.
+
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Wed, 17 Oct 2018 10:58:59 +0200
+
 fractgen (2.1.4-1ubuntu2) cosmic; urgency=medium
 
   * New upstream release.
