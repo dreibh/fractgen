@@ -42,7 +42,7 @@
 FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    : QWidget(parent)
 {
-   Thread = NULL;
+   Thread = nullptr;
    installEventFilter(this);
    Buffer = new FractalBuffer();
    Q_CHECK_PTR(Buffer);
@@ -104,7 +104,7 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
 FractalGeneratorView::~FractalGeneratorView()
 {
    delete Buffer;
-   Buffer = NULL;
+   Buffer = nullptr;
 }
 
 
@@ -182,7 +182,7 @@ void FractalGeneratorView::slotSelectionUpdate(unsigned int x1, unsigned int y1,
 // ###### Change image size #################################################
 void FractalGeneratorView::changeSize(int X, int Y)
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
       stopCalculation();
    }
    SizeX = X;
@@ -200,7 +200,7 @@ void FractalGeneratorView::changeSize(int X, int Y)
 // ###### Change C1 and C2 ##################################################
 void FractalGeneratorView::changeC1C2(std::complex<double> NewC1, std::complex<double> NewC2)
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
       stopCalculation();
    }
    C1 = NewC1;
@@ -294,7 +294,7 @@ void FractalGeneratorView::print(QPrinter* printer)
 // ###### Start calculation #################################################
 void FractalGeneratorView::startCalculation()
 {
-   if(Thread == NULL) {
+   if(Thread == nullptr) {
       Thread = new FractalCalculationThread(this, Algorithm, ColorScheme, Buffer, Display->image(), ProgStep);
       Q_CHECK_PTR(Thread);
       Thread->start();
@@ -306,9 +306,9 @@ void FractalGeneratorView::startCalculation()
 // ###### Stop calculation ##################################################
 void FractalGeneratorView::stopCalculation()
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
       Thread->stop();
-      while(Thread != NULL) {
+      while(Thread != nullptr) {
         qApp->processEvents();
       }
    }
@@ -326,7 +326,7 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
          Display->update();
          Thread->stop();
          delete Thread;
-         Thread = NULL;
+         Thread = nullptr;
          updateLED(false);
       }
    }
@@ -337,7 +337,7 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
 // ###### Change fractal algorithm ##########################################
 void FractalGeneratorView::changeAlgorithm(int index)
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
       stopCalculation();
    }
    Algorithm = FractalAlgorithmInterface::getAlgorithm(index);
@@ -356,7 +356,7 @@ void FractalGeneratorView::changeAlgorithm(int index)
 // ###### Change color scheme ###############################################
 void FractalGeneratorView::changeColorScheme(int index)
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
       stopCalculation();
    }
    ColorScheme = ColorSchemeInterface::getColorScheme(index);
@@ -368,7 +368,7 @@ void FractalGeneratorView::changeColorScheme(int index)
 // ###### Configuration update -> restart calculation #######################
 void FractalGeneratorView::configChanged()
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
      stopCalculation();
    }
    Buffer->clear();
@@ -382,7 +382,7 @@ void FractalGeneratorView::configChanged()
 // ###### Reset zoom ########################################################
 void FractalGeneratorView::zoomReset()
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
       stopCalculation();
    }
    C1 = Algorithm->defaultC1();
@@ -400,7 +400,7 @@ void FractalGeneratorView::zoomReset()
 void FractalGeneratorView::zoomIn()
 {
    if(Selection) {
-      if(Thread != NULL) {
+      if(Thread != nullptr) {
          stopCalculation();
       }
       zoomList.push_back(std::pair<std::complex<double>, std::complex<double> >(C1, C2));
@@ -425,7 +425,7 @@ void FractalGeneratorView::zoomIn()
 // ###### Zoom back #########################################################
 void FractalGeneratorView::zoomBack()
 {
-   if(Thread != NULL) {
+   if(Thread != nullptr) {
       stopCalculation();
    }
    if(zoomList.size() > 0) {

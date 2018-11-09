@@ -47,7 +47,7 @@ SimpleRGB::SimpleRGB(const char* identifier, const char* name)
 SimpleRGB::~SimpleRGB()
 {
    delete [] ColorMap;
-   ColorMap = NULL;
+   ColorMap = nullptr;
 }
 
 

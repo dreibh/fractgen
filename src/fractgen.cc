@@ -30,21 +30,21 @@
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
-   FractalGeneratorApp* fractalGeneratorApp = NULL;
+   FractalGeneratorApp* fractalGeneratorApp = nullptr;
    for(int i = 1;i < argc;i++) {
       const QString fileName = QString::fromLocal8Bit(argv[i]);
-      if( (fractalGeneratorApp == NULL) &&
+      if( (fractalGeneratorApp == nullptr) &&
           (fileName.right(4) == QStringLiteral(".fsf")) &&
           (QFile::exists(fileName)) ) {
          // Open file provided by argument ...
-         fractalGeneratorApp = new FractalGeneratorApp(NULL, fileName);
+         fractalGeneratorApp = new FractalGeneratorApp(nullptr, fileName);
          fractalGeneratorApp->show();
       }
    }
 
-   if(fractalGeneratorApp == NULL) {
+   if(fractalGeneratorApp == nullptr) {
       // Start new image, if no file has been opened.
-      fractalGeneratorApp = new FractalGeneratorApp(NULL);
+      fractalGeneratorApp = new FractalGeneratorApp(nullptr);
       fractalGeneratorApp->show();
    }
 
