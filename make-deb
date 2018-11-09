@@ -1,7 +1,7 @@
 #!/bin/bash -e
 #
 # Debian Packaging Scripts
-# Copyright (C) 2002-2019 by Thomas Dreibholz
+# Copyright (C) 2002-2018 by Thomas Dreibholz
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -143,9 +143,11 @@ for DISTRIBUTION in $DISTRIBUTIONS ; do
    cp ${UPSTREAM_PACKAGE} ${PACKAGE}_${UPSTREAM_VERSION}.orig.tar.${UPSTREAM_PACKAGE_TYPE}
    cp ${UPSTREAM_PACKAGE} ${PACKAGE}_$OUTPUT_VERSION.orig.tar.${UPSTREAM_PACKAGE_TYPE}
    cp ${UPSTREAM_PACKAGE} ${PACKAGE}_$DEBIAN_VERSION.orig.tar.${UPSTREAM_PACKAGE_TYPE}
-   cp ${UPSTREAM_PACKAGE}.asc ${PACKAGE}_${UPSTREAM_VERSION}.orig.tar.${UPSTREAM_PACKAGE_TYPE}.asc
-   cp ${UPSTREAM_PACKAGE}.asc ${PACKAGE}_$OUTPUT_VERSION.orig.tar.${UPSTREAM_PACKAGE_TYPE}.asc
-   cp ${UPSTREAM_PACKAGE}.asc ${PACKAGE}_$DEBIAN_VERSION.orig.tar.${UPSTREAM_PACKAGE_TYPE}.asc
+   if [ "$SKIP_PACKAGE_SIGNING" != "" -a ! $SKIP_PACKAGE_SIGNING -eq 1 ] ; then
+      cp ${UPSTREAM_PACKAGE}.asc ${PACKAGE}_${UPSTREAM_VERSION}.orig.tar.${UPSTREAM_PACKAGE_TYPE}.asc
+      cp ${UPSTREAM_PACKAGE}.asc ${PACKAGE}_$OUTPUT_VERSION.orig.tar.${UPSTREAM_PACKAGE_TYPE}.asc
+      cp ${UPSTREAM_PACKAGE}.asc ${PACKAGE}_$DEBIAN_VERSION.orig.tar.${UPSTREAM_PACKAGE_TYPE}.asc
+   fi
    rm -rf ${PACKAGE}-${UPSTREAM_VERSION}
    rm -rf ${PACKAGE}-${UPSTREAM_VERSION}.orig
    if [ "${UPSTREAM_PACKAGE_TYPE}" = "gz" ] ; then
