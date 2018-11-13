@@ -58,6 +58,10 @@ MIRRORSITE=$mirror
 APTCACHEHARDLINK=no
 EXTRAPACKAGES=eatmydata
 EATMYDATA=yes
+# Multi-core: set concurrency level. The packaging scripts will handle it properly:
+cores=\\\`getconf _NPROCESSORS_ONLN\\\`
+export CONCURRENCY_LEVEL=\\\${cores}
+export DEB_BUILD_OPTIONS="parallel=\\\${cores}"
 EOF
 "
          sudo docker exec -t ubuntu-test bash -c "cat /etc/pbuilderrc"
@@ -70,7 +74,7 @@ EOF
 apt install -y software-properties-common
 apt-add-repository -sy ppa:dreibh/ppa
 apt-get update
-apt-add-repository "deb http://archive.ubuntu.com/ubuntu/ ${distribution}-backports main restricted universe multiverse"
+apt-add-repository \"deb http://archive.ubuntu.com/ubuntu/ ${distribution}-backports main restricted universe multiverse\"
 apt-get update || true
 EOF
 "
