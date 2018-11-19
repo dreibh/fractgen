@@ -34,5 +34,5 @@ make DESTDIR=%{buildroot} install
 %{_datadir}/fractgen/examples/*.fsf
 
 %changelog
-* Wed Aug 09 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> 2.0.16
+* Wed Aug 09 2018 Thomas Dreibholz <dreibh@iem.uni-due.de> 2.0.16
 - Created RPM package.
