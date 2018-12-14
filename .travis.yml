@@ -245,6 +245,7 @@ matrix:
      group: travis_latest
      env:
       - TOOL="coverity"
+      - VARIANT="ubuntu"
       - COVERITY_PROJECT="dreibh%2Ffractgen"
       - COVERITY_SCAN_NOTIFICATION_EMAIL="dreibh@simula.no"
       - COVERITY_SCAN_BRANCH="coverity_scan"
