@@ -2,17 +2,19 @@ Source: fractgen
 Section: graphics
 Priority: optional
 Maintainer: Hugo Lefeuvre <hle@debian.org>
-Build-Depends: debhelper (>= 11),
+Build-Depends: cmake,
+               debhelper (>= 11),
                qtbase5-dev,
                qtchooser
-Standards-Version: 4.1.5
+Standards-Version: 4.3.0
 Homepage: https://www.uni-due.de/~be0001/fractalgenerator/
 Vcs-Git: https://salsa.debian.org/hle/fractgen.git
 Vcs-Browser: https://salsa.debian.org/hle/fractgen
 
 Package: fractgen
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
 Description: Extensible Fractal Generator
  FractalGenerator is a Qt-based program to generate fractal images (e.g.
  Mandelbrot set). The size of the calculated images is only limited by the
