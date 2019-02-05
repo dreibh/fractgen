@@ -5,6 +5,8 @@ fractgen (2.1.4-1) unstable; urgency=medium
     - Bump Standards-Version to 4.3.0.
     - Add new cmake build dependency.
   * Use manpage from src/ and remove debian/ one.
+  * Stop installing examples manually, new build system cmake is
+    handling it automatically.
   * Update copyright years.
 
  -- Hugo Lefeuvre <hle@debian.org>  Sat, 02 Feb 2019 14:46:46 +0100
