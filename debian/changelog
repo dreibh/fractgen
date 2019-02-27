@@ -3,7 +3,7 @@ fractgen (2.1.5~rc1.0-1ubuntu2) disco; urgency=medium
   * New upstream version.
   * debian/control: updated standards version.
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Fri, 09 Nov 2018 08:08:08 +0200
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Wed, 27 Feb 2019 08:08:08 +0800
 
 fractgen (2.1.4-1ubuntu2) cosmic; urgency=medium
 
