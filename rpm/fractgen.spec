@@ -31,6 +31,7 @@ make DESTDIR=%{buildroot} install
 %files
 %{_bindir}/fractgen
 %{_datadir}/fractgen/examples/*.fsf
+%{_mandir}/man1/fractgen.1.gz
 
 
 %changelog
