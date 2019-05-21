@@ -1,3 +1,510 @@
+commit c61a89c3e77e748afe825a02b3b28c47a84731f0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed May 15 16:24:18 2019 +0200
+
+    Updated Travis CI configuration.
+
+commit 4ed4cebd9f30b07aec9a382691939fc1059da093
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 6 13:31:53 2019 +0200
+
+    Updated script.
+
+commit e18aeef5be074e95b5ea92368b09ce6e6d914cae
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 6 13:25:47 2019 +0200
+
+    Updated build script.
+
+commit cd75f4c9fde250f7b841d5752869a19d41e090cf
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Apr 9 13:59:07 2019 +0200
+
+    A fix.
+
+commit 48b0fc3a9aa1efc6b049f44ffa494af8bc7a846d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Apr 9 12:53:12 2019 +0200
+
+    Improved CI scripts.
+
+commit cbbfe7af270913f72a38a6ed7142feb407908d44
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Mar 8 10:47:06 2019 +0100
+
+    Added missing manpage.
+
+commit 450203b0ed655508388b0c80b8cc668b1a45f44c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Mar 5 16:51:43 2019 +0100
+
+    Updated CI script.
+
+commit 01656ecdac71dde124a1f5974076b09232981494
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 27 15:41:48 2019 +0100
+
+    Updated packaging files.
+
+commit 66b2d9dfababc72eb43791dd7b3108e18762cd49
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Feb 22 15:57:15 2019 +0100
+
+    Improved CI script.
+
+commit 3bcfa3f8b381f908b7affb0deff791008f716f81
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 20 17:20:08 2019 +0100
+
+    Updated CI scripts.
+
+commit 3a825e8c9dbb4de6ee2ac7fa994b54a9faf17cfe
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 20 16:46:25 2019 +0100
+
+    Build script updates.
+
+commit 5dfcc2d5cc2c1f20c76fe84eed0d9a2457a2fc77
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Jan 27 16:24:24 2019 +0100
+
+    Updated build scripts.
+
+commit 85430e84020c5c890473f55449c63ae2068e05af
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Jan 16 15:30:05 2019 +0100
+
+    Updated build scripts.
+
+commit ef5d5456153d3e78daf4dbdc2087909fd53eb4e9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Dec 17 10:01:07 2018 +0100
+
+    Improved Travis CI configuration.
+
+commit 4a1355a93c02c2266e3e0fa034523f56f128f13d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Dec 15 12:41:23 2018 +0100
+
+    Build script fix.
+
+commit 874a1a137d1c71e6941f69d7c5c1961d06bf88af
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 14 17:05:13 2018 +0100
+
+    Improved Travis CI configuration.
+
+commit 303221a689c16969bc48c96b39aa6aac252b31ff
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 14 16:34:33 2018 +0100
+
+    Minor update.
+
+commit 17410d46fd5f4248b1ecf38d9042b303aed235c3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 14 16:32:46 2018 +0100
+
+    A fix.
+
+commit fa32aaa2e97cab02caf33f7507c5e01d0f05264e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 14 13:16:16 2018 +0100
+
+    Updated build scripts.
+
+commit 7e263f49192fe86a15221e23896a2fa4ba36c043
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 14 13:14:12 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit 4695927af4306e4d60f82d9e978fe1d92c2d662c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 13 09:59:39 2018 +0100
+
+    A fix.
+
+commit 827b41e67f100847d8e2994b39cb9cd45d2a3407
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 12 12:16:30 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit c373bf68a0efeb4d33276dec315ad6d015a924d2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 12 12:14:04 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit 350d6f3a59011261bae079aa425d8e6544e10d25
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 12 11:10:27 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit 0f502a1603447912d9e36ebc1750316f305b4222
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 12 10:42:22 2018 +0100
+
+    Updated build scripts.
+
+commit 1f64a2192e9a28ccff26d072bd3244d222400660
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 11 21:12:04 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit b9a4361dd5a33813fe2b76d07bfd29c616c246ab
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 11 20:59:14 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit 6afd471ef9a0a3bbfaad49cae6ac48cc5383db3e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 11 20:50:46 2018 +0100
+
+    Improved build scripts.
+
+commit e28a1f7bd4b39e18cba018707df5f25d8b0cffab
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 5 23:40:50 2018 +0100
+
+    Build script updates.
+
+commit 85e9104523442b2bdd74e4b9acb1a2469cc4b717
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Dec 3 21:12:34 2018 +0100
+
+    Updated build scripts.
+
+commit 7d9a138e8acbbb8b81baf7a33d008bd9fcaa6c6e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 28 23:16:22 2018 +0100
+
+    Build script update.
+
+commit 84910a3b3ab0b87280ebe62de93f0368cd3ba127
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 27 21:24:55 2018 +0100
+
+    Improved build script.
+
+commit f7e4d27835bbb39876332c0bb38c7965f68f36c8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 27 17:15:49 2018 +0100
+
+    Updated build scripts.
+
+commit 37e8b28db0a178b176edbb0b55a362ce9ce3062b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 24 10:30:57 2018 +0100
+
+    Updated build script.
+
+commit df72b54e05a6000b8efa7d71a51e5399b0c18b66
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 21 21:19:20 2018 +0100
+
+    Build script updates.
+
+commit a3edeb2d9e26a18667f360d91dc8f10df5f15293
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 20 17:30:17 2018 +0100
+
+    Added script.
+
+commit 887dff4344d9f9711ef7c7517c889418a9185d23
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 20 14:45:44 2018 +0100
+
+    Updated build scripts.
+
+commit bba8a8ebbe50e34177330b2698447177eb63452b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 20 10:39:22 2018 +0100
+
+    Another build script update.
+
+commit 106f4da981f55ee86e78dd1da534c8e4a788a063
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 20 10:37:28 2018 +0100
+
+    Updated build scripts.
+
+commit 6832c0349b66ebc1eb2663a82740345ce7fc9236
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 19 19:18:44 2018 +0100
+
+    A fix.
+
+commit 144ad279eab72a3cde7ad8717034ae4e30b037b3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 19 18:01:41 2018 +0100
+
+    Added missing file.
+
+commit 449dd4ce450c8a5bb2f32db4d94b0d067b034a70
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 19 17:11:04 2018 +0100
+
+    Another fix.
+
+commit a9d1de72f8153bf4561ea987e4f2a39c9e1691ed
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 19 16:35:33 2018 +0100
+
+    Build script updates.
+
+commit 4a4308775ca14d4a380da27b1a95942bd721c8d1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 19 10:50:52 2018 +0100
+
+    Dependency update.
+
+commit 6f8266a60c312d90c363331ccee11bed02dd93e9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 19 10:28:37 2018 +0100
+
+    Require CMake 3.0.2, to avoid inconsistent CMake behaviour in old versions.
+
+commit d58251b1623f5bd77ae35abe051efe039949d2a6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 18 15:53:34 2018 +0100
+
+    Setting language in CMakeLists.txt.
+
+commit a83fdd2e5084fe0a81e4f3a998075f6640100d7d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 16 21:54:38 2018 +0100
+
+    Updated build scripts.
+
+commit 58825cce07e3c115dabcf62f65575c51abc6016d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 14 17:56:39 2018 +0100
+
+    Improved build scripts.
+
+commit a4f0b4039965dbaf98354321e12ce8645897c729
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 13 13:09:13 2018 +0100
+
+    Updated build script.
+
+commit 59dee717218dc472abb3671e38682dab33ed50b5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 13 11:48:37 2018 +0100
+
+    Updated packaging file.
+
+commit 0ef9b236b1db39516e4609f142514428f5c1a24a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 13 11:48:33 2018 +0100
+
+    Updated script.
+
+commit 17cf0a5ea2d6cf58e5237c8a3ecf2e8e65e7fd64
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 13 11:23:53 2018 +0100
+
+    Updated scripts.
+
+commit e9c3984ad0f62058d6684d9b7928b744edf7cd7c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 12 10:03:22 2018 +0100
+
+    A fix.
+
+commit 1ebb31d25d44fc9e927dce630895e00cea17cceb
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 11 21:48:13 2018 +0100
+
+    A fix.
+
+commit 5ac1540c9403cad991ac931b3f4dac9d285f7fa0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 11 21:10:30 2018 +0100
+
+    A fix.
+
+commit f8ba79df4edbefe635d23778d7824879202dd749
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 11 20:41:22 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit 8e15c4773fd54e5cf615b30ad207165a898c3c33
+Merge: 807bf8b 8d18006
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 11 19:33:54 2018 +0100
+
+    Merge branch 'master' into dreibh/travis-ci
+
+commit 807bf8bd9a93b8a1d892db1cdb5292f010818808
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 9 14:36:59 2018 +0100
+
+    A fix.
+
+commit 45c6490143f5a3d3131e91a4ab0b274dd28cebad
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 9 14:27:38 2018 +0100
+
+    Updated packaging files.
+
+commit 765220d57481bc9b537fedb1d10f21d08cd5c97b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 9 13:39:11 2018 +0100
+
+    Build script updates.
+
+commit a387e7a5c585e77f0b12a6160479f2dfaf437fe0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 9 12:57:01 2018 +0100
+
+    Improved CMakeLists.txt.
+
+commit 3d8f445a029779eacbeda203866466fed8d8b537
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 9 11:10:49 2018 +0100
+
+    NULL -> nullptr.
+
+commit 0c8aa04d9fc24d215a66de7e8b42e4f44c8df71e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 16:31:01 2018 +0100
+
+    Another fix.
+
+commit a8121ce788467dd4a6dd704b07a59d0b1a827550
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 16:26:51 2018 +0100
+
+    A fix.
+
+commit a096c0a7ef48cf7bae2390d7f2a80a5b10e03625
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 16:11:17 2018 +0100
+
+    Updated Travis CI configuration.
+
+commit 8d18006b28677ea9d0257d4c814398998ea624dd
+Merge: 7b1f638 375a9c4
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 14:07:34 2018 +0100
+
+    Merge branch 'dreibh/kde'
+
+commit 375a9c4c544ee943adebcb85cd49c3464979fdb5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 14:05:06 2018 +0100
+
+    Updated packaging files.
+
+commit 858956e9864a39e52836cf5c4165bad71214a2d1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 14:04:56 2018 +0100
+
+    Using KLed in KDE.
+
+commit 9cf1894739717d69205e4e27457248aa8dc04539
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 13:36:20 2018 +0100
+
+    Now building with KDE.
+
+commit 6ea6ffab1440599774820599009188bc6a582c71
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 13:36:12 2018 +0100
+
+    Some fixes.
+
+commit 9951cd4f2464bc320aa3dc205cc86fee5f63805d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 13:21:55 2018 +0100
+
+    Fixed some more compiler warnings with KDE options.
+
+commit 7b1f638cd0df0a94bbe8271b2ea0191f0bca7d71
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 13:16:42 2018 +0100
+
+    A fix.
+
+commit 09cf85635ed75127ac14c559f25a1977dbdf877a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 13:12:22 2018 +0100
+
+    Fixed typo.
+
+commit 8d971f9f11a6b5f9aba13ca6be3e4bf7664a15f7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 13:12:22 2018 +0100
+
+    Fixed typo.
+
+commit d29ccbc681568881274e7b921d5b7ded46144f08
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 13:10:53 2018 +0100
+
+    Fixed compiler warnings with KDE options.
+
+commit 23d2fa42c5c9d3a354d6a9e0f57fb4f417b1a144
+Merge: fa60ab7 9d3a802
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 12:11:33 2018 +0100
+
+    Merge branch 'master' into dreibh/kde
+
+commit 9d3a802f6f51cf40f3ad9cec8df6eafc63b12149
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 12:10:51 2018 +0100
+
+    Removed unused code.
+
+commit bccdb89cd563c66fde02743b75afc839358ea2fe
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 12:08:43 2018 +0100
+
+    Header updates.
+
+commit 6544584d839021e6f1179d092a951af359077e17
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 12:03:25 2018 +0100
+
+    Updated build scripts.
+
+commit fa60ab7afba5ceda06ec6fc2b8d1a125f4eecf15
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 12:03:58 2018 +0100
+
+    Script update.
+
+commit 28c1491ee3935aec3bed30a71ce4a17f006fc564
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 4 12:03:25 2018 +0100
+
+    Updated build scripts.
+
+commit da3be86af8f4a14699ee975c7d97dd494d013cd1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Oct 20 13:21:43 2018 +0200
+
+    Removed unnecessary dependency.
+
+commit 176a654b63e7645ae1b1090041747d7dbdcecd07
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 19:14:36 2018 +0200
+
+    Updated FreeBSD packaging files.
+
+commit 357b1ccdde410ca361ee49f2b98c5da0e2041ccc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Oct 17 17:32:07 2018 +0200
+
+    Updated ChangeLog.
+
 commit b029f4366610683de133125191371afc8bd5c2ca
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Wed Oct 17 17:29:12 2018 +0200
