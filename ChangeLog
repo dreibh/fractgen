@@ -1,3 +1,39 @@
+commit b065dd54d80a5cea7c20ebb32e38e343b08ee9a4
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 26 12:09:14 2019 +0200
+
+    Using Tar/XZ for archive.
+
+commit 08670a7d7bea8a5618027187affe6b25c825ac18
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 27 21:35:44 2019 +0200
+
+    CI script update.
+
+commit 863cdda3b5de84dd2ee245332143939f0264bc64
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 27 21:34:54 2019 +0200
+
+    Build script update.
+
+commit e94393a975256add39460ca1913ee74e30ee5124
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Jun 24 17:24:16 2019 +0200
+
+    Updated build scripts.
+
+commit 787771134eb7cd140f11654798a975a349805827
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 13 12:56:13 2019 +0200
+
+    Improved build script.
+
+commit 68f007fa05f50c3db220a1f47d5a9bf276b5d0ed
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue May 21 16:51:34 2019 +0200
+
+    New release 2.1.5.
+
 commit 9cd60cbd1942145effd9dae515fbc8bf5d035a6f
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Tue May 21 16:40:24 2019 +0200
