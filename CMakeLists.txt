@@ -1,9 +1,9 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(fractgen)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0.2)
+PROJECT(fractgen LANGUAGES C CXX)
 
 SET(BUILD_MAJOR "2")
 SET(BUILD_MINOR "1")
-SET(BUILD_PATCH "4")
+SET(BUILD_PATCH "5")
 SET(BUILD_VERSION ${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH})
 
 
@@ -11,14 +11,8 @@ SET(BUILD_VERSION ${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH})
 # INSTALLATION_DIRECTORIES
 #############################################################################
 
-SET(CMAKE_INSTALL_BINDIR        "bin"       CACHE PATH "user executables [PREFIX/bin]")
-SET(CMAKE_INSTALL_SBINDIR       "sbin"      CACHE PATH "system admin executables [EPREFIX/sbin]")
-SET(CMAKE_INSTALL_DATADIR       "share"     CACHE PATH "read-only architecture-independent data [PREFIX/share]")
-SET(CMAKE_INSTALL_SYSCONFDIR    "etc"       CACHE PATH "read-only single-machine data [PREFIX/etc]")
-SET(CMAKE_INSTALL_LOCALSTATEDIR "var"       CACHE PATH "modifiable single-machine data [PREFIX/var]")
-SET(CMAKE_INSTALL_LIBDIR        "lib"       CACHE PATH "object code libraries [PREFIX/lib]")
-SET(CMAKE_INSTALL_INCLUDEDIR    "include"   CACHE PATH "read-only includes [PREFIX/include]")
-SET(CMAKE_INSTALL_MANDIR        "share/man" CACHE PATH "man documentation [PREFIX/share/man]")
+# See: https://cmake.org/cmake/help/v3.0/module/GNUInstallDirs.html
+INCLUDE(GNUInstallDirs)
 
 
 #############################################################################
@@ -85,11 +79,25 @@ ENDIF()
 #############################################################################
 
 # ###### Qt #################################################################
-OPTION(ENABLE_QT "Include Qt programs" 1)
-IF (ENABLE_QT)
-   SET(CMAKE_AUTOMOC ON)
-   FIND_PACKAGE(Qt5 COMPONENTS Core Xml Widgets PrintSupport REQUIRED)
+SET(CMAKE_AUTOMOC ON)
+FIND_PACKAGE(Qt5 COMPONENTS Core Xml Widgets PrintSupport REQUIRED)
+
+# ###### KDE ################################################################
+OPTION(ENABLE_KDE "Include KDE version" 0)
+IF (ENABLE_KDE)
+   FIND_PACKAGE(ECM "1.0.0" NO_MODULE REQUIRED)
+   SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
+
+   INCLUDE(KDEInstallDirs)
+   INCLUDE(KDECMakeSettings)
+   INCLUDE(KDECompilerSettings NO_POLICY_SCOPE)
+   INCLUDE(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
+
+   FIND_PACKAGE(KF5 "5.2.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui)
 ENDIF()
+
+INCLUDE(FeatureSummary)
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 
 #############################################################################

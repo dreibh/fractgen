@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,21 +30,21 @@
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
-   FractalGeneratorApp* fractalGeneratorApp = NULL;
+   FractalGeneratorApp* fractalGeneratorApp = nullptr;
    for(int i = 1;i < argc;i++) {
-      const QString fileName = argv[i];
-      if( (fractalGeneratorApp == NULL) &&
-          (fileName.right(4) == ".fsf") &&
+      const QString fileName = QString::fromLocal8Bit(argv[i]);
+      if( (fractalGeneratorApp == nullptr) &&
+          (fileName.right(4) == QStringLiteral(".fsf")) &&
           (QFile::exists(fileName)) ) {
          // Open file provided by argument ...
-         fractalGeneratorApp = new FractalGeneratorApp(NULL, fileName);
+         fractalGeneratorApp = new FractalGeneratorApp(nullptr, fileName);
          fractalGeneratorApp->show();
       }
    }
 
-   if(fractalGeneratorApp == NULL) {
+   if(fractalGeneratorApp == nullptr) {
       // Start new image, if no file has been opened.
-      fractalGeneratorApp = new FractalGeneratorApp(NULL);
+      fractalGeneratorApp = new FractalGeneratorApp(nullptr);
       fractalGeneratorApp->show();
    }
 

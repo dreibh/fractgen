@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 #include <string.h>
 
 
-QList<ColorSchemeInterface*>* ColorSchemeInterface::ColorSchemeList = NULL;
+QList<ColorSchemeInterface*>* ColorSchemeInterface::ColorSchemeList = nullptr;
 bool                          ColorSchemeInterface::Updated         = false;
 
 
@@ -36,7 +36,7 @@ ColorSchemeInterface::ColorSchemeInterface(const char* identifier, const char* n
    Identifier = identifier;
    Name       = name;
 
-   if(ColorSchemeInterface::ColorSchemeList == NULL) {
+   if(ColorSchemeInterface::ColorSchemeList == nullptr) {
       ColorSchemeInterface::ColorSchemeList = new QList<ColorSchemeInterface*>;
    }
    ColorSchemeList->append(this);
@@ -72,7 +72,7 @@ ColorSchemeInterface* ColorSchemeInterface::getColorScheme(const unsigned int in
       qSort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
       Updated = false;
    }
-   return(ColorSchemeList->value(index, NULL));
+   return(ColorSchemeList->value(index, nullptr));
 }
 
 
@@ -86,5 +86,5 @@ ColorSchemeInterface* ColorSchemeInterface::getColorSchemeByIdentifier(const cha
          return(colorScheme);
       }
    }
-   return(NULL);
+   return(nullptr);
 }

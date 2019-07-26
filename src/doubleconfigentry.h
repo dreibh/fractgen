@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,9 +34,9 @@ class DoubleConfigEntry : public ConfigEntry  {
    DoubleConfigEntry(double* valuePtr, const char* name);
    ~DoubleConfigEntry();
 
-   virtual QString getName() const;
-   virtual QString getValueAsString() const;
-   virtual void setValueFromString(const QString& valueString);
+   virtual QString getName() const override;
+   virtual QString getValueAsString() const override;
+   virtual void setValueFromString(const QString& valueString) override;
 
    private:
    QString EntryName;

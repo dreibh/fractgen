@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 2.1.4
+Version: 2.1.5
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
@@ -12,7 +12,6 @@ BuildRequires: cmake
 BuildRequires: qt5-qtbase-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
-%define _unpackaged_files_terminate_build 0
 
 %description
 FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals. The image size is only limited by virtual memory. It is possible to zoom into images. Image parameters can be saved in XML files and loaded from XML files. Calculated images can be exported as PNG files. The intention of this program is to generate graphics to be post-processed by other image tools, e.g. in order to generate nice screen backgrounds or book covers.
@@ -32,7 +31,11 @@ make DESTDIR=%{buildroot} install
 %files
 %{_bindir}/fractgen
 %{_datadir}/fractgen/examples/*.fsf
+%{_mandir}/man1/fractgen.1.gz
+
 
 %changelog
-* Wed Aug 09 2017 Thomas Dreibholz <dreibh@iem.uni-due.de> 2.0.16
+* Tue May 21 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.5
+- New upstream release.
+* Wed Aug 09 2018 Thomas Dreibholz <dreibh@iem.uni-due.de> 2.0.16
 - Created RPM package.
