@@ -5,7 +5,7 @@ Summary: Fractal Generator
 Group: Applications/Multimedia
 License: GPLv3
 URL: https://www.uni-due.de/~be0001/fractalgenerator/
-Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{version}.tar.gz
+Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{version}.tar.xz
 
 AutoReqProv: on
 BuildRequires: cmake
