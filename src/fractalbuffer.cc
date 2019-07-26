@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
 // ###### Constructor #######################################################
 FractalBuffer::FractalBuffer()
 {
-   Buffer     = NULL;
+   Buffer     = nullptr;
    BufferSize = 0;
    Width      = 0;
    Height     = 0;
@@ -53,14 +53,14 @@ bool FractalBuffer::reset(const unsigned int width, const unsigned int height)
    BufferSize = width * height;
    if(BufferSize > 0) {
       Buffer = new unsigned int[BufferSize];
-      if(Buffer == NULL) {
+      if(Buffer == nullptr) {
          reset(0,0);
          return(false);
       }
       clear();
    }
    else {
-      Buffer = NULL;
+      Buffer = nullptr;
    }
    return(true);
 }

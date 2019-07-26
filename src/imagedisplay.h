@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,17 +66,17 @@ class ImageDisplay : public QWidget {
    inline bool saveImage(QString &path, const char *format) {
        return Image->save(path, format); }
 
-   signals:
+   Q_SIGNALS:
    void offsetUpdate(int newOffsetX, int newOffsetY);
    void selection(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2);
    void zoom();
 
    protected:
-   void resizeEvent(QResizeEvent* resizeEvent);
-   void paintEvent(QPaintEvent* paintEvent);
-   void mousePressEvent(QMouseEvent* mouseEvent);
-   void mouseReleaseEvent(QMouseEvent* mouseEvent);
-   void mouseMoveEvent(QMouseEvent* mouseEvent);
+   void resizeEvent(QResizeEvent* resizeEvent) override;
+   void paintEvent(QPaintEvent* paintEvent) override;
+   void mousePressEvent(QMouseEvent* mouseEvent) override;
+   void mouseReleaseEvent(QMouseEvent* mouseEvent) override;
+   void mouseMoveEvent(QMouseEvent* mouseEvent) override;
 
    private:
    void getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y);

@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -69,7 +69,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, QList<ConfigEntry*>* configEntries
    TableWidget->setMinimumSize(560,420);
    layout->addWidget(TableWidget);
 
-   QPushButton* button = new QPushButton("&Okay");
+   QPushButton* button = new QPushButton(tr("&Okay"));
    connect(button, SIGNAL(clicked()), SLOT(accept()));
    layout->addWidget(button);
 }

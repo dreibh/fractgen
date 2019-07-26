@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,10 +23,6 @@
 #ifndef FRACTALGENERATORVIEW_H
 #define FRACTALGENERATORVIEW_H
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-
 #include "imagedisplay.h"
 #include "fractalbuffer.h"
 #include "fractalalgorithminterface.h"
@@ -40,6 +36,10 @@
 #include <QtPrintSupport/QPrinter>
 #include <QResizeEvent>
 #include <QEvent>
+
+#ifdef WITH_KDE
+#include <KWidgetsAddons/KLed>
+#endif
 
 
 class FractalGeneratorDoc;
@@ -69,7 +69,7 @@ class FractalGeneratorView : public QWidget
    void changeC1C2(std::complex<double> newC1, std::complex<double> newC2);
 
 
-   public slots:
+   public Q_SLOTS:
    void slotXScrollBarChange(int value);
    void slotYScrollBarChange(int value);
    void slotOffsetUpdate(int newOffsetX, int newOffsetY);
@@ -78,15 +78,15 @@ class FractalGeneratorView : public QWidget
    void zoomBack();
    void zoomReset();
 
-   signals:
+   Q_SIGNALS:
    void updateZoomInPossible();
    void updateZoomBackPossible();
    void updateFractalAlgorithm();
    void updateColorScheme();
 
    protected:
-   void resizeEvent(QResizeEvent* resizeEvent);
-   bool eventFilter(QObject* object, QEvent* event);
+   void resizeEvent(QResizeEvent* resizeEvent) override;
+   bool eventFilter(QObject* object, QEvent* event) override;
 
    private:
    void updateScrollBars();
@@ -97,9 +97,11 @@ class FractalGeneratorView : public QWidget
 
    QScrollBar*                XScrollBar;
    QScrollBar*                YScrollBar;
+#ifndef WITH_KDE
    QLabel*                    ControlLED;
-   QPixmap*                   GreenLED;
-   QPixmap*                   RedLED;
+#else
+   KLed*                      ControlLED;
+#endif
    ImageDisplay*              Display;
    FractalBuffer*             Buffer;
 

@@ -1,8 +1,7 @@
-#!/bin/sh
-# $Id$
+#!/bin/bash -e
 #
-# SED Script
-# Copyright (C) 2002-2019 by Thomas Dreibholz
+# Travis CI Scripts
+# Copyright (C) 2018-2019 by Thomas Dreibholz
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,7 +18,7 @@
 #
 # Contact: dreibh@iem.uni-due.de
 
-while [ "$1" != "" ] ; do
-   sed -f UpdateDoc1.sed $1 >/tmp/sedtemp && cp /tmp/sedtemp $1 && rm -f /tmp/sedtemp
-   shift
-done
+
+. `dirname $0`/get-container
+sudo docker exec -it ${CONTAINER} env LANG=C.UTF-8 /bin/bash
+exit 1

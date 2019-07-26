@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,7 +47,7 @@ SimpleRGB::SimpleRGB(const char* identifier, const char* name)
 SimpleRGB::~SimpleRGB()
 {
    delete [] ColorMap;
-   ColorMap = NULL;
+   ColorMap = nullptr;
 }
 
 

@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 #include "uintconfigentry.h"
 
 
-QList<FractalAlgorithmInterface*>* FractalAlgorithmInterface::AlgorithmList = NULL;
+QList<FractalAlgorithmInterface*>* FractalAlgorithmInterface::AlgorithmList = nullptr;
 bool                               FractalAlgorithmInterface::Updated       = false;
 
 
@@ -35,7 +35,7 @@ FractalAlgorithmInterface::FractalAlgorithmInterface(const char* identifier, con
    Identifier = identifier;
    Name       = name;
 
-   if(AlgorithmList == NULL) {
+   if(AlgorithmList == nullptr) {
       AlgorithmList = new QList<FractalAlgorithmInterface*>;
    }
    AlgorithmList->append(this);
@@ -103,7 +103,7 @@ FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithm(const unsigne
       qSort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
       Updated = false;
    }
-   return(AlgorithmList->value(index, NULL));
+   return(AlgorithmList->value(index, nullptr));
 }
 
 
@@ -117,5 +117,5 @@ FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithmByIdentifier(c
          return(algorithm);
       }
    }
-   return(NULL);
+   return(nullptr);
 }

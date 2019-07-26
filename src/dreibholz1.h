@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2018 by Thomas Dreibholz
+ * Copyright (C) 2003-2019 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,10 +38,10 @@ class Dreibholz1 : public FractalAlgorithmInterface
               const char* name       = "Dreibholz1 Test");
    ~Dreibholz1();
 
-   virtual std::complex<double> defaultC1() const;
-   virtual std::complex<double> defaultC2() const;
+   virtual std::complex<double> defaultC1() const override;
+   virtual std::complex<double> defaultC2() const override;
    virtual unsigned int calculatePoint(const unsigned int x,
-                                       const unsigned int y);
+                                       const unsigned int y) override;
 
    private:
    static Dreibholz1* Registration;
