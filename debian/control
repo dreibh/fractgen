@@ -13,7 +13,7 @@ Vcs-Git: https://github.com/dreibh/fractgen.git
 Vcs-Browser: https://github.com/dreibh/fractgen
 
 Package: fractgen
-Architecture: any
+Architecture: all
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
@@ -29,9 +29,11 @@ Description: calculates fractal images
  book covers.
 
 Package: fractgen-examples
-Architecture: all
+Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Description: example files for FractGen
- This package contains some example files for the fractal generator program
- FractGen.
+ This package contains some example input files for the fractal generator
+ program FractGen. The example files contain the parameters for the
+ fractal calculations. FractGen can perform the computations and display
+ the resulting images.
