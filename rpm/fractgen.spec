@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 2.1.7~rc1.0
+Version: 2.1.7
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
@@ -35,6 +35,8 @@ make DESTDIR=%{buildroot} install
 
 
 %changelog
+* Wed Aug 07 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.7
+- New upstream release.
 * Fri Jul 26 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.6
 - New upstream release.
 * Tue May 21 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.5

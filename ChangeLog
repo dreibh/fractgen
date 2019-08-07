@@ -1,3 +1,93 @@
+commit 122aaabe4e007731d03c195aa096d555be9a068e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 7 10:33:04 2019 +0200
+
+    Fixed some inconsistencies in different packaging files.
+
+commit de3a7bea82d58ff12a92aa9e5b672a32acacc2ae
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 7 10:04:34 2019 +0200
+
+    Updated build scripts.
+
+commit 32c3fba41abf58ecf750faeb965f51412ccecaed
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 7 09:05:44 2019 +0200
+
+    Fixed broken bugfix b504c4ec65a64a2cf62fd61f4011dfa7801915d5. Now, it should be correct.
+
+commit 366abcbcc658eee7ec91b696958a2aa5a0258f1f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Aug 6 23:23:15 2019 +0200
+
+    Some clean-ups.
+
+commit b504c4ec65a64a2cf62fd61f4011dfa7801915d5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Aug 6 22:42:22 2019 +0200
+
+    Architecture specification fix.
+
+commit 0b0b4ddb17f0ca3d7a4a19ec135f2108e84ba8af
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Aug 6 22:40:53 2019 +0200
+
+    Build script updates.
+
+commit 0ca401d521dd8b0a75db1c620bf47f081de68285
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Aug 6 19:56:48 2019 +0200
+
+    Updated build script.
+
+commit 6e0a2ee0428bdb4baed7325e440cbc965a8a1f39
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Aug 6 16:50:36 2019 +0200
+
+    Removed leading / from Ubuntu/Debian install files.
+
+commit f607c5287f19a94c5e56c330bab951f29763986f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Aug 5 22:06:50 2019 +0200
+
+    Updated CI scripts.
+
+commit 2409de1461ebabf3a618f7e51abd5313dbbd7218
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Aug 5 17:00:41 2019 +0200
+
+    Updated Debian Standards version.
+
+commit 4012b7891c42ff3a7e1530d12487c1f2ae51c87c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Aug 5 15:11:17 2019 +0200
+
+    Updated Travis CI configuration.
+
+commit 15ff93cdd4a805492eadf4d74f56bfe8fbfc4fdd
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Aug 5 15:05:27 2019 +0200
+
+    Build script updates.
+
+commit 0ee4f489de77d6b534c5c38dc54f4dfb52a58567
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Jul 31 16:28:56 2019 +0200
+
+    Updated FreeBSD ports files.
+
+commit 9e6d8030d84a58d0fc0858f68ab39d238dbf420a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 26 12:17:37 2019 +0200
+
+    Updated LSM entry.
+
+commit 0961489c287d19ebae695b21376ed4304675a45b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 26 12:16:08 2019 +0200
+
+    New release fractgen-2.1.6.
+
 commit b065dd54d80a5cea7c20ebb32e38e343b08ee9a4
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Jul 26 12:09:14 2019 +0200

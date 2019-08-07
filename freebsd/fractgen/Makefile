@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	fractgen
-PORTVERSION=	2.1.7~rc1.0
+PORTVERSION=	2.1.7
 CATEGORIES=	graphics
 MASTER_SITES=	https://www.uni-due.de/~be0001/fractalgenerator/download/
 EXTRACT_SUFX=   .tar.xz
