@@ -3,7 +3,7 @@ Version: 2.1.7~rc1.0
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
-License: GPLv3
+License: GPL-3+
 URL: https://www.uni-due.de/~be0001/fractalgenerator/
 Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{version}.tar.xz
 
