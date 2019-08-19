@@ -12,7 +12,7 @@ COMMENT=	Fractal Generator
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=           tar:xz cmake
+USES=           cmake qt:5 tar:xz
 
 CMAKE_ARGS+=    -DCMAKE_INSTALL_MANDIR=${PREFIX}/man
 USE_QT5=        core gui sql widgets buildtools_build qmake_build
