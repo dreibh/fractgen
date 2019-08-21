@@ -1,5 +1,5 @@
 # Created by: Thomas Dreibholz <dreibh@iem.uni-due.de>
-# $FreeBSD$
+# $FreeBSD: head/graphics/fractgen/Makefile 509423 2019-08-20 11:48:20Z rodrigo $
 
 PORTNAME=	fractgen
 PORTVERSION=	2.1.7
