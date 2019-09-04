@@ -69,7 +69,7 @@ static bool lessThan(const ColorSchemeInterface* c1,
 ColorSchemeInterface* ColorSchemeInterface::getColorScheme(const unsigned int index)
 {
    if(Updated) {
-      qSort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
+      std::sort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
       Updated = false;
    }
    return(ColorSchemeList->value(index, nullptr));

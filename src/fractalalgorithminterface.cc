@@ -100,7 +100,7 @@ static bool lessThan(const FractalAlgorithmInterface* f1,
 FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithm(const unsigned int index)
 {
    if(Updated) {
-      qSort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
+      std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
       Updated = false;
    }
    return(AlgorithmList->value(index, nullptr));
