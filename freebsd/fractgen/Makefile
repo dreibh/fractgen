@@ -1,5 +1,5 @@
 # Created by: Thomas Dreibholz <dreibh@iem.uni-due.de>
-# $FreeBSD: head/graphics/fractgen/Makefile 509423 2019-08-20 11:48:20Z rodrigo $
+# $FreeBSD: head/graphics/fractgen/Makefile 509941 2019-08-26 12:59:18Z pkubaj $
 
 PORTNAME=	fractgen
 PORTVERSION=	2.1.7
@@ -12,7 +12,7 @@ COMMENT=	Fractal Generator
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		tar:xz cmake qt:5
+USES=		compiler:c++11-lang tar:xz cmake qt:5
 USE_QT=		core xml widgets printsupport buildtools_build qmake_build
 
 CMAKE_ARGS+=	-DCMAKE_INSTALL_MANDIR=${PREFIX}/man
