@@ -24,6 +24,7 @@
 #define IMAGEDISPLAY_H
 
 #include <QtWidgets/QWidget>
+#include <QElapsedTimer>
 #include <QImage>
 #include <QPainter>
 #include <QDateTime>
@@ -82,15 +83,15 @@ class ImageDisplay : public QWidget {
    void getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y);
    void drawMarkerRect(QPainter* painter, int x1, int y1, int x2, int y2, bool draw = true);
 
-   QImage*      Image;
-   unsigned int OffsetX;
-   unsigned int OffsetY;
-   QTime        LastOffsetUpdate;
-   int          MarkX1;
-   int          MarkY1;
-   int          MarkX2;
-   int          MarkY2;
-   bool         Marking;
+   QImage*       Image;
+   unsigned int  OffsetX;
+   unsigned int  OffsetY;
+   QElapsedTimer LastOffsetUpdate;
+   int           MarkX1;
+   int           MarkY1;
+   int           MarkX2;
+   int           MarkY2;
+   bool          Marking;
 };
 
 #endif
