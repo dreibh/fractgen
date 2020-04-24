@@ -1,3 +1,45 @@
+commit 0ba137488b1859f8eb6be6527ff8625a5d5adaae
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 11:48:41 2020 +0200
+
+    Fixed usage of deprecated QTime::elapsed().
+
+commit 688c9394a35f1b8dff58ded1a945b9abbbc83491
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Apr 17 11:30:57 2020 +0200
+
+    Updated Travis CI configuration for Ubuntu builds.
+
+commit 1af7f184fb94e81e4547dd11c2dbcd7d585f6e65
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Apr 16 11:42:56 2020 +0200
+
+    Updated Travis CI configuration: Ubuntu 19.04 (Disco Dingo) is now obsolete.
+
+commit 3bd473cf7ddbe5f1bf6fc49babe26bddb484647c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Apr 14 19:04:43 2020 +0200
+
+    Updated build scripts
+
+commit b3ac50426627baff1d200ba59fac4355480cad3c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Mar 26 09:56:56 2020 +0100
+
+    Updated build scripts
+
+commit 1dba1be98f2d61a09b248d82b79f56db0ba9cc8c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Feb 7 13:27:57 2020 +0100
+
+    Updated LSM entry.
+
+commit 2b368ab6921922626e659a716e541c656f1946ab
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Feb 7 13:21:46 2020 +0100
+
+    New release fractgen-2.1.8.
+
 commit b1773bd2df35e93c81096902fdf0a0c38fdf7ef7
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Feb 7 13:18:53 2020 +0100
