@@ -32,10 +32,7 @@
 #include <QImage>
 #include <QResizeEvent>
 #include <QEvent>
-
-
-#define INITIAL_WIDTH  640
-#define INITIAL_HEIGHT 480
+#include <QScreen>
 
 
 // ###### Constructor #######################################################
@@ -75,8 +72,11 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    layout->addWidget(YScrollBar, 0, 1);
    layout->addWidget(ControlLED, 1, 1);
 
-   SizeX = INITIAL_WIDTH;
-   SizeY = INITIAL_HEIGHT;
+   // Set initial size to 75% of the screen dimensions:
+   QScreen* screen = QGuiApplication::primaryScreen();
+   SizeX = (int)rint(screen->geometry().width() * 0.75);
+   SizeY = (int)rint(screen->geometry().height() * 0.75);
+
    Display->reset(SizeX, SizeY);
    Display->setMinimumSize(SizeX, SizeY);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
