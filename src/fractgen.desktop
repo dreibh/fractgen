@@ -1,15 +1,15 @@
 [Desktop Entry]
 Exec=fractgen %f
 Icon=kformula
-MimeType=application/x-fgp
+MimeType=application/x-fractgen
 Name=FractGen
 GenericName[de]=Fraktalgenerator
-GenericName[no]=Fraktalgenerator
+GenericName[nb]=Fraktalgenerator
 GenericName=Fractal Generator
 Categories=Math;Graphics;RasterGraphics;Qt
 Keywords=Fractal;Mandelbrot;Math;Graphics
 Keywords[de]=Fraktal;Mandelbrot;Math;Graphics
-Keywords[no]=Fraktal;Mandelbrot;Math;Graphics
+Keywords[nb]=Fraktal;Mandelbrot;Math;Graphics
 StartupNotify=true
 Terminal=false
 Type=Application
