@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-fractgen">
+    <comment>FractGen save file</comment>
+    <comment xml:lang="de">FractGen-Speicherdatei</comment>
+    <comment xml:lang="nn">FractGen-lagringsfil</comment>
+    <magic priority="80">
+      <match type="string" value="&lt;!DOCTYPE XMLFractalSave" offset="0:50"/>
+    </magic>
+    <glob pattern="*.fsf" weight="75"/>
+  </mime-type>
+</mime-info>
