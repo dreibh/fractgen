@@ -74,11 +74,11 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
 
    // Set initial size to 75% of the screen dimensions:
    QScreen* screen = QGuiApplication::primaryScreen();
-   SizeX = (int)rint(screen->geometry().width() * 0.75);
-   SizeY = (int)rint(screen->geometry().height() * 0.75);
+   SizeWidth = (int)rint(screen->geometry().width() * 0.75);
+   SizeHeight = (int)rint(screen->geometry().height() * 0.75);
 
-   Display->reset(SizeX, SizeY);
-   Display->setMinimumSize(SizeX, SizeY);
+   Display->reset(SizeWidth, SizeHeight);
+   Display->setMinimumSize(SizeWidth, SizeHeight);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    Algorithm = FractalAlgorithmInterface::getAlgorithmByIdentifier("Mandelbrot");
@@ -185,9 +185,9 @@ void FractalGeneratorView::changeSize(int X, int Y)
    if(Thread != nullptr) {
       stopCalculation();
    }
-   SizeX = X;
-   SizeY = Y;
-   Display->reset(SizeX, SizeY);
+   SizeWidth = X;
+   SizeHeight = Y;
+   Display->reset(SizeWidth, SizeHeight);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    Selection = false;

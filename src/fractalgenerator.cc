@@ -259,9 +259,9 @@ void FractalGeneratorApp::slotViewSetImageSize()
    statusBar()->showMessage(tr("Changing Image Size ..."));
 
    QString CurrentSize;
-   CurrentSize += QString().setNum(View->getSizeX());
+   CurrentSize += QString().setNum(View->getSizeWidth());
    CurrentSize += tr("*");
-   CurrentSize += QString().setNum(View->getSizeY());
+   CurrentSize += QString().setNum(View->getSizeHeight());
 
    bool ok;
    QString text = QInputDialog::getText(
