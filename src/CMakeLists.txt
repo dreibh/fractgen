@@ -22,8 +22,8 @@ ADD_EXECUTABLE(fractgen
    simplehsv.cc
    simplergb.cc
    uintconfigentry.cc)
-
 TARGET_LINK_LIBRARIES(fractgen Qt5::Widgets Qt5::Xml Qt5::Core Qt5::PrintSupport)
+
 INSTALL(TARGETS             fractgen
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})
@@ -32,7 +32,17 @@ INSTALL(FILES fractgen.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 INSTALL(FILES fractgen.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 INSTALL(FILES fractgen.xml     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/mime/packages)
 
-INSTALL(FILES fractgen_de_DE.qm fractgen_nb_NO.qm DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen)
+FILE(GLOB FRACTGEN_TS_FILES  "fractgen_*.ts")
+SET(FRACTGEN_QM_FILES "")
+FOREACH(tsFile IN LISTS FRACTGEN_TS_FILES)
+   GET_FILENAME_COMPONENT(fileBase ${tsFile} NAME_WE)
+   SET(qmFile "${fileBase}.qm")
+   ADD_CUSTOM_COMMAND(OUTPUT ${qmFile}
+                      COMMAND qtchooser -qt=5 -run-tool=lrelease ${tsFile})
+   ADD_CUSTOM_TARGET(target_${qmFile} ALL DEPENDS ${qmFile})
+   LIST(APPEND FRACTGEN_QM_FILES ${qmFile})
+ENDFOREACH()
+INSTALL(FILES ${FRACTGEN_QM_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen)
 
 
 IF (ENABLE_KDE)
