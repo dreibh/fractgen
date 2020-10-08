@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=fractgen %f
-Icon=kformula
+Icon=fractgen
 MimeType=application/x-fractgen
 Name=FractGen
 GenericName[de]=Fraktalgenerator
