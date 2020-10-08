@@ -22,7 +22,7 @@
         <location filename="fractalgenerator.cc" line="67"/>
         <source>Save As ...</source>
         <oldsource>Save As</oldsource>
-        <translation>Speichern als ...</translation>
+        <translation>Speichern unter ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="69"/>
@@ -167,13 +167,9 @@
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="187"/>
-        <source>Overwrite existing file </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="fractalgenerator.cc" line="187"/>
-        <source>?</source>
-        <translation type="unfinished"></translation>
+        <source>Overwrite existing file?</source>
+        <oldsource>Overwrite existing file </oldsource>
+        <translation>Bestehende Datei überschreiben?</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="202"/>
@@ -220,40 +216,40 @@
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="79"/>
-        <location filename="fractalgeneratordoc.cc" line="97"/>
-        <location filename="fractalgeneratordoc.cc" line="114"/>
+        <location filename="fractalgeneratordoc.cc" line="99"/>
+        <location filename="fractalgeneratordoc.cc" line="116"/>
         <source>Open File Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehler beim Öffnen der Datei</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="80"/>
-        <source> in line </source>
-        <translation type="unfinished"></translation>
+        <location filename="fractalgeneratordoc.cc" line="81"/>
+        <source>Line: </source>
+        <translation>Zeile:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="80"/>
-        <source>, column </source>
-        <translation type="unfinished"></translation>
+        <location filename="fractalgeneratordoc.cc" line="82"/>
+        <source>Column: </source>
+        <translation>Spalte:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="98"/>
+        <location filename="fractalgeneratordoc.cc" line="100"/>
         <source>Invalid AlgorithmName entry:</source>
-        <translation type="unfinished">Ungültiger Eintrag für AlgorithmName:</translation>
+        <translation>Ungültiger Eintrag für AlgorithmName:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="115"/>
+        <location filename="fractalgeneratordoc.cc" line="117"/>
         <source>Invalid ColorSchemeName entry:</source>
-        <translation type="unfinished">Ungültiger Eintrag für ColorSchemeName:</translation>
+        <translation>Ungültiger Eintrag für ColorSchemeName:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="151"/>
+        <location filename="fractalgeneratordoc.cc" line="153"/>
         <source>Open File Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Warnung beim Öffnen der Datei</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="152"/>
+        <location filename="fractalgeneratordoc.cc" line="154"/>
         <source>Skipping unknown entry:</source>
-        <translation type="unfinished">Überspringe unbekannten Eintrag:</translation>
+        <translation>Überspringe unbekannten Eintrag:</translation>
     </message>
 </context>
 <context>

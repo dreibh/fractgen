@@ -167,12 +167,8 @@
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="187"/>
-        <source>Overwrite existing file </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="fractalgenerator.cc" line="187"/>
-        <source>?</source>
+        <source>Overwrite existing file?</source>
+        <oldsource>Overwrite existing file </oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -220,38 +216,38 @@
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="79"/>
-        <location filename="fractalgeneratordoc.cc" line="97"/>
-        <location filename="fractalgeneratordoc.cc" line="114"/>
+        <location filename="fractalgeneratordoc.cc" line="99"/>
+        <location filename="fractalgeneratordoc.cc" line="116"/>
         <source>Open File Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="80"/>
-        <source> in line </source>
+        <location filename="fractalgeneratordoc.cc" line="81"/>
+        <source>Line: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="80"/>
-        <source>, column </source>
+        <location filename="fractalgeneratordoc.cc" line="82"/>
+        <source>Column: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="98"/>
+        <location filename="fractalgeneratordoc.cc" line="100"/>
         <source>Invalid AlgorithmName entry:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="115"/>
+        <location filename="fractalgeneratordoc.cc" line="117"/>
         <source>Invalid ColorSchemeName entry:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="151"/>
+        <location filename="fractalgeneratordoc.cc" line="153"/>
         <source>Open File Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="152"/>
+        <location filename="fractalgeneratordoc.cc" line="154"/>
         <source>Skipping unknown entry:</source>
         <translation type="unfinished"></translation>
     </message>
