@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 2.1.10~alpha1.0
+Version: 2.1.10~beta1.0
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
@@ -32,6 +32,7 @@ FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals.
 %{_bindir}/fractgen
 %{_datadir}/applications/fractgen.desktop
 %{_datadir}/mime/packages/fractgen.xml
+%{_datadir}/fractgen/*.qm
 %{_datadir}/fractgen/examples/*.fsf
 %{_mandir}/man1/fractgen.1.gz
 

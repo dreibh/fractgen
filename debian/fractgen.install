@@ -1,3 +1,4 @@
 usr/bin/fractgen
 usr/share/applications/fractgen.desktop
+usr/share/fractgen/*.qm
 usr/share/mime/packages/fractgen.xml
