@@ -184,7 +184,7 @@ void FractalGeneratorApp::slotFileSave()
    bool overwrite = true;
    if(QFile::exists(Document->getFileName())) {
       if(QMessageBox::warning(this, "FractGen II",
-                              tr("Overwrite existing file ") + Document->getFileName() + tr("?"),
+                              tr("Overwrite existing file?"),
                               QMessageBox::Save|QMessageBox::Cancel, QMessageBox::Save) == QMessageBox::Cancel) {
          overwrite = false;
       }

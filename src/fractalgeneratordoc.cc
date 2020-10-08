@@ -77,7 +77,9 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    int          line, column;
    if(!doc.setContent(&file, false, &errorText, &line, &column)) {
       QMessageBox::warning(Application, tr("Open File Failure"),
-                           errorText + tr(" in line ") + QString().setNum(line) + tr(", column ") + QString().setNum(column));
+                           errorText + "\n" +
+                           tr("Line: ") + QString().setNum(line) + "\n" +
+                           tr("Column: ") + QString().setNum(column));
       return(false);
    }
 
