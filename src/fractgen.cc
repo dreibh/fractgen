@@ -24,12 +24,20 @@
 
 #include <QtWidgets/QApplication>
 #include <QFile>
+#include <QTranslator>
 
 
 // ###### Main program ######################################################
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
+   QTranslator applicationTranslator;
+   if(!applicationTranslator.load("fractgen_" + QLocale::system().name())) {
+      applicationTranslator.load("fractgen_" + QLocale::system().name(),
+                                 "/usr/share/fractgen");
+   }
+   application.installTranslator(&applicationTranslator);
+
    FractalGeneratorApp* fractalGeneratorApp = nullptr;
    for(int i = 1;i < argc;i++) {
       const QString fileName = QString::fromLocal8Bit(argv[i]);
