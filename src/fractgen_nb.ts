@@ -6,50 +6,50 @@
     <message>
         <location filename="fractalgenerator.cc" line="63"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fil</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="65"/>
         <source>&amp;Open</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Åpne</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="66"/>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lagre</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="67"/>
         <source>Save As ...</source>
         <oldsource>Save As</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Lagre som ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="69"/>
         <source>&amp;Export ...</source>
         <oldsource>&amp;Export Image</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Eksportere ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="70"/>
         <source>&amp;Print ...</source>
         <oldsource>Print &amp;Image</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Skriv ut ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="72"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukk</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="73"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Avslutt</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="75"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Vis</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="77"/>
@@ -92,45 +92,45 @@
     <message>
         <location filename="fractalgenerator.cc" line="126"/>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hjelp</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="128"/>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Om</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="132"/>
         <source>Fractal.pdf</source>
-        <translation type="unfinished"></translation>
+        <translation>Fraktal.pdf</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="134"/>
         <source>Welcome to FractGen!</source>
         <oldsource>Welcome to Fractal Generator!</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Velkommen til FractGen!</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="153"/>
         <source>Opening file ...</source>
         <oldsource>Opening file...</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Åpner fil ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="155"/>
         <source>Open File ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Åpne fil ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="157"/>
         <location filename="fractalgenerator.cc" line="172"/>
         <source>FractGen File (*.fsf)</source>
-        <translation type="unfinished"></translation>
+        <translation>FractGen-fil (*.fsf)</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="251"/>
         <source>&amp;Okay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Okay</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="280"/>
@@ -148,43 +148,43 @@
         <location filename="fractalgenerator.cc" line="348"/>
         <source>Ready</source>
         <oldsource>Ready.</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Klar</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="168"/>
         <source>Saving file as ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre fil som ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="170"/>
         <source>Save File ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagre fil ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="183"/>
         <source>Saving file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lagrer fil ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="187"/>
         <source>Overwrite existing file?</source>
         <oldsource>Overwrite existing file </oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Erstatt eksisterende fil?</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="202"/>
         <source>Exporting Image ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksporterer bilde ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="204"/>
         <source>Export Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Eksport bilde</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="228"/>
         <source>Printing...</source>
-        <translation type="unfinished"></translation>
+        <translation>Skriver ut ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="258"/>
@@ -212,7 +212,7 @@
     <message>
         <location filename="fractalgeneratordoc.cc" line="61"/>
         <source>Unnamed.fsf</source>
-        <translation type="unfinished"></translation>
+        <translation>Uten navn.fsf</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="79"/>
@@ -224,12 +224,12 @@
     <message>
         <location filename="fractalgeneratordoc.cc" line="81"/>
         <source>Line: </source>
-        <translation type="unfinished"></translation>
+        <translation>Rad:</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="82"/>
         <source>Column: </source>
-        <translation type="unfinished"></translation>
+        <translation>Kolonne:</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="100"/>
@@ -257,22 +257,22 @@
     <message>
         <location filename="optionsdialog.cc" line="34"/>
         <source>Fractal Algorithm Options</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Okay</translation>
     </message>
     <message>
         <location filename="optionsdialog.cc" line="42"/>
         <source>Parameter Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Parameternavn</translation>
     </message>
     <message>
         <location filename="optionsdialog.cc" line="46"/>
         <source>Parameter Value</source>
-        <translation type="unfinished"></translation>
+        <translation>Parameterverd</translation>
     </message>
     <message>
         <location filename="optionsdialog.cc" line="72"/>
         <source>&amp;Okay</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Okay</translation>
     </message>
 </context>
 </TS>
