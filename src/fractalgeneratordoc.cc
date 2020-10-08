@@ -232,12 +232,12 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
    QDomElement resolution = doc.createElement(QStringLiteral("Resolution"));
    root.appendChild( resolution );
 
-   QString CurrentSize;
-   CurrentSize += QString().setNum(View->getSizeWidth());
-   CurrentSize += tr("*");
-   CurrentSize += QString().setNum(View->getSizeHeight());
+   const QString currentSize =
+      QString().setNum(View->getSizeWidth()) +
+      "*" +
+      QString().setNum(View->getSizeHeight());
 
-   text = doc.createTextNode( CurrentSize );
+   text = doc.createTextNode(currentSize);
    resolution.appendChild(text);
 
    // Write XML document to file

@@ -183,7 +183,7 @@ void FractalGeneratorApp::slotFileSave()
    statusBar()->showMessage(tr("Saving file..."));
    bool overwrite = true;
    if(QFile::exists(Document->getFileName())) {
-      if(QMessageBox::warning(this, tr("FractGen II"),
+      if(QMessageBox::warning(this, "FractGen II",
                               tr("Overwrite existing file ") + Document->getFileName() + tr("?"),
                               QMessageBox::Save|QMessageBox::Cancel, QMessageBox::Save) == QMessageBox::Cancel) {
          overwrite = false;
@@ -257,9 +257,9 @@ void FractalGeneratorApp::slotViewSetImageSize()
 {
    statusBar()->showMessage(tr("Changing Image Size ..."));
 
-   QString CurrentSize =
+   const QString currentSize =
       QString().setNum(View->getSizeWidth()) +
-      QStringLiteral("*") +
+      "*" +
       QString().setNum(View->getSizeHeight());
 
    bool ok;
@@ -267,10 +267,10 @@ void FractalGeneratorApp::slotViewSetImageSize()
                      this,
                      tr("Image Size"),
                      tr("Please enter new size in the format x*y:"),
-                     QLineEdit::Normal, CurrentSize, &ok);
+                     QLineEdit::Normal, currentSize, &ok);
    if((ok) || (!text.isEmpty())) {
-      const unsigned int newX = text.section(QStringLiteral("*"), 0, 0).toUInt();
-      const unsigned int newY = text.section(QStringLiteral("*"), 1, 1).toUInt();
+      const unsigned int newX = text.section("*", 0, 0).toUInt();
+      const unsigned int newY = text.section("*", 1, 1).toUInt();
 
       if((0 < newX) && (0 < newY)) {
          View->changeSize(newX, newY);
@@ -332,7 +332,7 @@ void FractalGeneratorApp::slotUpdateColorScheme()
 // ###### Update file name ##################################################
 void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 {
-   setWindowTitle(fileName + QStringLiteral(" - ") + tr("FractGen II"));
+   setWindowTitle(fileName + " - FractGen II");
 }
 
 
