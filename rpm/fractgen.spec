@@ -9,7 +9,9 @@ Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{versi
 
 AutoReqProv: on
 BuildRequires: cmake
+BuildRequires: qt5-linguist
 BuildRequires: qt5-qtbase-devel
+BuildRequires: qtchooser
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 
