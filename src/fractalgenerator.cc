@@ -128,7 +128,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    helpMenu->addAction(tr("&About"), this, SLOT(slotHelpAbout()));
 
    Printer.setColorMode(QPrinter::Color);
-   Printer.setOrientation(QPrinter::Landscape);
+   Printer.setPageOrientation(QPageLayout::Landscape);
    Printer.setOutputFileName(tr("Fractal.pdf"));
 
    statusBar()->showMessage(tr("Welcome to FractGen!"), 3000);
