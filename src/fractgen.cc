@@ -31,6 +31,7 @@
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
+   application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
    QTranslator applicationTranslator;
    if(!applicationTranslator.load("fractgen_" + QLocale::system().name())) {
       applicationTranslator.load("fractgen_" + QLocale::system().name(),
