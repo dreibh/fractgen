@@ -24,6 +24,7 @@
 
 #include <string.h>
 
+#include <algorithm>
 
 QList<ColorSchemeInterface*>* ColorSchemeInterface::ColorSchemeList = nullptr;
 bool                          ColorSchemeInterface::Updated         = false;

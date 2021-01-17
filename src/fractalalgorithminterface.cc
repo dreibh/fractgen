@@ -23,6 +23,7 @@
 #include "fractalalgorithminterface.h"
 #include "uintconfigentry.h"
 
+#include <algorithm>
 
 QList<FractalAlgorithmInterface*>* FractalAlgorithmInterface::AlgorithmList = nullptr;
 bool                               FractalAlgorithmInterface::Updated       = false;
