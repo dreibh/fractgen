@@ -128,7 +128,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    helpMenu->addAction(tr("&About"), this, SLOT(slotHelpAbout()));
 
    Printer.setColorMode(QPrinter::Color);
-   Printer.setOrientation(QPrinter::Landscape);
+   Printer.setPageOrientation(QPageLayout::Landscape);
    Printer.setOutputFileName(tr("Fractal.pdf"));
 
    statusBar()->showMessage(tr("Welcome to FractGen!"), 3000);
@@ -183,7 +183,7 @@ void FractalGeneratorApp::slotFileSave()
    statusBar()->showMessage(tr("Saving file..."));
    bool overwrite = true;
    if(QFile::exists(Document->getFileName())) {
-      if(QMessageBox::warning(this, "FractGen II",
+      if(QMessageBox::warning(this, QStringLiteral("FractGen II"),
                               tr("Overwrite existing file?"),
                               QMessageBox::Save|QMessageBox::Cancel, QMessageBox::Save) == QMessageBox::Cancel) {
          overwrite = false;
@@ -203,10 +203,10 @@ void FractalGeneratorApp::slotFileExportImage()
 
    QString name = QFileDialog::getSaveFileName(this, tr("Export Image"),
                                                QDir::currentPath(),
-                                               "*.png");
+                                               QStringLiteral("*.png"));
    if(!name.isEmpty()) {
-      if(name.right(4).toLower() != ".png") {
-         name += ".png";
+      if(name.right(4).toLower() != QLatin1String(".png")) {
+         name += QLatin1String(".png");
       }
       View->getDisplay()->saveImage(name, "PNG");
    }
@@ -246,8 +246,8 @@ void FractalGeneratorApp::slotFileQuit()
 // ###### About #############################################################
 void FractalGeneratorApp::slotHelpAbout()
 {
-   QMessageBox::information(this, "FractGen",
-      "FractGen\nCopyright (C) 2003-2020 by Thomas Dreibholz\nhttps://www.uni-due.de/~be0001/fractalgenerator/",
+   QMessageBox::information(this, QStringLiteral("FractGen"),
+      QStringLiteral("FractGen\nCopyright (C) 2003-2020 by Thomas Dreibholz\nhttps://www.uni-due.de/~be0001/fractalgenerator/"),
       tr("&Okay"));
 }
 
@@ -259,7 +259,7 @@ void FractalGeneratorApp::slotViewSetImageSize()
 
    const QString currentSize =
       QString().setNum(View->getSizeWidth()) +
-      "*" +
+      QLatin1Char('*') +
       QString().setNum(View->getSizeHeight());
 
    bool ok;
@@ -269,8 +269,8 @@ void FractalGeneratorApp::slotViewSetImageSize()
                      tr("Please enter new size in the format x*y:"),
                      QLineEdit::Normal, currentSize, &ok);
    if((ok) || (!text.isEmpty())) {
-      const unsigned int newX = text.section("*", 0, 0).toUInt();
-      const unsigned int newY = text.section("*", 1, 1).toUInt();
+      const unsigned int newX = text.section(QLatin1Char('*'), 0, 0).toUInt();
+      const unsigned int newY = text.section(QLatin1Char('*'), 1, 1).toUInt();
 
       if((0 < newX) && (0 < newY)) {
          View->changeSize(newX, newY);
@@ -332,7 +332,7 @@ void FractalGeneratorApp::slotUpdateColorScheme()
 // ###### Update file name ##################################################
 void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 {
-   setWindowTitle(fileName + " - FractGen II");
+   setWindowTitle(fileName + QLatin1String(" - FractGen II"));
 }
 
 

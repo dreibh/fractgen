@@ -77,8 +77,8 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    int          line, column;
    if(!doc.setContent(&file, false, &errorText, &line, &column)) {
       QMessageBox::warning(Application, tr("Open File Failure"),
-                           errorText + "\n" +
-                           tr("Line: ") + QString().setNum(line) + "\n" +
+                           errorText + QLatin1Char('\n') +
+                           tr("Line: ") + QString().setNum(line) + QLatin1Char('\n') +
                            tr("Column: ") + QString().setNum(column));
       return(false);
    }
@@ -236,7 +236,7 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
 
    const QString currentSize =
       QString().setNum(View->getSizeWidth()) +
-      "*" +
+      QLatin1Char('*') +
       QString().setNum(View->getSizeHeight());
 
    text = doc.createTextNode(currentSize);
