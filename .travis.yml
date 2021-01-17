@@ -16,6 +16,22 @@ matrix:
 
    # ###### Ubuntu Linux ####################################################
 
+   # ====== Ubuntu 20.10 (Groovy Gorilla) ======================================
+   - name: "Ubuntu 20.10 (Groovy Gorilla) with GCC"
+     os: linux
+     dist: bionic
+     group: travis_latest
+     env: DOCKER="ubuntu:eoan" VARIANT="ubuntu" TOOL="compile" COMPILER_C="gcc" COMPILER_CXX="g++"
+   - name: "Ubuntu 20.10 (Groovy Gorilla) with Clang"
+     os: linux
+     dist: bionic
+     group: travis_latest
+     env: DOCKER="ubuntu:eoan" VARIANT="ubuntu" TOOL="compile" COMPILER_C="clang" COMPILER_CXX="clang++"
+   - name: "Ubuntu 20.10 (Groovy Gorilla) packaging with pbuilder"
+     dist: bionic
+     group: travis_latest
+     env: DOCKER="ubuntu:eoan" VARIANT="ubuntu" TOOL="pbuilder"
+
    # ====== Ubuntu 20.04 (Focal Fossa) ======================================
    - name: "Ubuntu 20.04 (Focal Fossa) with GCC"
      os: linux
@@ -31,22 +47,6 @@ matrix:
      dist: focal
      group: travis_latest
      env: DOCKER="ubuntu:focal" VARIANT="ubuntu" TOOL="pbuilder"
-
-   # ====== Ubuntu 19.10 (Eoan Ermine) ======================================
-   - name: "Ubuntu 19.10 (Eoan Ermine) with GCC"
-     os: linux
-     dist: bionic
-     group: travis_latest
-     env: DOCKER="ubuntu:eoan" VARIANT="ubuntu" TOOL="compile" COMPILER_C="gcc" COMPILER_CXX="g++"
-   - name: "Ubuntu 19.10 (Eoan Ermine) with Clang"
-     os: linux
-     dist: bionic
-     group: travis_latest
-     env: DOCKER="ubuntu:eoan" VARIANT="ubuntu" TOOL="compile" COMPILER_C="clang" COMPILER_CXX="clang++"
-   - name: "Ubuntu 19.10 (Eoan Ermine) packaging with pbuilder"
-     dist: bionic
-     group: travis_latest
-     env: DOCKER="ubuntu:eoan" VARIANT="ubuntu" TOOL="pbuilder"
 
    # ====== Ubuntu 18.04 (Bionic Beaver) ====================================
    - name: "Ubuntu 18.04 (Bionic Beaver) with GCC"
