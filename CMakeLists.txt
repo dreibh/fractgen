@@ -70,7 +70,7 @@ ENDIF()
 
 # ###### Qt #################################################################
 SET(CMAKE_AUTOMOC ON)
-FIND_PACKAGE(Qt5 5.3.0 COMPONENTS Core Xml Widgets PrintSupport REQUIRED)
+FIND_PACKAGE(Qt5 5.3.0 COMPONENTS Core LinguistTools PrintSupport Widgets Xml REQUIRED)
 
 # ###### KDE ################################################################
 OPTION(ENABLE_KDE "Include KDE version" 0)

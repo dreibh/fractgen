@@ -11,7 +11,6 @@ AutoReqProv: on
 BuildRequires: cmake
 BuildRequires: qt5-linguist
 BuildRequires: qt5-qtbase-devel
-BuildRequires: qtchooser
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 

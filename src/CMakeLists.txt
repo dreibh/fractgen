@@ -39,7 +39,7 @@ FOREACH(tsFile IN LISTS FRACTGEN_TS_FILES)
    GET_FILENAME_COMPONENT(fileBase ${tsFile} NAME_WE)
    SET(qmFile "${fileBase}.qm")
    ADD_CUSTOM_COMMAND(OUTPUT ${qmFile}
-                      COMMAND qtchooser -qt=qt5 -run-tool=lrelease ${tsFile})
+                      COMMAND Qt5::lrelease ${tsFile})
    ADD_CUSTOM_TARGET(target_${qmFile} ALL DEPENDS ${qmFile})
    LIST(APPEND FRACTGEN_QM_FILES ${qmFile})
 ENDFOREACH()
