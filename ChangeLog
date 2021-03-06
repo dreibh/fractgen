@@ -1,3 +1,191 @@
+commit 7e5b5e4fda395a0852fd9ff5cb50aacc63109e4c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Mar 5 20:48:07 2021 +0100
+
+    Dependency fix.
+
+commit 52753ef2feac477fa523516a1aa26cb60b09051a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Mar 5 18:58:05 2021 +0100
+
+    Updated FreeBSD dependencies.
+
+commit ea7e2da2bc97253cc34281b746a60576e2e0edac
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Mar 5 18:56:11 2021 +0100
+
+    Updated Travis CI configuration
+
+commit 8597f48c995411e2e767246da60d26a233b440c0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Mar 5 18:54:48 2021 +0100
+
+    Updated build scripts
+
+commit ba22672ada1afffcb8d39b611295cd50191a6b6c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Mar 5 18:54:39 2021 +0100
+
+    Updated Travis CI configuration
+
+commit eea34161d072e97b6b408c1172036f8f3a9f43af
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Mar 3 20:55:30 2021 +0100
+
+    A fix.
+
+commit bca34cff1d31fa6de854d4092eeb7abd40bb1d32
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Mar 3 19:50:52 2021 +0100
+
+    Added the patches from Adriaan de Groot (https://github.com/dreibh/fractgen/issues/4#issuecomment-762141242) to more reliably detect the correct Qt tools invocation.
+
+commit 167618d52b73e0b82e500eebafa0d2e9b3a6cd1b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Mar 3 19:41:47 2021 +0100
+
+    Updated script.
+
+commit 6e26b988c402fc10e8dd8e8bf425f03115eaa47c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Mar 1 21:20:30 2021 +0100
+
+    Updated build scripts
+
+commit 82dcf15efbd869babfe3cc65613837f210e62bd1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Mar 1 16:30:36 2021 +0100
+
+    Updated build scripts
+
+commit 6465ab8fd6cdf6982d7f86451fee46d77416803e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Mar 1 16:13:22 2021 +0100
+
+    Improved autogen.sh with options for static analysis.
+
+commit 3b8cc7b339a59d7a43dbeb021d54c1d7ec08c4ae
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 17 17:57:12 2021 +0100
+
+    Cleaned up CMakeLists.txt.
+
+commit e2985bd78942e7258b755caa5c7f6b5e1054d4a0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 17 15:19:07 2021 +0100
+
+    Updated build scripts
+
+commit 5df96458e70903a1dfa034370b80833ebb2c8123
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 17 15:19:06 2021 +0100
+
+    Updated build scripts
+
+commit 0988546da9f318c0690e93ab4e945e8bd234b037
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 17 15:17:37 2021 +0100
+
+    Updated build scripts
+
+commit efa051dd2012d6c92fb473111298ceaacb8ef9c3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 17 15:17:37 2021 +0100
+
+    Updated build scripts
+
+commit 76346fdb92426e2387af5df375f1824be652c558
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 17 15:16:37 2021 +0100
+
+    Header updates.
+
+commit 318b78bce3964b3d5f9a0b34a00e6dd0044235a3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jan 30 07:40:00 2021 +0100
+
+    Updated Travis CI configuration
+
+commit 9df072f932be165f7dabd0434e1dcac6dbb71f48
+Merge: 3f07126 e992cb7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Jan 17 19:33:10 2021 +0100
+
+    Merge pull request #1 from TechnologyClassroom/add-readme
+    
+    Copy readme from site
+
+commit 3f07126b94d07153c9172cc8dfb42469005ac730
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Jan 17 19:29:27 2021 +0100
+
+    Updated Travis CI configuration.
+
+commit b1166fb81ec25c4c19dfee4a6cc2a0533178aebb
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Jan 17 19:17:55 2021 +0100
+
+    Merged Adriaan de Groot's patches (https://github.com/dreibh/fractgen/issues/4) for FreeBSD.
+
+commit e5b333ed3e58b217e2fd13ec8cad22b8333f6ae4
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Jan 17 19:07:58 2021 +0100
+
+    Added another example.
+
+commit d8a59ae1a54d8106df6b6d7bcf885ddde4235c50
+Merge: 7a8a4f8 d13437b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Jan 17 19:07:22 2021 +0100
+
+    Merge pull request #2 from heirecka/fix-some-warnings
+    
+    Fix some warnings
+
+commit 6b4e05370cd5dc5c726f82f57c5f88a6c6a99aaf
+Author: Heiko Becker <heirecka@exherbo.org>
+Date:   Mon Nov 23 17:05:54 2020 +0100
+
+    Use high DPI Pixmaps
+    
+    Makes icons on buttons in dialogs sharp on a high DPI screen.
+
+commit d13437bc78e9922d9866e5c8fd0277e9235aea06
+Author: Heiko Becker <heirecka@exherbo.org>
+Date:   Mon Nov 23 16:58:06 2020 +0100
+
+    Fix build with QT_NO_CAST_FROM_ASCII
+    
+    ...by using QStringLiteral and QLatin1String respectively (where an
+    overload for QLatin1String exists).
+    QT_NO_CAST_FROM_ASCII is set by KDEFrameworkCompilerSettings, when
+    ENABLE_KDE is true.
+
+commit 48cf904f47d9eb3819e6e5f6c19feaae0a3bf901
+Author: Heiko Becker <heirecka@exherbo.org>
+Date:   Mon Nov 23 16:53:01 2020 +0100
+
+    Port away from deprecated QPrinter functions
+    
+    QPrinter::setOrientation(QPrinter::Orientation) was deprecated between
+    5.15.1 and 5.15.2 [1] in favour of
+    setPageOrientation(QPageLayout::Orientation). The latter was introduced
+    with Qt 5.3, which seems old enough to require instead of #ifdef'ing.
+    
+    [1] 8f2d63febcc8c243ab86049755cf1b963d57f9f8 in qtbase.git
+
+commit 8618877339476019d4470763e81e1ca7887221c1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 13 19:47:56 2020 +0100
+
+    Updated LSM entry.
+
+commit 3df0fc08d938a24fca4060a3209dd7b4db0b5d20
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 13 19:01:36 2020 +0100
+
+    New release fractgen-2.1.10.
+
 commit 5904acdc0f81ba9f65eeb4f6400824cea7a10275
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Nov 13 10:24:50 2020 +0100
@@ -382,6 +570,12 @@ Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Mon Oct 28 14:41:24 2019 +0100
 
     Updated Debian/Ubuntu packaging files.
+
+commit e992cb7f8e0a542e3b1f355a9eca3cad591da807
+Author: TechnologyClassroom <michael.steven.mcmahon@gmail.com>
+Date:   Fri Oct 25 13:39:44 2019 -0400
+
+    Copy readme from site
 
 commit 6a63f447d644f56e96d2f5dc161c6a95cc4a396c
 Author: Thomas Dreibholz <dreibh@simula.no>
