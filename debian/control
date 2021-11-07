@@ -33,8 +33,7 @@ Description: calculates fractal images
 
 Package: fractgen-examples
 Architecture: all
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Depends: ${misc:Depends}
 Description: example files for FractGen
  This package contains some example input files for the fractal generator
  program FractGen. The example files contain the parameters for the
