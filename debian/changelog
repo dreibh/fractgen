@@ -1,9 +1,11 @@
-fractgen (2.1.12~test1-1ubuntu1) hirsute; urgency=medium
+fractgen (2.1.12~test2-1ubuntu1) jammy; urgency=medium
 
   * New upstream release.
   * debian/control: Updated standards version to 4.6.0.1.
+  * debian/control: Fixed use of substitution variable ${shlibs:Depends}.
+  * debian/: Using dh_installman for the manpages.
 
- -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Sat, 06 Nov 2021 20:12:03 +0100
+ -- Thomas Dreibholz <dreibh@iem.uni-due.de>  Sun, 07 Nov 2021 19:15:39 +0100
 
 fractgen (2.1.11-1ubuntu1) hirsute; urgency=medium
 
