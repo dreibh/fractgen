@@ -1,3 +1,81 @@
+commit 5020606c6844cc830923c782836e877900ee0afc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 7 21:29:33 2021 +0100
+
+    Using dh_installman for the manpages.
+
+commit d8459ab57fea1aa5f96070f8565abb7d96475260
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 7 21:29:08 2021 +0100
+
+    Fixed use of substitution variable ${shlibs:Depends}.
+
+commit 3f21089d80304b06de3202e93ba40f994181b4e0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Nov 7 19:00:41 2021 +0100
+
+    Updated build scripts
+
+commit 83acaaa580c1bd406c2a552d5aa08b1e22644da4
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 6 20:49:34 2021 +0100
+
+    Updated build scripts
+
+commit 770546dd22a4ec25febc3b5b2e988891bae418b3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 6 20:16:07 2021 +0100
+
+    Version update.
+
+commit d1035f16aa649d6f9650d05efa08022d66ada0f5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 6 20:11:53 2021 +0100
+
+    Updated build scripts
+
+commit 8f8e7b2f165a06030118c6a19e8ee9e24a753a59
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Nov 4 18:59:54 2021 +0100
+
+    Updated build scripts
+
+commit ea88eecc36106f74d51f2feefadcc152308975fe
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 3 18:21:04 2021 +0100
+
+    Updated build scripts
+
+commit 77f5607a15212742c269d27a638ca0025141ec8a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 3 18:21:03 2021 +0100
+
+    Updated build scripts
+
+commit f420b9ac4120dbb9a6d771dc0143c40bb55e706c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Oct 19 16:11:57 2021 +0200
+
+    Updated build scripts
+
+commit f8b0a1d63928ece9b70f2f98c7b4e2e9c060ced1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 3 21:22:56 2021 +0200
+
+    Updated build scripts
+
+commit a94fea7e2b84763b57e61fe6126b2a621b27febf
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Mar 7 00:00:41 2021 +0100
+
+    Updated LSM entry.
+
+commit 0bfe7ec2a58737ada917fc0db2b08df61e4185d3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Mar 6 23:40:08 2021 +0100
+
+    New release fractgen-2.1.11.
+
 commit 7e5b5e4fda395a0852fd9ff5cb50aacc63109e4c
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Mar 5 20:48:07 2021 +0100
