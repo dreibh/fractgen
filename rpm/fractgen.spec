@@ -1,11 +1,11 @@
 Name: fractgen
-Version: 2.1.12
+Version: 2.1.13~rc0
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
 License: GPL-3+
-URL: https://www.uni-due.de/~be0001/fractalgenerator/
-Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{version}.tar.xz
+URL: https://www.nntb.no/~dreibh/fractalgenerator/
+Source: https://www.nntb.no/~dreibh/fractalgenerator/download/%{name}-%{version}.tar.xz
 
 AutoReqProv: on
 BuildRequires: cmake

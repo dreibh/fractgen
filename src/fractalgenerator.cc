@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contact: dreibh@iem.uni-due.de
+ * Contact: thomas.dreibholz@gmail.com
  */
 
 #include "fractalgenerator.h"
@@ -247,7 +247,7 @@ void FractalGeneratorApp::slotFileQuit()
 void FractalGeneratorApp::slotHelpAbout()
 {
    QMessageBox::information(this, QStringLiteral("FractGen"),
-      QStringLiteral("FractGen\nCopyright (C) 2003-2021 by Thomas Dreibholz\nhttps://www.uni-due.de/~be0001/fractalgenerator/"),
+      QStringLiteral("FractGen\nCopyright (C) 2003-2021 by Thomas Dreibholz\nhttps://www.nntb.no/~dreibh/fractalgenerator/"),
       tr("&Okay"));
 }
 

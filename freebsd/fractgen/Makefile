@@ -1,12 +1,12 @@
-# Created by: Thomas Dreibholz <dreibh@iem.uni-due.de>
+# Created by: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 # $FreeBSD: head/graphics/fractgen/Makefile 509941 2019-08-26 12:59:18Z pkubaj $
 
 PORTNAME=	fractgen
-PORTVERSION=	2.1.12
+PORTVERSION=	2.1.13~rc0
 CATEGORIES=	graphics
-MASTER_SITES=	https://www.uni-due.de/~be0001/fractalgenerator/download/
+MASTER_SITES=	https://www.nntb.no/~dreibh/fractalgenerator/download/
 
-MAINTAINER=	dreibh@iem.uni-due.de
+MAINTAINER=	thomas.dreibholz@gmail.com
 COMMENT=	Fractal Generator
 
 LICENSE=	GPLv3+

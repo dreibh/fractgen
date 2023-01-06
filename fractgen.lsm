@@ -11,11 +11,11 @@ Description:    FractGen is a simple Qt-based fractal generator program for
                 post-processed by other image tools, e.g. in order to
                 generate nice screen backgrounds or book covers.
 Keywords:       Fractal Graphics, Mandelbrot, Calculation, Mathematics
-Author:         dreibh@iem.uni-due.de (Thomas Dreibholz)
-Maintained-by:  dreibh@iem.uni-due.de (Thomas Dreibholz)
-Primary-site:   https://www.uni-due.de/~be0001/fractalgenerator
+Author:         thomas.dreibholz@gmail.com (Thomas Dreibholz)
+Maintained-by:  thomas.dreibholz@gmail.com (Thomas Dreibholz)
+Primary-site:   https://www.nntb.no/~dreibh/fractalgenerator
                 312 kB download/fractgen-2.1.12.tar.xz
-Original-site:  https://www.uni-due.de/~be0001/fractalgenerator
+Original-site:  https://www.nntb.no/~dreibh/fractalgenerator
 Platforms:      Linux, FreeBSD, MacOS, Solaris
 Copying-policy: GPL-3+
 End

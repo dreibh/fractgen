@@ -1,7 +1,7 @@
 # FractalGenerator Project
 An extensible Fractal Generator software
 
-<https://www.uni-due.de/~be0001/fractalgenerator/>
+<https://www.nntb.no/~dreibh/fractalgenerator/>
 
 ## Description
 
@@ -9,7 +9,7 @@ FractalGenerator is a Qt-based program to generate fractal images (e.g. Mandelbr
 
 ## Screenshots
 
-[Click here to view some screenshots!](https://www.uni-due.de/~be0001/fractalgenerator/pictures.html)
+[Click here to view some screenshots!](https://www.nntb.no/~dreibh/fractalgenerator/pictures.html)
 
 ## Binary Package Installation
 
@@ -75,8 +75,8 @@ The tarball has been signed with my GnuPG key DF605BB0760F2D65. Its authenticity
 gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys DF605BB0760F2D65
 gpg --verify fractgen-VERSION.tar.xz.asc fractgen-VERSION.tar.xz
 
-- [fractgen-2.1.7.tar.xz (Tar/XZ file)](https://www.uni-due.de/~be0001/fractalgenerator/download/fractgen-2.1.7.tar.xz)
-- [fractgen-2.1.7.tar.xz.asc (Signature)](https://www.uni-due.de/~be0001/fractalgenerator/download/fractgen-2.1.7.tar.xz.asc)
+- [fractgen-2.1.7.tar.xz (Tar/XZ file)](https://www.nntb.no/~dreibh/fractalgenerator/download/fractgen-2.1.7.tar.xz)
+- [fractgen-2.1.7.tar.xz.asc (Signature)](https://www.nntb.no/~dreibh/fractalgenerator/download/fractgen-2.1.7.tar.xz.asc)
 
 ## Requirements
 
