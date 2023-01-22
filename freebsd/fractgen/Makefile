@@ -2,7 +2,7 @@
 # $FreeBSD: head/graphics/fractgen/Makefile 509941 2019-08-26 12:59:18Z pkubaj $
 
 PORTNAME=	fractgen
-PORTVERSION=	2.1.13~rc0
+PORTVERSION=	2.1.13
 CATEGORIES=	graphics
 MASTER_SITES=	https://www.nntb.no/~dreibh/fractalgenerator/download/
 

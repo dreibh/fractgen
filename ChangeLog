@@ -1,3 +1,117 @@
+commit e6c03809389d3c98e35e44e3180909dca5a99941
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jan 21 22:02:47 2023 +1100
+
+    Updated build scripts
+
+commit 0ea74f260ad3f64081a0b69f9fb62ba813e062a9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jan 6 21:38:01 2023 +1100
+
+    URL change from UDE to NNTB.
+
+commit 5a8add18262a238e48878a295d3b6d173d893cc8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jan 6 10:22:06 2023 +1100
+
+    Updated CI scripts
+
+commit b3eb08f48763e09cb6f24abb9706e0e0bbbaf7f8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jan 6 10:21:46 2023 +1100
+
+    Updated build scripts
+
+commit 54b5af8fba06f61b82e62277bd1c486454166446
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Dec 12 13:29:58 2022 +0100
+
+    Minor CMakeLists.txt updates.
+
+commit c1ffc3731f02fac9bff8bd53c319b8c834448c37
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 31 11:46:59 2022 +0200
+
+    Removed Vcs-* fields from debian/control.
+
+commit b898b051ae9262b648e968dcb797a6ab0e0b4fd6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 31 11:18:38 2022 +0200
+
+    Updated CI scripts
+
+commit 120099a5d508050ae9555bc765f634e3afe12c71
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 31 11:18:36 2022 +0200
+
+    Updated build scripts
+
+commit 10b93fc86c0e5bdd218f60aa8151adaf9ff1d0a9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Feb 16 12:21:31 2022 +0100
+
+    Updated build scripts
+
+commit b18bb40325166d3f1d10d0e80f9eee3e214b93ba
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Nov 30 15:26:41 2021 +0100
+
+    Removed filed "Homepage" from debian/upstream/metadata.
+
+commit ddad1c63bb9de5cb352b8e48331fb1dd7427c501
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 21:57:10 2021 +0100
+
+    Updated CI workflows.
+
+commit d3822006118281ef8234cc7c250d4cf09eeb5487
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 21:57:04 2021 +0100
+
+    Updated LSM entry.
+
+commit f4ee8e3f29fdbb9e0d30f24483d5e2556c8e6fbc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 21:56:41 2021 +0100
+
+    Updated build scripts
+
+commit 52cd58fd4702bfaf583c40a544150d597e23be75
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 16:02:35 2021 +0100
+
+    Updated workflows.
+
+commit 36e97da2c10d473cb55a697f7d786739aba37582
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 15:51:39 2021 +0100
+
+    Added CI workflows.
+
+commit 21828c88b1641eaf30942eb31cf67d09f70e8175
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 15:51:12 2021 +0100
+
+    Updated CI scripts
+
+commit 4560d5877dde4ac41a3cd7bae833416c1c3fb4d2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 15:51:12 2021 +0100
+
+    Travis CI is dead. Removed obsolete Travis CI scripts and configuration.
+
+commit c1086f36e6cddfa34e8031b1febabcd9e9e68c97
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 26 15:51:12 2021 +0100
+
+    Updated build scripts
+
+commit 21f067d543c920664ab30c3931aa2025642601f8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 12 09:29:26 2021 +0100
+
+    New release fractgen-2.1.12.
+
 commit 5020606c6844cc830923c782836e877900ee0afc
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sun Nov 7 21:29:33 2021 +0100

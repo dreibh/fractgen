@@ -1,9 +1,9 @@
-fractgen (2.1.13~rc0-1ubuntu1) jammy; urgency=medium
+fractgen (2.1.13-1ubuntu1) jammy; urgency=medium
 
   * New upstream release.
   * debian/control: Updated standards version to 4.6.2.
 
- -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Fri, 06 Jan 2023 21:27:32 +1100
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Sun, 22 Jan 2023 22:50:55 +1100
 
 fractgen (2.1.12-1ubuntu1) jammy; urgency=medium
 
