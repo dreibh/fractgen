@@ -1,0 +1,2 @@
+# FP; installed as /usr/share/fractgen/examples/
+fractgen source: package-does-not-install-examples [src/examples/]
