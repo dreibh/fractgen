@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2019 by Thomas Dreibholz
+ * Copyright (C) 2003-2021 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contact: dreibh@iem.uni-due.de
+ * Contact: thomas.dreibholz@gmail.com
  */
 
 #include "fractalgeneratorview.h"
@@ -32,10 +32,7 @@
 #include <QImage>
 #include <QResizeEvent>
 #include <QEvent>
-
-
-#define INITIAL_WIDTH  640
-#define INITIAL_HEIGHT 480
+#include <QScreen>
 
 
 // ###### Constructor #######################################################
@@ -75,10 +72,13 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    layout->addWidget(YScrollBar, 0, 1);
    layout->addWidget(ControlLED, 1, 1);
 
-   SizeX = INITIAL_WIDTH;
-   SizeY = INITIAL_HEIGHT;
-   Display->reset(SizeX, SizeY);
-   Display->setMinimumSize(SizeX, SizeY);
+   // Set initial size to 75% of the screen dimensions:
+   QScreen* screen = QGuiApplication::primaryScreen();
+   SizeWidth = (int)rint(screen->geometry().width() * 0.75);
+   SizeHeight = (int)rint(screen->geometry().height() * 0.75);
+
+   Display->reset(SizeWidth, SizeHeight);
+   Display->setMinimumSize(SizeWidth, SizeHeight);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    Algorithm = FractalAlgorithmInterface::getAlgorithmByIdentifier("Mandelbrot");
@@ -185,9 +185,9 @@ void FractalGeneratorView::changeSize(int X, int Y)
    if(Thread != nullptr) {
       stopCalculation();
    }
-   SizeX = X;
-   SizeY = Y;
-   Display->reset(SizeX, SizeY);
+   SizeWidth = X;
+   SizeHeight = Y;
+   Display->reset(SizeWidth, SizeHeight);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    Selection = false;

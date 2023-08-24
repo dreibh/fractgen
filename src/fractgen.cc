@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2019 by Thomas Dreibholz
+ * Copyright (C) 2003-2021 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,19 +17,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contact: dreibh@iem.uni-due.de
+ * Contact: thomas.dreibholz@gmail.com
  */
 
 #include "fractalgenerator.h"
 
 #include <QtWidgets/QApplication>
 #include <QFile>
+#include <QTranslator>
 
 
 // ###### Main program ######################################################
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
+   application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+   QTranslator applicationTranslator;
+   if(!applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name())) {
+      applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name(),
+                                 QStringLiteral("%%PREFIX%%/share/fractgen"));
+   }
+   application.installTranslator(&applicationTranslator);
+
    FractalGeneratorApp* fractalGeneratorApp = nullptr;
    for(int i = 1;i < argc;i++) {
       const QString fileName = QString::fromLocal8Bit(argv[i]);

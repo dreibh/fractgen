@@ -1,0 +1,19 @@
+[Desktop Entry]
+Exec=fractgen %f
+Icon=fractgen
+MimeType=application/x-fractgen
+Name=FractGen
+GenericName[de]=Fraktalgenerator
+GenericName[nb]=Fraktalgenerator
+GenericName=Fractal Generator
+Categories=Math;Graphics;RasterGraphics;Qt
+Keywords=Fractal;Mandelbrot;Math;Graphics
+Keywords[de]=Fraktal;Mandelbrot;Math;Graphics
+Keywords[nb]=Fraktal;Mandelbrot;Math;Graphics
+StartupNotify=true
+Terminal=false
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

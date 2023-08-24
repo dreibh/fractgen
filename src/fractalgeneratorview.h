@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2019 by Thomas Dreibholz
+ * Copyright (C) 2003-2021 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contact: dreibh@iem.uni-due.de
+ * Contact: thomas.dreibholz@gmail.com
  */
 
 #ifndef FRACTALGENERATORVIEW_H
@@ -56,8 +56,8 @@ class FractalGeneratorView : public QWidget
    inline ImageDisplay* getDisplay() const { return(Display); }
    inline FractalAlgorithmInterface* getAlgorithm() const { return(Algorithm); }
    inline ColorSchemeInterface* getColorScheme() const { return(ColorScheme); }
-   inline int getSizeX() { return(SizeX); }
-   inline int getSizeY() { return(SizeY); }
+   inline int getSizeWidth() { return(SizeWidth); }
+   inline int getSizeHeight() { return(SizeHeight); }
    inline bool isZoomInPossible() { return(Selection); }
    inline bool isZoomBackPossible() { return(zoomList.size() > 0); }
 
@@ -115,8 +115,8 @@ class FractalGeneratorView : public QWidget
    std::complex<double>       SelectionC1;
    std::complex<double>       SelectionC2;
    bool                       Selection;
-   int                        SizeX;
-   int                        SizeY;
+   int                        SizeWidth;
+   int                        SizeHeight;
 
    std::list<std::pair<std::complex<double>, std::complex<double> > > zoomList;
 };
