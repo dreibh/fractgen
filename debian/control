@@ -1,16 +1,17 @@
 Source: fractgen
 Section: graphics
 Priority: optional
-Maintainer: Hugo Lefeuvre <hle@debian.org>
+Maintainer: Debian Math Team <team+math@tracker.debian.org>
+Uploaders: Nilesh Patra <nilesh@debian.org>
 Build-Depends: cmake,
                debhelper-compat (= 13),
                qtbase5-dev,
                qttools5-dev,
                qtchooser
 Standards-Version: 4.6.2
-Homepage: https://www.uni-due.de/~be0001/fractalgenerator/
-Vcs-Git: https://salsa.debian.org/hle/fractgen.git
-Vcs-Browser: https://salsa.debian.org/hle/fractgen
+Homepage: https://www.nntb.no/~dreibh/fractalgenerator
+Vcs-Git: https://salsa.debian.org/math-team/fractgen.git
+Vcs-Browser: https://salsa.debian.org/math-team/fractgen
 
 Package: fractgen
 Architecture: any
