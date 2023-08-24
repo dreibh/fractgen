@@ -3,7 +3,7 @@ Section: graphics
 Priority: optional
 Maintainer: Hugo Lefeuvre <hle@debian.org>
 Build-Depends: cmake,
-               debhelper-compat (= 12),
+               debhelper-compat (= 13),
                qtbase5-dev,
                qttools5-dev,
                qtchooser
