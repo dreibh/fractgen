@@ -1,3 +1,19 @@
+fractgen (2.1.13-1) unstable; urgency=medium
+
+  * New upstream version 2.1.13 (Closes: #998800)
+  * Move package to Math team maintenance (Closes: #1050245)
+  * Upstream changed location to nntb.no and also
+    the signing key. Change accordingly.
+  * Add B-D on qttools5-dev
+  * Bump debhelper compatibility level to 13
+  * Bump Standards-Version to 4.6.2 (no changes needed)
+  * Bump d/watch version to 4
+  * Add d/u/metadata
+  * Update lintian override
+  * Add "Rules-Requires-Root: no"
+
+ -- Nilesh Patra <nilesh@debian.org>  Fri, 25 Aug 2023 03:11:19 +0530
+
 fractgen (2.1.5-1) unstable; urgency=medium
 
   * New upstream release.
