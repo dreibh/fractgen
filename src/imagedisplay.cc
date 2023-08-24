@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2019 by Thomas Dreibholz
+ * Copyright (C) 2003-2021 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contact: dreibh@iem.uni-due.de
+ * Contact: thomas.dreibholz@gmail.com
  */
 
 #include "imagedisplay.h"
@@ -131,10 +131,10 @@ void ImageDisplay::mousePressEvent(QMouseEvent* mouseEvent)
    if(mouseEvent->button() & Qt::LeftButton) {
       selection(0, 0, 0, 0);   // Unmark
       getMarkPosition(mouseEvent, MarkX1, MarkY1);
-      MarkX2           = MarkX1;
-      MarkY2           = MarkY1;
-      Marking          = true;
-      LastOffsetUpdate = QTime::currentTime();
+      MarkX2  = MarkX1;
+      MarkY2  = MarkY1;
+      Marking = true;
+      LastOffsetUpdate.restart();
       update();
    }
 }
@@ -143,7 +143,7 @@ void ImageDisplay::mousePressEvent(QMouseEvent* mouseEvent)
 // ###### Handle mouse release for marking ##################################
 void ImageDisplay::mouseReleaseEvent(QMouseEvent* mouseEvent)
 {
-   LastOffsetUpdate = QTime();
+   LastOffsetUpdate.restart();
    mouseMoveEvent(mouseEvent);
 
    if((mouseEvent->button() & Qt::LeftButton) && (Marking)) {
@@ -185,7 +185,7 @@ void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 
       if((movex != 0) || (movey != 0)) {
          offsetUpdate((int)OffsetX + movex, (int)OffsetY + movey);
-         LastOffsetUpdate = QTime::currentTime();
+         LastOffsetUpdate.restart();
       }
 
       getMarkPosition(mouseEvent, MarkX2, MarkY2);

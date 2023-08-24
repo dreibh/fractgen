@@ -1,7 +1,7 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
 #
 # Packaging Scripts
-# Copyright (C) 2017-2019 by Thomas Dreibholz
+# Copyright (C) 2017-2023 by Thomas Dreibholz
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,7 +16,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Contact: dreibh@iem.uni-due.de
+# Contact: thomas.dreibholz@gmail.com
+
+# Bash options:
+set -e
 
 
 # ---------------------------------------------------------------------------
@@ -51,8 +54,8 @@ echo -e ""
 echo -e "\x1b[34m`date +%FT%H:%M:%S`: ====== Creating upstream package ======================================\x1b[0m"
 echo -e ""
 for UPSTREAM_PACKAGE_TYPE in xz bz2 gz ; do
-   echo -n "Looking for ${PACKAGE}-${UPSTREAM_VERSION}.tar.${UPSTREAM_PACKAGE_TYPE} ... "
-   UPSTREAM_PACKAGE="`find . -maxdepth 1 -name "${PACKAGE}-${UPSTREAM_VERSION}.tar.${UPSTREAM_PACKAGE_TYPE}" -printf '%f'`"
+   printf "Looking for ${PACKAGE}-*.tar.${UPSTREAM_PACKAGE_TYPE} ... "
+   UPSTREAM_PACKAGE="`find . -maxdepth 1 -name "${PACKAGE}-*.tar.${UPSTREAM_PACKAGE_TYPE}" -printf '%f'`"
    if [ -e "${UPSTREAM_PACKAGE}" ] ; then
       echo "found!"
       break
@@ -69,13 +72,13 @@ if [ ! -e "${UPSTREAM_PACKAGE}" ]; then
 
    echo -e "\x1b[34m------ Looking for upstream package ... ------\x1b[0m"
    for UPSTREAM_PACKAGE_TYPE in xz bz2 gz ; do
-      UPSTREAM_PACKAGE="`find . -maxdepth 1 -name "${PACKAGE}-${UPSTREAM_VERSION}.tar.${UPSTREAM_PACKAGE_TYPE}" -printf '%f'`"
+      UPSTREAM_PACKAGE="`find . -maxdepth 1 -name "${PACKAGE}-*.tar.${UPSTREAM_PACKAGE_TYPE}" -printf '%f'`"
       if [ -e "${UPSTREAM_PACKAGE}" ] ; then
          break
       fi
    done
    if [ ! -e "${UPSTREAM_PACKAGE}" ] ; then
-      echo -e "\x1b[34mERROR: No upstream package (${PACKAGE}-${UPSTREAM_VERSION}.tar.*) found!\x1b[0m"
+      echo -e "\x1b[34mERROR: No upstream package (${PACKAGE}-*.tar.*) found!\x1b[0m"
       exit 1
    fi
 
@@ -88,11 +91,13 @@ echo -e ""
 
 # ====== Sign upstream source package =======================================
 if [ ! -e "${UPSTREAM_PACKAGE}.asc" ] ; then
-   if [ "${SKIP_PACKAGE_SIGNING}" != "" -a ! ${SKIP_PACKAGE_SIGNING} -eq 1 ] ; then
+   if [ ! ${SKIP_PACKAGE_SIGNING} == "1" -a ! "${OVERRIDE_SKIP_PACKAGE_SIGNING}" == "1" ] ; then
       echo -e ""
       echo -e "\x1b[34m`date +%FT%H:%M:%S`: ====== Sign upstream package ==========================================\x1b[0m"
       echo -e ""
       echo -e "\x1b[34mSigning upstream package ${UPSTREAM_PACKAGE} ...\x1b[0m"
       gpg -sab "${UPSTREAM_PACKAGE}"
+   else
+      rm -f "${UPSTREAM_PACKAGE}.asc"
    fi
 fi

@@ -3,12 +3,12 @@ PROJECT(fractgen LANGUAGES C CXX)
 
 SET(BUILD_MAJOR "2")
 SET(BUILD_MINOR "1")
-SET(BUILD_PATCH "5")
+SET(BUILD_PATCH "13")
 SET(BUILD_VERSION ${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH})
 
 
 #############################################################################
-# INSTALLATION_DIRECTORIES
+#### INSTALLATION_DIRECTORIES                                            ####
 #############################################################################
 
 # See: https://cmake.org/cmake/help/v3.0/module/GNUInstallDirs.html
@@ -16,10 +16,10 @@ INCLUDE(GNUInstallDirs)
 
 
 #############################################################################
-# PACKAGING
+#### PACKAGING                                                           ####
 #############################################################################
 
-SET(CPACK_SOURCE_GENERATOR "TGZ")
+SET(CPACK_SOURCE_GENERATOR "TXZ")
 SET(CPACK_SOURCE_PACKAGE_FILE_NAME
    "${CMAKE_PROJECT_NAME}-${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH}")
 SET(CPACK_SOURCE_IGNORE_FILES
@@ -34,39 +34,29 @@ INCLUDE(CheckStructHasMember)
 
 
 #############################################################################
-# OS-DEPENDENT
+#### OS-DEPENDENT                                                        ####
 #############################################################################
 
 IF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     MESSAGE(STATUS ${CMAKE_SYSTEM_NAME} " supported")
-    ADD_DEFINITIONS("-D_DEFAULT_SOURCE -DLINUX")
 
 ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
     MESSAGE(STATUS ${CMAKE_SYSTEM_NAME} " supported")
     SET(CMAKE_REQUIRED_INCLUDES "/usr/local/include" "/usr/include")
     SET(CMAKE_LIBRARY_PATH "/usr/local/lib")
     INCLUDE_DIRECTORIES("/usr/local/include")
-    ADD_DEFINITIONS("-DFreeBSD")
 
 ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     MESSAGE(STATUS ${CMAKE_SYSTEM_NAME} " supported")
     SET(CMAKE_REQUIRED_INCLUDES "/usr/local/include" "/usr/include" "/usr/local/opt/openssl/include")
     SET(CMAKE_LIBRARY_PATH "/usr/local/lib")
     INCLUDE_DIRECTORIES("/usr/local/include" "/usr/local/opt/openssl/include")
-    ADD_DEFINITIONS("-DDARWIN")
 
 ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "NetBSD")
     MESSAGE(STATUS ${CMAKE_SYSTEM_NAME} " supported")
-    LIST(APPEND neat_headers neat_bsd.h)
-    LIST(APPEND neat_sources neat_bsd.c)
     SET(CMAKE_REQUIRED_INCLUDES "/usr/pkg/include" "/usr/include" "/usr/local/include")
     SET(CMAKE_LIBRARY_PATH "/usr/local/lib")
     INCLUDE_DIRECTORIES("/usr/pkg/include" "/usr/local/include")
-    ADD_DEFINITIONS("-DNetBSD")
-
-ELSEIF (${CMAKE_SYSTEM_NAME} MATCHES "NetBSD")
-    MESSAGE(STATUS ${CMAKE_SYSTEM_NAME} " supported")
-    ADD_DEFINITIONS("-DSOLARIS")
 
 ELSE()
     MESSAGE(FATAL_ERROR ${CMAKE_SYSTEM_NAME} " not supported (yet?)")
@@ -75,12 +65,12 @@ ENDIF()
 
 
 #############################################################################
-# REQUIREMENTS
+#### REQUIREMENTS                                                        ####
 #############################################################################
 
 # ###### Qt #################################################################
 SET(CMAKE_AUTOMOC ON)
-FIND_PACKAGE(Qt5 COMPONENTS Core Xml Widgets PrintSupport REQUIRED)
+FIND_PACKAGE(Qt5 5.3.0 COMPONENTS Core LinguistTools PrintSupport Widgets Xml REQUIRED)
 
 # ###### KDE ################################################################
 OPTION(ENABLE_KDE "Include KDE version" 0)
@@ -101,7 +91,7 @@ feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAG
 
 
 #############################################################################
-# COMPILER FLAGS
+#### COMPILER FLAGS                                                      ####
 #############################################################################
 
 SET(CMAKE_CXX_STANDARD 14)
@@ -123,7 +113,7 @@ ENDIF()
 
 
 #############################################################################
-# SUBDIRECTORIES
+#### SUBDIRECTORIES                                                      ####
 #############################################################################
 
 ADD_SUBDIRECTORY(src)

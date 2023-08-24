@@ -1,8 +1,7 @@
-#!/bin/sh
-# $Id$
+#!/usr/bin/env bash
 #
-# SED Script
-# Copyright (C) 2002-2019 by Thomas Dreibholz
+# Create .ts and .qm files from sources
+# Copyright (C) 2017-2021 by Thomas Dreibholz
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,9 +16,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Contact: dreibh@iem.uni-due.de
+# Contact: dreibh@simula.no
 
-while [ "$1" != "" ] ; do
-   sed -f UpdateDoc1.sed $1 >/tmp/sedtemp && cp /tmp/sedtemp $1 && rm -f /tmp/sedtemp
-   shift
+# Bash options:
+set -e
+
+PROGRAM="fractgen"
+SOURCES=`find . -mindepth 1 -maxdepth 1 -name "*.cc"`
+LANGUAGES="de nb"
+
+for program in $PROGRAM ; do
+   for language in $LANGUAGES ; do
+      tsFile=`echo "${PROGRAM}_${language}.ts" | tr "[:upper:]" "[:lower:]"`
+      qtchooser -qt=5 -run-tool=lupdate -no-obsolete ${SOURCES} -ts $tsFile
+      qtchooser -qt=5 -run-tool=lrelease $tsFile
+   done
 done

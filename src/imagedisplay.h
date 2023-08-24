@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2019 by Thomas Dreibholz
+ * Copyright (C) 2003-2021 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,13 +17,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contact: dreibh@iem.uni-due.de
+ * Contact: thomas.dreibholz@gmail.com
  */
 
 #ifndef IMAGEDISPLAY_H
 #define IMAGEDISPLAY_H
 
 #include <QtWidgets/QWidget>
+#include <QElapsedTimer>
 #include <QImage>
 #include <QPainter>
 #include <QDateTime>
@@ -82,15 +83,15 @@ class ImageDisplay : public QWidget {
    void getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y);
    void drawMarkerRect(QPainter* painter, int x1, int y1, int x2, int y2, bool draw = true);
 
-   QImage*      Image;
-   unsigned int OffsetX;
-   unsigned int OffsetY;
-   QTime        LastOffsetUpdate;
-   int          MarkX1;
-   int          MarkY1;
-   int          MarkX2;
-   int          MarkY2;
-   bool         Marking;
+   QImage*       Image;
+   unsigned int  OffsetX;
+   unsigned int  OffsetY;
+   QElapsedTimer LastOffsetUpdate;
+   int           MarkX1;
+   int           MarkY1;
+   int           MarkX2;
+   int           MarkY2;
+   bool          Marking;
 };
 
 #endif

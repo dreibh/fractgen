@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2019 by Thomas Dreibholz
+ * Copyright (C) 2003-2021 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Contact: dreibh@iem.uni-due.de
+ * Contact: thomas.dreibholz@gmail.com
  */
 
 #include "fractalgeneratordoc.h"
@@ -77,7 +77,9 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    int          line, column;
    if(!doc.setContent(&file, false, &errorText, &line, &column)) {
       QMessageBox::warning(Application, tr("Open File Failure"),
-                           errorText + tr(" in line ") + QString().setNum(line) + tr(", column ") + QString().setNum(column));
+                           errorText + QLatin1Char('\n') +
+                           tr("Line: ") + QString().setNum(line) + QLatin1Char('\n') +
+                           tr("Column: ") + QString().setNum(column));
       return(false);
    }
 
@@ -128,7 +130,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    // ------ Activate settings ----------------------------------------------
    View->changeAlgorithm(algorithmID);
    View->changeColorScheme(colorSchemeID);
-   View->getAlgorithm()->configure(View->getSizeX(), View->getSizeY(),
+   View->getAlgorithm()->configure(View->getSizeWidth(), View->getSizeHeight(),
                                    C1, C2,*(View->getAlgorithm()->getMaxIterations()));
 
    // ------ Set user options -----------------------------------------------
@@ -232,12 +234,12 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
    QDomElement resolution = doc.createElement(QStringLiteral("Resolution"));
    root.appendChild( resolution );
 
-   QString CurrentSize;
-   CurrentSize += QString().setNum(View->getSizeX());
-   CurrentSize += tr("*");
-   CurrentSize += QString().setNum(View->getSizeY());
+   const QString currentSize =
+      QString().setNum(View->getSizeWidth()) +
+      QLatin1Char('*') +
+      QString().setNum(View->getSizeHeight());
 
-   text = doc.createTextNode( CurrentSize );
+   text = doc.createTextNode(currentSize);
    resolution.appendChild(text);
 
    // Write XML document to file

@@ -1,14 +1,15 @@
 Name: fractgen
-Version: 2.1.5
+Version: 2.1.13
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
-License: GPLv3
-URL: https://www.uni-due.de/~be0001/fractalgenerator/
-Source: https://www.uni-due.de/~be0001/fractalgenerator/download/%{name}-%{version}.tar.gz
+License: GPL-3+
+URL: https://www.nntb.no/~dreibh/fractalgenerator/
+Source: https://www.nntb.no/~dreibh/fractalgenerator/download/%{name}-%{version}.tar.xz
 
 AutoReqProv: on
 BuildRequires: cmake
+BuildRequires: qt5-linguist
 BuildRequires: qt5-qtbase-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
@@ -23,18 +24,38 @@ FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals.
 
 %build
 %cmake -DCMAKE_INSTALL_PREFIX=/usr .
-make %{?_smp_mflags}
+%cmake_build
 
 %install
-make DESTDIR=%{buildroot} install
+%cmake_install
 
 %files
 %{_bindir}/fractgen
+%{_datadir}/applications/fractgen.desktop
+%{_datadir}/fractgen/*.qm
 %{_datadir}/fractgen/examples/*.fsf
+%{_datadir}/icons/hicolor/512x512/apps/fractgen.png
+%{_datadir}/mime/packages/fractgen.xml
 %{_mandir}/man1/fractgen.1.gz
 
 
 %changelog
+* Sun Jan 22 2023 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 2.1.13
+- New upstream release.
+* Fri Nov 12 2021 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.12
+- New upstream release.
+* Sat Mar 06 2021 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.11
+- New upstream release.
+* Fri Nov 13 2020 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.10
+- New upstream release.
+* Fri Apr 24 2020 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.9
+- New upstream release.
+* Fri Feb 07 2020 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.8
+- New upstream release.
+* Wed Aug 07 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.7
+- New upstream release.
+* Fri Jul 26 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.6
+- New upstream release.
 * Tue May 21 2019 Thomas Dreibholz <dreibh@iem.uni-due.de> - 2.1.5
 - New upstream release.
 * Wed Aug 09 2018 Thomas Dreibholz <dreibh@iem.uni-due.de> 2.0.16
