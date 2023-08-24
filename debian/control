@@ -12,6 +12,7 @@ Standards-Version: 4.6.2
 Homepage: https://www.nntb.no/~dreibh/fractalgenerator
 Vcs-Git: https://salsa.debian.org/math-team/fractgen.git
 Vcs-Browser: https://salsa.debian.org/math-team/fractgen
+Rules-Requires-Root: no
 
 Package: fractgen
 Architecture: any
