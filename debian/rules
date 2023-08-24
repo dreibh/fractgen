@@ -7,3 +7,6 @@ export QT_SELECT = 5
 
 %:
 	dh $@
+
+execute_before_dh_auto_build:
+	@echo 'blhc: ignore-line-regexp: /usr/(bin|lib)/(ccache/)?c\+\+ -std.*-dM -E.*'
