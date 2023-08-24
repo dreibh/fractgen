@@ -5,6 +5,7 @@ Maintainer: Hugo Lefeuvre <hle@debian.org>
 Build-Depends: cmake,
                debhelper-compat (= 12),
                qtbase5-dev,
+               qttools5-dev,
                qtchooser
 Standards-Version: 4.4.0
 Homepage: https://www.uni-due.de/~be0001/fractalgenerator/
