@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2021 by Thomas Dreibholz
+ * Copyright (C) 2003-2024 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -247,7 +247,7 @@ void FractalGeneratorApp::slotFileQuit()
 void FractalGeneratorApp::slotHelpAbout()
 {
    QMessageBox::information(this, QStringLiteral("FractGen"),
-      QStringLiteral("FractGen\nCopyright (C) 2003-2021 by Thomas Dreibholz\nhttps://www.nntb.no/~dreibh/fractalgenerator/"),
+      QStringLiteral("FractGen\nCopyright (C) 2003-2024 by Thomas Dreibholz\nhttps://www.nntb.no/~dreibh/fractalgenerator/"),
       tr("&Okay"));
 }
 
