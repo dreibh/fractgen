@@ -6,7 +6,6 @@ Homepage: http://www.iem.uni-due/~dreibh/fractalgenerator/index.html
 Build-Depends: cmake,
                debhelper (>= 12),
                extra-cmake-modules,
-               libfile-fcntllock-perl,
                qtbase5-dev,
                qttools5-dev,
                qttools5-dev-tools
