@@ -1,3 +1,57 @@
+commit c0f0695e5ff9e182e2729555c3d1c44241ec9812
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 15 11:42:31 2023 +0100
+
+    Dependency improvements.
+
+commit 01a560a6d349695f035bcbf3978e9831832dfb6a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 15 10:53:51 2023 +0100
+
+    Packaging clean-ups.
+
+commit edd76c317c4098cb632d91d2ea31835f823d01f7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 15 09:52:34 2023 +0100
+
+    Updated build scripts
+
+commit 6210091ccf190ed80dc464ea2c2fdcfd270879c0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Nov 15 09:33:24 2023 +0100
+
+    Updated build scripts
+
+commit b6414d06bf717824fe47eed1a19d5c678355f31b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 11 17:50:51 2023 +0100
+
+    Workflows update.
+
+commit 411b2681e45a8df9bc9b0d511e345d05fb7ddd34
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 11 16:22:36 2023 +0100
+
+    Header updates.
+
+commit 47a2d94543997aae4be8ff78525de8e456cbdf7e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 11 16:16:03 2023 +0100
+
+    Updated CI scripts
+
+commit 4487fd012b8d2c428fadf5395180386003a8ceec
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Nov 11 16:15:53 2023 +0100
+
+    Updated build scripts
+
+commit 5f743835faadc03c960cbc4cd5afae238fc7beff
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Jan 22 22:50:57 2023 +1100
+
+    New release fractgen-2.1.13.
+
 commit e6c03809389d3c98e35e44e3180909dca5a99941
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sat Jan 21 22:02:47 2023 +1100

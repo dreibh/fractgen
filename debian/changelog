@@ -1,8 +1,8 @@
-fractgen (2.1.14~rc1-1ubuntu1) jammy; urgency=medium
+fractgen (2.1.14-1ubuntu1) jammy; urgency=medium
 
   * New upstream release.
 
- -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Wed, 15 Nov 2023 10:52:49 +0100
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Wed, 06 Dec 2023 16:51:19 +0100
 
 fractgen (2.1.13-1ubuntu1) jammy; urgency=medium
 
