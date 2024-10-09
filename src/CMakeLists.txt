@@ -22,7 +22,7 @@ ADD_EXECUTABLE(fractgen
    simplehsv.cc
    simplergb.cc
    uintconfigentry.cc)
-TARGET_LINK_LIBRARIES(fractgen Qt5::Widgets Qt5::Xml Qt5::Core Qt5::PrintSupport)
+TARGET_LINK_LIBRARIES(fractgen Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Xml Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::PrintSupport)
 
 INSTALL(TARGETS             fractgen
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -39,7 +39,7 @@ FOREACH(tsFile IN LISTS FRACTGEN_TS_FILES)
    GET_FILENAME_COMPONENT(fileBase ${tsFile} NAME_WE)
    SET(qmFile "${fileBase}.qm")
    ADD_CUSTOM_COMMAND(OUTPUT ${qmFile}
-                      COMMAND Qt5::lrelease ${tsFile})
+                      COMMAND Qt${QT_VERSION_MAJOR}::lrelease ${tsFile})
    ADD_CUSTOM_TARGET(target_${qmFile} ALL DEPENDS ${qmFile})
    LIST(APPEND FRACTGEN_QM_FILES ${qmFile})
 ENDFOREACH()
@@ -67,7 +67,7 @@ IF (ENABLE_KDE)
    uintconfigentry.cc)
 
    SET_TARGET_PROPERTIES(kfractgen PROPERTIES COMPILE_FLAGS "-DWITH_KDE")
-   TARGET_LINK_LIBRARIES(kfractgen Qt5::Widgets Qt5::Xml Qt5::Core Qt5::PrintSupport KF5::CoreAddons KF5::WidgetsAddons KF5::XmlGui)
+   TARGET_LINK_LIBRARIES(kfractgen Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Xml Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::PrintSupport KF5::CoreAddons KF5::WidgetsAddons KF5::XmlGui)
    INSTALL(TARGETS             kfractgen
            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
            BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})

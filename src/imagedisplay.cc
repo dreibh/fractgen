@@ -158,7 +158,7 @@ void ImageDisplay::mouseReleaseEvent(QMouseEvent* mouseEvent)
       selection(0, 0, 0, 0);   // Unmark
       update();
    }
-   if(mouseEvent->button() & Qt::MidButton) {
+   if(mouseEvent->button() & Qt::MiddleButton) {
       zoom();
    }
 }

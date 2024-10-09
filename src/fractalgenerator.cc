@@ -27,6 +27,7 @@
 #include "colorschemeinterface.h"
 #include "optionsdialog.h"
 
+#include <QtWidgets/QActionGroup>
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QStatusBar>
