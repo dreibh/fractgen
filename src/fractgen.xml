@@ -6,8 +6,9 @@
     <comment xml:lang="nb">FractGen-lagringsfil</comment>
     <comment xml:lang="nn">FractGen-lagringsfil</comment>
     <magic priority="80">
-      <match type="string" value="&lt;!DOCTYPE XMLFractalSave" offset="0:50"/>
+      <match type="string" value="&lt;!DOCTYPE XMLFractalSave" offset="0"/>
     </magic>
     <glob pattern="*.fsf" weight="75"/>
+    <generic-icon name="fractgen"/>
   </mime-type>
 </mime-info>
