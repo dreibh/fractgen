@@ -3,6 +3,7 @@
   <mime-type type="application/x-fractgen">
     <comment>FractGen save file</comment>
     <comment xml:lang="de">FractGen-Speicherdatei</comment>
+    <comment xml:lang="nb">FractGen-lagringsfil</comment>
     <comment xml:lang="nn">FractGen-lagringsfil</comment>
     <magic priority="80">
       <match type="string" value="&lt;!DOCTYPE XMLFractalSave" offset="0:50"/>
