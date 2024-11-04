@@ -1,5 +1,2 @@
 usr/bin/fractgen
 usr/share/applications/fractgen.desktop
-usr/share/fractgen/*.qm
-usr/share/icons/hicolor/512x512/apps/fractgen.png
-usr/share/mime/packages/fractgen.xml

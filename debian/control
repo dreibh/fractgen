@@ -8,13 +8,14 @@ Vcs-Browser: https://github.com/dreibh/fractgen
 Build-Depends: cmake,
                debhelper (>= 12),
                extra-cmake-modules,
-               ( qt6-base-dev & libxkbcommon-dev & qt6-l10n-tools ) | ( qtbase5-dev & qttools5-dev & qttools5-dev-tools )
+               ( qt6-base-dev & libxkbcommon-dev & qt6-l10n-tools & libkf6coreaddons-dev & libkf6xmlgui-dev ) | ( qtbase5-dev & qttools5-dev & qttools5-dev-tools & libkf5coreaddons-dev libkf5xmlgui-dev )
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
 Package: fractgen
 Architecture: any
-Depends: ${misc:Depends},
+Depends: fractgen-common (>= ${source:Version}),
+         ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
             rsplib-tools
@@ -32,7 +33,8 @@ Description: FractGen tool for calculating fractal images (Qt version)
 
 Package: kfractgen
 Architecture: any
-Depends: ${misc:Depends},
+Depends: fractgen-common (>= ${source:Version}),
+         ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
             rsplib-tools
@@ -47,6 +49,12 @@ Description: FractGen tool for calculating fractal images (KDE version)
  book covers.
  .
  This is the KDE version of FractGen.
+
+Package: fractgen-common
+Architecture: all
+Depends: ${misc:Depends}
+Description: example files for FractGen
+ This package contains commen files for the Qt and KDE FractGen versions.
 
 Package: fractgen-examples
 Architecture: all
