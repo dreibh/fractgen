@@ -20,8 +20,8 @@
 # Contact: thomas.dreibholz@gmail.com
 
 
-# ###### Bash completion for fractgen #######################################
-_fractgen()
+# ###### Bash completion for kfractgen ######################################
+_kfractgen()
 {
    # Based on: https://www.benningtons.net/index.php/bash-completion/
    local cur prev words cword
@@ -46,4 +46,4 @@ _fractgen()
    return 0
 }
 
-complete -F _fractgen fractgen
+complete -F _kfractgen kfractgen
