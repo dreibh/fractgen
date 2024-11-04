@@ -97,12 +97,17 @@ ENDIF()
 
 # ###### Qt #################################################################
 SET(CMAKE_AUTOMOC ON)
-# FIND_PACKAGE(QT NAMES Qt6 REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
+FIND_PACKAGE(QT NAMES Qt6 COMPONENTS Core Network Widgets Xml PrintSupport)
 IF (NOT QT_FOUND)
    FIND_PACKAGE(QT NAMES Qt5 REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
 ENDIF()
 MESSAGE("Using Qt version ${QT_VERSION_MAJOR}!")
 FIND_PACKAGE(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
+FIND_PROGRAM(LRELEASE lrelease PATHS /usr/local/lib/qt${QT_VERSION_MAJOR}/bin
+                                     /usr/lib/qt${QT_VERSION_MAJOR}/bin
+                                     /usr/bin
+                               REQUIRED)
+MESSAGE("Using LRelease ${LRELEASE}!")
 
 # ###### KDE ################################################################
 OPTION(WITH_KDE "Build with KDE support" 0)

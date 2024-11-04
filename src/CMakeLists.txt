@@ -44,7 +44,7 @@ FOREACH(tsFile IN LISTS FRACTGEN_TS_FILES)
    GET_FILENAME_COMPONENT(fileBase ${tsFile} NAME_WE)
    SET(qmFile "${fileBase}.qm")
    ADD_CUSTOM_COMMAND(OUTPUT ${qmFile}
-                      COMMAND lrelease ${tsFile})
+                      COMMAND ${LRELEASE} ${tsFile})
    ADD_CUSTOM_TARGET(target_${qmFile} ALL DEPENDS ${qmFile})
    LIST(APPEND FRACTGEN_QM_FILES ${qmFile})
 ENDFOREACH()

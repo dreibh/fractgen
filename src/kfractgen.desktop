@@ -1,15 +1,15 @@
 [Desktop Entry]
-Exec=fractgen %f
+Exec=kfractgen %f
 Icon=fractgen
 MimeType=application/x-fractgen
-Name=FractGen
-GenericName[de]=Fraktalgenerator
-GenericName[nb]=Fraktalgenerator
-GenericName=Fractal Generator
-Categories=Math;Graphics;RasterGraphics;Qt
-Keywords=Fractal;Mandelbrot;Math;Graphics
-Keywords[de]=Fraktal;Mandelbrot;Math;Graphics
-Keywords[nb]=Fraktal;Mandelbrot;Math;Graphics
+Name=KFractGen
+GenericName[de]=KDE Fraktalgenerator
+GenericName[nb]=KDE Fraktalgenerator
+GenericName=KDE Fractal Generator
+Categories=Math;Graphics;RasterGraphics;KDE
+Keywords=Fractal;Mandelbrot;Math;Graphics;KDE
+Keywords[de]=Fraktal;Mandelbrot;Math;Graphics;KDE
+Keywords[nb]=Fraktal;Mandelbrot;Math;Graphics;KDE
 StartupNotify=true
 Terminal=false
 Type=Application

@@ -5,10 +5,21 @@ Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 Homepage: https://www.nntb.no/~dreibh/fractalgenerator/
 Vcs-Git: https://github.com/dreibh/fractgen.git
 Vcs-Browser: https://github.com/dreibh/fractgen
+# Build-Depends logic:
+# - extra-cmake-modules contains the KDE version
+# - KDE 6 not available (extra-cmake-modules < 6.0) => Qt 5.x and KDE 5.x is used
+# - KDE 6 available extra-cmake-modules >= 6.0)     => Qt 6.x and KDE 6.x is used
+# A | (B and C) == A | B, A | C
 Build-Depends: cmake,
                debhelper (>= 12),
-               extra-cmake-modules,
-               ( qt6-base-dev & libxkbcommon-dev & qt6-l10n-tools & libkf6coreaddons-dev & libkf6xmlgui-dev ) | ( qtbase5-dev & qttools5-dev & qttools5-dev-tools & libkf5coreaddons-dev libkf5xmlgui-dev )
+               extra-cmake-modules (<< 6.0.0) | qt6-base-dev,
+               extra-cmake-modules (<< 6.0.0) | qt6-l10n-tools,
+               extra-cmake-modules (<< 6.0.0) | libkf6coreaddons-dev,
+               extra-cmake-modules (<< 6.0.0) | libkf6xmlgui-dev,
+               extra-cmake-modules (>= 6.0.0) | qtbase5-dev,
+               extra-cmake-modules (>= 6.0.0) | qttools5-dev-tools,
+               extra-cmake-modules (>= 6.0.0) | libkf5coreaddons-dev,
+               extra-cmake-modules (>= 6.0.0) | libkf5xmlgui-dev
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
@@ -19,7 +30,7 @@ Depends: fractgen-common (>= ${source:Version}),
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
             rsplib-tools
-Description: FractGen tool for calculating fractal images (Qt version)
+Description: fractal images calculation application (Qt version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -38,7 +49,7 @@ Depends: fractgen-common (>= ${source:Version}),
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
             rsplib-tools
-Description: FractGen tool for calculating fractal images (KDE version)
+Description: fractal images calculation application (KDE version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -53,7 +64,16 @@ Description: FractGen tool for calculating fractal images (KDE version)
 Package: fractgen-common
 Architecture: all
 Depends: ${misc:Depends}
-Description: example files for FractGen
+Description: common files for FractGen
+ FractGen is a simple Qt-based fractal generator program for Mandelbrot
+ fractals. The image size is only limited by virtual memory. It is possible
+ to zoom into images. Image parameters can be saved in XML files and loaded
+ from XML files. Calculated images can be exported as PNG files.
+ .
+ The intention of this program is to generate graphics to be post-processed
+ by other image tools, e.g. in order to generate nice screen backgrounds or
+ book covers.
+ .
  This package contains commen files for the Qt and KDE FractGen versions.
 
 Package: fractgen-examples

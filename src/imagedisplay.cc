@@ -177,7 +177,7 @@ void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 #endif
       int movex = 0;
       int movey = 0;
-      if(mouseEvent->x() < 0) {
+      if(mouseX < 0) {
          movex = std::max(mouseX, -((int)OffsetX));
       }
       else if(mouseX >= width()) {
