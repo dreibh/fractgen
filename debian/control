@@ -3,13 +3,15 @@ Section: graphics
 Priority: optional
 Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 Homepage: http://www.iem.uni-due/~dreibh/fractalgenerator/index.html
+Vcs-Git: https://github.com/dreibh/fractgen.git
+Vcs-Browser: https://github.com/dreibh/fractgen
 Build-Depends: cmake,
                debhelper (>= 12),
                extra-cmake-modules,
                qtbase5-dev,
                qttools5-dev,
                qttools5-dev-tools
-Standards-Version: 4.6.2
+Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
 Package: fractgen

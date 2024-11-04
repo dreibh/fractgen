@@ -1,3 +1,10 @@
+fractgen (2.1.15~rc0-1ubuntu1) noble; urgency=medium
+
+  * New upstream release.
+  * debian/control: Updated standards version to 4.7.0.
+
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Sat, 19 Oct 2024 16:18:12 +0200
+
 fractgen (2.1.14-1ubuntu1) jammy; urgency=medium
 
   * New upstream release.
