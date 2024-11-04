@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 2.1.15~rc0
+Version: 2.2.0~beta0
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
