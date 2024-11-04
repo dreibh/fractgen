@@ -1,2 +1,3 @@
 usr/bin/kfractgen
 usr/share/applications/kfractgen.desktop
+usr/share/bash-completion/completions/kfractgen

@@ -5,21 +5,16 @@ Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 Homepage: https://www.nntb.no/~dreibh/fractalgenerator/
 Vcs-Git: https://github.com/dreibh/fractgen.git
 Vcs-Browser: https://github.com/dreibh/fractgen
-# Build-Depends logic:
-# - extra-cmake-modules contains the KDE version
-# - KDE 6 not available (extra-cmake-modules < 6.0) => Qt 5.x and KDE 5.x is used
-# - KDE 6 available extra-cmake-modules >= 6.0)     => Qt 6.x and KDE 6.x is used
-# A | (B and C) == A | B, A | C
 Build-Depends: cmake,
                debhelper (>= 12),
-               extra-cmake-modules (<< 6.0.0) | qt6-base-dev,
-               extra-cmake-modules (<< 6.0.0) | qt6-l10n-tools,
                extra-cmake-modules (<< 6.0.0) | libkf6coreaddons-dev,
                extra-cmake-modules (<< 6.0.0) | libkf6xmlgui-dev,
-               extra-cmake-modules (>= 6.0.0) | qtbase5-dev,
-               extra-cmake-modules (>= 6.0.0) | qttools5-dev-tools,
+               extra-cmake-modules (<< 6.0.0) | qt6-base-dev,
+               extra-cmake-modules (<< 6.0.0) | qt6-l10n-tools,
                extra-cmake-modules (>= 6.0.0) | libkf5coreaddons-dev,
-               extra-cmake-modules (>= 6.0.0) | libkf5xmlgui-dev
+               extra-cmake-modules (>= 6.0.0) | libkf5xmlgui-dev,
+               extra-cmake-modules (>= 6.0.0) | qtbase5-dev,
+               extra-cmake-modules (>= 6.0.0) | qttools5-dev-tools
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
