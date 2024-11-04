@@ -28,7 +28,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtPrintSupport/QPrinter>
 #ifdef WITH_KDE
-#include <KXmlGui/KXmlGuiWindow>
+#include <KXmlGuiWindow>
 #endif
 
 class FractalGeneratorDoc;

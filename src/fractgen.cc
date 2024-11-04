@@ -22,20 +22,25 @@
 
 #include "fractalgenerator.h"
 
-#include <QtWidgets/QApplication>
 #include <QFile>
+#include <QtGlobal>
 #include <QTranslator>
+#include <QtWidgets/QApplication>
 
 
 // ###### Main program ######################################################
 int main(int argc, char *argv[])
 {
    QApplication application(argc, argv);
+#if QT_VERSION < 0x060000
    application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
+#endif
    QTranslator applicationTranslator;
    if(!applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name())) {
-      applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name(),
-                                 QStringLiteral("%%PREFIX%%/share/fractgen"));
+      if(!applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name(),
+                                     QStringLiteral("%%PREFIX%%/share/fractgen"))) {
+         puts("Failed to load translations!");
+      }
    }
    application.installTranslator(&applicationTranslator);
 

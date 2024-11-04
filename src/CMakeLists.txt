@@ -22,7 +22,12 @@ ADD_EXECUTABLE(fractgen
    simplehsv.cc
    simplergb.cc
    uintconfigentry.cc)
-TARGET_LINK_LIBRARIES(fractgen Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Xml Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::PrintSupport)
+TARGET_LINK_LIBRARIES(fractgen
+   Qt${QT_VERSION_MAJOR}::Core
+   Qt${QT_VERSION_MAJOR}::PrintSupport
+   Qt${QT_VERSION_MAJOR}::Widgets
+   Qt${QT_VERSION_MAJOR}::Xml
+)
 
 INSTALL(TARGETS             fractgen
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
@@ -39,14 +44,14 @@ FOREACH(tsFile IN LISTS FRACTGEN_TS_FILES)
    GET_FILENAME_COMPONENT(fileBase ${tsFile} NAME_WE)
    SET(qmFile "${fileBase}.qm")
    ADD_CUSTOM_COMMAND(OUTPUT ${qmFile}
-                      COMMAND Qt${QT_VERSION_MAJOR}::lrelease ${tsFile})
+                      COMMAND lrelease ${tsFile})
    ADD_CUSTOM_TARGET(target_${qmFile} ALL DEPENDS ${qmFile})
    LIST(APPEND FRACTGEN_QM_FILES ${qmFile})
 ENDFOREACH()
 INSTALL(FILES ${FRACTGEN_QM_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen)
 
 
-IF (ENABLE_KDE)
+IF (WITH_KDE)
    ADD_EXECUTABLE(kfractgen
    colorschemeinterface.cc
    doubleconfigentry.cc
@@ -67,10 +72,11 @@ IF (ENABLE_KDE)
    uintconfigentry.cc)
 
    SET_TARGET_PROPERTIES(kfractgen PROPERTIES COMPILE_FLAGS "-DWITH_KDE")
-   TARGET_LINK_LIBRARIES(kfractgen Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Xml Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::PrintSupport KF5::CoreAddons KF5::WidgetsAddons KF5::XmlGui)
+   TARGET_LINK_LIBRARIES(kfractgen Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Xml Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::PrintSupport KF${QT_VERSION_MAJOR}::CoreAddons KF${QT_VERSION_MAJOR}::WidgetsAddons KF${QT_VERSION_MAJOR}::XmlGui)
    INSTALL(TARGETS             kfractgen
            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
            BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})
+   INSTALL(FILES kfractgen.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 ENDIF()
 
 

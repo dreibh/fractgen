@@ -168,19 +168,26 @@ void ImageDisplay::mouseReleaseEvent(QMouseEvent* mouseEvent)
 void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 {
    if((Marking) && (LastOffsetUpdate.elapsed() >= 50)) {
+#if QT_VERSION >= 0x060000
+      const int mouseX = (int)mouseEvent->position().x();
+      const int mouseY = (int)mouseEvent->position().y();
+#else
+      const int mouseX = mouseEvent->x();
+      const int mouseY = mouseEvent->y();
+#endif
       int movex = 0;
       int movey = 0;
       if(mouseEvent->x() < 0) {
-         movex = std::max(mouseEvent->x(), -((int)OffsetX));
+         movex = std::max(mouseX, -((int)OffsetX));
       }
-      else if(mouseEvent->x() >= width()) {
-         movex = std::min(mouseEvent->x() - width(), Image->width() - width() - (int)OffsetX);
+      else if(mouseX >= width()) {
+         movex = std::min(mouseX - width(), Image->width() - width() - (int)OffsetX);
       }
-      if(mouseEvent->y() < 0) {
-         movey = std::max(mouseEvent->y(), -((int)OffsetY));
+      if(mouseY < 0) {
+         movey = std::max(mouseY, -((int)OffsetY));
       }
-      else if(mouseEvent->y() >= height()) {
-         movey = std::min(mouseEvent->y() - height(), Image->height() - height() - (int)OffsetY);
+      else if(mouseY >= height()) {
+         movey = std::min(mouseY - height(), Image->height() - height() - (int)OffsetY);
       }
 
       if((movex != 0) || (movey != 0)) {
@@ -197,14 +204,21 @@ void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 // ###### Get (x,y)-position for marking rect ###############################
 void ImageDisplay::getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y)
 {
-   x = mouseEvent->x() + (int)OffsetX;
+#if QT_VERSION >= 0x060000
+   const int mouseX = (int)mouseEvent->position().x();
+   const int mouseY = (int)mouseEvent->position().y();
+#else
+   const int mouseX = mouseEvent->x();
+   const int mouseY = mouseEvent->y();
+#endif
+   x = mouseX + (int)OffsetX;
    if(x < 0) {
       x = 0;
    }
    if(x >= Image->width()) {
       x = Image->width() - 1;
    }
-   y = mouseEvent->y() + (int)OffsetY;
+   y = mouseY + (int)OffsetY;
    if(y < 0) {
       y = 0;
    }

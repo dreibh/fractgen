@@ -38,7 +38,7 @@
 #include <QEvent>
 
 #ifdef WITH_KDE
-#include <KWidgetsAddons/KLed>
+#include <KLed>
 #endif
 
 

@@ -27,7 +27,7 @@
 #include "colorschemeinterface.h"
 #include "optionsdialog.h"
 
-#include <QtWidgets/QActionGroup>
+#include <QActionGroup>
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QStatusBar>
@@ -67,19 +67,19 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    fileMenu->addAction(tr("&Save"), this, SLOT(slotFileSave()), QKeySequence(QKeySequence::Save));
    fileMenu->addAction(tr("Save As ..."), this, SLOT(slotFileSaveAs()));
    fileMenu->addSeparator();
-   fileMenu->addAction(tr("&Export ..."), this, SLOT(slotFileExportImage()), QKeySequence(Qt::CTRL + Qt::Key_X));
+   fileMenu->addAction(tr("&Export ..."), this, SLOT(slotFileExportImage()), QKeySequence(Qt::CTRL | Qt::Key_X));
    fileMenu->addAction(tr("&Print ..."), this, SLOT(slotFilePrint()), QKeySequence(QKeySequence::Print));
    fileMenu->addSeparator();
    fileMenu->addAction(tr("&Close"), this, SLOT(slotFileClose()), QKeySequence(QKeySequence::Close));
-   fileMenu->addAction(tr("&Quit"), this, SLOT(slotFileQuit()), QKeySequence(Qt::CTRL + Qt::Key_Q));
+   fileMenu->addAction(tr("&Quit"), this, SLOT(slotFileQuit()), QKeySequence(Qt::CTRL | Qt::Key_Q));
 
    QMenu* viewMenu = menuBar()->addMenu(tr("&View"));
    Q_CHECK_PTR(viewMenu);
-   ViewZoomIn = viewMenu->addAction(tr("Zoom &In"), View, SLOT(zoomIn()), QKeySequence(Qt::CTRL + Qt::Key_I));
+   ViewZoomIn = viewMenu->addAction(tr("Zoom &In"), View, SLOT(zoomIn()), QKeySequence(Qt::CTRL | Qt::Key_I));
    ViewZoomIn->setEnabled(false);
    ViewZoomBack = viewMenu->addAction(tr("Zoom &Back"), View, SLOT(zoomBack()), QKeySequence(QKeySequence::Undo));
    ViewZoomBack->setEnabled(false);
-   viewMenu->addAction(tr("&Reset Zoom"), View, SLOT(zoomReset()), QKeySequence(Qt::CTRL + Qt::Key_R));
+   viewMenu->addAction(tr("&Reset Zoom"), View, SLOT(zoomReset()), QKeySequence(Qt::CTRL | Qt::Key_R));
    viewMenu->addSeparator();
    viewMenu->addAction(tr("Image Size"), this, SLOT(slotViewSetImageSize()), QKeySequence(Qt::Key_F3));
 

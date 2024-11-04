@@ -1,4 +1,25 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.10)
+# ==========================================================================
+# ====                   FRACTAL GRAPHICS GENERATOR                     ====
+# ==========================================================================
+#
+# Copyright (C) 2003-2024 by Thomas Dreibholz
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Contact: thomas.dreibholz@gmail.com
+
+CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
 PROJECT(fractgen LANGUAGES C CXX)
 
 SET(BUILD_MAJOR "2")
@@ -76,12 +97,20 @@ ENDIF()
 
 # ###### Qt #################################################################
 SET(CMAKE_AUTOMOC ON)
-FIND_PACKAGE(QT NAMES Qt5 REQUIRED COMPONENTS Core)
-FIND_PACKAGE(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core LinguistTools PrintSupport Widgets Xml)
+# FIND_PACKAGE(QT NAMES Qt6 REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
+IF (NOT QT_FOUND)
+   FIND_PACKAGE(QT NAMES Qt5 REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
+ENDIF()
+MESSAGE("Using Qt version ${QT_VERSION_MAJOR}!")
+FIND_PACKAGE(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
 
 # ###### KDE ################################################################
-OPTION(ENABLE_KDE "Include KDE version" 0)
-IF (ENABLE_KDE)
+OPTION(WITH_KDE "Build with KDE support" 0)
+IF (WITH_KDE)
+   # Needed:
+   # KDE5: libkf5coreaddons-dev libkf5xmlgui-dev
+   # KDE6: libkf6coreaddons-dev libkf6xmlgui-dev
+
    FIND_PACKAGE(ECM "1.0.0" NO_MODULE REQUIRED)
    SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
@@ -90,33 +119,11 @@ IF (ENABLE_KDE)
    INCLUDE(KDECompilerSettings NO_POLICY_SCOPE)
    INCLUDE(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
-   FIND_PACKAGE(KF5 "5.2.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui)
+   FIND_PACKAGE(KF${QT_VERSION_MAJOR} "${QT_VERSION_MAJOR}.0.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui)
 ENDIF()
 
 INCLUDE(FeatureSummary)
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
-
-
-#############################################################################
-#### COMPILER FLAGS                                                      ####
-#############################################################################
-
-SET(CMAKE_CXX_STANDARD 14)
-SET(CMAKE_CXX_STANDARD_REQUIRED ON)
-SET(CMAKE_CXX_EXTENSIONS OFF)
-
-SET(CMAKE_C_STANDARD 11)
-SET(CMAKE_C_STANDARD_REQUIRED ON)
-SET(CMAKE_C_EXTENSIONS OFF)
-
-SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall -Werror")
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
-
-IF (CMAKE_BUILD_TYPE MATCHES DEBUG)
-    MESSAGE(STATUS "Building in DEBUG mode")
-    # _FORTIFY_SOURCE requires compiling with optimization
-    SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O")
-ENDIF()
 
 
 #############################################################################

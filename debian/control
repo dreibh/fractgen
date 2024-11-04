@@ -2,15 +2,13 @@ Source: fractgen
 Section: graphics
 Priority: optional
 Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
-Homepage: http://www.iem.uni-due/~dreibh/fractalgenerator/index.html
+Homepage: https://www.nntb.no/~dreibh/fractalgenerator/
 Vcs-Git: https://github.com/dreibh/fractgen.git
 Vcs-Browser: https://github.com/dreibh/fractgen
 Build-Depends: cmake,
                debhelper (>= 12),
                extra-cmake-modules,
-               qtbase5-dev,
-               qttools5-dev,
-               qttools5-dev-tools
+               ( qt6-base-dev & libxkbcommon-dev & qt6-l10n-tools ) | ( qtbase5-dev & qttools5-dev & qttools5-dev-tools )
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
@@ -20,7 +18,7 @@ Depends: ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
             rsplib-tools
-Description: calculates fractal images
+Description: FractGen tool for calculating fractal images (Qt version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -29,6 +27,26 @@ Description: calculates fractal images
  The intention of this program is to generate graphics to be post-processed
  by other image tools, e.g. in order to generate nice screen backgrounds or
  book covers.
+ .
+ This is the Qt version of FractGen.
+
+Package: kfractgen
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: fractgen-examples (>= ${source:Version}),
+            rsplib-tools
+Description: FractGen tool for calculating fractal images (KDE version)
+ FractGen is a simple Qt-based fractal generator program for Mandelbrot
+ fractals. The image size is only limited by virtual memory. It is possible
+ to zoom into images. Image parameters can be saved in XML files and loaded
+ from XML files. Calculated images can be exported as PNG files.
+ .
+ The intention of this program is to generate graphics to be post-processed
+ by other image tools, e.g. in order to generate nice screen backgrounds or
+ book covers.
+ .
+ This is the KDE version of FractGen.
 
 Package: fractgen-examples
 Architecture: all
