@@ -41,6 +41,8 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
 {
    Thread = nullptr;
    installEventFilter(this);
+
+   // ====== Initialise widgets =============================================
    Buffer = new FractalBuffer();
    Q_CHECK_PTR(Buffer);
    Display = new ImageDisplay(this);
@@ -65,6 +67,7 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    Q_CHECK_PTR(ControlLED);
 #endif
 
+   // ====== Initialise layout ==============================================
    QGridLayout* layout = new QGridLayout(this);
    Q_CHECK_PTR(layout);
    layout->addWidget(Display, 0, 0);
@@ -73,7 +76,7 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    layout->addWidget(ControlLED, 1, 1);
 
    // Set initial size to 75% of the screen dimensions:
-   QScreen* screen = QGuiApplication::primaryScreen();
+   const QScreen* screen = QGuiApplication::primaryScreen();
    SizeWidth  = (int)rint(screen->geometry().width() * 0.75);
    SizeHeight = (int)rint(screen->geometry().height() * 0.75);
 
@@ -81,6 +84,7 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    Display->setMinimumSize(SizeWidth, SizeHeight);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
+   // ====== Set up algorithm and color scheme ==============================
    Algorithm = FractalAlgorithmInterface::makeAlgorithmInstanceByIdentifier("Mandelbrot");
    Q_CHECK_PTR(Algorithm);
    ColorScheme = ColorSchemeInterface::makeColorSchemeInstanceByIdentifier("SimpleHSV");
@@ -94,9 +98,10 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
                         C1, C2,
                         Algorithm->defaultMaxIterations());
    ColorScheme->configure(Algorithm->getMaxIterations());
-   startCalculation();
 
+   // ====== Start calculation ==============================================
    updateScrollBars();
+   startCalculation();
 }
 
 
@@ -185,7 +190,7 @@ void FractalGeneratorView::changeSize(int X, int Y)
    if(Thread != nullptr) {
       stopCalculation();
    }
-   SizeWidth = X;
+   SizeWidth  = X;
    SizeHeight = Y;
    Display->reset(SizeWidth, SizeHeight);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
@@ -244,6 +249,7 @@ void FractalGeneratorView::print(QPrinter* printer)
 
    QFont font(QStringLiteral("Times"), 9);
    font.setBold(true);
+
    QFontMetrics fontMetrics(font);
    QRect        boundingRect = fontMetrics.boundingRect(title);
    const int textwidth  = boundingRect.width();
@@ -323,10 +329,10 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
          Display->update();
       }
       else if(event->type() == (QEvent::Type)(QEvent::User + 1)) {
-         Display->update();
          Thread->stop();
          delete Thread;
          Thread = nullptr;
+         Display->update();
          updateLED(false);
       }
    }
@@ -337,9 +343,10 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
 // ###### Change fractal algorithm ##########################################
 void FractalGeneratorView::changeAlgorithm(int index)
 {
-   if(Thread != nullptr) {
-      stopCalculation();
-   }
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change algorithm ===============================================
    delete Algorithm;
    Algorithm = FractalAlgorithmInterface::makeAlgorithmInstanceByIndex(index);
    Q_CHECK_PTR(Algorithm);
@@ -358,9 +365,10 @@ void FractalGeneratorView::changeAlgorithm(int index)
 // ###### Change color scheme ###############################################
 void FractalGeneratorView::changeColorScheme(int index)
 {
-   if(Thread != nullptr) {
-      stopCalculation();
-   }
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change color scheme ============================================
    delete ColorScheme;
    ColorScheme = ColorSchemeInterface::makeColorSchemeInstanceByIndex(index);
    Q_CHECK_PTR(ColorScheme);
@@ -372,9 +380,10 @@ void FractalGeneratorView::changeColorScheme(int index)
 // ###### Configuration update -> restart calculation #######################
 void FractalGeneratorView::configChanged()
 {
-   if(Thread != nullptr) {
-     stopCalculation();
-   }
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change configuration ===========================================
    Buffer->clear();
    Display->reset(Display->imageWidth(), Display->imageHeight());
    emit updateZoomInPossible();
@@ -386,9 +395,10 @@ void FractalGeneratorView::configChanged()
 // ###### Reset zoom ########################################################
 void FractalGeneratorView::zoomReset()
 {
-   if(Thread != nullptr) {
-      stopCalculation();
-   }
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change zoom ====================================================
    C1 = Algorithm->defaultC1();
    C2 = Algorithm->defaultC2();
    Algorithm->configure(Display->imageWidth(),
@@ -404,9 +414,10 @@ void FractalGeneratorView::zoomReset()
 void FractalGeneratorView::zoomIn()
 {
    if(Selection) {
-      if(Thread != nullptr) {
-         stopCalculation();
-      }
+      // ====== Abort a running calculation =================================
+      stopCalculation();
+
+      // ====== Zoom in =====================================================
       zoomList.push_back(std::pair<std::complex<double>, std::complex<double> >(C1, C2));
       const double halfWidth  = (SelectionC2.real() - SelectionC1.real()) / 2.0;
       const double halfHeight = (SelectionC2.imag() - SelectionC1.imag()) / 2.0;
@@ -429,9 +440,10 @@ void FractalGeneratorView::zoomIn()
 // ###### Zoom back #########################################################
 void FractalGeneratorView::zoomBack()
 {
-   if(Thread != nullptr) {
-      stopCalculation();
-   }
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Zoom back ======================================================
    if(zoomList.size() > 0) {
       C1 = zoomList.back().first;
       C2 = zoomList.back().second;
