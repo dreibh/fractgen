@@ -38,7 +38,7 @@ _fractgen()
       cword="${COMP_CWORD}"
    fi
 
-   if [ "${cword}" -eq 1 ] ; then
+   if [ "${cword}" -gt 1 ] ; then
       _filedir '@(fsf)'
       return
    fi
