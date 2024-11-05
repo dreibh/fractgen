@@ -34,6 +34,7 @@ class SimpleHSV : public ColorSchemeInterface  {
              const char* name       = "Simple HSV");
    ~SimpleHSV();
 
+   virtual ColorSchemeInterface* makeInstance() override;
    virtual unsigned int getColor(const unsigned int value) override;
 
    private:

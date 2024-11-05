@@ -39,6 +39,13 @@ Mandelbrot::~Mandelbrot()
 }
 
 
+// ###### Create new instance ###############################################
+FractalAlgorithmInterface* Mandelbrot::makeInstance()
+{
+   return new Mandelbrot();
+}
+
+
 // ###### Get default for C1 ################################################
 std::complex<double> Mandelbrot::defaultC1() const
 {

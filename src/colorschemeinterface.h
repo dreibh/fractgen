@@ -33,14 +33,17 @@ class ColorSchemeInterface {
    public:
    ColorSchemeInterface(const char* identifier, const char* name);
    virtual ~ColorSchemeInterface();
-   inline const char* getIdentifier() { return(Identifier); }
-   inline const char* getName() const { return(Name); }
+
+   inline const char* getIdentifier() const { return(Identifier); }
+   inline const char* getName()       const { return(Name);       }
+   virtual ColorSchemeInterface* makeInstance() = 0;
 
    virtual void configure(unsigned int* maxIterations);
    virtual unsigned int getColor(const unsigned int value) = 0;
 
-   static ColorSchemeInterface* getColorScheme(const unsigned int index);
-   static ColorSchemeInterface* getColorSchemeByIdentifier(const char* identifier);
+   static const ColorSchemeInterface* getColorSchemeByIndex(const unsigned int colorSchemeIndex);
+   static ColorSchemeInterface* makeColorSchemeInstanceByIndex(const unsigned int colorSchemeIndex);
+   static ColorSchemeInterface* makeColorSchemeInstanceByIdentifier(const char* colorSchemeIdentifier);
 
    protected:
    const char*   Name;

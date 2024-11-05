@@ -56,6 +56,7 @@ class FractalGeneratorApp
    void initView();
 
    public Q_SLOTS:
+   void slotFileNew();
    void slotFileOpen();
    void slotFileSave();
    void slotFileExportImage();

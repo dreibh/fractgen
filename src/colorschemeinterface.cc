@@ -67,24 +67,35 @@ static bool lessThan(const ColorSchemeInterface* c1,
 
 
 // ###### Get color scheme by number ########################################
-ColorSchemeInterface* ColorSchemeInterface::getColorScheme(const unsigned int index)
+const ColorSchemeInterface* ColorSchemeInterface::getColorSchemeByIndex(const unsigned int colorSchemeIndex)
 {
    if(Updated) {
       std::sort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
       Updated = false;
    }
-   return(ColorSchemeList->value(index, nullptr));
+   return(ColorSchemeList->value(colorSchemeIndex, nullptr));
 }
 
 
-// ###### Get color scheme by ID ############################################
-ColorSchemeInterface* ColorSchemeInterface::getColorSchemeByIdentifier(const char* identifier)
+// ###### Make color scheme instance by index ###############################
+ColorSchemeInterface* ColorSchemeInterface::makeColorSchemeInstanceByIndex(const unsigned int colorSchemeIndex)
+{
+   if(Updated) {
+      std::sort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
+      Updated = false;
+   }
+   return(ColorSchemeList->value(colorSchemeIndex, nullptr)->makeInstance());
+}
+
+
+// ###### Make color scheme instance by identifier ##########################
+ColorSchemeInterface* ColorSchemeInterface::makeColorSchemeInstanceByIdentifier(const char* colorSchemeIdentifier)
 {
    QListIterator<ColorSchemeInterface*> iterator(*ColorSchemeList);
    while(iterator.hasNext()) {
       ColorSchemeInterface* colorScheme = iterator.next();
-      if(strcmp(identifier, colorScheme->getIdentifier()) == 0) {
-         return(colorScheme);
+      if(strcmp(colorSchemeIdentifier, colorScheme->getIdentifier()) == 0) {
+         return(colorScheme->makeInstance());
       }
    }
    return(nullptr);

@@ -74,21 +74,21 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
 
    // Set initial size to 75% of the screen dimensions:
    QScreen* screen = QGuiApplication::primaryScreen();
-   SizeWidth = (int)rint(screen->geometry().width() * 0.75);
+   SizeWidth  = (int)rint(screen->geometry().width() * 0.75);
    SizeHeight = (int)rint(screen->geometry().height() * 0.75);
 
    Display->reset(SizeWidth, SizeHeight);
    Display->setMinimumSize(SizeWidth, SizeHeight);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
-   Algorithm = FractalAlgorithmInterface::getAlgorithmByIdentifier("Mandelbrot");
+   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstanceByIdentifier("Mandelbrot");
    Q_CHECK_PTR(Algorithm);
-   ColorScheme = ColorSchemeInterface::getColorSchemeByIdentifier("SimpleHSV");
+   ColorScheme = ColorSchemeInterface::makeColorSchemeInstanceByIdentifier("SimpleHSV");
    Q_CHECK_PTR(ColorScheme);
    C1 = Algorithm->defaultC1();
    C2 = Algorithm->defaultC2();
-   Selection     = false;
-   ProgStep      = 8;
+   Selection = false;
+   ProgStep  = 8;
    Algorithm->configure(Display->imageWidth(),
                         Display->imageHeight(),
                         C1, C2,
@@ -340,7 +340,9 @@ void FractalGeneratorView::changeAlgorithm(int index)
    if(Thread != nullptr) {
       stopCalculation();
    }
-   Algorithm = FractalAlgorithmInterface::getAlgorithm(index);
+   delete Algorithm;
+   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstanceByIndex(index);
+   Q_CHECK_PTR(Algorithm);
    C1 = Algorithm->defaultC1();
    C2 = Algorithm->defaultC2();
    Selection = false;
@@ -359,7 +361,9 @@ void FractalGeneratorView::changeColorScheme(int index)
    if(Thread != nullptr) {
       stopCalculation();
    }
-   ColorScheme = ColorSchemeInterface::getColorScheme(index);
+   delete ColorScheme;
+   ColorScheme = ColorSchemeInterface::makeColorSchemeInstanceByIndex(index);
+   Q_CHECK_PTR(ColorScheme);
    ColorScheme->configure(Algorithm->getMaxIterations());
    emit updateColorScheme();
 }

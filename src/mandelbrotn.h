@@ -35,6 +35,8 @@ class MandelbrotN : public Mandelbrot  {
                const char* name       = "MandelbrotN z[i+1]=z[i]^N-c");
    ~MandelbrotN();
 
+   FractalAlgorithmInterface* makeInstance() override;
+
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) override;
 

@@ -28,17 +28,27 @@
 SimpleHSV* SimpleHSV::Registration = new SimpleHSV();
 
 
+// ###### Constructor #######################################################
 SimpleHSV::SimpleHSV(const char* identifier, const char* name)
    : ColorSchemeInterface(identifier, name)
 {
 }
 
 
+// ###### Destructor ########################################################
 SimpleHSV::~SimpleHSV()
 {
 }
 
 
+// ###### Create new instance ###############################################
+ColorSchemeInterface* SimpleHSV::makeInstance()
+{
+   return new SimpleHSV();
+}
+
+
+// ###### Get color for value ###############################################
 unsigned int SimpleHSV::getColor(const unsigned int value)
 {
    QColor color;

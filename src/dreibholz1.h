@@ -38,6 +38,8 @@ class Dreibholz1 : public FractalAlgorithmInterface
               const char* name       = "Dreibholz1 Test");
    ~Dreibholz1();
 
+   FractalAlgorithmInterface* makeInstance() override;
+
    virtual std::complex<double> defaultC1() const override;
    virtual std::complex<double> defaultC2() const override;
    virtual unsigned int calculatePoint(const unsigned int x,

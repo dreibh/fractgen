@@ -177,6 +177,13 @@ Dreibholz1::~Dreibholz1()
 }
 
 
+// ###### Create new instance ###############################################
+FractalAlgorithmInterface* Dreibholz1::makeInstance()
+{
+   return new Dreibholz1();
+}
+
+
 // ###### Get default for C1 ################################################
 std::complex<double> Dreibholz1::defaultC1() const
 {

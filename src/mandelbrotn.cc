@@ -44,6 +44,13 @@ MandelbrotN::~MandelbrotN()
 }
 
 
+// ###### Create new instance ###############################################
+FractalAlgorithmInterface* MandelbrotN::makeInstance()
+{
+   return new MandelbrotN();
+}
+
+
 // ###### Calculate graphics point (x,y) ####################################
 unsigned int MandelbrotN::calculatePoint(const unsigned int x,
                                          const unsigned int y)

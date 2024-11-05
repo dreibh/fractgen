@@ -38,6 +38,7 @@ FractalAlgorithmInterface::FractalAlgorithmInterface(const char* identifier, con
 
    if(AlgorithmList == nullptr) {
       AlgorithmList = new QList<FractalAlgorithmInterface*>;
+      Q_CHECK_PTR(AlgorithmList);
    }
    AlgorithmList->append(this);
 
@@ -98,24 +99,35 @@ static bool lessThan(const FractalAlgorithmInterface* f1,
 
 
 // ###### Get algorithm by number #############################################
-FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithm(const unsigned int index)
+const FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithmByIndex(const unsigned int algorithmIndex)
 {
    if(Updated) {
       std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
       Updated = false;
    }
-   return(AlgorithmList->value(index, nullptr));
+   return(AlgorithmList->value(algorithmIndex, nullptr));
 }
 
 
-// ###### Get algorithm by identifier #######################################
-FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithmByIdentifier(const char* identifier)
+// ###### Make algorithm instance by index ##################################
+FractalAlgorithmInterface* FractalAlgorithmInterface::makeAlgorithmInstanceByIndex(const unsigned int algorithmIndex)
+{
+   if(Updated) {
+      std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
+      Updated = false;
+   }
+   return(AlgorithmList->value(algorithmIndex, nullptr)->makeInstance());
+}
+
+
+// ###### Make algorithm instance by identifier #############################
+FractalAlgorithmInterface* FractalAlgorithmInterface::makeAlgorithmInstanceByIdentifier(const char* algorithmIdentifier)
 {
    QListIterator<FractalAlgorithmInterface*> iterator(*AlgorithmList);
    while(iterator.hasNext()) {
       FractalAlgorithmInterface* algorithm = iterator.next();
-      if(strcmp(identifier, algorithm->getIdentifier()) == 0) {
-         return(algorithm);
+      if(strcmp(algorithmIdentifier, algorithm->getIdentifier()) == 0) {
+         return(algorithm->makeInstance());
       }
    }
    return(nullptr);

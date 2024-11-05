@@ -63,6 +63,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
 
    QMenu* fileMenu = menuBar()->addMenu(tr("&File"));
    Q_CHECK_PTR(fileMenu);
+   fileMenu->addAction(tr("&New"), this, SLOT(slotFileNew()), QKeySequence(QKeySequence::New));
    fileMenu->addAction(tr("&Open"), this, SLOT(slotFileOpen()), QKeySequence(QKeySequence::Open));
    fileMenu->addAction(tr("&Save"), this, SLOT(slotFileSave()), QKeySequence(QKeySequence::Save));
    fileMenu->addAction(tr("Save As ..."), this, SLOT(slotFileSaveAs()));
@@ -91,10 +92,10 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
 
    QActionGroup* fractalAlgorithmGroup = new QActionGroup(this);
    Q_CHECK_PTR(fractalAlgorithmGroup);
-   FractalAlgorithmInterface* fractalAlgorithm;
-   QStringList                fractalAlgorithmList;
-   unsigned int               fractalAlgorithmID = 0;
-   while((fractalAlgorithm = FractalAlgorithmInterface::getAlgorithm(fractalAlgorithmID))) {
+   const FractalAlgorithmInterface* fractalAlgorithm;
+   QStringList                      fractalAlgorithmList;
+   unsigned int                     fractalAlgorithmID = 0;
+   while( (fractalAlgorithm = FractalAlgorithmInterface::getAlgorithmByIndex(fractalAlgorithmID)) ) {
       QAction* item = fractalAlgorithmMenu->addAction(QString::fromLocal8Bit(fractalAlgorithm->getName()));
       Q_CHECK_PTR(item);
       fractalAlgorithmGroup->addAction(item);
@@ -109,10 +110,10 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    QMenu* colorSchemeMenu = menuBar()->addMenu(tr("&Color Scheme"));
    Q_CHECK_PTR(colorSchemeMenu);
    QActionGroup* colorSchemeGroup = new QActionGroup(this);
-   ColorSchemeInterface* colorScheme;
-   QStringList           colorSchemeList;
-   unsigned int          colorSchemeID = 0;
-   while((colorScheme = ColorSchemeInterface::getColorScheme(colorSchemeID))) {
+   const ColorSchemeInterface* colorScheme;
+   QStringList                 colorSchemeList;
+   unsigned int                colorSchemeID = 0;
+   while( (colorScheme = ColorSchemeInterface::getColorSchemeByIndex(colorSchemeID)) ) {
       QAction* item = colorSchemeMenu->addAction(QString::fromLocal8Bit(colorScheme->getName()));
       Q_CHECK_PTR(item);
       colorSchemeGroup->addAction(item);
@@ -145,6 +146,15 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
 // ###### Destructor ########################################################
 FractalGeneratorApp::~FractalGeneratorApp()
 {
+}
+
+
+// ###### Open ##############################################################
+void FractalGeneratorApp::slotFileNew()
+{
+   FractalGeneratorApp* fractalGeneratorApp = new FractalGeneratorApp(nullptr);
+   Q_CHECK_PTR(fractalGeneratorApp);
+   fractalGeneratorApp->show();
 }
 
 
@@ -306,7 +316,7 @@ void FractalGeneratorApp::slotUpdateFractalAlgorithm()
    QListIterator<QAction*> iterator(FractalAlgorithmActionList);
    while(iterator.hasNext()) {
       QAction* item = iterator.next();
-      const FractalAlgorithmInterface* algorithm = FractalAlgorithmInterface::getAlgorithm(i);
+      const FractalAlgorithmInterface* algorithm = FractalAlgorithmInterface::getAlgorithmByIndex(i);
       Q_CHECK_PTR(algorithm);
       item->setChecked( (algorithm == currentAlgorithm) );
       i++;
@@ -322,7 +332,7 @@ void FractalGeneratorApp::slotUpdateColorScheme()
    QListIterator<QAction*> iterator(ColorSchemeActionList);
    while(iterator.hasNext()) {
       QAction* item = iterator.next();
-      const ColorSchemeInterface* colorScheme = ColorSchemeInterface::getColorScheme(i);
+      const ColorSchemeInterface* colorScheme = ColorSchemeInterface::getColorSchemeByIndex(i);
       Q_CHECK_PTR(colorScheme);
       item->setChecked( (colorScheme == currentColorScheme) );
       i++;

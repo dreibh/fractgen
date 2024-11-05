@@ -36,8 +36,10 @@ class FractalAlgorithmInterface {
    public:
    FractalAlgorithmInterface(const char* identifier, const char* name);
    virtual ~FractalAlgorithmInterface();
-   inline const char* getIdentifier() { return(Identifier); }
-   inline const char* getName() const { return(Name); }
+
+   inline const char* getIdentifier() const { return(Identifier); }
+   inline const char* getName()       const { return(Name);       }
+   virtual FractalAlgorithmInterface* makeInstance() = 0;
 
    virtual std::complex<double> defaultC1() const = 0;
    virtual std::complex<double> defaultC2() const = 0;
@@ -56,8 +58,9 @@ class FractalAlgorithmInterface {
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) = 0;
 
-   static FractalAlgorithmInterface* getAlgorithm(const unsigned int index);
-   static FractalAlgorithmInterface* getAlgorithmByIdentifier(const char* name);
+   static const FractalAlgorithmInterface* getAlgorithmByIndex(const unsigned int algorithmIndex);
+   static FractalAlgorithmInterface* makeAlgorithmInstanceByIndex(const unsigned int algorithmIndex);
+   static FractalAlgorithmInterface* makeAlgorithmInstanceByIdentifier(const char* algorithmIdentifier);
 
    protected:
    const char*          Name;

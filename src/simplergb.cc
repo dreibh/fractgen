@@ -32,6 +32,7 @@ SimpleRGB* SimpleRGB::Registration = new SimpleRGB();
 #define INITAL_COLORMAP_SIZE 256
 
 
+// ###### Constructor #######################################################
 SimpleRGB::SimpleRGB(const char* identifier, const char* name)
    : ColorSchemeInterface(identifier, name)
 {
@@ -44,6 +45,7 @@ SimpleRGB::SimpleRGB(const char* identifier, const char* name)
 }
 
 
+// ###### Destructor ########################################################
 SimpleRGB::~SimpleRGB()
 {
    delete [] ColorMap;
@@ -51,6 +53,14 @@ SimpleRGB::~SimpleRGB()
 }
 
 
+// ###### Create new instance ###############################################
+ColorSchemeInterface* SimpleRGB::makeInstance()
+{
+   return new SimpleRGB();
+}
+
+
+// ###### Make color from wave-length #######################################
 unsigned int SimpleRGB::rgbFromWaveLength(const double wave)
 {
    double r = 0.0;
@@ -91,6 +101,7 @@ unsigned int SimpleRGB::rgbFromWaveLength(const double wave)
 }
 
 
+// ###### Get color for value ###############################################
 unsigned int SimpleRGB::getColor(const unsigned int value)
 {
    return(ColorMap[value % ColorMapSize]);

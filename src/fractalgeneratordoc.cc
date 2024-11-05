@@ -88,8 +88,8 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    const QDomElement algorithmNameField = doc.elementsByTagName(QStringLiteral("AlgorithmName")).item(0).toElement();
    const QString     algorithmName      = algorithmNameField.firstChild().toText().data();
    unsigned int      algorithmID        = 0;
-   FractalAlgorithmInterface* fractalAlgorithm;
-   while( (fractalAlgorithm = FractalAlgorithmInterface::getAlgorithm(algorithmID)) != NULL ) {
+   const FractalAlgorithmInterface* fractalAlgorithm;
+   while( (fractalAlgorithm = FractalAlgorithmInterface::getAlgorithmByIndex(algorithmID)) ) {
       if(QString::fromLocal8Bit(fractalAlgorithm->getIdentifier()) == algorithmName) {
          break;
       }
@@ -105,8 +105,8 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    const QDomElement colorSchemeField = doc.elementsByTagName(QStringLiteral("ColorSchemeName")).item(0).toElement();
    const QString     colorSchemeName  = colorSchemeField.firstChild().toText().data();
    unsigned int      colorSchemeID    = 0;
-   ColorSchemeInterface* colorScheme;
-   while((colorScheme = ColorSchemeInterface::getColorScheme(colorSchemeID))) {
+   const ColorSchemeInterface* colorScheme;
+   while( (colorScheme = ColorSchemeInterface::getColorSchemeByIndex(colorSchemeID)) ) {
       if(QString::fromLocal8Bit(colorScheme->getIdentifier()) == colorSchemeName) {
         break;
      }
@@ -131,7 +131,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    View->changeAlgorithm(algorithmID);
    View->changeColorScheme(colorSchemeID);
    View->getAlgorithm()->configure(View->getSizeWidth(), View->getSizeHeight(),
-                                   C1, C2,*(View->getAlgorithm()->getMaxIterations()));
+                                   C1, C2, *(View->getAlgorithm()->getMaxIterations()));
 
    // ------ Set user options -----------------------------------------------
    QDomElement userOptionsBranch = doc.elementsByTagName(QStringLiteral("Useroptions")).item(0).toElement();

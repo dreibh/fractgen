@@ -47,11 +47,11 @@ int main(int argc, char *argv[])
    FractalGeneratorApp* fractalGeneratorApp = nullptr;
    for(int i = 1;i < argc;i++) {
       const QString fileName = QString::fromLocal8Bit(argv[i]);
-      if( (fractalGeneratorApp == nullptr) &&
-          (fileName.right(4) == QStringLiteral(".fsf")) &&
+      if( (fileName.right(4) == QStringLiteral(".fsf")) &&
           (QFile::exists(fileName)) ) {
          // Open file provided by argument ...
          fractalGeneratorApp = new FractalGeneratorApp(nullptr, fileName);
+         Q_CHECK_PTR(fractalGeneratorApp);
          fractalGeneratorApp->show();
       }
    }
@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
    if(fractalGeneratorApp == nullptr) {
       // Start new image, if no file has been opened.
       fractalGeneratorApp = new FractalGeneratorApp(nullptr);
+      Q_CHECK_PTR(fractalGeneratorApp);
       fractalGeneratorApp->show();
    }
 

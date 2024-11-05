@@ -34,10 +34,12 @@ class SimpleRGB : public ColorSchemeInterface  {
              const char* name       = "Simple RGB");
    ~SimpleRGB();
 
+   virtual ColorSchemeInterface* makeInstance() override;
    virtual unsigned int getColor(const unsigned int value) override;
 
    private:
    static unsigned int rgbFromWaveLength(const double wave);
+
    static SimpleRGB* Registration;
    unsigned int*     ColorMap;
    unsigned int      ColorMapSize;
