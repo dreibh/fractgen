@@ -59,7 +59,7 @@ class FractalGeneratorView : public QWidget
    inline int getSizeWidth() { return(SizeWidth); }
    inline int getSizeHeight() { return(SizeHeight); }
    inline bool isZoomInPossible() { return(Selection); }
-   inline bool isZoomBackPossible() { return(zoomList.size() > 0); }
+   inline bool isZoomBackPossible() { return(ZoomList.size() > 0); }
 
    void print(QPrinter *printer);
    void configChanged();
@@ -95,30 +95,29 @@ class FractalGeneratorView : public QWidget
    void startCalculation();
    void stopCalculation();
 
-   QScrollBar*                XScrollBar;
-   QScrollBar*                YScrollBar;
+   QScrollBar*                      XScrollBar;
+   QScrollBar*                      YScrollBar;
 #ifndef WITH_KDE
-   QLabel*                    ControlLED;
+   QLabel*                          ControlLED;
 #else
-   KLed*                      ControlLED;
+   KLed*                            ControlLED;
 #endif
-   ImageDisplay*              Display;
-   FractalBuffer*             Buffer;
+   ImageDisplay*                    Display;
+   FractalBuffer*                   Buffer;
+   QList<FractalCalculationThread*> ThreadList;
+   FractalAlgorithmInterface*       Algorithm;
+   ColorSchemeInterface*            ColorScheme;
 
-   FractalCalculationThread*  Thread;
-   FractalAlgorithmInterface* Algorithm;
-   ColorSchemeInterface*      ColorScheme;
-
-   unsigned int               ProgStep;
-   std::complex<double>       C1;
-   std::complex<double>       C2;
-   std::complex<double>       SelectionC1;
-   std::complex<double>       SelectionC2;
-   bool                       Selection;
-   int                        SizeWidth;
-   int                        SizeHeight;
-
-   std::list<std::pair<std::complex<double>, std::complex<double> > > zoomList;
+   unsigned int                     ProgStep;
+   std::complex<double>             C1;
+   std::complex<double>             C2;
+   std::complex<double>             SelectionC1;
+   std::complex<double>             SelectionC2;
+   bool                             Selection;
+   int                              SizeWidth;
+   int                              SizeHeight;
+   std::list<std::pair<std::complex<double>,
+                       std::complex<double>>> ZoomList;
 };
 
 #endif // FRACTALGENERATORVIEW_H

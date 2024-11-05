@@ -42,7 +42,9 @@ class FractalCalculationThread : public QThread {
                             ColorSchemeInterface*      colorScheme,
                             FractalBuffer*             buffer,
                             QImage*                    image,
-                            unsigned int               progStep);
+                            const unsigned int         progStep,
+                            const unsigned int         interleave = 1,
+                            const unsigned int         offset     = 0);
    ~FractalCalculationThread();
    void stop();
 
@@ -55,8 +57,10 @@ class FractalCalculationThread : public QThread {
    ColorSchemeInterface*      ColorScheme;
    FractalBuffer*             Buffer;
    QImage*                    Image;
-   unsigned int               MaxIterations;
-   unsigned int               ProgStep;
+   const unsigned int         ProgStep;
+   const unsigned int         Interleave;
+   const unsigned int         Offset;
+   const unsigned int         MaxIterations;
    bool                       Stop;
 };
 

@@ -32,16 +32,20 @@ FractalCalculationThread::FractalCalculationThread(QObject*                   pa
                                                    ColorSchemeInterface*      colorScheme,
                                                    FractalBuffer*             buffer,
                                                    QImage*                    image,
-                                                   unsigned int               progStep)
+                                                   const unsigned int         progStep,
+                                                   const unsigned int         interleave,
+                                                   const unsigned int         offset)
+ : Parent(parent),
+   Algorithm(algorithm),
+   ColorScheme(colorScheme),
+   Buffer(buffer),
+   Image(image),
+   ProgStep(progStep),
+   Interleave(interleave),
+   Offset(offset),
+   MaxIterations(*(Algorithm->getMaxIterations()))
 {
-   Parent        = parent;
-   Algorithm     = algorithm;
-   ColorScheme   = colorScheme;
-   Buffer        = buffer;
-   Image         = image;
-   ProgStep      = progStep;
-   MaxIterations = *Algorithm->getMaxIterations();
-   Stop          = false;
+   Stop = false;
 }
 
 

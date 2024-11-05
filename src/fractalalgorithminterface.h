@@ -52,7 +52,7 @@ class FractalAlgorithmInterface {
                           std::complex<double> c1,
                           std::complex<double> c2,
                           unsigned int         maxIterations);
-   inline unsigned int* getMaxIterations() { return(&MaxIterations); }
+   inline unsigned int*        getMaxIterations() { return(&MaxIterations); }
    inline QList<ConfigEntry*>* getConfigEntries() { return(&ConfigEntries); }
    virtual void changeSize(int X, int Y);
    virtual unsigned int calculatePoint(const unsigned int x,

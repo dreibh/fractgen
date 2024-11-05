@@ -39,7 +39,6 @@
 FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    : QWidget(parent)
 {
-   Thread = nullptr;
    installEventFilter(this);
 
    // ====== Initialise widgets =============================================
@@ -187,9 +186,10 @@ void FractalGeneratorView::slotSelectionUpdate(unsigned int x1, unsigned int y1,
 // ###### Change image size #################################################
 void FractalGeneratorView::changeSize(int X, int Y)
 {
-   if(Thread != nullptr) {
-      stopCalculation();
-   }
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change size ====================================================
    SizeWidth  = X;
    SizeHeight = Y;
    Display->reset(SizeWidth, SizeHeight);
@@ -205,9 +205,7 @@ void FractalGeneratorView::changeSize(int X, int Y)
 // ###### Change C1 and C2 ##################################################
 void FractalGeneratorView::changeC1C2(std::complex<double> NewC1, std::complex<double> NewC2)
 {
-   if(Thread != nullptr) {
-      stopCalculation();
-   }
+   stopCalculation();
    C1 = NewC1;
    C2 = NewC2;
 }
@@ -300,10 +298,19 @@ void FractalGeneratorView::print(QPrinter* printer)
 // ###### Start calculation #################################################
 void FractalGeneratorView::startCalculation()
 {
-   if(Thread == nullptr) {
-      Thread = new FractalCalculationThread(this, Algorithm, ColorScheme, Buffer, Display->image(), ProgStep);
-      Q_CHECK_PTR(Thread);
-      Thread->start();
+   if(ThreadList.size() == 0) {
+      const unsigned int threads = 1; // QThread::idealThreadCount();  FIXME!
+      for(unsigned int i = 0; i < threads; i++) {
+         FractalCalculationThread* thread =
+            new FractalCalculationThread(this,
+                                         Algorithm, ColorScheme, Buffer,
+                                         Display->image(), ProgStep,
+                                         threads,
+                                         i);
+         Q_CHECK_PTR(thread);
+         thread->start();
+         ThreadList.append(thread);
+      }
       updateLED(true);
    }
 }
@@ -312,10 +319,12 @@ void FractalGeneratorView::startCalculation()
 // ###### Stop calculation ##################################################
 void FractalGeneratorView::stopCalculation()
 {
-   if(Thread != nullptr) {
-      Thread->stop();
-      while(Thread != nullptr) {
-        qApp->processEvents();
+   if(ThreadList.size() > 0) {
+      foreach(FractalCalculationThread* thread, ThreadList) {
+         thread->stop();
+      }
+      while(ThreadList.size() > 0) {
+         qApp->processEvents();
       }
    }
 }
@@ -324,16 +333,26 @@ void FractalGeneratorView::stopCalculation()
 // ###### Handle events #####################################################
 bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
 {
-   if(Thread) {
+   if(ThreadList.size() > 0) {
       if(event->type() == QEvent::User) {
          Display->update();
       }
       else if(event->type() == (QEvent::Type)(QEvent::User + 1)) {
-         Thread->stop();
-         delete Thread;
-         Thread = nullptr;
+         QList<FractalCalculationThread*>::iterator iterator = ThreadList.begin();
+         while(iterator != ThreadList.end()) {
+            FractalCalculationThread* thread = *iterator;
+            if(thread->isFinished()) {
+               delete thread;
+               iterator = ThreadList.erase(iterator);
+            }
+            else {
+               iterator++;
+            }
+         }
          Display->update();
-         updateLED(false);
+         if(ThreadList.size() == 0) {
+            updateLED(false);
+         }
       }
    }
    return(false);
@@ -357,7 +376,7 @@ void FractalGeneratorView::changeAlgorithm(int index)
                         C1, C2,
                         Algorithm->defaultMaxIterations());
    ColorScheme->configure(Algorithm->getMaxIterations());
-   zoomList.clear();
+   ZoomList.clear();
    emit updateFractalAlgorithm();
 }
 
@@ -405,7 +424,7 @@ void FractalGeneratorView::zoomReset()
       Display->imageHeight(),
       C1, C2,
       *Algorithm->getMaxIterations());
-   zoomList.clear();
+   ZoomList.clear();
    configChanged();
 }
 
@@ -418,7 +437,7 @@ void FractalGeneratorView::zoomIn()
       stopCalculation();
 
       // ====== Zoom in =====================================================
-      zoomList.push_back(std::pair<std::complex<double>, std::complex<double> >(C1, C2));
+      ZoomList.push_back(std::pair<std::complex<double>, std::complex<double> >(C1, C2));
       const double halfWidth  = (SelectionC2.real() - SelectionC1.real()) / 2.0;
       const double halfHeight = (SelectionC2.imag() - SelectionC1.imag()) / 2.0;
       const std::complex<double> center = std::complex<double>(SelectionC1.real() + halfWidth,
@@ -444,10 +463,10 @@ void FractalGeneratorView::zoomBack()
    stopCalculation();
 
    // ====== Zoom back ======================================================
-   if(zoomList.size() > 0) {
-      C1 = zoomList.back().first;
-      C2 = zoomList.back().second;
-      zoomList.pop_back();
+   if(ZoomList.size() > 0) {
+      C1 = ZoomList.back().first;
+      C2 = ZoomList.back().second;
+      ZoomList.pop_back();
       Algorithm->configure(Display->imageWidth(), Display->imageHeight(),
                            C1, C2,
                            *Algorithm->getMaxIterations());
