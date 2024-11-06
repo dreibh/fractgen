@@ -41,11 +41,11 @@ class FractalBuffer
    inline unsigned int getPoint(const unsigned int x, const unsigned int y) {
       unsigned int pos = y * Width + x;
       if(pos < BufferSize) {
-         return(Buffer[pos]);
+         return Buffer[pos];
       }
       // printf("ERROR: FractalBuffer::getPoint() - Illegal position: x=%d y=%d in w=%d h=%d\n", x, y, Width, Height);
       // abort();
-      return(~0);
+      return ~0;
    }
    inline void setPoint(const unsigned int x, const unsigned int y, const unsigned int value) {
       unsigned int pos = y * Width + x;

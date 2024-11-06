@@ -34,8 +34,8 @@ class ColorSchemeInterface {
    ColorSchemeInterface(const char* identifier, const char* name);
    virtual ~ColorSchemeInterface();
 
-   inline const char* getIdentifier() const { return(Identifier); }
-   inline const char* getName()       const { return(Name);       }
+   inline const char* getIdentifier() const { return Identifier; }
+   inline const char* getName()       const { return Name;       }
    virtual ColorSchemeInterface* makeInstance() = 0;
 
    virtual void configure(unsigned int* maxIterations);

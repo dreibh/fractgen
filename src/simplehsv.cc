@@ -53,5 +53,5 @@ unsigned int SimpleHSV::getColor(const unsigned int value)
 {
    QColor color;
    color.setHsv((value % 72) * 5, 255, 255);
-   return(color.rgb());
+   return color.rgb();
 }

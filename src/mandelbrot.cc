@@ -49,14 +49,14 @@ FractalAlgorithmInterface* Mandelbrot::makeInstance()
 // ###### Get default for C1 ################################################
 std::complex<double> Mandelbrot::defaultC1() const
 {
-   return(std::complex<double>(-1.5, 1.5));
+   return std::complex<double>(-1.5, 1.5);
 }
 
 
 // ###### Get default for C2 ################################################
 std::complex<double> Mandelbrot::defaultC2() const
 {
-   return(std::complex<double>(1.5, -1.5));
+   return std::complex<double>(1.5, -1.5);
 }
 
 
@@ -72,9 +72,9 @@ unsigned int Mandelbrot::calculatePoint(const unsigned int x,
    for(i = 0;i < MaxIterations;i++) {
       z = z*z - c;
       if(z.real() * z.real() + z.imag() * z.imag() >= 2.0) {
-         return(i);
+         return i;
       }
    }
 
-   return(i);
+   return i;
 }

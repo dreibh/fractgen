@@ -40,7 +40,7 @@ DoubleConfigEntry::~DoubleConfigEntry()
 // ###### Get name ##########################################################
 QString DoubleConfigEntry::getName() const
 {
-   return(EntryName);
+   return EntryName;
 }
 
 
@@ -49,7 +49,7 @@ QString DoubleConfigEntry::getValueAsString() const
 {
    QString valueString;
    valueString.setNum(*ValuePtr);
-   return(valueString);
+   return valueString;
 }
 
 

@@ -68,7 +68,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    // ====== Open file ======================================================
    QFile file(fileName);
    if(!file.open(QIODevice::ReadOnly)) {
-      return(false);
+      return false;
    }
 
    // ====== Parse XML document =============================================
@@ -80,7 +80,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
                            errorText + QLatin1Char('\n') +
                            tr("Line: ") + QString().setNum(line) + QLatin1Char('\n') +
                            tr("Column: ") + QString().setNum(column));
-      return(false);
+      return false;
    }
 
    // ====== Get fractal configuration ======================================
@@ -98,7 +98,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    if(fractalAlgorithm == NULL) {
       QMessageBox::warning(Application, tr("Open File Failure"),
                            tr("Invalid AlgorithmName entry:") + algorithmName);
-      return(false);
+      return false;
    }
 
    // ------ Get color scheme -----------------------------------------------
@@ -115,7 +115,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    if(colorScheme == NULL) {
       QMessageBox::warning(Application, tr("Open File Failure"),
                            tr("Invalid ColorSchemeName entry:") + colorSchemeName);
-      return(false);
+      return false;
    }
 
    // ------ Get C1 and C2 --------------------------------------------------
@@ -161,7 +161,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    View->configChanged();
 
    Modified = false;
-   return(true);
+   return true;
 }
 
 
@@ -252,5 +252,5 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
    file.write(doc.toString().toLocal8Bit());
    setFileName(newFileName);
    Modified = false;
-   return(true);
+   return true;
 }

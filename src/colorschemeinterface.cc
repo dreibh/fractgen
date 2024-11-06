@@ -62,7 +62,7 @@ void ColorSchemeInterface::configure(unsigned int* maxIterations)
 static bool lessThan(const ColorSchemeInterface* c1,
                      const ColorSchemeInterface* c2)
 {
-   return(strcmp(c1->getName(), c2->getName()) < 0);
+   return strcmp(c1->getName(), c2->getName()) < 0;
 }
 
 
@@ -73,7 +73,7 @@ const ColorSchemeInterface* ColorSchemeInterface::getColorSchemeByIndex(const un
       std::sort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
       Updated = false;
    }
-   return(ColorSchemeList->value(colorSchemeIndex, nullptr));
+   return ColorSchemeList->value(colorSchemeIndex, nullptr);
 }
 
 
@@ -84,7 +84,7 @@ ColorSchemeInterface* ColorSchemeInterface::makeColorSchemeInstanceByIndex(const
       std::sort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
       Updated = false;
    }
-   return(ColorSchemeList->value(colorSchemeIndex, nullptr)->makeInstance());
+   return ColorSchemeList->value(colorSchemeIndex, nullptr)->makeInstance();
 }
 
 
@@ -95,8 +95,8 @@ ColorSchemeInterface* ColorSchemeInterface::makeColorSchemeInstanceByIdentifier(
    while(iterator.hasNext()) {
       ColorSchemeInterface* colorScheme = iterator.next();
       if(strcmp(colorSchemeIdentifier, colorScheme->getIdentifier()) == 0) {
-         return(colorScheme->makeInstance());
+         return colorScheme->makeInstance();
       }
    }
-   return(nullptr);
+   return nullptr;
 }

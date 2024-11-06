@@ -104,5 +104,5 @@ unsigned int SimpleRGB::rgbFromWaveLength(const double wave)
 // ###### Get color for value ###############################################
 unsigned int SimpleRGB::getColor(const unsigned int value)
 {
-   return(ColorMap[value % ColorMapSize]);
+   return ColorMap[value % ColorMapSize];
 }

@@ -40,7 +40,7 @@ class FractalGeneratorDoc : public QObject
    FractalGeneratorDoc(QWidget* parent, FractalGeneratorView* view);
    ~FractalGeneratorDoc();
 
-   inline const QString& getFileName() const { return(FileName); }
+   inline const QString& getFileName() const { return FileName; }
    inline void setFileName(const QString& fileName) {
       FileName = fileName;
       emit updateFileName(FileName);

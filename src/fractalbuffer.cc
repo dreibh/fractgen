@@ -55,14 +55,14 @@ bool FractalBuffer::reset(const unsigned int width, const unsigned int height)
       Buffer = new unsigned int[BufferSize];
       if(Buffer == nullptr) {
          reset(0,0);
-         return(false);
+         return false;
       }
       clear();
    }
    else {
       Buffer = nullptr;
    }
-   return(true);
+   return true;
 }
 
 

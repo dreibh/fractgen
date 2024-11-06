@@ -355,7 +355,7 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
          }
       }
    }
-   return(false);
+   return false;
 }
 
 

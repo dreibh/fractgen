@@ -37,23 +37,23 @@ class FractalAlgorithmInterface {
    FractalAlgorithmInterface(const char* identifier, const char* name);
    virtual ~FractalAlgorithmInterface();
 
-   inline const char* getIdentifier() const { return(Identifier); }
-   inline const char* getName()       const { return(Name);       }
+   inline const char* getIdentifier() const { return Identifier; }
+   inline const char* getName()       const { return Name;       }
    virtual FractalAlgorithmInterface* makeInstance() = 0;
 
    virtual std::complex<double> defaultC1() const = 0;
    virtual std::complex<double> defaultC2() const = 0;
    virtual int defaultMaxIterations() const;
 
-   inline const std::complex<double> getC1() { return(C1); }
-   inline const std::complex<double> getC2() { return(C2); }
+   inline const std::complex<double> getC1() { return C1; }
+   inline const std::complex<double> getC2() { return C2; }
    virtual void configure(unsigned int         width,
                           unsigned int         height,
                           std::complex<double> c1,
                           std::complex<double> c2,
                           unsigned int         maxIterations);
-   inline unsigned int*        getMaxIterations() { return(&MaxIterations); }
-   inline QList<ConfigEntry*>* getConfigEntries() { return(&ConfigEntries); }
+   inline unsigned int*        getMaxIterations() { return &MaxIterations; }
+   inline QList<ConfigEntry*>* getConfigEntries() { return &ConfigEntries; }
    virtual void changeSize(int X, int Y);
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) = 0;

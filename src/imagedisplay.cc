@@ -71,7 +71,7 @@ bool ImageDisplay::reset(const unsigned int width, const unsigned int height)
    MarkX2  = 0;
    MarkY2  = 0;
    Marking = false;
-   return(true);
+   return true;
 }
 
 

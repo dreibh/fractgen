@@ -187,14 +187,14 @@ FractalAlgorithmInterface* Dreibholz1::makeInstance()
 // ###### Get default for C1 ################################################
 std::complex<double> Dreibholz1::defaultC1() const
 {
-   return(std::complex<double>(-3.5, 3.5));
+   return std::complex<double>(-3.5, 3.5);
 }
 
 
 // ###### Get default for C2 ################################################
 std::complex<double> Dreibholz1::defaultC2() const
 {
-   return(std::complex<double>(3.5, -3.5));
+   return std::complex<double>(3.5, -3.5);
 }
 
 
@@ -229,9 +229,9 @@ unsigned int Dreibholz1::calculatePoint(const unsigned int x,
       z = cos(exp(z3));
 
       if(z.real() * z.real() + z.imag() * z.imag() >= 2.0) {
-         return(i);
+         return i;
       }
    }
 
-   return(i);
+   return i;
 }

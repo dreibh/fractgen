@@ -44,19 +44,19 @@ class ImageDisplay : public QWidget {
       Image->setPixel(x, y, color);
    }
    inline QImage* image() {
-      return(Image);
+      return Image;
    }
    inline int imageWidth() {
-      return(Image->width());
+      return Image->width();
    }
    inline int imageHeight() {
-      return(Image->height());
+      return Image->height();
    }
    inline unsigned int offsetX() {
-      return(OffsetX);
+      return OffsetX;
    }
    inline unsigned int offsetY() {
-      return(OffsetY);
+      return OffsetY;
    }
    inline void setOffsetX(const unsigned int offsetX) {
       OffsetX = offsetX;

@@ -53,13 +53,13 @@ class FractalGeneratorView : public QWidget
    FractalGeneratorView(QWidget* parent);
    ~FractalGeneratorView();
 
-   inline ImageDisplay* getDisplay() const { return(Display); }
-   inline FractalAlgorithmInterface* getAlgorithm() const { return(Algorithm); }
-   inline ColorSchemeInterface* getColorScheme() const { return(ColorScheme); }
-   inline int getSizeWidth() { return(SizeWidth); }
-   inline int getSizeHeight() { return(SizeHeight); }
-   inline bool isZoomInPossible() { return(Selection); }
-   inline bool isZoomBackPossible() { return(ZoomList.size() > 0); }
+   inline ImageDisplay* getDisplay() const { return Display; }
+   inline FractalAlgorithmInterface* getAlgorithm() const { return Algorithm; }
+   inline ColorSchemeInterface* getColorScheme() const { return ColorScheme; }
+   inline int getSizeWidth() { return SizeWidth; }
+   inline int getSizeHeight() { return SizeHeight; }
+   inline bool isZoomInPossible() { return Selection; }
+   inline bool isZoomBackPossible() { return ZoomList.size() > 0; }
 
    void print(QPrinter *printer);
    void configChanged();

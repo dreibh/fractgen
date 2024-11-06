@@ -63,8 +63,8 @@ unsigned int MandelbrotN::calculatePoint(const unsigned int x,
    for(i = 0;i < MaxIterations;i++) {
       z = pow(z, (int)rint(N)) - c;
       if(z.real() * z.real() + z.imag() * z.imag() >= 2.0) {
-         return(i);
+         return i;
       }
    }
-   return(i);
+   return i;
 }

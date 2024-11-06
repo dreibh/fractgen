@@ -59,7 +59,7 @@ FractalAlgorithmInterface::~FractalAlgorithmInterface()
 // ###### Get default number of iterations ##################################
 int FractalAlgorithmInterface::defaultMaxIterations() const
 {
-   return(250);
+   return 250;
 }
 
 
@@ -94,7 +94,7 @@ void FractalAlgorithmInterface::changeSize(int X, int Y)
 static bool lessThan(const FractalAlgorithmInterface* f1,
                      const FractalAlgorithmInterface* f2)
 {
-   return(strcmp(f1->getName(), f2->getName()) < 0);
+   return strcmp(f1->getName(), f2->getName()) < 0;
 }
 
 
@@ -105,7 +105,7 @@ const FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithmByIndex(
       std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
       Updated = false;
    }
-   return(AlgorithmList->value(algorithmIndex, nullptr));
+   return AlgorithmList->value(algorithmIndex, nullptr);
 }
 
 
@@ -116,7 +116,7 @@ FractalAlgorithmInterface* FractalAlgorithmInterface::makeAlgorithmInstanceByInd
       std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
       Updated = false;
    }
-   return(AlgorithmList->value(algorithmIndex, nullptr)->makeInstance());
+   return AlgorithmList->value(algorithmIndex, nullptr)->makeInstance();
 }
 
 
@@ -127,8 +127,8 @@ FractalAlgorithmInterface* FractalAlgorithmInterface::makeAlgorithmInstanceByIde
    while(iterator.hasNext()) {
       FractalAlgorithmInterface* algorithm = iterator.next();
       if(strcmp(algorithmIdentifier, algorithm->getIdentifier()) == 0) {
-         return(algorithm->makeInstance());
+         return algorithm->makeInstance();
       }
    }
-   return(nullptr);
+   return nullptr;
 }

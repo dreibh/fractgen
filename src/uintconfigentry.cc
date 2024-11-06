@@ -40,7 +40,7 @@ UIntConfigEntry::~UIntConfigEntry()
 // ###### Get name ##########################################################
 QString UIntConfigEntry::getName() const
 {
-   return(EntryName);
+   return EntryName;
 }
 
 
@@ -49,7 +49,7 @@ QString UIntConfigEntry::getValueAsString() const
 {
    QString valueString;
    valueString.setNum(*ValuePtr);
-   return(valueString);
+   return valueString;
 }
 
 
