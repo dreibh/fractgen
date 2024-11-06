@@ -299,14 +299,14 @@ void FractalGeneratorView::print(QPrinter* printer)
 void FractalGeneratorView::startCalculation()
 {
    if(ThreadList.size() == 0) {
-      const unsigned int threads = 1; // QThread::idealThreadCount();  FIXME!
+      const unsigned int threads = QThread::idealThreadCount();
       for(unsigned int i = 0; i < threads; i++) {
          FractalCalculationThread* thread =
             new FractalCalculationThread(this,
                                          Algorithm, ColorScheme, Buffer,
-                                         Display->image(), ProgStep,
-                                         threads,
-                                         i);
+                                         Display->image(),
+                                         ProgStep,
+                                         threads, i);
          Q_CHECK_PTR(thread);
          thread->start();
          ThreadList.append(thread);

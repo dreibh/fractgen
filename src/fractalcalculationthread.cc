@@ -57,32 +57,38 @@ FractalCalculationThread::~FractalCalculationThread()
 
 
 // ###### Thread main function ##############################################
+#include <QAtomicInteger>
+static QAtomicInteger nnn=0;
 void FractalCalculationThread::run()
 {
    const unsigned int width  = Image->width();
    const unsigned int height = Image->height();
 
    for(unsigned int step = ProgStep; step >= 1; step /= 2) {
-      for(unsigned int y = 0; y < height; y += step) {
-         for(unsigned int x = 0; x < width; x += step) {
-            if(Buffer->getPoint(x, y) == (unsigned int)~0) {
-               const unsigned int value = Algorithm->calculatePoint(x, y);
-               Buffer->setPoint(x, y, value);
+      for(unsigned int iy = Offset * ProgStep; iy < height; iy += ProgStep * Interleave) {
+         for(unsigned int y = iy; y < iy + ProgStep; y += step) {
+            for(unsigned int x = 0; x < width; x += step) {
+               if(Buffer->getPoint(x, y) == (unsigned int)~0) {
+                  const unsigned int value = Algorithm->calculatePoint(x, y);
+                  Buffer->setPoint(x, y, value);
+                  nnn++;
 
-               const unsigned int rgb = ColorScheme->getColor(value);
-               for(unsigned int vy = y; vy < std::min(y + step, height); vy++) {
-                  for(unsigned int vx = x; vx < std::min(x + step, width); vx++) {
-                     Image->setPixel(vx, vy, rgb);
+                  const unsigned int rgb = ColorScheme->getColor(value);
+                  for(unsigned int vy = y; vy < std::min(y + step, height); vy++) {
+                     for(unsigned int vx = x; vx < std::min(x + step, width); vx++) {
+                        Image->setPixel(vx, vy, rgb);
+                     }
                   }
-               }
-               if(Stop) {
-                  goto finished;
+                  if(Stop) {
+                     goto finished;
+                  }
                }
             }
          }
       }
       QCoreApplication::postEvent(Parent, new QEvent(QEvent::User));
    }
+
 finished:
    QCoreApplication::postEvent(Parent, new QEvent((QEvent::Type)(QEvent::User + 1)));
 }
