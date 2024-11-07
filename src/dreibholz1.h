@@ -31,19 +31,29 @@
   */
 class Dreibholz1 : public FractalAlgorithmInterface
 {
+   // ====== Constructor/Destructor =========================================
    public:
    Dreibholz1();
    ~Dreibholz1();
 
+   // ====== Algorithm information ==========================================
+   virtual const QString& getIdentifier()  const override;
+   virtual const QString& getDescription() const override;
+
    virtual std::complex<double> defaultC1() const override;
    virtual std::complex<double> defaultC2() const override;
+
+   // ====== The actual calculation =========================================
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) override;
 
+   // ====== Private methods and attributes =================================
    private:
    static void* makeNewInstance();
 
-   static bool Registered;
+   static QString Identifier;
+   static QString Description;
+   static bool    Registered;
 };
 
 #endif

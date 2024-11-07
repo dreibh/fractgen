@@ -33,16 +33,19 @@
   *@author Thomas Dreibholz
   */
 class FractalAlgorithmInterface {
+   // ====== Constructor/Destructor =========================================
    public:
    FractalAlgorithmInterface();
    virtual ~FractalAlgorithmInterface();
 
-   virtual const char* getIdentifier() const;
-   virtual const char* getName()       const;
+   // ====== Algorithm information ==========================================
+   virtual const QString& getIdentifier()   const = 0;
+   virtual const QString& getDescription()  const = 0;
 
+   // ====== Algorithm parameters ===========================================
    virtual std::complex<double> defaultC1() const = 0;
    virtual std::complex<double> defaultC2() const = 0;
-   virtual int defaultMaxIterations() const;
+   virtual int defaultMaxIterations()       const;
 
    inline const std::complex<double> getC1() { return C1; }
    inline const std::complex<double> getC2() { return C2; }
@@ -54,16 +57,25 @@ class FractalAlgorithmInterface {
    inline unsigned int*        getMaxIterations() { return &MaxIterations; }
    inline QList<ConfigEntry*>* getConfigEntries() { return &ConfigEntries; }
    virtual void changeSize(int X, int Y);
+
+   // ====== The actual calculation =========================================
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) = 0;
 
-//    static const FractalAlgorithmInterface* getAlgorithmByIndex(const unsigned int algorithmIndex);
-//    static FractalAlgorithmInterface* makeAlgorithmInstanceByIndex(const unsigned int algorithmIndex);
-//    static FractalAlgorithmInterface* makeAlgorithmInstanceByIdentifier(const char* algorithmIdentifier);
+   // ====== Algorithm registry =============================================
+   inline static const QMap<QString, ClassRegistry::Registration*>& getAlgorithms() {
+      return Registry.getClassMap();
+   }
+   inline static FractalAlgorithmInterface* makeAlgorithmInstance(const QString& identifier) {
+      return (FractalAlgorithmInterface*)Registry.makeNewInstance(identifier);
+   }
 
+   // ====== Protected attributes ===========================================
    protected:
-   const char*          Name;
-   const char*          Identifier;
+   // ------ Algorithm registry ---------------------------------------------
+   static ClassRegistry Registry;
+
+   // ------ Algorithm parameters -------------------------------------------
    unsigned int         Width;
    unsigned int         Height;
    unsigned int         MaxIterations;
@@ -72,9 +84,6 @@ class FractalAlgorithmInterface {
    double               StepX;
    double               StepY;
    QList<ConfigEntry*>  ConfigEntries;
-
-   protected:
-   static ClassRegistry Registry;
 };
 
 #endif

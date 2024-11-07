@@ -30,18 +30,27 @@
   *@author Thomas Dreibholz
   */
 class MandelbrotN : public Mandelbrot  {
+   // ====== Constructor/Destructor =========================================
    public:
    MandelbrotN();
    ~MandelbrotN();
 
+   // ====== Algorithm information ==========================================
+   virtual const QString& getIdentifier()  const override;
+   virtual const QString& getDescription() const override;
+
+   // ====== The actual calculation =========================================
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) override;
 
+   // ====== Private methods and attributes =================================
    private:
    static void* makeNewInstance();
 
-   static bool Registered;
-   double      N;
+   static QString Identifier;
+   static QString Description;
+   static bool    Registered;
+   double         N;
 };
 
 #endif

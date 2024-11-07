@@ -87,19 +87,14 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    // ------ Get algorithm --------------------------------------------------
    const QDomElement algorithmNameField = doc.elementsByTagName(QStringLiteral("AlgorithmName")).item(0).toElement();
    const QString     algorithmName      = algorithmNameField.firstChild().toText().data();
-   unsigned int      algorithmID        = 0;
-   const FractalAlgorithmInterface* fractalAlgorithm;
-   while( (fractalAlgorithm = FractalAlgorithmInterface::getAlgorithmByIndex(algorithmID)) ) {
-      if(QString::fromLocal8Bit(fractalAlgorithm->getIdentifier()) == algorithmName) {
-         break;
-      }
-      algorithmID++;
-   }
-   if(fractalAlgorithm == NULL) {
+   const FractalAlgorithmInterface* fractalAlgorithm =
+      FractalAlgorithmInterface::makeAlgorithmInstance(algorithmName);
+   if(fractalAlgorithm == nullptr) {
       QMessageBox::warning(Application, tr("Open File Failure"),
                            tr("Invalid AlgorithmName entry:") + algorithmName);
       return false;
    }
+   delete fractalAlgorithm;
 
    // ------ Get color scheme -----------------------------------------------
    const QDomElement colorSchemeField = doc.elementsByTagName(QStringLiteral("ColorSchemeName")).item(0).toElement();
@@ -112,7 +107,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
      }
      colorSchemeID++;
    }
-   if(colorScheme == NULL) {
+   if(colorScheme == nullptr) {
       QMessageBox::warning(Application, tr("Open File Failure"),
                            tr("Invalid ColorSchemeName entry:") + colorSchemeName);
       return false;
@@ -128,7 +123,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    View->changeC1C2(C1, C2);
 
    // ------ Activate settings ----------------------------------------------
-   View->changeAlgorithm(algorithmID);
+   View->changeAlgorithm(algorithmName);
    View->changeColorScheme(colorSchemeID);
    View->getAlgorithm()->configure(View->getSizeWidth(), View->getSizeHeight(),
                                    C1, C2, *(View->getAlgorithm()->getMaxIterations()));
@@ -180,7 +175,7 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
    QDomElement tag = doc.createElement(QStringLiteral("AlgorithmName"));
    algorithm.appendChild(tag);
 
-   QDomText text = doc.createTextNode(QString::fromLocal8Bit(View->getAlgorithm()->getIdentifier()));
+   QDomText text = doc.createTextNode(View->getAlgorithm()->getIdentifier());
    tag.appendChild(text);
 
    // Algorithm C1Real

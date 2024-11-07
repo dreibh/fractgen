@@ -23,10 +23,12 @@
 #include "mandelbrot.h"
 
 
+QString Mandelbrot::Identifier  = "Mandelbrot";
+QString Mandelbrot::Description = "Mandelbrot z[i+1]=z[i]^2-c";
 bool Mandelbrot::Registered =
    FractalAlgorithmInterface::Registry.registerClass(
-      "Mandelbrot",
-      "Mandelbrot z[i+1]=z[i]^2-c",
+      Mandelbrot::Identifier,
+      Mandelbrot::Description,
       &Mandelbrot::makeNewInstance
    );
 
@@ -40,6 +42,20 @@ Mandelbrot::Mandelbrot()
 // ###### Destructor ########################################################
 Mandelbrot::~Mandelbrot()
 {
+}
+
+
+// ###### Get identifier ####################################################
+const QString& Mandelbrot::getIdentifier() const
+{
+   return Mandelbrot::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& Mandelbrot::getDescription() const
+{
+   return Mandelbrot::Description;
 }
 
 

@@ -30,22 +30,28 @@
   *@author Thomas Dreibholz
   */
 class ClassRegistry {
+   // ====== Constructor/Destructor =========================================
    public:
    ClassRegistry();
    ~ClassRegistry();
 
+   // ====== Class registry =================================================
    bool registerClass(const QString& identifier,
                       const QString& description,
                       void*          (*makeInstanceFunction)());
    void* makeNewInstance(const QString& identifier);
 
-   private:
    struct Registration {
        QString Identifier;
        QString Description;
        void*   (*MakeInstanceFunction)();
    };
+   inline const QMap<QString, Registration*>& getClassMap() const {
+      return Registry;
+   }
 
+   // ====== Private attributes =============================================
+   private:
    QMap<QString, Registration*> Registry;
 };
 

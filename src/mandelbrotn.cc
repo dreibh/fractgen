@@ -23,13 +23,15 @@
 #include "mandelbrotn.h"
 #include "doubleconfigentry.h"
 
-#include <math.h>
+// #include <math.h>
 
-bool Mandelbrot::Registered =
+QString MandelbrotN::Identifier  = "MandelbrotN";
+QString MandelbrotN::Description = "MandelbrotN z[i+1]=z[i]^N-c";
+bool MandelbrotN::Registered =
    FractalAlgorithmInterface::Registry.registerClass(
-      "MandelbrotN",
-      "MandelbrotN z[i+1]=z[i]^N-c",
-      &Mandelbrot::makeNewInstance
+      MandelbrotN::Identifier,
+      MandelbrotN::Description,
+      &MandelbrotN::makeNewInstance
    );
 
 
@@ -46,6 +48,19 @@ MandelbrotN::~MandelbrotN()
 {
 }
 
+
+// ###### Get identifier ####################################################
+const QString& MandelbrotN::getIdentifier() const
+{
+   return MandelbrotN::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& MandelbrotN::getDescription() const
+{
+   return MandelbrotN::Description;
+}
 
 // ###### Create new instance ###############################################
 void* MandelbrotN::makeNewInstance()

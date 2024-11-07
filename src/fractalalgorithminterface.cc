@@ -32,7 +32,7 @@ FractalAlgorithmInterface::FractalAlgorithmInterface()
 {
    // When using this mechanism to allow configuration of own variables
    // in derived classes you need to make sure the string could be used in
-   // well-formed xml as a tag (i.e. no whitespaces)!
+   // well-formed XML as a tag (i.e. no whitespaces)!
    ConfigEntries.append(new UIntConfigEntry(&MaxIterations, "MaxIterations"));
 }
 

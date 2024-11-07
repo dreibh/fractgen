@@ -64,7 +64,7 @@ class FractalGeneratorView : public QWidget
    void print(QPrinter *printer);
    void configChanged();
    void changeSize(int X, int Y);
-   void changeAlgorithm(int index);
+   void changeAlgorithm(const QString& identifier);
    void changeColorScheme(int index);
    void changeC1C2(std::complex<double> newC1, std::complex<double> newC2);
 

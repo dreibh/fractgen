@@ -92,18 +92,18 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
 
    QActionGroup* fractalAlgorithmGroup = new QActionGroup(this);
    Q_CHECK_PTR(fractalAlgorithmGroup);
-   const FractalAlgorithmInterface* fractalAlgorithm;
-   QStringList                      fractalAlgorithmList;
-   unsigned int                     fractalAlgorithmID = 0;
-   while( (fractalAlgorithm = FractalAlgorithmInterface::getAlgorithmByIndex(fractalAlgorithmID)) ) {
-      QAction* item = fractalAlgorithmMenu->addAction(QString::fromLocal8Bit(fractalAlgorithm->getName()));
+
+   const QMap<QString, ClassRegistry::Registration*>& fractalAlgorithmMap =
+      FractalAlgorithmInterface::getAlgorithms();
+   for(auto iterator = fractalAlgorithmMap.cbegin();
+       iterator != fractalAlgorithmMap.end(); iterator++) {
+      QAction* item = fractalAlgorithmMenu->addAction((*iterator)->Description);
       Q_CHECK_PTR(item);
       fractalAlgorithmGroup->addAction(item);
-      item->setData(fractalAlgorithmID);
+      item->setData((*iterator)->Identifier);
       item->setCheckable(true);
-      item->setChecked((fractalAlgorithm == View->getAlgorithm()));
+      item->setChecked( (*iterator)->Identifier == View->getAlgorithm()->getIdentifier() );
       FractalAlgorithmActionList.append(item);
-      fractalAlgorithmID++;
    }
    connect(fractalAlgorithmMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetFractalAlgorithm(QAction*)));
 
@@ -312,14 +312,10 @@ void FractalGeneratorApp::slotViewConfigureAlgorithm()
 void FractalGeneratorApp::slotUpdateFractalAlgorithm()
 {
    const FractalAlgorithmInterface* currentAlgorithm = View->getAlgorithm();
-   unsigned int i = 0;
    QListIterator<QAction*> iterator(FractalAlgorithmActionList);
    while(iterator.hasNext()) {
       QAction* item = iterator.next();
-      const FractalAlgorithmInterface* algorithm = FractalAlgorithmInterface::getAlgorithmByIndex(i);
-      Q_CHECK_PTR(algorithm);
-      item->setChecked( (algorithm == currentAlgorithm) );
-      i++;
+      item->setChecked( item->data() == currentAlgorithm->getIdentifier() );
    }
 }
 
@@ -347,7 +343,7 @@ void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 }
 
 
-// ###### Update Zoon In menu item ##########################################
+// ###### Update Zoom In menu item ##########################################
 void FractalGeneratorApp::slotUpdateZoomInPossible()
 {
    const bool zoomInPossible = View->isZoomInPossible();
@@ -361,7 +357,7 @@ void FractalGeneratorApp::slotUpdateZoomInPossible()
 }
 
 
-// ###### Update Zoon Back menu item ########################################
+// ###### Update Zoom Back menu item ########################################
 void FractalGeneratorApp::slotUpdateZoomBackPossible()
 {
    ViewZoomBack->setEnabled(View->isZoomBackPossible());
@@ -371,12 +367,9 @@ void FractalGeneratorApp::slotUpdateZoomBackPossible()
 // ###### Set algorithm #####################################################
 void FractalGeneratorApp::slotViewSetFractalAlgorithm(QAction* action)
 {
-   const int algorithmID = action->data().toInt();
-   if(algorithmID < 1000000) {
-      View->changeAlgorithm(algorithmID);
-      View->configChanged();
-      ViewZoomBack->setEnabled(View->isZoomBackPossible());
-   }
+   View->changeAlgorithm(action->data().toString());
+   View->configChanged();
+   ViewZoomBack->setEnabled(View->isZoomBackPossible());
 }
 
 

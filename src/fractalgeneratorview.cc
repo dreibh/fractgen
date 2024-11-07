@@ -84,7 +84,7 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    // ====== Set up algorithm and color scheme ==============================
-   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstanceByIdentifier("Mandelbrot");
+   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance("Mandelbrot");
    Q_CHECK_PTR(Algorithm);
    ColorScheme = ColorSchemeInterface::makeColorSchemeInstanceByIdentifier("SimpleHSV");
    Q_CHECK_PTR(ColorScheme);
@@ -240,9 +240,11 @@ void FractalGeneratorView::print(QPrinter* printer)
    int width  = Display->imageWidth();
    int height = Display->imageHeight();
    char titleString[512];
-   snprintf((char*)&titleString, sizeof(titleString), "%s  -  c1=%f - %fi; c2=%f - %fi; %d iterations",
-            Algorithm->getName(),
-            C1.real(), C1.imag(), C2.real(), C2.imag(), *Algorithm->getMaxIterations());
+   snprintf((char*)&titleString, sizeof(titleString),
+            "%s  -  c1=%f - %fi; c2=%f - %fi; %d iterations",
+            Algorithm->getDescription().toLocal8Bit(),
+            C1.real(), C1.imag(), C2.real(), C2.imag(),
+            *Algorithm->getMaxIterations());
    const QString title = QString::fromLocal8Bit(titleString);
 
    QFont font(QStringLiteral("Times"), 9);
@@ -360,14 +362,14 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
 
 
 // ###### Change fractal algorithm ##########################################
-void FractalGeneratorView::changeAlgorithm(int index)
+void FractalGeneratorView::changeAlgorithm(const QString& identifier)
 {
    // ====== Abort a running calculation ====================================
    stopCalculation();
 
    // ====== Change algorithm ===============================================
    delete Algorithm;
-   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstanceByIndex(index);
+   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(identifier);
    Q_CHECK_PTR(Algorithm);
    C1 = Algorithm->defaultC1();
    C2 = Algorithm->defaultC2();
