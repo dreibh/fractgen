@@ -237,12 +237,12 @@ void FractalGeneratorView::updateLED(const bool busy)
 // ###### Print image #######################################################
 void FractalGeneratorView::print(QPrinter* printer)
 {
-   int width  = Display->imageWidth();
-   int height = Display->imageHeight();
+   const int width  = Display->imageWidth();
+   const int height = Display->imageHeight();
    char titleString[512];
    snprintf((char*)&titleString, sizeof(titleString),
             "%s  -  c1=%f - %fi; c2=%f - %fi; %d iterations",
-            Algorithm->getDescription().toLocal8Bit(),
+            Algorithm->getDescription().toUtf8().constData(),
             C1.real(), C1.imag(), C2.real(), C2.imag(),
             *Algorithm->getMaxIterations());
    const QString title = QString::fromLocal8Bit(titleString);

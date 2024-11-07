@@ -26,7 +26,7 @@
 QString Mandelbrot::Identifier  = "Mandelbrot";
 QString Mandelbrot::Description = "Mandelbrot z[i+1]=z[i]^2-c";
 bool Mandelbrot::Registered =
-   FractalAlgorithmInterface::Registry.registerClass(
+   FractalAlgorithmInterface::registerClass(
       Mandelbrot::Identifier,
       Mandelbrot::Description,
       &Mandelbrot::makeNewInstance
@@ -60,9 +60,9 @@ const QString& Mandelbrot::getDescription() const
 
 
 // ###### Create new instance ###############################################
-void* Mandelbrot::makeNewInstance()
+FractalAlgorithmInterface* Mandelbrot::makeNewInstance()
 {
-   return (void*)new Mandelbrot();
+   return new Mandelbrot();
 }
 
 

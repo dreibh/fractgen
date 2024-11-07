@@ -45,7 +45,7 @@ class MandelbrotN : public Mandelbrot  {
 
    // ====== Private methods and attributes =================================
    private:
-   static void* makeNewInstance();
+   static FractalAlgorithmInterface* makeNewInstance();
 
    static QString Identifier;
    static QString Description;

@@ -21,6 +21,7 @@
  */
 
 #include "fractalgenerator.h"
+#include "dreibholz1.h"
 
 #include <QFile>
 #include <QtGlobal>

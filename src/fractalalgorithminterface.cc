@@ -24,7 +24,7 @@
 #include "uintconfigentry.h"
 
 
-ClassRegistry FractalAlgorithmInterface::Registry;
+ClassRegistry* FractalAlgorithmInterface::Registry = nullptr;
 
 
 // ###### Constructor #######################################################
@@ -74,4 +74,18 @@ void FractalAlgorithmInterface::changeSize(int X, int Y)
    Height = Y;
    StepX  = (C2.real() - C1.real()) / Width;
    StepY  = (C2.imag() - C1.imag()) / Height;
+}
+
+
+// ###### Create new instance class #########################################
+bool FractalAlgorithmInterface::registerClass(const QString& identifier,
+                                              const QString& description,
+                                              FractalAlgorithmInterface* (*makeInstanceFunction)())
+{
+  if(Registry == nullptr) {
+      Registry = new ClassRegistry;
+      Q_CHECK_PTR(Registry);
+  }
+  FractalAlgorithmInterface::Registry->registerClass(identifier, description,
+                                                     (void* (*)())makeInstanceFunction);
 }

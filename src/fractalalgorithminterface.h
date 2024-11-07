@@ -64,26 +64,32 @@ class FractalAlgorithmInterface {
 
    // ====== Algorithm registry =============================================
    inline static const QMap<QString, ClassRegistry::Registration*>& getAlgorithms() {
-      return Registry.getClassMap();
+      return Registry->getClassMap();
    }
    inline static FractalAlgorithmInterface* makeAlgorithmInstance(const QString& identifier) {
-      return (FractalAlgorithmInterface*)Registry.makeNewInstance(identifier);
+      return (FractalAlgorithmInterface*)Registry->makeNewInstance(identifier);
    }
 
-   // ====== Protected attributes ===========================================
+   // ====== Protected methods and attributes ===============================
    protected:
    // ------ Algorithm registry ---------------------------------------------
-   static ClassRegistry Registry;
+   static bool registerClass(const QString& identifier,
+                             const QString& description,
+                             FractalAlgorithmInterface* (*makeInstanceFunction)());
 
    // ------ Algorithm parameters -------------------------------------------
-   unsigned int         Width;
-   unsigned int         Height;
-   unsigned int         MaxIterations;
-   std::complex<double> C1;
-   std::complex<double> C2;
-   double               StepX;
-   double               StepY;
-   QList<ConfigEntry*>  ConfigEntries;
+   unsigned int          Width;
+   unsigned int          Height;
+   unsigned int          MaxIterations;
+   std::complex<double>  C1;
+   std::complex<double>  C2;
+   double                StepX;
+   double                StepY;
+   QList<ConfigEntry*>   ConfigEntries;
+
+   // ====== Private attributes =============================================
+   private:
+   static ClassRegistry* Registry;
 };
 
 #endif

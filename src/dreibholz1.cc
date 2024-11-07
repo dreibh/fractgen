@@ -161,7 +161,7 @@
 QString Dreibholz1::Identifier  = "Dreibholz1";
 QString Dreibholz1::Description = "Dreibholz1 Test";
 bool Dreibholz1::Registered =
-   FractalAlgorithmInterface::Registry.registerClass(
+   FractalAlgorithmInterface::registerClass(
       Dreibholz1::Identifier,
       Dreibholz1::Description,
       &Dreibholz1::makeNewInstance
@@ -196,9 +196,9 @@ const QString& Dreibholz1::getDescription() const
 
 
 // ###### Create new instance ###############################################
-void* Dreibholz1::makeNewInstance()
+FractalAlgorithmInterface* Dreibholz1::makeNewInstance()
 {
-   return (void*)new Dreibholz1();
+   return new Dreibholz1();
 }
 
 

@@ -49,7 +49,7 @@ class Dreibholz1 : public FractalAlgorithmInterface
 
    // ====== Private methods and attributes =================================
    private:
-   static void* makeNewInstance();
+   static FractalAlgorithmInterface* makeNewInstance();
 
    static QString Identifier;
    static QString Description;
