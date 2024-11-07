@@ -20,30 +20,33 @@
  * Contact: thomas.dreibholz@gmail.com
  */
 
-#ifndef DREIBHOLZ1_H
-#define DREIBHOLZ1_H
+#ifndef CLASSREGISTRY_H
+#define CLASSREGISTRY_H
 
-#include <fractalalgorithminterface.h>
+#include <QMap>
 
 
 /**
   *@author Thomas Dreibholz
   */
-class Dreibholz1 : public FractalAlgorithmInterface
-{
+class ClassRegistry {
    public:
-   Dreibholz1();
-   ~Dreibholz1();
+   ClassRegistry();
+   ~ClassRegistry();
 
-   virtual std::complex<double> defaultC1() const override;
-   virtual std::complex<double> defaultC2() const override;
-   virtual unsigned int calculatePoint(const unsigned int x,
-                                       const unsigned int y) override;
+   bool registerClass(const QString& identifier,
+                      const QString& description,
+                      void*          (*makeInstanceFunction)());
+   void* makeNewInstance(const QString& identifier);
 
    private:
-   static void* makeNewInstance();
+   struct Registration {
+       QString Identifier;
+       QString Description;
+       void*   (*MakeInstanceFunction)();
+   };
 
-   static bool Registered;
+   QMap<QString, Registration*> Registry;
 };
 
 #endif

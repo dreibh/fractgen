@@ -22,11 +22,6 @@
 
 #include "dreibholz1.h"
 
-// #include <iostream>
-
-
-Dreibholz1* Dreibholz1::Registration = new Dreibholz1();
-
 /*
  ---- Tests ----
 
@@ -163,9 +158,16 @@ Dreibholz1* Dreibholz1::Registration = new Dreibholz1();
 */
 
 
+bool Dreibholz1::Registered =
+   FractalAlgorithmInterface::Registry.registerClass(
+      "Dreibholz1",
+      "Dreibholz1 Test",
+      &Dreibholz1::makeNewInstance
+   );
+
+
 // ###### Constructor #######################################################
-Dreibholz1::Dreibholz1(const char* identifier, const char* name)
-   : FractalAlgorithmInterface(identifier, name)
+Dreibholz1::Dreibholz1()
 {
    // ConfigEntries.append(new DoubleConfigEntry(&N, "N"));
 }
@@ -178,9 +180,9 @@ Dreibholz1::~Dreibholz1()
 
 
 // ###### Create new instance ###############################################
-FractalAlgorithmInterface* Dreibholz1::makeInstance()
+void* Dreibholz1::makeNewInstance()
 {
-   return new Dreibholz1();
+   return (void*)new Dreibholz1();
 }
 
 

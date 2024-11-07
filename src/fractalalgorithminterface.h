@@ -23,9 +23,9 @@
 #ifndef FRACTALALGORITHMINTERFACE_H
 #define FRACTALALGORITHMINTERFACE_H
 
+#include "classregistry.h"
 #include "configentry.h"
 
-#include <QList>
 #include <complex>
 
 
@@ -34,12 +34,11 @@
   */
 class FractalAlgorithmInterface {
    public:
-   FractalAlgorithmInterface(const char* identifier, const char* name);
+   FractalAlgorithmInterface();
    virtual ~FractalAlgorithmInterface();
 
-   inline const char* getIdentifier() const { return Identifier; }
-   inline const char* getName()       const { return Name;       }
-   virtual FractalAlgorithmInterface* makeInstance() = 0;
+   virtual const char* getIdentifier() const;
+   virtual const char* getName()       const;
 
    virtual std::complex<double> defaultC1() const = 0;
    virtual std::complex<double> defaultC2() const = 0;
@@ -58,9 +57,9 @@ class FractalAlgorithmInterface {
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) = 0;
 
-   static const FractalAlgorithmInterface* getAlgorithmByIndex(const unsigned int algorithmIndex);
-   static FractalAlgorithmInterface* makeAlgorithmInstanceByIndex(const unsigned int algorithmIndex);
-   static FractalAlgorithmInterface* makeAlgorithmInstanceByIdentifier(const char* algorithmIdentifier);
+//    static const FractalAlgorithmInterface* getAlgorithmByIndex(const unsigned int algorithmIndex);
+//    static FractalAlgorithmInterface* makeAlgorithmInstanceByIndex(const unsigned int algorithmIndex);
+//    static FractalAlgorithmInterface* makeAlgorithmInstanceByIdentifier(const char* algorithmIdentifier);
 
    protected:
    const char*          Name;
@@ -74,9 +73,8 @@ class FractalAlgorithmInterface {
    double               StepY;
    QList<ConfigEntry*>  ConfigEntries;
 
-   private:
-   static QList<FractalAlgorithmInterface*>* AlgorithmList;
-   static bool                               Updated;
+   protected:
+   static ClassRegistry Registry;
 };
 
 #endif

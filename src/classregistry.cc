@@ -20,54 +20,48 @@
  * Contact: thomas.dreibholz@gmail.com
  */
 
-#include "mandelbrotn.h"
-#include "doubleconfigentry.h"
-
-#include <math.h>
-
-bool Mandelbrot::Registered =
-   FractalAlgorithmInterface::Registry.registerClass(
-      "MandelbrotN",
-      "MandelbrotN z[i+1]=z[i]^N-c",
-      &Mandelbrot::makeNewInstance
-   );
+#include "classregistry.h"
+;
 
 
 // ###### Constructor #######################################################
-MandelbrotN::MandelbrotN()
+ClassRegistry::ClassRegistry()
 {
-   N = 4.0;
-   ConfigEntries.append(new DoubleConfigEntry(&N, "N"));
 }
 
 
 // ###### Destructor ########################################################
-MandelbrotN::~MandelbrotN()
+ClassRegistry::~ClassRegistry()
 {
-}
-
-
-// ###### Create new instance ###############################################
-void* MandelbrotN::makeNewInstance()
-{
-   return (void*)new MandelbrotN();
-}
-
-
-// ###### Calculate graphics point (x,y) ####################################
-unsigned int MandelbrotN::calculatePoint(const unsigned int x,
-                                         const unsigned int y)
-{
-   const std::complex<double> c = std::complex<double>(C1.real() + ((double)x * StepX),
-                                                       C1.imag() + ((double)y * StepY));
-   std::complex<double> z(0.0, 0.0);
-   unsigned int         i;
-
-   for(i = 0;i < MaxIterations;i++) {
-      z = pow(z, (int)rint(N)) - c;
-      if(z.real() * z.real() + z.imag() * z.imag() >= 2.0) {
-         return i;
-      }
+   while(!Registry.isEmpty()) {
+      delete Registry.take(Registry.firstKey());
    }
-   return i;
+}
+
+
+// ###### Register class ####################################################
+bool ClassRegistry::registerClass(const QString& identifier,
+                                  const QString& description,
+                                  void*          (*makeInstanceFunction)())
+{
+   Registration* registration = new Registration;
+   Q_CHECK_PTR(registration);
+
+   registration->Identifier           = identifier;
+   registration->Description          = description;
+   registration->MakeInstanceFunction = makeInstanceFunction;
+   Registry.insert(registration->Identifier, registration);
+
+   return true;
+}
+
+
+// ###### Create new instance class #########################################
+void* ClassRegistry::makeNewInstance(const QString& identifier)
+{
+   QMap<QString, Registration*>::iterator found = Registry.find(identifier);
+   if(found == Registry.end()) {
+      return nullptr;
+   }
+   return (*found)->MakeInstanceFunction();
 }

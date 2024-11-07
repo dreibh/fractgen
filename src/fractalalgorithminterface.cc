@@ -23,28 +23,16 @@
 #include "fractalalgorithminterface.h"
 #include "uintconfigentry.h"
 
-#include <algorithm>
 
-QList<FractalAlgorithmInterface*>* FractalAlgorithmInterface::AlgorithmList = nullptr;
-bool                               FractalAlgorithmInterface::Updated       = false;
+ClassRegistry FractalAlgorithmInterface::Registry;
 
 
 // ###### Constructor #######################################################
-FractalAlgorithmInterface::FractalAlgorithmInterface(const char* identifier, const char* name)
+FractalAlgorithmInterface::FractalAlgorithmInterface()
 {
-   Updated    = true;
-   Identifier = identifier;
-   Name       = name;
-
-   if(AlgorithmList == nullptr) {
-      AlgorithmList = new QList<FractalAlgorithmInterface*>;
-      Q_CHECK_PTR(AlgorithmList);
-   }
-   AlgorithmList->append(this);
-
    // When using this mechanism to allow configuration of own variables
    // in derived classes you need to make sure the string could be used in
-   // well-formed xml as a tag (i.e. no whitespaces)
+   // well-formed xml as a tag (i.e. no whitespaces)!
    ConfigEntries.append(new UIntConfigEntry(&MaxIterations, "MaxIterations"));
 }
 
@@ -52,7 +40,6 @@ FractalAlgorithmInterface::FractalAlgorithmInterface(const char* identifier, con
 // ###### Destructor ########################################################
 FractalAlgorithmInterface::~FractalAlgorithmInterface()
 {
-   AlgorithmList->removeAll(this);
 }
 
 
@@ -87,48 +74,4 @@ void FractalAlgorithmInterface::changeSize(int X, int Y)
    Height = Y;
    StepX  = (C2.real() - C1.real()) / Width;
    StepY  = (C2.imag() - C1.imag()) / Height;
-}
-
-
-// ###### Comparison function for names ######################################
-static bool lessThan(const FractalAlgorithmInterface* f1,
-                     const FractalAlgorithmInterface* f2)
-{
-   return strcmp(f1->getName(), f2->getName()) < 0;
-}
-
-
-// ###### Get algorithm by number #############################################
-const FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithmByIndex(const unsigned int algorithmIndex)
-{
-   if(Updated) {
-      std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
-      Updated = false;
-   }
-   return AlgorithmList->value(algorithmIndex, nullptr);
-}
-
-
-// ###### Make algorithm instance by index ##################################
-FractalAlgorithmInterface* FractalAlgorithmInterface::makeAlgorithmInstanceByIndex(const unsigned int algorithmIndex)
-{
-   if(Updated) {
-      std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
-      Updated = false;
-   }
-   return AlgorithmList->value(algorithmIndex, nullptr)->makeInstance();
-}
-
-
-// ###### Make algorithm instance by identifier #############################
-FractalAlgorithmInterface* FractalAlgorithmInterface::makeAlgorithmInstanceByIdentifier(const char* algorithmIdentifier)
-{
-   QListIterator<FractalAlgorithmInterface*> iterator(*AlgorithmList);
-   while(iterator.hasNext()) {
-      FractalAlgorithmInterface* algorithm = iterator.next();
-      if(strcmp(algorithmIdentifier, algorithm->getIdentifier()) == 0) {
-         return algorithm->makeInstance();
-      }
-   }
-   return nullptr;
 }

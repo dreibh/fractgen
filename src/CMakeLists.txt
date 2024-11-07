@@ -5,6 +5,7 @@ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 #############################################################################
 
 ADD_EXECUTABLE(fractgen
+   classregistry.cc
    colorschemeinterface.cc
    doubleconfigentry.cc
    dreibholz1.cc

@@ -23,12 +23,16 @@
 #include "mandelbrot.h"
 
 
-Mandelbrot* Mandelbrot::Registration = new Mandelbrot();
+bool Mandelbrot::Registered =
+   FractalAlgorithmInterface::Registry.registerClass(
+      "Mandelbrot",
+      "Mandelbrot z[i+1]=z[i]^2-c",
+      &Mandelbrot::makeNewInstance
+   );
 
 
 // ###### Constructor #######################################################
-Mandelbrot::Mandelbrot(const char* identifier, const char* name)
-   : FractalAlgorithmInterface(identifier, name)
+Mandelbrot::Mandelbrot()
 {
 }
 
@@ -40,9 +44,9 @@ Mandelbrot::~Mandelbrot()
 
 
 // ###### Create new instance ###############################################
-FractalAlgorithmInterface* Mandelbrot::makeInstance()
+void* Mandelbrot::makeNewInstance()
 {
-   return new Mandelbrot();
+   return (void*)new Mandelbrot();
 }
 
 
@@ -64,8 +68,9 @@ std::complex<double> Mandelbrot::defaultC2() const
 unsigned int Mandelbrot::calculatePoint(const unsigned int x,
                                         const unsigned int y)
 {
-   const std::complex<double> c = std::complex<double>(C1.real() + ((double)x * StepX),
-                                                       C1.imag() + ((double)y * StepY));
+   const std::complex<double> c =
+      std::complex<double>(C1.real() + ((double)x * StepX),
+                           C1.imag() + ((double)y * StepY));
    std::complex<double> z(0.0, 0.0);
    unsigned int         i;
 
