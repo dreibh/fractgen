@@ -158,9 +158,9 @@
 */
 
 
-QString Dreibholz1::Identifier  = "Dreibholz1";
-QString Dreibholz1::Description = "Dreibholz1 Test";
-bool Dreibholz1::Registered =
+QString Dreibholz1::Identifier  = QStringLiteral("Dreibholz1");
+QString Dreibholz1::Description = QStringLiteral("Dreibholz1 Test");
+const bool Dreibholz1::Registered =
    FractalAlgorithmInterface::registerClass(
       Dreibholz1::Identifier,
       Dreibholz1::Description,

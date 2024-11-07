@@ -23,9 +23,9 @@
 #include "mandelbrot.h"
 
 
-QString Mandelbrot::Identifier  = "Mandelbrot";
-QString Mandelbrot::Description = "Mandelbrot z[i+1]=z[i]^2-c";
-bool Mandelbrot::Registered =
+const QString Mandelbrot::Identifier(QStringLiteral("Mandelbrot"));
+const QString Mandelbrot::Description(QStringLiteral("Mandelbrot z[i+1]=z[i]^2-c"));
+const bool Mandelbrot::Registered =
    FractalAlgorithmInterface::registerClass(
       Mandelbrot::Identifier,
       Mandelbrot::Description,

@@ -50,9 +50,9 @@ class Mandelbrot : public FractalAlgorithmInterface  {
    private:
    static FractalAlgorithmInterface* makeNewInstance();
 
-   static QString Identifier;
-   static QString Description;
-   static bool    Registered;
+   static const QString Identifier;
+   static const QString Description;
+   static const bool    Registered;
 };
 
 #endif

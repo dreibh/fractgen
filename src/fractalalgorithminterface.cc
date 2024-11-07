@@ -51,11 +51,11 @@ int FractalAlgorithmInterface::defaultMaxIterations() const
 
 
 // ###### Configure algorithm ###############################################
-void FractalAlgorithmInterface::configure(unsigned int         width,
-                                          unsigned int         height,
-                                          std::complex<double> c1,
-                                          std::complex<double> c2,
-                                          unsigned int         maxIterations)
+void FractalAlgorithmInterface::configure(const unsigned int          width,
+                                          const unsigned int          height,
+                                          const std::complex<double>& c1,
+                                          const std::complex<double>& c2,
+                                          const unsigned int          maxIterations)
 {
    Width         = width;
    Height        = height;
@@ -86,6 +86,7 @@ bool FractalAlgorithmInterface::registerClass(const QString& identifier,
       Registry = new ClassRegistry;
       Q_CHECK_PTR(Registry);
   }
-  FractalAlgorithmInterface::Registry->registerClass(identifier, description,
-                                                     (void* (*)())makeInstanceFunction);
+  return FractalAlgorithmInterface::Registry->registerClass(
+            identifier, description,
+            (void* (*)())makeInstanceFunction);
 }

@@ -49,11 +49,11 @@ class FractalAlgorithmInterface {
 
    inline const std::complex<double> getC1() { return C1; }
    inline const std::complex<double> getC2() { return C2; }
-   virtual void configure(unsigned int         width,
-                          unsigned int         height,
-                          std::complex<double> c1,
-                          std::complex<double> c2,
-                          unsigned int         maxIterations);
+   virtual void configure(const unsigned int          width,
+                          const unsigned int          height,
+                          const std::complex<double>& c1,
+                          const std::complex<double>& c2,
+                          const unsigned int          maxIterations);
    inline unsigned int*        getMaxIterations() { return &MaxIterations; }
    inline QList<ConfigEntry*>* getConfigEntries() { return &ConfigEntries; }
    virtual void changeSize(int X, int Y);

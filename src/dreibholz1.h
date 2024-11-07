@@ -51,9 +51,9 @@ class Dreibholz1 : public FractalAlgorithmInterface
    private:
    static FractalAlgorithmInterface* makeNewInstance();
 
-   static QString Identifier;
-   static QString Description;
-   static bool    Registered;
+   static QString    Identifier;
+   static QString    Description;
+   static const bool Registered;
 };
 
 #endif
