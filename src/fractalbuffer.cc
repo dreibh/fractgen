@@ -22,8 +22,6 @@
 
 #include "fractalbuffer.h"
 
-#include <stdlib.h>
-
 
 // ###### Constructor #######################################################
 FractalBuffer::FractalBuffer()

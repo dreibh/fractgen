@@ -44,16 +44,24 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    Q_CHECK_PTR(Buffer);
    Display = new ImageDisplay(this);
    Q_CHECK_PTR(Display);
-   connect(Display, SIGNAL(offsetUpdate(int, int)), this, SLOT(slotOffsetUpdate(int, int)));
-   connect(Display, SIGNAL(zoom()), this, SLOT(zoomIn()));
-   connect(Display, SIGNAL(selection(unsigned int, unsigned int, unsigned int, unsigned int)),
-           this, SLOT(slotSelectionUpdate(unsigned int, unsigned int, unsigned int, unsigned int)));
+   connect(Display, SIGNAL(offsetUpdate(int, int)),
+           this, SLOT(slotOffsetUpdate(int, int)));
+   connect(Display, SIGNAL(zoomInToSelection()),
+           this, SLOT(zoomInToSelection()));
+   connect(Display, SIGNAL(zoomAdjustment(int, int, int)),
+           this, SLOT(zoomAdjustment(int, int, int)));
+   connect(Display,
+           SIGNAL(selection(unsigned int, unsigned int, unsigned int, unsigned int)),
+           this,
+           SLOT(slotSelectionUpdate(unsigned int, unsigned int, unsigned int, unsigned int)));
    XScrollBar = new QScrollBar(Qt::Horizontal, this);
    Q_CHECK_PTR(XScrollBar);
-   connect(XScrollBar, SIGNAL(valueChanged(int)), this, SLOT(slotXScrollBarChange(int)));
+   connect(XScrollBar, SIGNAL(valueChanged(int)),
+           this, SLOT(slotXScrollBarChange(int)));
    YScrollBar = new QScrollBar(Qt::Vertical, this);
    Q_CHECK_PTR(YScrollBar);
-   connect(YScrollBar, SIGNAL(valueChanged(int)), this, SLOT(slotYScrollBarChange(int)));
+   connect(YScrollBar, SIGNAL(valueChanged(int)), this,
+           SLOT(slotYScrollBarChange(int)));
 
  #ifndef WITH_KDE
    ControlLED = new QLabel(this);
@@ -453,7 +461,7 @@ void FractalGeneratorView::copySelectionToClipboard()
 
 
 // ###### Zoom in ###########################################################
-void FractalGeneratorView::zoomIn()
+void FractalGeneratorView::zoomInToSelection()
 {
    if(Selection) {
       // ====== Abort a running calculation =================================
@@ -461,21 +469,54 @@ void FractalGeneratorView::zoomIn()
 
       // ====== Zoom in =====================================================
       ZoomList.push_back(std::pair<std::complex<double>, std::complex<double> >(C1, C2));
-      const double halfWidth  = (SelectionC2.real() - SelectionC1.real()) / 2.0;
-      const double halfHeight = (SelectionC2.imag() - SelectionC1.imag()) / 2.0;
-      const std::complex<double> center = std::complex<double>(SelectionC1.real() + halfWidth,
-                                                               SelectionC1.imag() + halfHeight);
+      const double               halfWidth  = (SelectionC2.real() - SelectionC1.real()) / 2.0;
+      const double               halfHeight = (SelectionC2.imag() - SelectionC1.imag()) / 2.0;
+      const std::complex<double> center     = std::complex<double>(
+         SelectionC1.real() + halfWidth, SelectionC1.imag() + halfHeight);
       const double newHalfHeight = halfWidth * ((double)Display->imageHeight() / (double)Display->imageWidth());
       C1 = std::complex<double>(center.real() - halfWidth, center.imag() + newHalfHeight);
       C2 = std::complex<double>(center.real() + halfWidth, center.imag() - newHalfHeight);
+
+      // ====== Update parameters ===========================================
       Selection = false;
-      Buffer->clear();
       Display->reset(Display->imageWidth(), Display->imageHeight());
       Algorithm->configure(Display->imageWidth(), Display->imageHeight(),
                            C1, C2,
                            *Algorithm->getMaxIterations());
       configChanged();
    }
+}
+
+
+// ###### Zoom adjustment by mouse wheel ####################################
+void FractalGeneratorView::zoomAdjustment(const int deltaX,
+                                          const int deltaY,
+                                          const int deltaZoom)
+{
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Adjust zoom ====================================================
+   const double stepX   = (C2.real() - C1.real()) / Display->imageWidth();
+   const double stepY   = (C2.imag() - C1.imag()) / Display->imageHeight();
+   const int halfWidth  = Display->imageWidth()  / 2;
+   const int halfHeight = Display->imageHeight() / 2;
+   const std::complex<double> center = std::complex<double>(
+      C1.real() - deltaX * stepX  +  halfWidth  * stepX,
+      C1.imag() - deltaY * stepY  +  halfHeight * stepY);
+   const double zoomFactor = (double)(Display->imageHeight() - deltaZoom) /
+                                Display->imageHeight();
+   C1 = std::complex<double>(center.real() - zoomFactor * halfWidth * stepX,
+                             center.imag() - zoomFactor * halfHeight * stepY);
+   C2 = std::complex<double>(center.real() + zoomFactor * halfWidth * stepX,
+                             center.imag() + zoomFactor * halfHeight * stepY);
+
+   // ====== Update parameters ==============================================
+   Selection = false;
+   Algorithm->configure(Display->imageWidth(), Display->imageHeight(),
+                        C1, C2,
+                        *Algorithm->getMaxIterations());
+   configChanged();
 }
 
 

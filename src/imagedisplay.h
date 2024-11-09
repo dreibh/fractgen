@@ -79,7 +79,8 @@ class ImageDisplay : public QWidget {
    void offsetUpdate(int newOffsetX, int newOffsetY);
    void selection(const unsigned int x1, const unsigned int y1,
                   const unsigned int x2, const unsigned int y2);
-   void zoom();
+   void zoomInToSelection();
+   void zoomAdjustment(const int deltaX, const int deltaY, const int deltaZoom);
 
    // ====== Protected methods ==============================================
    protected:
@@ -88,6 +89,7 @@ class ImageDisplay : public QWidget {
    void mousePressEvent(QMouseEvent* mouseEvent) override;
    void mouseReleaseEvent(QMouseEvent* mouseEvent) override;
    void mouseMoveEvent(QMouseEvent* mouseEvent) override;
+   void wheelEvent(QWheelEvent* wheelEvent) override;
 
    // ====== Protected methods and attributes ===============================
    private:

@@ -95,7 +95,7 @@ void ImageDisplay::copySelectionToClipboard()
 }
 
 
-// ###### Draw marking rect #################################################
+// ###### Draw marking rectangle ############################################
 void ImageDisplay::drawMarkerRect(QPainter* painter,
                                   const int x1, const int y1,
                                   const int x2, const int y2,
@@ -182,7 +182,7 @@ void ImageDisplay::mouseReleaseEvent(QMouseEvent* mouseEvent)
       update();
    }
    if(mouseEvent->button() & Qt::MiddleButton) {
-      zoom();
+      emit zoomInToSelection();
    }
 }
 
@@ -221,6 +221,26 @@ void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
       getMarkPosition(mouseEvent, MarkX2, MarkY2);
       update();
    }
+}
+
+
+// ###### Handle mouse wheel event for zooming #################################
+void ImageDisplay::wheelEvent(QWheelEvent* wheelEvent)
+{
+   const QPoint& wheelDelta = wheelEvent->pixelDelta();
+#if QT_VERSION >= 0x060000
+   const int mouseX = (int)wheelEvent->position().x();
+   const int mouseY = (int)wheelEvent->position().y();
+#else
+   const int mouseX = wheelEvent->x();
+   const int mouseY = wheelEvent->y();
+#endif
+   // Mouse cursor's position relative to center of image display:
+   const int deltaX = (width()  / 2) - mouseX;
+   const int deltaY = (height() / 2) - mouseY;
+
+   emit zoomAdjustment(deltaX, deltaY, wheelDelta.y());
+   wheelEvent->accept();
 }
 
 

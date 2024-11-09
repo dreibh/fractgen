@@ -116,7 +116,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    ViewCopySelection = viewMenu->addAction(tr("Copy Selection"), View, SLOT(copySelectionToClipboard()), QKeySequence(Qt::CTRL | Qt::Key_X));
    ViewCopySelection->setEnabled(false);
    viewMenu->addSeparator();
-   ViewZoomIn = viewMenu->addAction(tr("Zoom &In"), View, SLOT(zoomIn()), QKeySequence(Qt::CTRL | Qt::Key_I));
+   ViewZoomIn = viewMenu->addAction(tr("Zoom &In"), View, SLOT(zoomInToSelection()), QKeySequence(Qt::CTRL | Qt::Key_I));
    ViewZoomIn->setEnabled(false);
    ViewZoomBack = viewMenu->addAction(tr("Zoom &Back"), View, SLOT(zoomBack()), QKeySequence(QKeySequence::Undo));
    ViewZoomBack->setEnabled(false);

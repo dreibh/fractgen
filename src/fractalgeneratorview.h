@@ -80,7 +80,8 @@ class FractalGeneratorView : public QWidget
                             const unsigned int x2, const unsigned int y2);
    void copyToClipboard();
    void copySelectionToClipboard();
-   void zoomIn();
+   void zoomInToSelection();
+   void zoomAdjustment(const int deltaX, const int deltaY, const int deltaZoom);
    void zoomBack();
    void zoomReset();
 

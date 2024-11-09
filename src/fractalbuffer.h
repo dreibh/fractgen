@@ -30,7 +30,7 @@ class FractalBuffer
    FractalBuffer();
    ~FractalBuffer();
 
-   // ====== Access =========================================================
+   // ====== Access methods =================================================
    bool reset(const unsigned int width, const unsigned int height);
    void clear();
    inline unsigned int getPoint(const unsigned int x, const unsigned int y) const {
