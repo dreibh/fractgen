@@ -59,42 +59,42 @@
     <message>
         <location filename="fractalgenerator.cc" line="115"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="116"/>
         <source>Copy Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Auswahl kopieren</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="119"/>
         <source>Zoom &amp;In</source>
-        <translation>Ver&amp;größern</translation>
+        <translation>Hineinzoomen</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="121"/>
         <source>Zoom &amp;Back</source>
-        <translation>Ver&amp;kleinern</translation>
+        <translation>Herauszoomen</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="124"/>
         <source>&amp;Reset Zoom</source>
-        <translation>Vergrößerung zu&amp;rücksetzen</translation>
+        <translation>Zoom zurücksetzen</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="127"/>
         <source>&amp;Format</source>
-        <translation type="unfinished"></translation>
+        <translation>Format</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="130"/>
         <source>Custom Image Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildgröße manuell setzen</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="133"/>
         <source>Swap Width and Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertausche Breite und Höhe</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="421"/>
@@ -116,6 +116,7 @@
     <message>
         <location filename="fractalgenerator.cc" line="176"/>
         <source>&amp;Color Scheme</source>
+        <translatorcomment>&amp;Fargevalg</translatorcomment>
         <translation>&amp;Farbschema</translation>
     </message>
     <message>
@@ -164,7 +165,7 @@
     <message>
         <location filename="fractalgenerator.cc" line="433"/>
         <source>Invalid image size!</source>
-        <translation></translation>
+        <translation>Ungültige Bildgröße!</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="243"/>
@@ -286,7 +287,7 @@
     <message>
         <location filename="optionsdialog.cc" line="34"/>
         <source>Fractal Algorithm Options</source>
-        <translation>Optionen für Fraktalalgorithmus</translation>
+        <translation>Einstellungen für Fraktalalgorithmus</translation>
     </message>
     <message>
         <location filename="optionsdialog.cc" line="42"/>

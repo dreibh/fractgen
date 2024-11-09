@@ -33,7 +33,7 @@
         <location filename="fractalgenerator.cc" line="106"/>
         <source>&amp;Export ...</source>
         <oldsource>&amp;Export Image</oldsource>
-        <translation>&amp;Eksportere ...</translation>
+        <translation>&amp;Eksporter ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="107"/>
@@ -59,64 +59,64 @@
     <message>
         <location filename="fractalgenerator.cc" line="115"/>
         <source>&amp;Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="116"/>
         <source>Copy Selection</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier utvalg</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="119"/>
         <source>Zoom &amp;In</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom inn</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="121"/>
         <source>Zoom &amp;Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom tilbake</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="124"/>
         <source>&amp;Reset Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilbakestill zoom</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="127"/>
         <source>&amp;Format</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Format</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="130"/>
         <source>Custom Image Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Egendefinert bildestørrelse</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="133"/>
         <source>Swap Width and Height</source>
-        <translation type="unfinished"></translation>
+        <translation>Bytt bredde og høyde</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="421"/>
         <location filename="fractalgenerator.cc" line="433"/>
         <source>Image Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildestørrelse</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="154"/>
         <source>&amp;Algorithm</source>
-        <translation type="unfinished"></translation>
+        <translation>Algoritme</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="156"/>
         <source>Configure Algorithm ...</source>
         <oldsource>Configure Algorithm</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurer algoritme ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="176"/>
         <source>&amp;Color Scheme</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="196"/>
@@ -164,7 +164,7 @@
     <message>
         <location filename="fractalgenerator.cc" line="433"/>
         <source>Invalid image size!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugyldig bildestørrelse!</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="243"/>
@@ -218,22 +218,22 @@
     <message>
         <location filename="fractalgenerator.cc" line="411"/>
         <source>Changing Image Size ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Endre bildestørrelse ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="422"/>
         <source>Please enter new size in the format x*y:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vennligst skriv inn ny bildestørrelse i formatet x*y:</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="340"/>
         <source>Changing Options ...</source>
-        <translation type="unfinished"></translation>
+        <translation>Endre innstillinger ...</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="393"/>
         <source>Click middle mouse button or choose &quot;View -&gt; Zoom In&quot; to magnify selected area!</source>
-        <translation type="unfinished"></translation>
+        <translation>Klikk midtre museknapp eller velg &quot;Vis -&gt; Zoom inn&quot; for å forstørre det valgte området!</translation>
     </message>
 </context>
 <context>
@@ -248,7 +248,7 @@
         <location filename="fractalgeneratordoc.cc" line="95"/>
         <location filename="fractalgeneratordoc.cc" line="109"/>
         <source>Open File Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Feil ved åpning av fil</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="81"/>
@@ -263,22 +263,22 @@
     <message>
         <location filename="fractalgeneratordoc.cc" line="96"/>
         <source>Invalid AlgorithmName entry:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugyldig AlgorithmName-oppføring:</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="110"/>
         <source>Invalid ColorSchemeName entry:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ugyldig ColorSchemeName-oppføring:</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="148"/>
         <source>Open File Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Advarsel ved åpning av fil</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="149"/>
         <source>Skipping unknown entry:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hopp over ukjent oppføring:</translation>
     </message>
 </context>
 <context>
@@ -286,7 +286,7 @@
     <message>
         <location filename="optionsdialog.cc" line="34"/>
         <source>Fractal Algorithm Options</source>
-        <translation>&amp;Okay</translation>
+        <translation>Innstillinger for fraktalalgoritme</translation>
     </message>
     <message>
         <location filename="optionsdialog.cc" line="42"/>
