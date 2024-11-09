@@ -57,8 +57,6 @@ FractalCalculationThread::~FractalCalculationThread()
 
 
 // ###### Thread main function ##############################################
-#include <QAtomicInteger>
-static QAtomicInteger nnn=0;
 void FractalCalculationThread::run()
 {
    const unsigned int width  = Image->width();
@@ -71,7 +69,6 @@ void FractalCalculationThread::run()
                if(Buffer->getPoint(x, y) == (unsigned int)~0) {
                   const unsigned int value = Algorithm->calculatePoint(x, y);
                   Buffer->setPoint(x, y, value);
-                  nnn++;
 
                   const unsigned int rgb = ColorScheme->getColor(value);
                   for(unsigned int vy = y; vy < std::min(y + step, height); vy++) {

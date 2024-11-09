@@ -191,7 +191,7 @@ void ImageDisplay::mouseReleaseEvent(QMouseEvent* mouseEvent)
 void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 {
    if((Marking) && (LastOffsetUpdate.elapsed() >= 50)) {
-#if QT_VERSION >= 0x060000
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
       const int mouseX = (int)mouseEvent->position().x();
       const int mouseY = (int)mouseEvent->position().y();
 #else
@@ -228,7 +228,7 @@ void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 void ImageDisplay::wheelEvent(QWheelEvent* wheelEvent)
 {
    const QPoint& wheelDelta = wheelEvent->pixelDelta();
-#if QT_VERSION >= 0x060000
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
    const int mouseX = (int)wheelEvent->position().x();
    const int mouseY = (int)wheelEvent->position().y();
 #else
@@ -247,7 +247,7 @@ void ImageDisplay::wheelEvent(QWheelEvent* wheelEvent)
 // ###### Get (x,y)-position for marking rect ###############################
 void ImageDisplay::getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y)
 {
-#if QT_VERSION >= 0x060000
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
    const int mouseX = (int)mouseEvent->position().x();
    const int mouseY = (int)mouseEvent->position().y();
 #else

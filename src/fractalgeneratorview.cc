@@ -91,9 +91,9 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    // ====== Set up algorithm and color scheme ==============================
-   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance("Mandelbrot");
+   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(QStringLiteral("Mandelbrot"));
    Q_CHECK_PTR(Algorithm);
-   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance("SimpleHSV");
+   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance(QStringLiteral("SimpleHSV"));
    Q_CHECK_PTR(ColorScheme);
    C1 = Algorithm->defaultC1();
    C2 = Algorithm->defaultC2();
@@ -468,7 +468,7 @@ void FractalGeneratorView::zoomInToSelection()
       stopCalculation();
 
       // ====== Zoom in =====================================================
-      ZoomList.push_back(std::pair<std::complex<double>, std::complex<double> >(C1, C2));
+      ZoomList.push_back(std::pair<std::complex<double>, std::complex<double>>(C1, C2));
       const double               halfWidth  = (SelectionC2.real() - SelectionC1.real()) / 2.0;
       const double               halfHeight = (SelectionC2.imag() - SelectionC1.imag()) / 2.0;
       const std::complex<double> center     = std::complex<double>(
@@ -497,6 +497,7 @@ void FractalGeneratorView::zoomAdjustment(const int deltaX,
    stopCalculation();
 
    // ====== Adjust zoom ====================================================
+   ZoomList.push_back(std::pair<std::complex<double>, std::complex<double>>(C1, C2));
    const double stepX   = (C2.real() - C1.real()) / Display->imageWidth();
    const double stepY   = (C2.imag() - C1.imag()) / Display->imageHeight();
    const int halfWidth  = Display->imageWidth()  / 2;

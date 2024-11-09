@@ -57,23 +57,24 @@ INSTALL(FILES ${FRACTGEN_QM_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen
 
 IF (WITH_KDE)
    ADD_EXECUTABLE(kfractgen
-   colorschemeinterface.cc
-   doubleconfigentry.cc
-   dreibholz1.cc
-   fractalalgorithminterface.cc
-   fractalbuffer.cc
-   fractalcalculationthread.cc
-   fractgen.cc
-   imagedisplay.cc
-   fractalgenerator.cc
-   fractalgeneratordoc.cc
-   fractalgeneratorview.cc
-   mandelbrot.cc
-   mandelbrotn.cc
-   optionsdialog.cc
-   simplehsv.cc
-   simplergb.cc
-   uintconfigentry.cc)
+      classregistry.cc
+      colorschemeinterface.cc
+      doubleconfigentry.cc
+      dreibholz1.cc
+      fractalalgorithminterface.cc
+      fractalbuffer.cc
+      fractalcalculationthread.cc
+      fractgen.cc
+      imagedisplay.cc
+      fractalgenerator.cc
+      fractalgeneratordoc.cc
+      fractalgeneratorview.cc
+      mandelbrot.cc
+      mandelbrotn.cc
+      optionsdialog.cc
+      simplehsv.cc
+      simplergb.cc
+      uintconfigentry.cc)
 
    SET_TARGET_PROPERTIES(kfractgen PROPERTIES COMPILE_FLAGS "-DWITH_KDE")
    TARGET_LINK_LIBRARIES(kfractgen
