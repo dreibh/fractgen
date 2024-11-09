@@ -367,6 +367,7 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
    return false;
 }
 
+#include <iostream>
 
 // ###### Change fractal algorithm ##########################################
 void FractalGeneratorView::changeAlgorithm(const QString& identifier)
@@ -376,6 +377,7 @@ void FractalGeneratorView::changeAlgorithm(const QString& identifier)
 
    // ====== Change algorithm ===============================================
    delete Algorithm;
+   std::cout << "A=" << identifier.toLocal8Bit().data() << "\n";
    Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(identifier);
    Q_CHECK_PTR(Algorithm);
    C1 = Algorithm->defaultC1();

@@ -92,12 +92,10 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    QMenu* fractalAlgorithmMenu = menuBar()->addMenu(tr("&Algorithm"));
    Q_CHECK_PTR(fractalAlgorithmMenu);
    QAction* configureAlgorithmAction = fractalAlgorithmMenu->addAction(tr("Configure Algorithm ..."), this, SLOT(slotViewConfigureAlgorithm()), QKeySequence(Qt::Key_F2));
-   configureAlgorithmAction->setData(1000000);
    fractalAlgorithmMenu->addSeparator();
 
    QActionGroup* fractalAlgorithmGroup = new QActionGroup(this);
    Q_CHECK_PTR(fractalAlgorithmGroup);
-
    const QMap<QString, ClassRegistry::Registration*>& fractalAlgorithmMap =
       FractalAlgorithmInterface::getAlgorithms();
    for(auto iterator = fractalAlgorithmMap.cbegin();
@@ -110,13 +108,14 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
       item->setChecked( (*iterator)->Identifier == View->getAlgorithm()->getIdentifier() );
       FractalAlgorithmActionList.append(item);
    }
-   connect(fractalAlgorithmMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetFractalAlgorithm(QAction*)));
+   connect(fractalAlgorithmGroup, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetFractalAlgorithm(QAction*)));
 
    // ====== Create menu with the color schemes =============================
    QMenu* colorSchemeMenu = menuBar()->addMenu(tr("&Color Scheme"));
    Q_CHECK_PTR(colorSchemeMenu);
-   QActionGroup* colorSchemeGroup = new QActionGroup(this);
 
+   QActionGroup* colorSchemeGroup = new QActionGroup(this);
+   Q_CHECK_PTR(colorSchemeGroup);
    const QMap<QString, ClassRegistry::Registration*>& colorSchemeMap =
       ColorSchemeInterface::getColorSchemes();
    for(auto iterator = colorSchemeMap.cbegin();
@@ -126,10 +125,10 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
       colorSchemeGroup->addAction(item);
       item->setData((*iterator)->Identifier);
       item->setCheckable(true);
-      item->setChecked( (*iterator)->Identifier == View->getAlgorithm()->getIdentifier() );
+      item->setChecked( (*iterator)->Identifier == View->getColorScheme()->getIdentifier() );
       ColorSchemeActionList.append(item);
    }
-   connect(colorSchemeMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetColorScheme(QAction*)));
+   connect(colorSchemeGroup, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetColorScheme(QAction*)));
 
    // ====== Create Help menu ===============================================
    QMenu* helpMenu = menuBar()->addMenu(tr("&Help"));
