@@ -33,8 +33,8 @@ class FractalGeneratorApp;
 class FractalGeneratorDoc : public QObject
 {
    Q_OBJECT
-   public:
    // ====== Constructor/Destructor =========================================
+   public:
    FractalGeneratorDoc(QWidget* parent, FractalGeneratorView* view);
    ~FractalGeneratorDoc();
 

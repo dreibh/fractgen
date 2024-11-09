@@ -23,19 +23,16 @@
 #ifndef FRACTALCALCULATIONTHREAD_H
 #define FRACTALCALCULATIONTHREAD_H
 
-#include "fractalalgorithminterface.h"
 #include "colorschemeinterface.h"
+#include "fractalalgorithminterface.h"
 #include "fractalbuffer.h"
 
-#include <QThread>
 #include <QImage>
-#include <QObject>
+#include <QThread>
 
 
-/**
-  * @author Thomas Dreibholz
-  */
 class FractalCalculationThread : public QThread {
+   // ====== Constructor/Destructor =========================================
    public:
    FractalCalculationThread(QObject*                   parent,
                             FractalAlgorithmInterface* algorithm,
@@ -46,12 +43,14 @@ class FractalCalculationThread : public QThread {
                             const unsigned int         interleave = 1,
                             const unsigned int         offset     = 0);
    ~FractalCalculationThread();
+
+   // ====== Control functions ==============================================
    void stop();
 
+   // ====== Private methods and attributes =================================
    private:
    void run() override;
 
-   private:
    QObject*                   Parent;
    FractalAlgorithmInterface* Algorithm;
    ColorSchemeInterface*      ColorScheme;
