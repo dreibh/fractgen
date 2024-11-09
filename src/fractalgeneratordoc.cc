@@ -130,6 +130,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    // ------ Activate settings ----------------------------------------------
    View->changeAlgorithm(algorithmID);
    View->changeColorScheme(colorSchemeID);
+   View->changeC1C2(C1, C2);
    View->getAlgorithm()->configure(View->getSizeWidth(), View->getSizeHeight(),
                                    C1, C2,*(View->getAlgorithm()->getMaxIterations()));
 
