@@ -76,6 +76,14 @@ void FractalAlgorithmInterface::configure(unsigned int         width,
    C2            = c2;
    StepX         = (c2.real() - c1.real()) / Width;
    StepY         = (c2.imag() - c1.imag()) / Height;
+
+#ifdef DEBUG
+   printf("C1=(%1.16f, %1.16fi)\n", c1.real(), c1.imag());
+   printf("C2=(%1.16f, %1.16fi)\n", c2.real(), c2.imag());
+   printf("StepX=%1.16f\n", StepX);
+   printf("StepY=%1.16f\n", StepY);
+   printf("MaxIterations=%u\n", maxIterations);
+#endif
 }
 
 
