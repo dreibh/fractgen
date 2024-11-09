@@ -298,7 +298,7 @@ void FractalGeneratorApp::slotViewSetImageSize()
          View->configChanged();
       }
       else {
-         QMessageBox::information(this, tr("Image Size"), tr("Invalid image size!"));
+         QMessageBox::about(this, tr("Image Size"), tr("Invalid image size!"));
       }
       ViewZoomBack->setEnabled(View->isZoomBackPossible());
    }

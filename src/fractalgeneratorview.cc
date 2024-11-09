@@ -106,6 +106,9 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
 // ###### Destructor ########################################################
 FractalGeneratorView::~FractalGeneratorView()
 {
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
    delete Buffer;
    Buffer = nullptr;
 }
