@@ -438,6 +438,20 @@ void FractalGeneratorView::zoomReset()
 }
 
 
+// ###### Copy full image to clipboard ######################################
+void FractalGeneratorView::copyToClipboard()
+{
+   Display->copyToClipboard();
+}
+
+
+// ###### Copy selection to clipboard #######################################
+void FractalGeneratorView::copySelectionToClipboard()
+{
+   Display->copySelectionToClipboard();
+}
+
+
 // ###### Zoom in ###########################################################
 void FractalGeneratorView::zoomIn()
 {

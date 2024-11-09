@@ -112,10 +112,15 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    // ====== Create View menu ===============================================
    QMenu* viewMenu = menuBar()->addMenu(tr("&View"));
    Q_CHECK_PTR(viewMenu);
+   viewMenu->addAction(tr("&Copy"), View, SLOT(copyToClipboard()), QKeySequence(Qt::CTRL | Qt::Key_C));
+   ViewCopySelection = viewMenu->addAction(tr("Copy Selection"), View, SLOT(copySelectionToClipboard()), QKeySequence(Qt::CTRL | Qt::Key_X));
+   ViewCopySelection->setEnabled(false);
+   viewMenu->addSeparator();
    ViewZoomIn = viewMenu->addAction(tr("Zoom &In"), View, SLOT(zoomIn()), QKeySequence(Qt::CTRL | Qt::Key_I));
    ViewZoomIn->setEnabled(false);
    ViewZoomBack = viewMenu->addAction(tr("Zoom &Back"), View, SLOT(zoomBack()), QKeySequence(QKeySequence::Undo));
    ViewZoomBack->setEnabled(false);
+   viewMenu->addSeparator();
    viewMenu->addAction(tr("&Reset Zoom"), View, SLOT(zoomReset()), QKeySequence(Qt::CTRL | Qt::Key_R));
 
    // ====== Create menu with image size settings ===========================
@@ -371,11 +376,19 @@ void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 }
 
 
+// ###### Copy selection to clipboard #######################################
+void FractalGeneratorApp::slotCopyToClipboard()
+{
+   View->copyToClipboard();
+}
+
+
 // ###### Update Zoom In menu item ##########################################
 void FractalGeneratorApp::slotUpdateZoomInPossible()
 {
    const bool zoomInPossible = View->isZoomInPossible();
    ViewZoomIn->setEnabled(zoomInPossible);
+   ViewCopySelection->setEnabled(zoomInPossible);
    if(zoomInPossible) {
       statusBar()->showMessage(tr("Click middle mouse button or choose \"View -> Zoom In\" to magnify selected area!"));
    }

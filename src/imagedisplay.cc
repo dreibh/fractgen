@@ -22,6 +22,8 @@
 
 #include "imagedisplay.h"
 
+#include <QApplication>
+#include <QClipboard>
 #include <QResizeEvent>
 #include <QMouseEvent>
 #include <QPaintEvent>
@@ -75,8 +77,29 @@ bool ImageDisplay::reset(const unsigned int width, const unsigned int height)
 }
 
 
+// ###### Copy to clipboard #################################################
+void ImageDisplay::copyToClipboard()
+{
+   QApplication::clipboard()->setImage(*Image);
+}
+
+
+// ###### Copy selection to clipboard #######################################
+void ImageDisplay::copySelectionToClipboard()
+{
+   if(Marking) {
+      QImage selection(Image->copy(MarkX1, MarkY1,
+                                   MarkX2 - MarkX1, MarkY2 - MarkY1));
+      QApplication::clipboard()->setImage(selection);
+   }
+}
+
+
 // ###### Draw marking rect #################################################
-void ImageDisplay::drawMarkerRect(QPainter* painter, int x1, int y1, int x2, int y2, bool draw)
+void ImageDisplay::drawMarkerRect(QPainter* painter,
+                                  const int x1, const int y1,
+                                  const int x2, const int y2,
+                                  const bool draw)
 {
    const int x  = std::min(x1, x2) - OffsetX;
    const int y  = std::min(y1, y2) - OffsetY;

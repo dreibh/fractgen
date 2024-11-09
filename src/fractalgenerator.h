@@ -62,6 +62,7 @@ class FractalGeneratorApp
    void slotFileQuit();
    void slotHelpAbout();
 
+   void slotCopyToClipboard();
    void slotViewSetImageSize();
    void slotViewSetImageSize(QAction* action);
    void slotViewSwapWidthHeight();
@@ -79,6 +80,7 @@ class FractalGeneratorApp
    private:
    FractalGeneratorDoc*  Document;
    FractalGeneratorView* View;
+   QAction*              ViewCopySelection;
    QAction*              ViewZoomIn;
    QAction*              ViewZoomBack;
    QList<QAction*>       FractalAlgorithmActionList;

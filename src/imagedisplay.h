@@ -32,15 +32,17 @@
 #include <QMouseEvent>
 #include <QPaintEvent>
 
-
 class ImageDisplay : public QWidget {
    Q_OBJECT
+   // ====== Constructor/Destructor =========================================
    public:
    ImageDisplay(QWidget* parent);
    ~ImageDisplay();
 
+   // ====== Access methods =================================================
    bool reset(const unsigned int width, const unsigned int height);
-   inline void setPoint(const unsigned int x, const unsigned int y, const QRgb color) {
+   inline void setPoint(const unsigned int x, const unsigned int y,
+                        const QRgb color) {
       Image->setPixel(x, y, color);
    }
    inline QImage* image() {
@@ -65,13 +67,21 @@ class ImageDisplay : public QWidget {
       OffsetY = offsetY;
    }
    inline bool saveImage(QString &path, const char *format) {
-       return Image->save(path, format); }
+       return Image->save(path, format);
+   }
 
+   // ====== Slots ==========================================================
+   void copyToClipboard();
+   void copySelectionToClipboard();
+
+   // ====== Signals ========================================================
    Q_SIGNALS:
    void offsetUpdate(int newOffsetX, int newOffsetY);
-   void selection(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2);
+   void selection(const unsigned int x1, const unsigned int y1,
+                  const unsigned int x2, const unsigned int y2);
    void zoom();
 
+   // ====== Protected methods ==============================================
    protected:
    void resizeEvent(QResizeEvent* resizeEvent) override;
    void paintEvent(QPaintEvent* paintEvent) override;
@@ -79,9 +89,13 @@ class ImageDisplay : public QWidget {
    void mouseReleaseEvent(QMouseEvent* mouseEvent) override;
    void mouseMoveEvent(QMouseEvent* mouseEvent) override;
 
+   // ====== Protected methods and attributes ===============================
    private:
    void getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y);
-   void drawMarkerRect(QPainter* painter, int x1, int y1, int x2, int y2, bool draw = true);
+   void drawMarkerRect(QPainter* painter,
+                       const int x1, const int y1,
+                       const int x2, const int y2,
+                       const bool draw = true);
 
    QImage*       Image;
    unsigned int  OffsetX;

@@ -78,6 +78,8 @@ class FractalGeneratorView : public QWidget
    void slotOffsetUpdate(const int newOffsetX, const int newOffsetY);
    void slotSelectionUpdate(const unsigned int x1, const unsigned int y1,
                             const unsigned int x2, const unsigned int y2);
+   void copyToClipboard();
+   void copySelectionToClipboard();
    void zoomIn();
    void zoomBack();
    void zoomReset();
