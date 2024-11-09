@@ -40,6 +40,25 @@
 #include <QDir>
 
 
+struct StandardImageSize {
+   QString      Description;
+   unsigned int Width;
+   unsigned int Height;
+};
+
+// https://en.wikipedia.org/wiki/Display_resolution_standards
+static const StandardImageSize StandardImageSizes [] = {
+   { QStringLiteral("640x480 (VGA, 4:3)"),           640,   480 },
+   { QStringLiteral("1024x768 (XGA, 4:3)"),          1024,  768 },
+   { QStringLiteral("1600x1200 (UXGA, 4:3)"),        1600, 1200 },
+   { QStringLiteral(), 0, 0 },
+   { QStringLiteral("1920x1080 (FullHD, 16:9)"),     1920, 1080 },
+   { QStringLiteral("3840x2160 (4K UltraHD, 16:9)"), 3840, 2160 },
+   { QStringLiteral("7680x4320 (8K UltraHD, 16:9)"), 7680, 4320 },
+   { QStringLiteral(), 0, 0 },
+};
+
+
 // ###### Constructor #######################################################
 FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
                                          const QString& fileName)
@@ -85,8 +104,33 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    ViewZoomBack = viewMenu->addAction(tr("Zoom &Back"), View, SLOT(zoomBack()), QKeySequence(QKeySequence::Undo));
    ViewZoomBack->setEnabled(false);
    viewMenu->addAction(tr("&Reset Zoom"), View, SLOT(zoomReset()), QKeySequence(Qt::CTRL | Qt::Key_R));
-   viewMenu->addSeparator();
-   viewMenu->addAction(tr("Image Size"), this, SLOT(slotViewSetImageSize()), QKeySequence(Qt::Key_F3));
+
+   // ====== Create menu with image size settings ===========================
+   QMenu* formatMenu = menuBar()->addMenu(tr("&Format"));
+   Q_CHECK_PTR(formatMenu);
+
+   CustomSizeItem =
+      formatMenu->addAction(tr("Custom Image Size"), this, SLOT(slotViewSetImageSize()), QKeySequence(Qt::Key_F3));
+   CustomSizeItem->setCheckable(true);
+   CustomSizeItem->setChecked(true);
+   formatMenu->addSeparator();
+
+   QActionGroup* formatGroup = new QActionGroup(this);
+   Q_CHECK_PTR(formatGroup);
+   for(unsigned int i = 0; i < sizeof(StandardImageSizes) / sizeof(StandardImageSizes[0]); i++ ) {
+      if(StandardImageSizes[i].Description != QStringLiteral()) {
+         QAction* item = formatMenu->addAction(StandardImageSizes[i].Description);
+         Q_CHECK_PTR(item);
+         formatGroup->addAction(item);
+         item->setData(StandardImageSizes[i].Description);
+         item->setCheckable(true);
+         FormatItems.append(item);
+      }
+      else {
+         formatMenu->addSeparator();
+      }
+   }
+   connect(formatGroup, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetImageSize(QAction*)));
 
    // ====== Create menu with the algorithms ================================
    QMenu* fractalAlgorithmMenu = menuBar()->addMenu(tr("&Algorithm"));
@@ -272,15 +316,15 @@ void FractalGeneratorApp::slotHelpAbout()
 }
 
 
-// ###### Set picture size ##################################################
+// ###### Set image size ####################################################
 void FractalGeneratorApp::slotViewSetImageSize()
 {
    statusBar()->showMessage(tr("Changing Image Size ..."));
 
    const QString currentSize =
-      QString().setNum(View->getSizeWidth()) +
+      QString().setNum(View->getWidth()) +
       QStringLiteral("*") +
-      QString().setNum(View->getSizeHeight());
+      QString().setNum(View->getHeight());
 
    bool ok;
    QString text = QInputDialog::getText(
@@ -289,17 +333,20 @@ void FractalGeneratorApp::slotViewSetImageSize()
                      tr("Please enter new size in the format x*y:"),
                      QLineEdit::Normal, currentSize, &ok);
    if((ok) || (!text.isEmpty())) {
-      const unsigned int newX = text.section(QStringLiteral("*"), 0, 0).toUInt();
-      const unsigned int newY = text.section(QStringLiteral("*"), 1, 1).toUInt();
+      const unsigned int newWidth = text.section(QStringLiteral("*"), 0, 0).toUInt();
+      const unsigned int newHeight = text.section(QStringLiteral("*"), 1, 1).toUInt();
 
-      if((0 < newX) && (0 < newY)) {
-         View->changeSize(newX, newY);
+      if((0 < newWidth) && (0 < newHeight)) {
+         View->changeSize(newWidth, newHeight);
          View->configChanged();
       }
       else {
          QMessageBox::about(this, tr("Image Size"), tr("Invalid image size!"));
       }
       ViewZoomBack->setEnabled(View->isZoomBackPossible());
+      for(auto iterator = FormatItems.begin(); iterator != FormatItems.end(); iterator++) {
+         (*iterator)->setChecked(false);
+      }
    }
 
    statusBar()->showMessage(tr("Ready"));
@@ -366,6 +413,25 @@ void FractalGeneratorApp::slotUpdateZoomInPossible()
 void FractalGeneratorApp::slotUpdateZoomBackPossible()
 {
    ViewZoomBack->setEnabled(View->isZoomBackPossible());
+}
+
+
+// ###### Set image size ####################################################
+void FractalGeneratorApp::slotViewSetImageSize(QAction* action)
+{
+   const QString description = action->data().toString();
+   for(unsigned int i = 0; i < sizeof(StandardImageSizes) / sizeof(StandardImageSizes[0]); i++ ) {
+      if(StandardImageSizes[i].Description == description) {
+         if( (View->getWidth()  != StandardImageSizes[i].Width) ||
+             (View->getHeight() != StandardImageSizes[i].Height) ) {
+            View->changeSize(StandardImageSizes[i].Width,
+                           StandardImageSizes[i].Height);
+            CustomSizeItem->setChecked(false);
+            View->configChanged();
+            return;
+         }
+      }
+   }
 }
 
 

@@ -124,7 +124,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    View->changeAlgorithm(algorithmName);
    View->changeColorScheme(colorSchemeName);
    View->changeC1C2(C1, C2);
-   View->getAlgorithm()->configure(View->getSizeWidth(), View->getSizeHeight(),
+   View->getAlgorithm()->configure(View->getWidth(), View->getHeight(),
                                    C1, C2,
                                    *(View->getAlgorithm()->getMaxIterations()));
 
@@ -230,9 +230,9 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
    root.appendChild(resolution);
 
    const QString currentSize =
-      QString().setNum(View->getSizeWidth()) +
+      QString().setNum(View->getWidth()) +
       QLatin1Char('*') +
-      QString().setNum(View->getSizeHeight());
+      QString().setNum(View->getHeight());
 
    text = doc.createTextNode(currentSize);
    resolution.appendChild(text);

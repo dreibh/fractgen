@@ -75,11 +75,11 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
 
    // Set initial size to 75% of the screen dimensions:
    const QScreen* screen = QGuiApplication::primaryScreen();
-   SizeWidth  = (int)rint(screen->geometry().width() * 0.75);
-   SizeHeight = (int)rint(screen->geometry().height() * 0.75);
+   Width  = (unsigned int)rint(screen->geometry().width() * 0.75);
+   Height = (unsigned int)rint(screen->geometry().height() * 0.75);
 
-   Display->reset(SizeWidth, SizeHeight);
-   Display->setMinimumSize(SizeWidth, SizeHeight);
+   Display->reset(Width, Height);
+   Display->setMinimumSize(Width, Height);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    // ====== Set up algorithm and color scheme ==============================
@@ -196,9 +196,9 @@ void FractalGeneratorView::changeSize(int X, int Y)
    stopCalculation();
 
    // ====== Change size ====================================================
-   SizeWidth  = X;
-   SizeHeight = Y;
-   Display->reset(SizeWidth, SizeHeight);
+   Width  = X;
+   Height = Y;
+   Display->reset(Width, Height);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
    Selection = false;
@@ -367,7 +367,6 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
    return false;
 }
 
-#include <iostream>
 
 // ###### Change fractal algorithm ##########################################
 void FractalGeneratorView::changeAlgorithm(const QString& identifier)
@@ -377,7 +376,6 @@ void FractalGeneratorView::changeAlgorithm(const QString& identifier)
 
    // ====== Change algorithm ===============================================
    delete Algorithm;
-   std::cout << "A=" << identifier.toLocal8Bit().data() << "\n";
    Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(identifier);
    Q_CHECK_PTR(Algorithm);
    C1 = Algorithm->defaultC1();

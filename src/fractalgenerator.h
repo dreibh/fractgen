@@ -63,6 +63,7 @@ class FractalGeneratorApp
    void slotHelpAbout();
 
    void slotViewSetImageSize();
+   void slotViewSetImageSize(QAction* action);
    void slotViewConfigureAlgorithm();
    void slotViewSetFractalAlgorithm(QAction* action);
    void slotViewSetColorScheme(QAction* action);
@@ -82,6 +83,8 @@ class FractalGeneratorApp
    QList<QAction*>       FractalAlgorithmActionList;
    QList<QAction*>       ColorSchemeActionList;
    QPrinter              Printer;
+   QList<QAction*>       FormatItems;
+   QAction*              CustomSizeItem;
 };
 
 #endif
