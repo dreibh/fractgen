@@ -49,35 +49,40 @@ class FractalGeneratorApp;
 class FractalGeneratorView : public QWidget
 {
    Q_OBJECT
+   // ====== Constructor/Destructor =========================================
    public:
    FractalGeneratorView(QWidget* parent);
    ~FractalGeneratorView();
 
-   inline ImageDisplay* getDisplay() const { return Display; }
-   inline FractalAlgorithmInterface* getAlgorithm() const { return Algorithm; }
-   inline ColorSchemeInterface* getColorScheme() const { return ColorScheme; }
-   inline int getSizeWidth() { return SizeWidth; }
-   inline int getSizeHeight() { return SizeHeight; }
-   inline bool isZoomInPossible() { return Selection; }
-   inline bool isZoomBackPossible() { return ZoomList.size() > 0; }
+   // ====== Access methods =================================================
+   inline ImageDisplay* getDisplay() const                { return Display;             }
+   inline FractalAlgorithmInterface* getAlgorithm() const { return Algorithm;           }
+   inline ColorSchemeInterface* getColorScheme() const    { return ColorScheme;         }
+   inline int getSizeWidth() const                        { return SizeWidth;           }
+   inline int getSizeHeight() const                       { return SizeHeight;          }
+   inline bool isZoomInPossible() const                   { return Selection;           }
+   inline bool isZoomBackPossible() const                 { return ZoomList.size() > 0; }
 
-   void print(QPrinter *printer);
    void configChanged();
-   void changeSize(int X, int Y);
+   void changeSize(const int width, const int height);
    void changeAlgorithm(const QString& identifier);
-   void changeColorScheme(int index);
-   void changeC1C2(std::complex<double> newC1, std::complex<double> newC2);
+   void changeColorScheme(const QString& identifier);
+   void changeC1C2(const std::complex<double>& newC1,
+                   const std::complex<double>& newC2);
+   void print(QPrinter* printer);
 
-
+   // ====== Slots ==========================================================
    public Q_SLOTS:
    void slotXScrollBarChange(int value);
    void slotYScrollBarChange(int value);
-   void slotOffsetUpdate(int newOffsetX, int newOffsetY);
-   void slotSelectionUpdate(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2);
+   void slotOffsetUpdate(const int newOffsetX, const int newOffsetY);
+   void slotSelectionUpdate(const unsigned int x1, const unsigned int y1,
+                            const unsigned int x2, const unsigned int y2);
    void zoomIn();
    void zoomBack();
    void zoomReset();
 
+   // ====== Signals ========================================================
    Q_SIGNALS:
    void updateZoomInPossible();
    void updateZoomBackPossible();
@@ -88,6 +93,7 @@ class FractalGeneratorView : public QWidget
    void resizeEvent(QResizeEvent* resizeEvent) override;
    bool eventFilter(QObject* object, QEvent* event) override;
 
+   // ====== Private methods and attributes =================================
    private:
    void updateScrollBars();
    void updateLED(const bool busy);
@@ -120,4 +126,4 @@ class FractalGeneratorView : public QWidget
                        std::complex<double>>> ZoomList;
 };
 
-#endif // FRACTALGENERATORVIEW_H
+#endif

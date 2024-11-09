@@ -23,9 +23,6 @@
 #ifndef FRACTALBUFFER_H
 #define FRACTALBUFFER_H
 
-/**
-  *@author Thomas Dreibholz
-  */
 class FractalBuffer
 {
    // ====== Constructor/Destructor =========================================

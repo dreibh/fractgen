@@ -41,13 +41,15 @@
 
 
 // ###### Constructor #######################################################
-FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileName)
+FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
+                                         const QString& fileName)
 #ifndef WITH_KDE
    : QMainWindow(parent)
 #else
    : KXmlGuiWindow(parent)
 #endif
 {
+   // ====== Create widgets =================================================
    View = new FractalGeneratorView(this);
    Q_CHECK_PTR(View);
    setCentralWidget(View);
@@ -61,6 +63,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    connect(Document, SIGNAL(updateFileName(const QString&)), this, SLOT(slotUpdateFileName(const QString&)));
    Document->newDocument();
 
+   // ====== Create File menu ===============================================
    QMenu* fileMenu = menuBar()->addMenu(tr("&File"));
    Q_CHECK_PTR(fileMenu);
    fileMenu->addAction(tr("&New"), this, SLOT(slotFileNew()), QKeySequence(QKeySequence::New));
@@ -74,6 +77,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    fileMenu->addAction(tr("&Close"), this, SLOT(slotFileClose()), QKeySequence(QKeySequence::Close));
    fileMenu->addAction(tr("&Quit"), this, SLOT(slotFileQuit()), QKeySequence(Qt::CTRL | Qt::Key_Q));
 
+   // ====== Create View menu ===============================================
    QMenu* viewMenu = menuBar()->addMenu(tr("&View"));
    Q_CHECK_PTR(viewMenu);
    ViewZoomIn = viewMenu->addAction(tr("Zoom &In"), View, SLOT(zoomIn()), QKeySequence(Qt::CTRL | Qt::Key_I));
@@ -84,6 +88,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    viewMenu->addSeparator();
    viewMenu->addAction(tr("Image Size"), this, SLOT(slotViewSetImageSize()), QKeySequence(Qt::Key_F3));
 
+   // ====== Create menu with the algorithms ================================
    QMenu* fractalAlgorithmMenu = menuBar()->addMenu(tr("&Algorithm"));
    Q_CHECK_PTR(fractalAlgorithmMenu);
    QAction* configureAlgorithmAction = fractalAlgorithmMenu->addAction(tr("Configure Algorithm ..."), this, SLOT(slotViewConfigureAlgorithm()), QKeySequence(Qt::Key_F2));
@@ -107,38 +112,43 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget* parent, const QString& fileNam
    }
    connect(fractalAlgorithmMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetFractalAlgorithm(QAction*)));
 
+   // ====== Create menu with the color schemes =============================
    QMenu* colorSchemeMenu = menuBar()->addMenu(tr("&Color Scheme"));
    Q_CHECK_PTR(colorSchemeMenu);
    QActionGroup* colorSchemeGroup = new QActionGroup(this);
-   const ColorSchemeInterface* colorScheme;
-   QStringList                 colorSchemeList;
-   unsigned int                colorSchemeID = 0;
-   while( (colorScheme = ColorSchemeInterface::getColorSchemeByIndex(colorSchemeID)) ) {
-      QAction* item = colorSchemeMenu->addAction(QString::fromLocal8Bit(colorScheme->getName()));
+
+   const QMap<QString, ClassRegistry::Registration*>& colorSchemeMap =
+      ColorSchemeInterface::getColorSchemes();
+   for(auto iterator = colorSchemeMap.cbegin();
+       iterator != colorSchemeMap.end(); iterator++) {
+      QAction* item = colorSchemeMenu->addAction((*iterator)->Description);
       Q_CHECK_PTR(item);
       colorSchemeGroup->addAction(item);
-      item->setData(colorSchemeID);
+      item->setData((*iterator)->Identifier);
       item->setCheckable(true);
-      item->setChecked((colorScheme == View->getColorScheme()));
+      item->setChecked( (*iterator)->Identifier == View->getAlgorithm()->getIdentifier() );
       ColorSchemeActionList.append(item);
-      colorSchemeID++;
    }
    connect(colorSchemeMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotViewSetColorScheme(QAction*)));
 
+   // ====== Create Help menu ===============================================
    QMenu* helpMenu = menuBar()->addMenu(tr("&Help"));
    Q_CHECK_PTR(helpMenu);
    helpMenu->addAction(tr("&About"), this, SLOT(slotHelpAbout()));
 
+   // ====== Further setup ==================================================
    Printer.setColorMode(QPrinter::Color);
    Printer.setPageOrientation(QPageLayout::Landscape);
    Printer.setOutputFileName(tr("Fractal.pdf"));
 
    statusBar()->showMessage(tr("Welcome to FractGen!"), 3000);
 
+   // ====== Load file, if provided =========================================
    if(!fileName.isEmpty()) {
       Document->openDocument(fileName);
    }
 
+   // ====== Finally, show the window =======================================
    show();
 }
 
@@ -173,21 +183,6 @@ void FractalGeneratorApp::slotFileOpen()
 }
 
 
-// ###### Save ##############################################################
-void FractalGeneratorApp::slotFileSaveAs()
-{
-   statusBar()->showMessage(tr("Saving file as ..."));
-   const QString fileName = QFileDialog::getSaveFileName(
-                               this, tr("Save File ..."),
-                               QDir::currentPath(),
-                               tr("FractGen File (*.fsf)"));
-   if(!fileName.isEmpty()) {
-      Document->saveDocument(fileName);
-   }
-   statusBar()->showMessage(tr("Ready"));
-}
-
-
 // ###### Save as ###########################################################
 void FractalGeneratorApp::slotFileSave()
 {
@@ -207,6 +202,21 @@ void FractalGeneratorApp::slotFileSave()
 }
 
 
+// ###### Save ##############################################################
+void FractalGeneratorApp::slotFileSaveAs()
+{
+   statusBar()->showMessage(tr("Saving file as ..."));
+   const QString fileName = QFileDialog::getSaveFileName(
+                               this, tr("Save File ..."),
+                               QDir::currentPath(),
+                               tr("FractGen File (*.fsf)"));
+   if(!fileName.isEmpty()) {
+      Document->saveDocument(fileName);
+   }
+   statusBar()->showMessage(tr("Ready"));
+}
+
+
 // ###### Export ############################################################
 void FractalGeneratorApp::slotFileExportImage()
 {
@@ -216,8 +226,8 @@ void FractalGeneratorApp::slotFileExportImage()
                                                QDir::currentPath(),
                                                QStringLiteral("*.png"));
    if(!name.isEmpty()) {
-      if(name.right(4).toLower() != QLatin1String(".png")) {
-         name += QLatin1String(".png");
+      if(name.right(4).toLower() != QStringLiteral(".png")) {
+         name += QStringLiteral(".png");
       }
       View->getDisplay()->saveImage(name, "PNG");
    }
@@ -270,7 +280,7 @@ void FractalGeneratorApp::slotViewSetImageSize()
 
    const QString currentSize =
       QString().setNum(View->getSizeWidth()) +
-      QLatin1Char('*') +
+      QStringLiteral("*") +
       QString().setNum(View->getSizeHeight());
 
    bool ok;
@@ -280,8 +290,8 @@ void FractalGeneratorApp::slotViewSetImageSize()
                      tr("Please enter new size in the format x*y:"),
                      QLineEdit::Normal, currentSize, &ok);
    if((ok) || (!text.isEmpty())) {
-      const unsigned int newX = text.section(QLatin1Char('*'), 0, 0).toUInt();
-      const unsigned int newY = text.section(QLatin1Char('*'), 1, 1).toUInt();
+      const unsigned int newX = text.section(QStringLiteral("*"), 0, 0).toUInt();
+      const unsigned int newY = text.section(QStringLiteral("*"), 1, 1).toUInt();
 
       if((0 < newX) && (0 < newY)) {
          View->changeSize(newX, newY);
@@ -323,15 +333,11 @@ void FractalGeneratorApp::slotUpdateFractalAlgorithm()
 // ###### Update color scheme ###############################################
 void FractalGeneratorApp::slotUpdateColorScheme()
 {
-   const ColorSchemeInterface* currentColorScheme = View->getColorScheme();
-   unsigned int i = 0;
+   const ColorSchemeInterface* currentAlgorithm = View->getColorScheme();
    QListIterator<QAction*> iterator(ColorSchemeActionList);
    while(iterator.hasNext()) {
       QAction* item = iterator.next();
-      const ColorSchemeInterface* colorScheme = ColorSchemeInterface::getColorSchemeByIndex(i);
-      Q_CHECK_PTR(colorScheme);
-      item->setChecked( (colorScheme == currentColorScheme) );
-      i++;
+      item->setChecked( item->data() == currentAlgorithm->getIdentifier() );
    }
 }
 
@@ -339,7 +345,7 @@ void FractalGeneratorApp::slotUpdateColorScheme()
 // ###### Update file name ##################################################
 void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 {
-   setWindowTitle(fileName + QLatin1String(" - FractGen II"));
+   setWindowTitle(fileName + QStringLiteral(" - FractGen II"));
 }
 
 
@@ -376,10 +382,7 @@ void FractalGeneratorApp::slotViewSetFractalAlgorithm(QAction* action)
 // ###### Set color scheme ##################################################
 void FractalGeneratorApp::slotViewSetColorScheme(QAction* action)
 {
-   const int colorSchemeID = action->data().toInt();
-   if(colorSchemeID < 1000000) {
-      View->changeColorScheme(colorSchemeID);
-      View->configChanged();
-      ViewZoomBack->setEnabled(View->isZoomBackPossible());
-   }
+   View->changeColorScheme(action->data().toString());
+   View->configChanged();
+   ViewZoomBack->setEnabled(View->isZoomBackPossible());
 }

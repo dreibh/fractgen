@@ -25,20 +25,28 @@
 
 #include <colorschemeinterface.h>
 
-/**
-  *@author Thomas Dreibholz
-  */
+
 class SimpleHSV : public ColorSchemeInterface  {
+   // ====== Constructor/Destructor =========================================
    public:
-   SimpleHSV(const char* identifier = "SimpleHSV",
-             const char* name       = "Simple HSV");
+   SimpleHSV();
    ~SimpleHSV();
 
-   virtual ColorSchemeInterface* makeInstance() override;
+   // ====== Color scheme information =======================================
+   virtual const QString& getIdentifier()  const override;
+   virtual const QString& getDescription() const override;
+
+   // ====== The actual coloring rule =======================================
    virtual unsigned int getColor(const unsigned int value) override;
 
+   // ====== Private attributes =============================================
    private:
-   static SimpleHSV* Registration;
+   static ColorSchemeInterface* makeNewInstance();
+   static unsigned int rgbFromWaveLength(const double wave);
+
+   static const QString Identifier;
+   static const QString Description;
+   static const bool    Registered;
 };
 
 #endif

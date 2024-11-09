@@ -24,8 +24,6 @@
 #define FRACTALGENERATORDOC_H
 
 #include <QObject>
-#include <QString>
-#include <QList>
 
 
 class FractalGeneratorView;
@@ -36,31 +34,36 @@ class FractalGeneratorDoc : public QObject
 {
    Q_OBJECT
    public:
-
+   // ====== Constructor/Destructor =========================================
    FractalGeneratorDoc(QWidget* parent, FractalGeneratorView* view);
    ~FractalGeneratorDoc();
 
-   inline const QString& getFileName() const { return FileName; }
+   // ====== File settings ==================================================
+   inline const QString& getFileName() const    { return FileName;     }
+   inline void setModified(const bool modified) { Modified = modified; };
+   inline bool isModified() const               { return Modified;     };
    inline void setFileName(const QString& fileName) {
       FileName = fileName;
       emit updateFileName(FileName);
    }
-   inline void setModified(bool modified) { Modified = modified; };
-   inline bool isModified() { return Modified; };
+
+   // ====== File input/output ==============================================
    void newDocument();
    bool openDocument(const QString& fileName);
    bool saveDocument(const QString& fileName);
    bool saveModified();
    void closeDocument();
 
+   // ====== Signals ========================================================
    Q_SIGNALS:
    void updateFileName(const QString& fileName);
 
+   // ====== Private attributes =============================================
    private:
-   bool                  Modified;
-   QString               FileName;
    FractalGeneratorApp*  Application;
    FractalGeneratorView* View;
+   QString               FileName;
+   bool                  Modified;
 };
 
-#endif // FRACTALGENERATORDOC_H
+#endif

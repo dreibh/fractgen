@@ -26,9 +26,6 @@
 #include <mandelbrot.h>
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class MandelbrotN : public Mandelbrot  {
    // ====== Constructor/Destructor =========================================
    public:

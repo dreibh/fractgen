@@ -26,9 +26,6 @@
 #include <fractalalgorithminterface.h>
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class Dreibholz1 : public FractalAlgorithmInterface
 {
    // ====== Constructor/Destructor =========================================

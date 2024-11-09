@@ -26,9 +26,6 @@
 #include <fractalalgorithminterface.h>
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class Mandelbrot : public FractalAlgorithmInterface  {
    // ====== Constructor/Destructor =========================================
    public:

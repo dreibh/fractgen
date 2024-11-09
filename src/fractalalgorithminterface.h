@@ -29,9 +29,6 @@
 #include <complex>
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class FractalAlgorithmInterface {
    // ====== Constructor/Destructor =========================================
    public:
@@ -39,8 +36,8 @@ class FractalAlgorithmInterface {
    virtual ~FractalAlgorithmInterface();
 
    // ====== Algorithm information ==========================================
-   virtual const QString& getIdentifier()   const = 0;
-   virtual const QString& getDescription()  const = 0;
+   virtual const QString& getIdentifier()  const = 0;
+   virtual const QString& getDescription() const = 0;
 
    // ====== Algorithm parameters ===========================================
    virtual std::complex<double> defaultC1() const = 0;

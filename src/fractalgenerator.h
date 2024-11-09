@@ -23,16 +23,16 @@
 #ifndef FRACTALGENERATOR_H
 #define FRACTALGENERATOR_H
 
-
-#include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtPrintSupport/QPrinter>
 #ifdef WITH_KDE
 #include <KXmlGuiWindow>
 #endif
 
+
 class FractalGeneratorDoc;
 class FractalGeneratorView;
+
 
 class FractalGeneratorApp
 #ifndef WITH_KDE
@@ -45,22 +45,18 @@ class FractalGeneratorApp
 
    friend class FractalGeneratorView;
 
+   // ====== Constructor/Destructor =========================================
    public:
    FractalGeneratorApp(QWidget* parent, const QString& fileName = QString());
    ~FractalGeneratorApp();
 
-   protected:
-   void initActions();
-   void initStatusBar();
-   void initDocument();
-   void initView();
-
+   // ====== Slots ==========================================================
    public Q_SLOTS:
    void slotFileNew();
    void slotFileOpen();
    void slotFileSave();
-   void slotFileExportImage();
    void slotFileSaveAs();
+   void slotFileExportImage();
    void slotFileClose();
    void slotFilePrint();
    void slotFileQuit();
@@ -77,9 +73,10 @@ class FractalGeneratorApp
    void slotUpdateZoomBackPossible();
    void slotUpdateZoomInPossible();
 
+   // ====== Private attributes =============================================
    private:
-   FractalGeneratorView* View;
    FractalGeneratorDoc*  Document;
+   FractalGeneratorView* View;
    QAction*              ViewZoomIn;
    QAction*              ViewZoomBack;
    QList<QAction*>       FractalAlgorithmActionList;
@@ -87,4 +84,4 @@ class FractalGeneratorApp
    QPrinter              Printer;
 };
 
-#endif // FRACTALGENERATOR_H
+#endif

@@ -25,24 +25,31 @@
 
 #include <colorschemeinterface.h>
 
-/**
-  *@author Thomas Dreibholz
-  */
+
 class SimpleRGB : public ColorSchemeInterface  {
+   // ====== Constructor/Destructor =========================================
    public:
-   SimpleRGB(const char* identifier = "SimpleRGB",
-             const char* name       = "Simple RGB");
+   SimpleRGB();
    ~SimpleRGB();
 
-   virtual ColorSchemeInterface* makeInstance() override;
+   // ====== Color scheme information =======================================
+   virtual const QString& getIdentifier()  const override;
+   virtual const QString& getDescription() const override;
+
+   // ====== The actual coloring rule =======================================
    virtual unsigned int getColor(const unsigned int value) override;
 
+   // ====== Private attributes =============================================
    private:
+   static ColorSchemeInterface* makeNewInstance();
    static unsigned int rgbFromWaveLength(const double wave);
 
-   static SimpleRGB* Registration;
-   unsigned int*     ColorMap;
-   unsigned int      ColorMapSize;
+   static const QString Identifier;
+   static const QString Description;
+   static const bool    Registered;
+
+   unsigned int*        ColorMap;
+   unsigned int         ColorMapSize;
 };
 
 #endif

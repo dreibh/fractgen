@@ -24,14 +24,12 @@
 #include "fractalgeneratordoc.h"
 #include "fractalgenerator.h"
 
-#include <stdio.h>
-
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QPainter>
-#include <QImage>
-#include <QResizeEvent>
 #include <QEvent>
+#include <QImage>
+#include <QPainter>
+#include <QResizeEvent>
 #include <QScreen>
 
 
@@ -62,7 +60,8 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    Q_CHECK_PTR(ControlLED);
    ControlLED->setFrameStyle(QFrame::Panel|QFrame::Sunken);
 #else
-   ControlLED = new KLed(QColor(Qt::red), KLed::State::Off, KLed::Look::Raised, KLed::Shape::Circular, this);
+   ControlLED = new KLed(QColor(Qt::red), KLed::State::Off,
+                         KLed::Look::Raised, KLed::Shape::Circular, this);
    Q_CHECK_PTR(ControlLED);
 #endif
 
@@ -86,7 +85,7 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    // ====== Set up algorithm and color scheme ==============================
    Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance("Mandelbrot");
    Q_CHECK_PTR(Algorithm);
-   ColorScheme = ColorSchemeInterface::makeColorSchemeInstanceByIdentifier("SimpleHSV");
+   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance("SimpleHSV");
    Q_CHECK_PTR(ColorScheme);
    C1 = Algorithm->defaultC1();
    C2 = Algorithm->defaultC2();
@@ -120,7 +119,7 @@ void FractalGeneratorView::resizeEvent(QResizeEvent*)
 
 
 // ###### Vertical scollbar update ##########################################
-void FractalGeneratorView::slotXScrollBarChange(int value)
+void FractalGeneratorView::slotXScrollBarChange(const int value)
 {
    int newOffset = value;
 
@@ -139,7 +138,7 @@ void FractalGeneratorView::slotXScrollBarChange(int value)
 
 
 // ###### Horizontal scollbar update ########################################
-void FractalGeneratorView::slotYScrollBarChange(int value)
+void FractalGeneratorView::slotYScrollBarChange(const int value)
 {
    int newOffset = value;
 
@@ -158,7 +157,8 @@ void FractalGeneratorView::slotYScrollBarChange(int value)
 
 
 // ###### Offset update #####################################################
-void FractalGeneratorView::slotOffsetUpdate(int newOffsetX, int newOffsetY)
+void FractalGeneratorView::slotOffsetUpdate(const int newOffsetX,
+                                            const int newOffsetY)
 {
    XScrollBar->setValue(newOffsetX);
    YScrollBar->setValue(newOffsetY);
@@ -166,7 +166,10 @@ void FractalGeneratorView::slotOffsetUpdate(int newOffsetX, int newOffsetY)
 
 
 // ###### Selection update ###################################################
-void FractalGeneratorView::slotSelectionUpdate(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2)
+void FractalGeneratorView::slotSelectionUpdate(const unsigned int x1,
+                                               const unsigned int y1,
+                                               const unsigned int x2,
+                                               const unsigned int y2)
 {
    SelectionC1 = std::complex<double>(C1.real() + x1 * ((C2.real() - C1.real()) / Display->imageWidth()),
                                       C1.imag() + y1 * ((C2.imag() - C1.imag()) / Display->imageHeight()));
@@ -203,11 +206,12 @@ void FractalGeneratorView::changeSize(int X, int Y)
 
 
 // ###### Change C1 and C2 ##################################################
-void FractalGeneratorView::changeC1C2(std::complex<double> NewC1, std::complex<double> NewC2)
+void FractalGeneratorView::changeC1C2(const std::complex<double>& newC1,
+                                      const std::complex<double>& newC2)
 {
    stopCalculation();
-   C1 = NewC1;
-   C2 = NewC2;
+   C1 = newC1;
+   C2 = newC2;
 }
 
 
@@ -384,14 +388,14 @@ void FractalGeneratorView::changeAlgorithm(const QString& identifier)
 
 
 // ###### Change color scheme ###############################################
-void FractalGeneratorView::changeColorScheme(int index)
+void FractalGeneratorView::changeColorScheme(const QString& identifier)
 {
    // ====== Abort a running calculation ====================================
    stopCalculation();
 
    // ====== Change color scheme ============================================
    delete ColorScheme;
-   ColorScheme = ColorSchemeInterface::makeColorSchemeInstanceByIndex(index);
+   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance(identifier);
    Q_CHECK_PTR(ColorScheme);
    ColorScheme->configure(Algorithm->getMaxIterations());
    emit updateColorScheme();

@@ -25,12 +25,18 @@
 #include <qcolor.h>
 
 
-SimpleHSV* SimpleHSV::Registration = new SimpleHSV();
+const QString SimpleHSV::Identifier(QStringLiteral("SimpleHSV"));
+const QString SimpleHSV::Description(QStringLiteral("Simple HSV"));
+const bool SimpleHSV::Registered =
+   ColorSchemeInterface::registerClass(
+      SimpleHSV::Identifier,
+      SimpleHSV::Description,
+      &SimpleHSV::makeNewInstance
+   );
 
 
 // ###### Constructor #######################################################
-SimpleHSV::SimpleHSV(const char* identifier, const char* name)
-   : ColorSchemeInterface(identifier, name)
+SimpleHSV::SimpleHSV()
 {
 }
 
@@ -41,8 +47,22 @@ SimpleHSV::~SimpleHSV()
 }
 
 
+// ###### Get identifier ####################################################
+const QString& SimpleHSV::getIdentifier() const
+{
+   return SimpleHSV::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& SimpleHSV::getDescription() const
+{
+   return SimpleHSV::Description;
+}
+
+
 // ###### Create new instance ###############################################
-ColorSchemeInterface* SimpleHSV::makeInstance()
+ColorSchemeInterface* SimpleHSV::makeNewInstance()
 {
    return new SimpleHSV();
 }

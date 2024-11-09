@@ -26,9 +26,6 @@
 #include <QMap>
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class ClassRegistry {
    // ====== Constructor/Destructor =========================================
    public:

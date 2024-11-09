@@ -26,15 +26,20 @@
 #include <math.h>
 
 
-SimpleRGB* SimpleRGB::Registration = new SimpleRGB();
-
+const QString SimpleRGB::Identifier(QStringLiteral("SimpleRGB"));
+const QString SimpleRGB::Description(QStringLiteral("Simple RGB"));
+const bool SimpleRGB::Registered =
+   ColorSchemeInterface::registerClass(
+      SimpleRGB::Identifier,
+      SimpleRGB::Description,
+      &SimpleRGB::makeNewInstance
+   );
 
 #define INITAL_COLORMAP_SIZE 256
 
 
 // ###### Constructor #######################################################
-SimpleRGB::SimpleRGB(const char* identifier, const char* name)
-   : ColorSchemeInterface(identifier, name)
+SimpleRGB::SimpleRGB()
 {
    ColorMapSize = INITAL_COLORMAP_SIZE;
    ColorMap     = new unsigned int[ColorMapSize];
@@ -53,8 +58,22 @@ SimpleRGB::~SimpleRGB()
 }
 
 
+// ###### Get identifier ####################################################
+const QString& SimpleRGB::getIdentifier() const
+{
+   return SimpleRGB::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& SimpleRGB::getDescription() const
+{
+   return SimpleRGB::Description;
+}
+
+
 // ###### Create new instance ###############################################
-ColorSchemeInterface* SimpleRGB::makeInstance()
+ColorSchemeInterface* SimpleRGB::makeNewInstance()
 {
    return new SimpleRGB();
 }
