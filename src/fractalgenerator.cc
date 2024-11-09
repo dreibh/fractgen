@@ -48,14 +48,27 @@ struct StandardImageSize {
 
 // https://en.wikipedia.org/wiki/Display_resolution_standards
 static const StandardImageSize StandardImageSizes [] = {
-   { QStringLiteral("640x480 (VGA, 4:3)"),           640,   480 },
-   { QStringLiteral("1024x768 (XGA, 4:3)"),          1024,  768 },
-   { QStringLiteral("1600x1200 (UXGA, 4:3)"),        1600, 1200 },
+   { QStringLiteral("640x480 (VGA, 4:3)"),                                  640,      480 },
+   { QStringLiteral("1024x768 (XGA, 4:3)"),                                 1024,     768 },
+   { QStringLiteral("1600x1200 (UXGA, 4:3)"),                               1600,    1200 },
    { QStringLiteral(), 0, 0 },
-   { QStringLiteral("1920x1080 (FullHD, 16:9)"),     1920, 1080 },
-   { QStringLiteral("3840x2160 (4K UltraHD, 16:9)"), 3840, 2160 },
-   { QStringLiteral("7680x4320 (8K UltraHD, 16:9)"), 7680, 4320 },
+   { QStringLiteral("1920x1080 (FullHD, 16:9)"),                            1920,    1080 },
+   { QStringLiteral("3840x2160 (4K UltraHD, 16:9)"),                        3840,    2160 },
+   { QStringLiteral("7680x4320 (8K UltraHD, 16:9)"),                        7680,    4320 },
    { QStringLiteral(), 0, 0 },
+   { QStringLiteral("1485x1050 (DIN A4 landscape, 5*5 px/mm^2)"),          5*297,   5*210 },
+   { QStringLiteral("2100x1485 (DIN A3 landscape, 5*5 px/mm^2)"),          5*420,   5*297 },
+   { QStringLiteral("2970x2100 (DIN A4 landscape, 10*10 px/mm^2)"),       10*297,  10*210 },
+   { QStringLiteral("4200x2970 (DIN A3 landscape, 10*10 px/mm^2)"),       10*420,  10*297 },
+   { QStringLiteral("14850x10500 (DIN A4 landscape, 50*50 px/mm^2) ⚠"),   50*297,  50*210 },
+   { QStringLiteral("21000x14850 (DIN A3 landscape, 50*50 px/mm^2) ⚠"),   50*420,  50*297 },
+   { QStringLiteral(), 0, 0 },
+   { QStringLiteral("1050x1485 (DIN A4 portrait, 5*5 px/mm^2)"),           5*210,   5*297 },
+   { QStringLiteral("1485x2100 (DIN A3 portrait, 5*5 px/mm^2)"),           5*297,   5*420 },
+   { QStringLiteral("2100x2970 (DIN A4 portrait, 10*10 px/mm^2)"),        10*210,  10*297 },
+   { QStringLiteral("2970x4200 (DIN A3 portrait, 10*10 px/mm^2)"),        10*297,  10*420 },
+   { QStringLiteral("10500x14850 (DIN A4 portrait, 50*50 px/mm^2) ⚠"),    50*210,  50*297 },
+   { QStringLiteral("14850x21000 (DIN A3 portrait, 50*50 px/mm^2) ⚠"),    50*297,  50*420 },
 };
 
 
@@ -109,10 +122,10 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    QMenu* formatMenu = menuBar()->addMenu(tr("&Format"));
    Q_CHECK_PTR(formatMenu);
 
-   CustomSizeItem =
-      formatMenu->addAction(tr("Custom Image Size"), this, SLOT(slotViewSetImageSize()), QKeySequence(Qt::Key_F3));
+   CustomSizeItem = formatMenu->addAction(tr("Custom Image Size"), this, SLOT(slotViewSetImageSize()), QKeySequence(Qt::Key_F3));
    CustomSizeItem->setCheckable(true);
    CustomSizeItem->setChecked(true);
+   formatMenu->addAction(tr("Swap Width and Height"), this, SLOT(slotViewSwapWidthHeight()), QKeySequence(Qt::Key_F10));
    formatMenu->addSeparator();
 
    QActionGroup* formatGroup = new QActionGroup(this);
@@ -316,43 +329,6 @@ void FractalGeneratorApp::slotHelpAbout()
 }
 
 
-// ###### Set image size ####################################################
-void FractalGeneratorApp::slotViewSetImageSize()
-{
-   statusBar()->showMessage(tr("Changing Image Size ..."));
-
-   const QString currentSize =
-      QString().setNum(View->getWidth()) +
-      QStringLiteral("*") +
-      QString().setNum(View->getHeight());
-
-   bool ok;
-   QString text = QInputDialog::getText(
-                     this,
-                     tr("Image Size"),
-                     tr("Please enter new size in the format x*y:"),
-                     QLineEdit::Normal, currentSize, &ok);
-   if((ok) || (!text.isEmpty())) {
-      const unsigned int newWidth = text.section(QStringLiteral("*"), 0, 0).toUInt();
-      const unsigned int newHeight = text.section(QStringLiteral("*"), 1, 1).toUInt();
-
-      if((0 < newWidth) && (0 < newHeight)) {
-         View->changeSize(newWidth, newHeight);
-         View->configChanged();
-      }
-      else {
-         QMessageBox::about(this, tr("Image Size"), tr("Invalid image size!"));
-      }
-      ViewZoomBack->setEnabled(View->isZoomBackPossible());
-      for(auto iterator = FormatItems.begin(); iterator != FormatItems.end(); iterator++) {
-         (*iterator)->setChecked(false);
-      }
-   }
-
-   statusBar()->showMessage(tr("Ready"));
-}
-
-
 // ###### Configure algorithm ###############################################
 void FractalGeneratorApp::slotViewConfigureAlgorithm()
 {
@@ -417,6 +393,43 @@ void FractalGeneratorApp::slotUpdateZoomBackPossible()
 
 
 // ###### Set image size ####################################################
+void FractalGeneratorApp::slotViewSetImageSize()
+{
+   statusBar()->showMessage(tr("Changing Image Size ..."));
+
+   const QString currentSize =
+      QString().setNum(View->getWidth()) +
+      QStringLiteral("*") +
+      QString().setNum(View->getHeight());
+
+   bool ok;
+   QString text = QInputDialog::getText(
+                     this,
+                     tr("Image Size"),
+                     tr("Please enter new size in the format x*y:"),
+                     QLineEdit::Normal, currentSize, &ok);
+   if((ok) || (!text.isEmpty())) {
+      const unsigned int newWidth = text.section(QStringLiteral("*"), 0, 0).toUInt();
+      const unsigned int newHeight = text.section(QStringLiteral("*"), 1, 1).toUInt();
+
+      if((0 < newWidth) && (0 < newHeight)) {
+         View->changeSize(newWidth, newHeight);
+         View->configChanged();
+      }
+      else {
+         QMessageBox::about(this, tr("Image Size"), tr("Invalid image size!"));
+      }
+      ViewZoomBack->setEnabled(View->isZoomBackPossible());
+      for(auto iterator = FormatItems.begin(); iterator != FormatItems.end(); iterator++) {
+         (*iterator)->setChecked(false);
+      }
+   }
+
+   statusBar()->showMessage(tr("Ready"));
+}
+
+
+// ###### Set image size from preconfiguration ##############################
 void FractalGeneratorApp::slotViewSetImageSize(QAction* action)
 {
    const QString description = action->data().toString();
@@ -431,6 +444,18 @@ void FractalGeneratorApp::slotViewSetImageSize(QAction* action)
             return;
          }
       }
+   }
+}
+
+
+// ###### Swap width and height #############################################
+void FractalGeneratorApp::slotViewSwapWidthHeight()
+{
+   const unsigned int newWidth = View->getHeight();
+   const unsigned int newHeight = View->getWidth();
+   if(newWidth != newHeight) {
+      View->changeSize(newWidth, newHeight);
+      View->configChanged();
    }
 }
 

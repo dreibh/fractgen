@@ -64,6 +64,7 @@ class FractalGeneratorApp
 
    void slotViewSetImageSize();
    void slotViewSetImageSize(QAction* action);
+   void slotViewSwapWidthHeight();
    void slotViewConfigureAlgorithm();
    void slotViewSetFractalAlgorithm(QAction* action);
    void slotViewSetColorScheme(QAction* action);
