@@ -34,7 +34,7 @@ class FractalBuffer
    bool reset(const unsigned int width, const unsigned int height);
    void clear();
    inline unsigned int getPoint(const unsigned int x, const unsigned int y) const {
-      const unsigned long position = y * Width + x;
+      const unsigned int position = y * Width + x;
       if(position < BufferSize) {
          return Buffer[position];
       }
@@ -43,7 +43,7 @@ class FractalBuffer
       return ~0;
    }
    inline void setPoint(const unsigned int x, const unsigned int y, const unsigned int value) {
-      const unsigned long position = y * Width + x;
+      const unsigned int position = y * Width + x;
       if(position < BufferSize) {
          Buffer[position] = value;
       }

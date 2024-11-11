@@ -26,6 +26,7 @@
 #include "fractalalgorithminterface.h"
 #include "colorschemeinterface.h"
 #include "optionsdialog.h"
+#include "package-version.h"
 
 #include <QActionGroup>
 #include <QtWidgets/QWidget>
@@ -329,7 +330,8 @@ void FractalGeneratorApp::slotFileQuit()
 void FractalGeneratorApp::slotHelpAbout()
 {
    QMessageBox::information(this, QStringLiteral("FractGen"),
-      QStringLiteral("FractGen\nCopyright (C) 2003-2025 by Thomas Dreibholz\nhttps://www.nntb.no/~dreibh/fractalgenerator/"),
+      QStringLiteral("FractGen ") + FRACTGEN_VERSION +
+      QStringLiteral("\nCopyright (C) 2003-2025 by Thomas Dreibholz\nhttps://www.nntb.no/~dreibh/fractalgenerator/"),
       tr("&Okay"));
 }
 
@@ -425,7 +427,8 @@ void FractalGeneratorApp::slotViewSetImageSize()
       const unsigned int newWidth = text.section(QStringLiteral("*"), 0, 0).toUInt();
       const unsigned int newHeight = text.section(QStringLiteral("*"), 1, 1).toUInt();
 
-      if((0 < newWidth) && (0 < newHeight)) {
+      if( (newWidth  >= 1) && (newWidth  <= 65536) &&
+          (newHeight >= 1) && (newHeight <= 65536) ) {
          View->changeSize(newWidth, newHeight);
          View->configChanged();
       }

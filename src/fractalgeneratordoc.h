@@ -60,6 +60,9 @@ class FractalGeneratorDoc : public QObject
 
    // ====== Private attributes =============================================
    private:
+   void showError(const QString& label,
+                  const QString& errorText);
+
    FractalGeneratorApp*      Application;
    FractalGeneratorViewBase* View;
    QString                   FileName;

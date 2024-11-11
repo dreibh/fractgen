@@ -167,6 +167,16 @@ void FractalGeneratorViewBase::stopCalculation()
 }
 
 
+// ###### Perform calculation ###############################################
+void FractalGeneratorViewBase::performCalculation(QImage* image)
+{
+   startCalculation(image);
+   while(ThreadList.size() > 0) {
+      qApp->processEvents();
+   }
+}
+
+
 // ###### Calculation made progress #########################################
 void FractalGeneratorViewBase::calculationProgressed(FractalCalculationThread* thread,
                                                      const bool                finished)

@@ -20,11 +20,13 @@
  * Contact: thomas.dreibholz@gmail.com
  */
 
-#include "fractalgenerator.h"
 #include "fractalgeneratordoc.h"
 #include "fractalgeneratorviewbase.h"
+#include "package-version.h"
 
+#include <iostream>
 #include <QtWidgets/QApplication>
+#include <QCommandLineParser>
 
 
 // ###### Main program ######################################################
@@ -32,16 +34,70 @@ int main(int argc, char *argv[])
 {
    setenv("QT_QPA_PLATFORM", "offscreen", 1);
    QApplication application(argc, argv);
+   QCoreApplication::setApplicationName("clifractgen");
+   QCoreApplication::setApplicationVersion(FRACTGEN_VERSION);
 
-   unsigned int width  = 640;
-   unsigned int height = 480;
+   // ====== Parse command-line arguments ===================================
+   QCommandLineParser parser;
+   parser.setApplicationDescription("Test helper");
+   parser.addHelpOption();
+   parser.addVersionOption();
+   parser.addPositionalArgument("input_file" , QCoreApplication::translate("main", "Input FSF file"));
+   parser.addPositionalArgument("output_file", QCoreApplication::translate("main", "Output graphics file"));
 
+   QCommandLineOption widthOption(QStringList() << "W" << "width",
+                                  QCoreApplication::translate("main", "Width"));
+   widthOption.setValueName("width");
+   widthOption.setDefaultValue("1024");
+   parser.addOption(widthOption);
+
+   QCommandLineOption heightOption(QStringList() << "H" << "height",
+                                   QCoreApplication::translate("main", "Height"));
+   heightOption.setValueName("height");
+   heightOption.setDefaultValue("768");
+   parser.addOption(heightOption);
+
+   QCommandLineOption maxIterationsOption(QStringList() << "M" << "maxIterations",
+                                          QCoreApplication::translate("main", "Max Interations"));
+   maxIterationsOption.setValueName("maxIterations");
+   maxIterationsOption.setDefaultValue("250");
+   parser.addOption(maxIterationsOption);
+
+   // ====== Check command-line arguments ===================================
+   parser.process(application);
+   const QStringList  args          = parser.positionalArguments();
+   const QString&     inputFile     = args[0];
+   const QString&     outputFile    = args[1];
+   const unsigned int width         = parser.value(widthOption).toUInt();
+   const unsigned int height        = parser.value(heightOption).toUInt();
+   const unsigned int maxIterations = parser.value(maxIterationsOption).toUInt();
+   if( (width  < 1) || (width  > 65536) || (height < 1) || (height > 65536) ) {
+      std::cerr << "ERROR: Bad width/height settings!\n";
+      return 1;
+   }
+
+   // ====== Perform calculation and save result ============================
    FractalGeneratorViewBase view(nullptr, width, height, 1);
    FractalGeneratorDoc document(nullptr, &view);
-   if(document.openDocument("fractgen.fsf")) {
+   if(document.openDocument(inputFile)) {
+      std::cout << inputFile.toLocal8Bit().data() << " -> "
+                << outputFile.toLocal8Bit().data() << " (size "
+                << width << "x" << height << ", maxIterations "
+                << maxIterations << ") ... ";
+      std::cout.flush();
+
       QImage image(width, height, QImage::Format_RGB32);
+      *(view.getAlgorithm()->getMaxIterations()) = maxIterations;
       view.performCalculation(&image);
-      image.save("result.png");
+      const bool success = image.save(outputFile);
+
+      if(success) {
+         std::cout << "done\n";
+         return 0;
+      }
+      else {
+         std::cout << "failed!\n";
+      }
    }
-   else puts("ERR");
+   return 1;
 }

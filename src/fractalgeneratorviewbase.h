@@ -58,11 +58,7 @@ class FractalGeneratorViewBase : public QWidget
    void changeColorScheme(const QString& identifier);
    void changeC1C2(const std::complex<double>& newC1,
                    const std::complex<double>& newC2);
-
-   inline void performCalculation(QImage* image) {
-      startCalculation(image);
-      stopCalculation();
-   }
+   void performCalculation(QImage* image);
 
    // ====== Signals ========================================================
    Q_SIGNALS:

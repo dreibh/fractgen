@@ -22,8 +22,9 @@
 
 #include "fractalgenerator.h"
 #include "fractalgeneratordoc.h"
-#include "fractalgeneratorviewbase.h"
+#include "fractalgeneratorview.h"
 
+#include <iostream>
 #include <QDataStream>
 #include <QFile>
 #include <QtXml/QDomDocument>
@@ -62,6 +63,20 @@ void FractalGeneratorDoc::newDocument()
 }
 
 
+// ###### Display error #####################################################
+void FractalGeneratorDoc::showError(const QString& label,
+                                    const QString& errorText)
+{
+   if(Application) {
+      QMessageBox::warning(Application, label, errorText);
+   }
+   else {
+      std::cerr << label.toLocal8Bit().data() << " - "
+                << errorText.toLocal8Bit().data() << "\n";
+   }
+}
+
+
 // ###### Open document #####################################################
 bool FractalGeneratorDoc::openDocument(const QString& fileName)
 {
@@ -76,10 +91,10 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    QString      errorText;
    int          line, column;
    if(!doc.setContent(&file, false, &errorText, &line, &column)) {
-      QMessageBox::warning(Application, tr("Open File Failure"),
-                           errorText + QLatin1Char('\n') +
-                           tr("Line: ") + QString().setNum(line) + QLatin1Char('\n') +
-                           tr("Column: ") + QString().setNum(column));
+      showError(tr("Open File Failure"),
+                errorText + QLatin1Char('\n') +
+                tr("Line: ") + QString().setNum(line) + QLatin1Char('\n') +
+                tr("Column: ") + QString().setNum(column));
       return false;
    }
 
@@ -92,8 +107,8 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    const FractalAlgorithmInterface* fractalAlgorithm =
       FractalAlgorithmInterface::makeAlgorithmInstance(algorithmName);
    if(fractalAlgorithm == nullptr) {
-      QMessageBox::warning(Application, tr("Open File Failure"),
-                           tr("Invalid AlgorithmName entry:") + algorithmName);
+      showError(tr("Open File Failure"),
+                tr("Invalid AlgorithmName entry:") + algorithmName);
       return false;
    }
    delete fractalAlgorithm;
@@ -106,8 +121,8 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    const ColorSchemeInterface* colorScheme =
       ColorSchemeInterface::makeColorSchemeInstance(colorSchemeName);
    if(colorScheme == nullptr) {
-      QMessageBox::warning(Application, tr("Open File Failure"),
-                           tr("Invalid ColorSchemeName entry:") + colorSchemeName);
+      showError(tr("Open File Failure"),
+                tr("Invalid ColorSchemeName entry:") + colorSchemeName);
       return false;
    }
 
@@ -145,8 +160,8 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
          }
       }
       if(!found) {
-         QMessageBox::warning(Application, tr("Open File Warning"),
-                              tr("Skipping unknown entry:") + name);
+         showError(tr("Open File Warning"),
+                   tr("Skipping unknown entry:") + name);
       }
       userOptionsChild = userOptionsChild.nextSibling();
    }

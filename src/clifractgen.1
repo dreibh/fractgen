@@ -18,21 +18,24 @@
 .\"
 .\" ###### Setup ############################################################
 .Dd November 12, 2024
-.Dt fractgen 1
-.Os fractgen
+.Dt clifractgen 1
+.Os clifractgen
 .\" ###### Name #############################################################
 .Sh NAME
-.Nm fractgen
+.Nm clifractgen
 .Nd Fractal Generator
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
-.Nm fractgen
-.Op fsf_file ...
+.Nm clifractgen
+.Op fsf_file output file
 .Op Fl h | Fl Fl help
 .Op Fl v | Fl Fl version
+.Op Fl W Ar image_width | Fl Fl width Ar image_width
+.Op Fl H Ar image_height | Fl Fl height Ar image_height
+.Op Fl M Ar max_iterations | Fl Fl maxIterations Ar max_iterations
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
-.Nm fractgen
+.Nm clifractgen
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -42,7 +45,9 @@
  by other image tools, e.g. in order to generate nice screen backgrounds or
  book covers.
 .br
- This is the Qt version of FractGen.
+ This is the command-line version of FractGen. This program can be used to
+ calculate files created by FractGen on machines without GUI, e.g. to produce
+ high-resolution images on a powerful server.
 .Pp
 .\" ###### Arguments ########################################################
 .Sh ARGUMENTS
@@ -56,11 +61,11 @@ Show version and exit.
 .\" ###### Examples #########################################################
 .Sh EXAMPLES
 .Bl -tag -width indent
-.It fractgen -h
-.It fractgen -v
-.It fractgen fractgen.fsf
-.It fractgen beta01.fsf beta02.fsf beta03.fsf
-.It fractgen examples/alpha*.fsf
+.It clifractgen -h
+.It clifractgen -v
+.It clifractgen fractgen.fsf fractgen-uhd.png -W 3840 -H 2160 -M 10000
+.It clifractgen alpha05.fsf alpha05.png --width 3840 --height 2160 --max-iterations 10000
+.It clifractgen beta07.fsf beta07-A3.png -W21000 -H14850 -M10000
 .El
 .\" ###### Authors ##########################################################
 .Sh AUTHORS

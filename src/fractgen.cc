@@ -21,16 +21,19 @@
  */
 
 #include "fractalgenerator.h"
+#include "package-version.h"
 
 #include <QFile>
 #include <QTranslator>
 #include <QtGlobal>
 #include <QtWidgets/QApplication>
+#include <QCommandLineParser>
 
 
 // ###### Main program ######################################################
 int main(int argc, char *argv[])
 {
+   // ====== Initialise =====================================================
    QApplication application(argc, argv);
 #if QT_VERSION < 0x060000
    application.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
@@ -43,7 +46,21 @@ int main(int argc, char *argv[])
       }
    }
    application.installTranslator(&applicationTranslator);
+#ifdef WITH_KDE
+   QCoreApplication::setApplicationName("kfractgen");
+#else
+   QCoreApplication::setApplicationName("fractgen");
+#endif
+   QCoreApplication::setApplicationVersion(FRACTGEN_VERSION);
 
+   // ====== Parse command-line arguments ===================================
+   QCommandLineParser parser;
+   parser.setApplicationDescription("Test helper");
+   parser.addHelpOption();
+   parser.addVersionOption();
+   parser.process(application);
+
+   // ====== Open files given as arguments ==================================
    FractalGeneratorApp* fractalGeneratorApp = nullptr;
    for(int i = 1;i < argc;i++) {
       const QString fileName = QString::fromLocal8Bit(argv[i]);
@@ -56,6 +73,7 @@ int main(int argc, char *argv[])
       }
    }
 
+   // ====== Start the application ==========================================
    if(fractalGeneratorApp == nullptr) {
       // Start new image, if no file has been opened.
       fractalGeneratorApp = new FractalGeneratorApp(nullptr);
