@@ -41,8 +41,6 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
                               QGuiApplication::primaryScreen()->geometry().width()  * 0.75,
                               QGuiApplication::primaryScreen()->geometry().height() * 0.75)
 {
-   installEventFilter(this);
-
    // ====== Initialise widgets =============================================
    Display = new ImageDisplay(this);
    Q_CHECK_PTR(Display);
@@ -310,36 +308,6 @@ void FractalGeneratorView::print(QPrinter* printer)
 }
 
 
-// ###### Handle events #####################################################
-bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
-{
-   if(ThreadList.size() > 0) {
-      if(event->type() == QEvent::User) {
-         Display->update();
-      }
-      else if(event->type() == (QEvent::Type)(QEvent::User + 1)) {
-         QList<FractalCalculationThread*>::iterator iterator = ThreadList.begin();
-         while(iterator != ThreadList.end()) {
-            FractalCalculationThread* thread = *iterator;
-            if(thread->isFinished()) {
-               delete thread;
-               iterator = ThreadList.erase(iterator);
-            }
-            else {
-               iterator++;
-            }
-         }
-         Display->update();
-         if(ThreadList.size() == 0) {
-            updateLED(false);
-         }
-      }
-   }
-   return false;
-}
-
-
-
 // ###### Reset zoom ########################################################
 void FractalGeneratorView::zoomReset()
 {
@@ -350,9 +318,9 @@ void FractalGeneratorView::zoomReset()
    C1 = Algorithm->defaultC1();
    C2 = Algorithm->defaultC2();
    Algorithm->configure(Display->imageWidth(),
-      Display->imageHeight(),
-      C1, C2,
-      *Algorithm->getMaxIterations());
+                        Display->imageHeight(),
+                        C1, C2,
+                        *Algorithm->getMaxIterations());
    ZoomList.clear();
    configChanged();
 }

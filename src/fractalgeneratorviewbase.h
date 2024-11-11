@@ -60,11 +60,8 @@ class FractalGeneratorViewBase : public QWidget
                    const std::complex<double>& newC2);
 
    inline void performCalculation(QImage* image) {
-      puts("T1");
       startCalculation(image);
-      puts("T2");
       stopCalculation();
-      puts("T3");
    }
 
    // ====== Signals ========================================================

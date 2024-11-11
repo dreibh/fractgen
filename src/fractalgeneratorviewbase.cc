@@ -169,61 +169,10 @@ void FractalGeneratorViewBase::stopCalculation()
 
 // ###### Calculation made progress #########################################
 void FractalGeneratorViewBase::calculationProgressed(FractalCalculationThread* thread,
-                                                   const bool                finished)
+                                                     const bool                finished)
 {
    if(finished) {
-//       QList<FractalCalculationThread*>::iterator iterator = ThreadList.find(thread);
-//       if((iterator != ThreadList.end()) {
-         delete thread;
-         ThreadList.removeOne(thread);
-//       }
+      delete thread;
+      ThreadList.removeOne(thread);
    }
 }
-
-
-// bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
-// {
-//    if(ThreadList.size() > 0) {
-//       if(event->type() == QEvent::User) {
-//          Display->update();
-//       }
-//       else if(event->type() == (QEvent::Type)(QEvent::User + 1)) {
-//          QList<FractalCalculationThread*>::iterator iterator = ThreadList.begin();
-//          while(iterator != ThreadList.end()) {
-//             FractalCalculationThread* thread = *iterator;
-//             if(thread->isFinished()) {
-//                delete thread;
-//                iterator = ThreadList.erase(iterator);
-//             }
-//             else {
-//                iterator++;
-//             }
-//          }
-//          Display->update();
-//          if(ThreadList.size() == 0) {
-//             updateLED(false);
-//          }
-//       }
-//    }
-//    return false;
-// }
-//
-//       if(event->type() == QEvent::User) {
-//          Display->update();
-//       }
-//       else if(event->type() == (QEvent::Type)(QEvent::User + 1)) {
-//          QList<FractalCalculationThread*>::iterator iterator = ThreadList.begin();
-//          while(iterator != ThreadList.end()) {
-//             FractalCalculationThread* thread = *iterator;
-//             if(thread->isFinished()) {
-//                delete thread;
-//                iterator = ThreadList.erase(iterator);
-//             }
-//             else {
-//                iterator++;
-//             }
-//          }
-//          Display->update();
-//          if(ThreadList.size() == 0) {
-//             updateLED(false);
-//          }

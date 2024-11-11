@@ -77,7 +77,6 @@ class FractalGeneratorView : public FractalGeneratorViewBase
 
    protected:
    void resizeEvent(QResizeEvent* resizeEvent) override;
-   bool eventFilter(QObject* object, QEvent* event) override;
 
    // ====== Private methods and attributes =================================
    private:
