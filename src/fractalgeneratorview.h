@@ -24,71 +24,15 @@
 #define FRACTALGENERATORVIEW_H
 
 #include "imagedisplay.h"
-#include "fractalbuffer.h"
-#include "fractalalgorithminterface.h"
-#include "fractalcalculationthread.h"
-#include "colorschemeinterface.h"
+#include "fractalgeneratorviewbase.h"
 
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QScrollBar>
-#include <QtWidgets/QLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QScrollBar>
 #include <QtPrintSupport/QPrinter>
 #include <QResizeEvent>
-#include <QEvent>
-
 #ifdef WITH_KDE
 #include <KLed>
 #endif
-
-
-class FractalGeneratorDoc;
-class FractalGeneratorApp;
-
-
-class FractalGeneratorViewBase : public QWidget
-{
-   Q_OBJECT
-   // ====== Constructor/Destructor =========================================
-   public:
-   FractalGeneratorViewBase(QWidget*           parent,
-                            const unsigned int width,
-                            const unsigned int height);
-   ~FractalGeneratorViewBase();
-
-   // ====== Access methods =================================================
-   inline FractalAlgorithmInterface* getAlgorithm() const { return Algorithm;   }
-   inline ColorSchemeInterface* getColorScheme() const    { return ColorScheme; }
-   inline unsigned int getWidth() const                   { return Width;       }
-   inline unsigned int getHeight() const                  { return Height;      }
-
-   virtual void changeSize(const unsigned int width, const unsigned int height);
-   virtual void changeAlgorithm(const QString& identifier);
-   void changeColorScheme(const QString& identifier);
-   void changeC1C2(const std::complex<double>& newC1,
-                   const std::complex<double>& newC2);
-
-   // ====== Signals ========================================================
-   Q_SIGNALS:
-   void updateAlgorithm();
-   void updateColorScheme();
-
-   // ====== Protected methods and attributes ===============================
-   protected:
-   virtual void startCalculation(QImage* image);
-   void stopCalculation();
-
-   FractalBuffer*                   Buffer;
-   FractalAlgorithmInterface*       Algorithm;
-   ColorSchemeInterface*            ColorScheme;
-   QList<FractalCalculationThread*> ThreadList;
-
-   unsigned int                     ProgStep;
-   unsigned int                     Width;
-   unsigned int                     Height;
-   std::complex<double>             C1;
-   std::complex<double>             C2;
-};
 
 
 class FractalGeneratorView : public FractalGeneratorViewBase
@@ -105,7 +49,7 @@ class FractalGeneratorView : public FractalGeneratorViewBase
    inline ImageDisplay* getDisplay() const { return Display;             }
    void print(QPrinter* printer);
 
-   virtual void configChanged();
+   virtual void configChanged() override;
    virtual void changeSize(const unsigned int width,
                            const unsigned int height) override;
    virtual void changeAlgorithm(const QString& identifier) override;

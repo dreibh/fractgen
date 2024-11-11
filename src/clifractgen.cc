@@ -22,18 +22,26 @@
 
 #include "fractalgenerator.h"
 #include "fractalgeneratordoc.h"
+#include "fractalgeneratorviewbase.h"
 
-#include <QFile>
-#include <QtGlobal>
 #include <QtWidgets/QApplication>
 
 
 // ###### Main program ######################################################
 int main(int argc, char *argv[])
 {
+   setenv("QT_QPA_PLATFORM", "offscreen", 1);
    QApplication application(argc, argv);
 
-   FractalGeneratorDoc(nullptr, nullptr);
+   unsigned int width  = 640;
+   unsigned int height = 480;
 
-   puts("ok");
+   FractalGeneratorViewBase view(nullptr, width, height, 1);
+   FractalGeneratorDoc document(nullptr, &view);
+   if(document.openDocument("fractgen.fsf")) {
+      QImage image(width, height, QImage::Format_RGB32);
+      view.performCalculation(&image);
+      image.save("result.png");
+   }
+   else puts("ERR");
 }

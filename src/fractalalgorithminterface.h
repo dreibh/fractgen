@@ -53,7 +53,8 @@ class FractalAlgorithmInterface {
                           const unsigned int          maxIterations);
    inline unsigned int*        getMaxIterations() { return &MaxIterations; }
    inline QList<ConfigEntry*>* getConfigEntries() { return &ConfigEntries; }
-   virtual void changeSize(int X, int Y);
+   virtual void changeSize(const unsigned int width,
+                           const unsigned int height);
 
    // ====== The actual calculation =========================================
    virtual unsigned int calculatePoint(const unsigned int x,

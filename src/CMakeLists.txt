@@ -13,6 +13,7 @@ SET(basicSourceFiles
    fractalbuffer.cc
    fractalcalculationthread.cc
    fractalgeneratordoc.cc
+   fractalgeneratorviewbase.cc
    mandelbrot.cc
    mandelbrotn.cc
    simplehsv.cc

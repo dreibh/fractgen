@@ -26,7 +26,7 @@
 #include <QObject>
 
 
-class FractalGeneratorView;
+class FractalGeneratorViewBase;
 class FractalGeneratorApp;
 
 
@@ -35,13 +35,13 @@ class FractalGeneratorDoc : public QObject
    Q_OBJECT
    // ====== Constructor/Destructor =========================================
    public:
-   FractalGeneratorDoc(QWidget* parent, FractalGeneratorView* view);
+   FractalGeneratorDoc(QWidget* parent, FractalGeneratorViewBase* view);
    ~FractalGeneratorDoc();
 
    // ====== File settings ==================================================
-   inline const QString& getFileName() const    { return FileName;     }
    inline void setModified(const bool modified) { Modified = modified; };
    inline bool isModified() const               { return Modified;     };
+   inline const QString& getFileName() const    { return FileName;     }
    inline void setFileName(const QString& fileName) {
       FileName = fileName;
       emit updateFileName(FileName);
@@ -60,10 +60,10 @@ class FractalGeneratorDoc : public QObject
 
    // ====== Private attributes =============================================
    private:
-   FractalGeneratorApp*  Application;
-   FractalGeneratorView* View;
-   QString               FileName;
-   bool                  Modified;
+   FractalGeneratorApp*      Application;
+   FractalGeneratorViewBase* View;
+   QString                   FileName;
+   bool                      Modified;
 };
 
 #endif

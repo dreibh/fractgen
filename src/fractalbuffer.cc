@@ -36,7 +36,7 @@ FractalBuffer::FractalBuffer()
 // ###### Desstructor ########################################################
 FractalBuffer::~FractalBuffer()
 {
-   reset(0,0);
+   reset(0, 0);
 }
 
 
@@ -45,6 +45,7 @@ bool FractalBuffer::reset(const unsigned int width, const unsigned int height)
 {
    if(Buffer) {
       delete Buffer;
+      Buffer = nullptr;
    }
    Width      = width;
    Height     = height;
@@ -52,13 +53,10 @@ bool FractalBuffer::reset(const unsigned int width, const unsigned int height)
    if(BufferSize > 0) {
       Buffer = new unsigned int[BufferSize];
       if(Buffer == nullptr) {
-         reset(0,0);
+         reset(0, 0);
          return false;
       }
       clear();
-   }
-   else {
-      Buffer = nullptr;
    }
    return true;
 }

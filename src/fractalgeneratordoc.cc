@@ -22,7 +22,7 @@
 
 #include "fractalgenerator.h"
 #include "fractalgeneratordoc.h"
-#include "fractalgeneratorview.h"
+#include "fractalgeneratorviewbase.h"
 
 #include <QDataStream>
 #include <QFile>
@@ -32,8 +32,8 @@
 
 
 // ###### Constructor #######################################################
-FractalGeneratorDoc::FractalGeneratorDoc(QWidget*              parent,
-                                         FractalGeneratorView* view)
+FractalGeneratorDoc::FractalGeneratorDoc(QWidget*                  parent,
+                                         FractalGeneratorViewBase* view)
    : QObject(parent)
 {
    View        = view;
