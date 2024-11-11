@@ -72,6 +72,8 @@ class FractalGeneratorView : public FractalGeneratorViewBase
    void zoomAdjustment(const int deltaX, const int deltaY, const int deltaZoom);
    void zoomBack();
    void zoomReset();
+   virtual void calculationProgressed(FractalCalculationThread* thread,
+                                      bool                      finished) override;
 
    protected:
    void resizeEvent(QResizeEvent* resizeEvent) override;

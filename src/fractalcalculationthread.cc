@@ -83,11 +83,11 @@ void FractalCalculationThread::run()
             }
          }
       }
-      QCoreApplication::postEvent(Parent, new QEvent(QEvent::User));
+      emit calculationProgressed(this, false);
    }
 
 finished:
-   QCoreApplication::postEvent(Parent, new QEvent((QEvent::Type)(QEvent::User + 1)));
+   emit calculationProgressed(this, true);
 }
 
 

@@ -72,6 +72,11 @@ class FractalGeneratorViewBase : public QWidget
    void updateAlgorithm();
    void updateColorScheme();
 
+   // ====== Slots ==========================================================
+   public Q_SLOTS:
+   virtual void calculationProgressed(FractalCalculationThread* thread,
+                                      bool                      finished);
+
    // ====== Protected methods and attributes ===============================
    protected:
    virtual void startCalculation(QImage* image);

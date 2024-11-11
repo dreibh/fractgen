@@ -235,6 +235,18 @@ void FractalGeneratorView::updateLED(const bool busy)
 }
 
 
+// ###### Calculation made progress #########################################
+void FractalGeneratorView::calculationProgressed(FractalCalculationThread* thread,
+                                                 const bool                finished)
+{
+   FractalGeneratorViewBase::calculationProgressed(thread, finished);
+   Display->update();
+   if(ThreadList.size() == 0) {
+      updateLED(false);
+   }
+}
+
+
 // ###### Print image #######################################################
 void FractalGeneratorView::print(QPrinter* printer)
 {

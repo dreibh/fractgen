@@ -32,6 +32,7 @@
 
 
 class FractalCalculationThread : public QThread {
+   Q_OBJECT
    // ====== Constructor/Destructor =========================================
    public:
    FractalCalculationThread(QObject*                   parent,
@@ -46,6 +47,11 @@ class FractalCalculationThread : public QThread {
 
    // ====== Control functions ==============================================
    void stop();
+
+   // ====== Signals ========================================================
+   Q_SIGNALS:
+   void calculationProgressed(FractalCalculationThread* thread,
+                              const bool                finished);
 
    // ====== Private methods and attributes =================================
    private:
