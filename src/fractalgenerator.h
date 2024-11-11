@@ -71,7 +71,7 @@ class FractalGeneratorApp
    void slotViewSetColorScheme(QAction* action);
 
    void slotUpdateFileName(const QString& fileName);
-   void slotUpdateFractalAlgorithm();
+   void slotUpdateAlgorithm();
    void slotUpdateColorScheme();
    void slotUpdateZoomBackPossible();
    void slotUpdateZoomInPossible();

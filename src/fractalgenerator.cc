@@ -85,7 +85,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    View = new FractalGeneratorView(this);
    Q_CHECK_PTR(View);
    setCentralWidget(View);
-   connect(View, SIGNAL(updateFractalAlgorithm()), this, SLOT(slotUpdateFractalAlgorithm()));
+   connect(View, SIGNAL(updateAlgorithm()), this, SLOT(slotUpdateAlgorithm()));
    connect(View, SIGNAL(updateColorScheme()), this, SLOT(slotUpdateColorScheme()));
    connect(View, SIGNAL(updateZoomBackPossible()), this, SLOT(slotUpdateZoomBackPossible()));
    connect(View, SIGNAL(updateZoomInPossible()), this, SLOT(slotUpdateZoomInPossible()));
@@ -346,7 +346,7 @@ void FractalGeneratorApp::slotViewConfigureAlgorithm()
 
 
 // ###### Update algorithm ##################################################
-void FractalGeneratorApp::slotUpdateFractalAlgorithm()
+void FractalGeneratorApp::slotUpdateAlgorithm()
 {
    const FractalAlgorithmInterface* currentAlgorithm = View->getAlgorithm();
    QListIterator<QAction*> iterator(FractalAlgorithmActionList);

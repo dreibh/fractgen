@@ -4,7 +4,7 @@ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 #### PROGRAMS                                                            ####
 #############################################################################
 
-ADD_EXECUTABLE(fractgen
+SET(basicSourceFiles
    classregistry.cc
    colorschemeinterface.cc
    doubleconfigentry.cc
@@ -12,17 +12,24 @@ ADD_EXECUTABLE(fractgen
    fractalalgorithminterface.cc
    fractalbuffer.cc
    fractalcalculationthread.cc
+   fractalgeneratordoc.cc
+   mandelbrot.cc
+   mandelbrotn.cc
+   simplehsv.cc
+   simplergb.cc
+   uintconfigentry.cc
+)
+SET(guiSourceFiles
+   ${basicSourceFiles}
    fractgen.cc
    imagedisplay.cc
    fractalgenerator.cc
-   fractalgeneratordoc.cc
    fractalgeneratorview.cc
-   mandelbrot.cc
-   mandelbrotn.cc
    optionsdialog.cc
-   simplehsv.cc
-   simplergb.cc
-   uintconfigentry.cc)
+)
+
+# ====== Qt version =========================================================
+ADD_EXECUTABLE(fractgen ${guiSourceFiles})
 TARGET_LINK_LIBRARIES(fractgen
    Qt${QT_VERSION_MAJOR}::Core
    Qt${QT_VERSION_MAJOR}::PrintSupport
@@ -55,27 +62,9 @@ ENDFOREACH()
 INSTALL(FILES ${FRACTGEN_QM_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen)
 
 
+# ====== KDE version ========================================================
 IF (WITH_KDE)
-   ADD_EXECUTABLE(kfractgen
-      classregistry.cc
-      colorschemeinterface.cc
-      doubleconfigentry.cc
-      dreibholz1.cc
-      fractalalgorithminterface.cc
-      fractalbuffer.cc
-      fractalcalculationthread.cc
-      fractgen.cc
-      imagedisplay.cc
-      fractalgenerator.cc
-      fractalgeneratordoc.cc
-      fractalgeneratorview.cc
-      mandelbrot.cc
-      mandelbrotn.cc
-      optionsdialog.cc
-      simplehsv.cc
-      simplergb.cc
-      uintconfigentry.cc)
-
+   ADD_EXECUTABLE(kfractgen ${guiSourceFiles})
    SET_TARGET_PROPERTIES(kfractgen PROPERTIES COMPILE_FLAGS "-DWITH_KDE")
    TARGET_LINK_LIBRARIES(kfractgen
       Qt${QT_VERSION_MAJOR}::Core
@@ -97,6 +86,25 @@ IF (WITH_KDE)
 ENDIF()
 
 
-# ###### Examples ###########################################################
+# ====== CLI version ========================================================
+IF (WITH_CLI)
+   ADD_EXECUTABLE(clifractgen
+      ${basicSourceFiles}
+      clifractgen.cc
+   )
+   TARGET_LINK_LIBRARIES(clifractgen
+      Qt${QT_VERSION_MAJOR}::Core
+      Qt${QT_VERSION_MAJOR}::Widgets
+      Qt${QT_VERSION_MAJOR}::Xml
+   )
+
+   INSTALL(TARGETS             clifractgen
+           RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+           BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})
+   INSTALL(FILES clifractgen.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
+ENDIF()
+
+
+# ==== Examples =============================================================
 FILE(GLOB fractgen_examples "examples/*.fsf")
 INSTALL(FILES ${fractgen_examples} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen/examples)

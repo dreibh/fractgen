@@ -34,8 +34,139 @@
 
 
 // ###### Constructor #######################################################
-FractalGeneratorView::FractalGeneratorView(QWidget* parent)
+FractalGeneratorViewBase::FractalGeneratorViewBase(QWidget*           parent,
+                                                   const unsigned int width,
+                                                   const unsigned int height)
    : QWidget(parent)
+{
+   // ====== Set up algorithm and color scheme ==============================
+   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(QStringLiteral("Mandelbrot"));
+   Q_CHECK_PTR(Algorithm);
+   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance(QStringLiteral("SimpleHSV"));
+   Q_CHECK_PTR(ColorScheme);
+   C1        = Algorithm->defaultC1();
+   C2        = Algorithm->defaultC2();
+   ProgStep  = 8;
+   Width     = width;
+   Height    = height;
+   Algorithm->configure(Width, Height,
+                        C1, C2,
+                        Algorithm->defaultMaxIterations());
+   ColorScheme->configure(Algorithm->getMaxIterations());
+}
+
+
+// ###### Destructor ########################################################
+FractalGeneratorViewBase::~FractalGeneratorViewBase()
+{
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   delete Buffer;
+   Buffer = nullptr;
+}
+
+
+// ###### Change image size #################################################
+void FractalGeneratorViewBase::changeSize(const unsigned int width,
+                                          const unsigned int height)
+{
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change size ====================================================
+   Width  = width;
+   Height = height;
+   Buffer->reset(Width, Height);
+   Algorithm->changeSize(Width, Height);
+}
+
+
+// ###### Change C1 and C2 ##################################################
+void FractalGeneratorViewBase::changeC1C2(const std::complex<double>& newC1,
+                                          const std::complex<double>& newC2)
+{
+   stopCalculation();
+   C1 = newC1;
+   C2 = newC2;
+}
+
+
+// ###### Change fractal algorithm ##########################################
+void FractalGeneratorViewBase::changeAlgorithm(const QString& identifier)
+{
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change algorithm ===============================================
+   delete Algorithm;
+   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(identifier);
+   Q_CHECK_PTR(Algorithm);
+   C1 = Algorithm->defaultC1();
+   C2 = Algorithm->defaultC2();
+   Algorithm->configure(Width, Height,
+                        C1, C2,
+                        Algorithm->defaultMaxIterations());
+   ColorScheme->configure(Algorithm->getMaxIterations());
+   emit updateAlgorithm();
+}
+
+
+// ###### Change color scheme ###############################################
+void FractalGeneratorViewBase::changeColorScheme(const QString& identifier)
+{
+   // ====== Abort a running calculation ====================================
+   stopCalculation();
+
+   // ====== Change color scheme ============================================
+   delete ColorScheme;
+   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance(identifier);
+   Q_CHECK_PTR(ColorScheme);
+   ColorScheme->configure(Algorithm->getMaxIterations());
+   emit updateColorScheme();
+}
+
+
+// ###### Start calculation #################################################
+void FractalGeneratorViewBase::startCalculation(QImage* image)
+{
+   if(ThreadList.size() == 0) {
+      const unsigned int threads = QThread::idealThreadCount();
+      for(unsigned int i = 0; i < threads; i++) {
+         FractalCalculationThread* thread =
+            new FractalCalculationThread(this,
+                                         Algorithm, ColorScheme, Buffer,
+                                         image,
+                                         ProgStep,
+                                         threads, i);
+         Q_CHECK_PTR(thread);
+         thread->start();
+         ThreadList.append(thread);
+      }
+   }
+}
+
+
+// ###### Stop calculation ##################################################
+void FractalGeneratorViewBase::stopCalculation()
+{
+   if(ThreadList.size() > 0) {
+      foreach(FractalCalculationThread* thread, ThreadList) {
+         thread->stop();
+      }
+      while(ThreadList.size() > 0) {
+         qApp->processEvents();
+      }
+   }
+}
+
+
+// ###### Constructor #######################################################
+FractalGeneratorView::FractalGeneratorView(QWidget* parent)
+   : // Set initial size to 75% of the screen dimensions:
+     FractalGeneratorViewBase(parent,
+                              QGuiApplication::primaryScreen()->geometry().width()  * 0.75,
+                              QGuiApplication::primaryScreen()->geometry().height() * 0.75)
 {
    installEventFilter(this);
 
@@ -81,44 +212,56 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    layout->addWidget(YScrollBar, 0, 1);
    layout->addWidget(ControlLED, 1, 1);
 
-   // Set initial size to 75% of the screen dimensions:
-   const QScreen* screen = QGuiApplication::primaryScreen();
-   Width  = (unsigned int)rint(screen->geometry().width() * 0.75);
-   Height = (unsigned int)rint(screen->geometry().height() * 0.75);
-
    Display->reset(Width, Height);
    Display->setMinimumSize(Width, Height);
    Buffer->reset(Display->imageWidth(), Display->imageHeight());
 
-   // ====== Set up algorithm and color scheme ==============================
-   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(QStringLiteral("Mandelbrot"));
-   Q_CHECK_PTR(Algorithm);
-   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance(QStringLiteral("SimpleHSV"));
-   Q_CHECK_PTR(ColorScheme);
-   C1 = Algorithm->defaultC1();
-   C2 = Algorithm->defaultC2();
-   Selection = false;
-   ProgStep  = 8;
-   Algorithm->configure(Display->imageWidth(),
-                        Display->imageHeight(),
-                        C1, C2,
-                        Algorithm->defaultMaxIterations());
-   ColorScheme->configure(Algorithm->getMaxIterations());
-
    // ====== Start calculation ==============================================
+   Selection = false;
    updateScrollBars();
-   startCalculation();
+   startCalculation(Display->image());
+   updateLED(true);
 }
 
 
 // ###### Destructor ########################################################
 FractalGeneratorView::~FractalGeneratorView()
 {
+}
+
+
+// ###### Change image size #################################################
+void FractalGeneratorView::changeSize(const unsigned int width,
+                                          const unsigned int height)
+{
+   FractalGeneratorViewBase::changeSize(width, height);
+   Selection = false;
+   Display->reset(Width, Height);
+   updateScrollBars();
+}
+
+
+// ###### Configuration update -> restart calculation #######################
+void FractalGeneratorView::configChanged()
+{
    // ====== Abort a running calculation ====================================
    stopCalculation();
 
-   delete Buffer;
-   Buffer = nullptr;
+   // ====== Change configuration ===========================================
+   Buffer->clear();
+   Display->reset(Display->imageWidth(), Display->imageHeight());
+   emit updateZoomInPossible();
+   emit updateZoomBackPossible();
+   startCalculation(Display->image());
+}
+
+
+// ###### Change fractal algorithm ##########################################
+void FractalGeneratorView::changeAlgorithm(const QString& identifier)
+{
+   FractalGeneratorViewBase::changeAlgorithm(identifier);
+   Selection = false;
+   ZoomList.clear();
 }
 
 
@@ -196,34 +339,6 @@ void FractalGeneratorView::slotSelectionUpdate(const unsigned int x1,
    emit updateZoomInPossible();
 }
 
-
-// ###### Change image size #################################################
-void FractalGeneratorView::changeSize(int X, int Y)
-{
-   // ====== Abort a running calculation ====================================
-   stopCalculation();
-
-   // ====== Change size ====================================================
-   Width  = X;
-   Height = Y;
-   Display->reset(Width, Height);
-   Buffer->reset(Display->imageWidth(), Display->imageHeight());
-
-   Selection = false;
-   Algorithm->changeSize(Display->imageWidth(),
-                         Display->imageHeight());
-   updateScrollBars();
-}
-
-
-// ###### Change C1 and C2 ##################################################
-void FractalGeneratorView::changeC1C2(const std::complex<double>& newC1,
-                                      const std::complex<double>& newC2)
-{
-   stopCalculation();
-   C1 = newC1;
-   C2 = newC2;
-}
 
 
 // ###### Update scroll bars ################################################
@@ -312,41 +427,6 @@ void FractalGeneratorView::print(QPrinter* printer)
 }
 
 
-// ###### Start calculation #################################################
-void FractalGeneratorView::startCalculation()
-{
-   if(ThreadList.size() == 0) {
-      const unsigned int threads = QThread::idealThreadCount();
-      for(unsigned int i = 0; i < threads; i++) {
-         FractalCalculationThread* thread =
-            new FractalCalculationThread(this,
-                                         Algorithm, ColorScheme, Buffer,
-                                         Display->image(),
-                                         ProgStep,
-                                         threads, i);
-         Q_CHECK_PTR(thread);
-         thread->start();
-         ThreadList.append(thread);
-      }
-      updateLED(true);
-   }
-}
-
-
-// ###### Stop calculation ##################################################
-void FractalGeneratorView::stopCalculation()
-{
-   if(ThreadList.size() > 0) {
-      foreach(FractalCalculationThread* thread, ThreadList) {
-         thread->stop();
-      }
-      while(ThreadList.size() > 0) {
-         qApp->processEvents();
-      }
-   }
-}
-
-
 // ###### Handle events #####################################################
 bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
 {
@@ -375,57 +455,6 @@ bool FractalGeneratorView::eventFilter(QObject*, QEvent* event)
    return false;
 }
 
-
-// ###### Change fractal algorithm ##########################################
-void FractalGeneratorView::changeAlgorithm(const QString& identifier)
-{
-   // ====== Abort a running calculation ====================================
-   stopCalculation();
-
-   // ====== Change algorithm ===============================================
-   delete Algorithm;
-   Algorithm = FractalAlgorithmInterface::makeAlgorithmInstance(identifier);
-   Q_CHECK_PTR(Algorithm);
-   C1 = Algorithm->defaultC1();
-   C2 = Algorithm->defaultC2();
-   Selection = false;
-   Algorithm->configure(Display->imageWidth(), Display->imageHeight(),
-                        C1, C2,
-                        Algorithm->defaultMaxIterations());
-   ColorScheme->configure(Algorithm->getMaxIterations());
-   ZoomList.clear();
-   emit updateFractalAlgorithm();
-}
-
-
-// ###### Change color scheme ###############################################
-void FractalGeneratorView::changeColorScheme(const QString& identifier)
-{
-   // ====== Abort a running calculation ====================================
-   stopCalculation();
-
-   // ====== Change color scheme ============================================
-   delete ColorScheme;
-   ColorScheme = ColorSchemeInterface::makeColorSchemeInstance(identifier);
-   Q_CHECK_PTR(ColorScheme);
-   ColorScheme->configure(Algorithm->getMaxIterations());
-   emit updateColorScheme();
-}
-
-
-// ###### Configuration update -> restart calculation #######################
-void FractalGeneratorView::configChanged()
-{
-   // ====== Abort a running calculation ====================================
-   stopCalculation();
-
-   // ====== Change configuration ===========================================
-   Buffer->clear();
-   Display->reset(Display->imageWidth(), Display->imageHeight());
-   emit updateZoomInPossible();
-   emit updateZoomBackPossible();
-   startCalculation();
-}
 
 
 // ###### Reset zoom ########################################################

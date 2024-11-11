@@ -24,7 +24,7 @@ PROJECT(fractgen LANGUAGES C CXX)
 
 SET(BUILD_MAJOR "2")
 SET(BUILD_MINOR "2")
-SET(BUILD_PATCH "0~beta0")
+SET(BUILD_PATCH "0~beta1")
 SET(BUILD_VERSION ${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH})
 
 
@@ -92,6 +92,16 @@ ENDIF()
 
 
 #############################################################################
+#### OPTIONS                                                             ####
+#############################################################################
+
+OPTION(WITH_QT  "Build the Qt version"           1)
+OPTION(WITH_KDE "Build the KDE version"          0)
+OPTION(WITH_CLI "Build the command-line version" 1)
+
+
+
+#############################################################################
 #### REQUIREMENTS                                                        ####
 #############################################################################
 
@@ -110,7 +120,6 @@ FIND_PROGRAM(LRELEASE lrelease PATHS /usr/local/lib/qt${QT_VERSION_MAJOR}/bin
 MESSAGE("Using LRelease ${LRELEASE}!")
 
 # ###### KDE ################################################################
-OPTION(WITH_KDE "Build with KDE support" 0)
 IF (WITH_KDE)
    # Needed:
    # KDE5: libkf5coreaddons-dev libkf5xmlgui-dev
