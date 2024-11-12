@@ -78,6 +78,9 @@ class FractalGeneratorView : public FractalGeneratorViewBase
    protected:
    void resizeEvent(QResizeEvent* resizeEvent) override;
 
+   // ====== Protected methods ==============================================
+   virtual void startCalculation(QImage* image) override;
+
    // ====== Private methods and attributes =================================
    private:
    void updateScrollBars();

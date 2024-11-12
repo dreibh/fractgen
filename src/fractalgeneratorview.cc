@@ -89,7 +89,6 @@ FractalGeneratorView::FractalGeneratorView(QWidget* parent)
    Selection = false;
    updateScrollBars();
    startCalculation(Display->image());
-   updateLED(true);
 }
 
 
@@ -230,6 +229,14 @@ void FractalGeneratorView::updateLED(const bool busy)
 #else
    ControlLED->setState((busy == true) ? KLed::State::On : KLed::State::Off);
 #endif
+}
+
+
+// ###### Start calculation #################################################
+void FractalGeneratorView::startCalculation(QImage* image)
+{
+   updateLED(true);
+   FractalGeneratorViewBase::startCalculation(image);
 }
 
 
