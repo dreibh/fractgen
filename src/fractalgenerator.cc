@@ -154,7 +154,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    // ====== Create menu with the algorithms ================================
    QMenu* fractalAlgorithmMenu = menuBar()->addMenu(tr("&Algorithm"));
    Q_CHECK_PTR(fractalAlgorithmMenu);
-   QAction* configureAlgorithmAction = fractalAlgorithmMenu->addAction(tr("Configure Algorithm ..."), this, SLOT(slotViewConfigureAlgorithm()), QKeySequence(Qt::Key_F2));
+   fractalAlgorithmMenu->addAction(tr("Configure Algorithm ..."), this, SLOT(slotViewConfigureAlgorithm()), QKeySequence(Qt::Key_F2));
    fractalAlgorithmMenu->addSeparator();
 
    QActionGroup* fractalAlgorithmGroup = new QActionGroup(this);
@@ -330,7 +330,7 @@ void FractalGeneratorApp::slotFileQuit()
 void FractalGeneratorApp::slotHelpAbout()
 {
    QMessageBox::information(this, QStringLiteral("FractGen"),
-      QStringLiteral("FractGen ") + FRACTGEN_VERSION +
+      QStringLiteral("FractGen ") + QStringLiteral(FRACTGEN_VERSION) +
       QStringLiteral("\nCopyright (C) 2003-2025 by Thomas Dreibholz\nhttps://www.nntb.no/~dreibh/fractalgenerator/"),
       tr("&Okay"));
 }

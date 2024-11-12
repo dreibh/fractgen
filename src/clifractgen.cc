@@ -34,33 +34,41 @@ int main(int argc, char *argv[])
 {
    setenv("QT_QPA_PLATFORM", "offscreen", 1);
    QApplication application(argc, argv);
-   QCoreApplication::setApplicationName("clifractgen");
-   QCoreApplication::setApplicationVersion(FRACTGEN_VERSION);
+   QCoreApplication::setApplicationName(QStringLiteral("clifractgen"));
+   QCoreApplication::setApplicationVersion(QStringLiteral(FRACTGEN_VERSION));
 
    // ====== Parse command-line arguments ===================================
    QCommandLineParser parser;
-   parser.setApplicationDescription("Test helper");
+   parser.setApplicationDescription(QStringLiteral("Fractal Generator"));
    parser.addHelpOption();
    parser.addVersionOption();
-   parser.addPositionalArgument("input_file" , QCoreApplication::translate("main", "Input FSF file"));
-   parser.addPositionalArgument("output_file", QCoreApplication::translate("main", "Output graphics file"));
+   parser.addPositionalArgument(QStringLiteral("input_file"),
+                                QCoreApplication::translate("main", "Input FSF file"));
+   parser.addPositionalArgument(QStringLiteral("output_file"),
+                                QCoreApplication::translate("main", "Output graphics file"));
 
-   QCommandLineOption widthOption(QStringList() << "W" << "width",
+   QCommandLineOption widthOption(QStringList()
+                                     << QStringLiteral("W")
+                                     << QStringLiteral("width"),
                                   QCoreApplication::translate("main", "Width"));
-   widthOption.setValueName("width");
-   widthOption.setDefaultValue("1024");
+   widthOption.setValueName(QStringLiteral("width"));
+   widthOption.setDefaultValue(QStringLiteral("1024"));
    parser.addOption(widthOption);
 
-   QCommandLineOption heightOption(QStringList() << "H" << "height",
+   QCommandLineOption heightOption(QStringList()
+                                      << QStringLiteral("H")
+                                      << QStringLiteral("height"),
                                    QCoreApplication::translate("main", "Height"));
-   heightOption.setValueName("height");
-   heightOption.setDefaultValue("768");
+   heightOption.setValueName(QStringLiteral("height"));
+   heightOption.setDefaultValue(QStringLiteral("768"));
    parser.addOption(heightOption);
 
-   QCommandLineOption maxIterationsOption(QStringList() << "M" << "maxIterations",
+   QCommandLineOption maxIterationsOption(QStringList()
+                                            << QStringLiteral("M")
+                                            << QStringLiteral("maxIterations"),
                                           QCoreApplication::translate("main", "Max Interations"));
-   maxIterationsOption.setValueName("maxIterations");
-   maxIterationsOption.setDefaultValue("250");
+   maxIterationsOption.setValueName(QStringLiteral("maxIterations"));
+   maxIterationsOption.setDefaultValue(QStringLiteral("250"));
    parser.addOption(maxIterationsOption);
 
    // ====== Check command-line arguments ===================================

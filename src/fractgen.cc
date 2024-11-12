@@ -47,15 +47,15 @@ int main(int argc, char *argv[])
    }
    application.installTranslator(&applicationTranslator);
 #ifdef WITH_KDE
-   QCoreApplication::setApplicationName("kfractgen");
+   QCoreApplication::setApplicationName(QStringLiteral("kfractgen"));
 #else
-   QCoreApplication::setApplicationName("fractgen");
+   QCoreApplication::setApplicationName(QStringLiteral("fractgen"));
 #endif
-   QCoreApplication::setApplicationVersion(FRACTGEN_VERSION);
+   QCoreApplication::setApplicationVersion(QStringLiteral(FRACTGEN_VERSION));
 
    // ====== Parse command-line arguments ===================================
    QCommandLineParser parser;
-   parser.setApplicationDescription("Test helper");
+   parser.setApplicationDescription(QStringLiteral("Fractal Generator"));
    parser.addHelpOption();
    parser.addVersionOption();
    parser.process(application);
