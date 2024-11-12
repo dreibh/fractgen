@@ -135,7 +135,9 @@ void FractalGeneratorViewBase::changeColorScheme(const QString& identifier)
 void FractalGeneratorViewBase::startCalculation(QImage* image)
 {
    if(ThreadList.size() == 0) {
-      const unsigned int threads = QThread::idealThreadCount();
+      const unsigned int threads = std::min((unsigned int)QThread::idealThreadCount(),
+                                            Height / ProgStep);
+      // printf("Threads=%u\n", threads);
       for(unsigned int i = 0; i < threads; i++) {
          FractalCalculationThread* thread =
             new FractalCalculationThread(this,
