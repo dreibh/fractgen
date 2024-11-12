@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # ==========================================================================
 # ====                   FRACTAL GRAPHICS GENERATOR                     ====
 # ==========================================================================
@@ -30,13 +31,17 @@ _fractgen()
    elif type -t _init_completion >/dev/null; then
       _init_completion || return
    else
-      # Manual initialization for older bash completion versions:
+     # Manual initialization for older bash completion versions:
       COMPREPLY=()
+      # shellcheck disable=SC2034
       cur="${COMP_WORDS[COMP_CWORD]}"
+      # shellcheck disable=SC2034
       prev="${COMP_WORDS[COMP_CWORD-1]}"
-      words="${COMP_WORDS}"
+      # shellcheck disable=SC2034,SC2124
+      words="${COMP_WORDS[@]}"
+      # shellcheck disable=SC2034
       cword="${COMP_CWORD}"
-   fi
+    fi
 
    if [ "${cword}" -gt 1 ] ; then
       _filedir '@(fsf)'
