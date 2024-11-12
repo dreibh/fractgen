@@ -9,8 +9,11 @@ Source: https://www.nntb.no/~dreibh/fractalgenerator/download/%{name}-%{version}
 
 AutoReqProv: on
 BuildRequires: cmake
-BuildRequires: qt5-linguist
-BuildRequires: qt5-qtbase-devel
+BuildRequires: extra-cmake-modules
+BuildRequires: kf6-kcoreaddons-devel
+BuildRequires: kf6-kxmlgui-devel
+BuildRequires: qt6-linguist
+BuildRequires: qt6-qtbase-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 Requires: %{name}-common = %{version}-%{release}
@@ -32,7 +35,7 @@ This is the Qt version of FractGen.
 %setup -q
 
 %build
-%cmake -DCMAKE_INSTALL_PREFIX=/usr .
+%cmake -DCMAKE_INSTALL_PREFIX=/usr . -DWITH_KDE=1
 %cmake_build
 
 %install
@@ -41,13 +44,13 @@ This is the Qt version of FractGen.
 %files
 %{_bindir}/fractgen
 %{_datadir}/applications/fractgen.desktop
+%{_datadir}/bash-completion/completions/fractgen
 %{_mandir}/man1/fractgen.1.gz
 
 
 %package kfractgen
 Summary: FractGen Fractal Generator (KDE version)
 Group: Applications/Multimedia
-BuildArch: noarch
 Requires: %{name}-common = %{version}-%{release}
 Recommends: %{name}-examples = %{version}-%{release}
 Recommends: rsplib-tools
@@ -65,13 +68,13 @@ This is the KDE version of FractGen.
 %files kfractgen
 %{_bindir}/kfractgen
 %{_datadir}/applications/kfractgen.desktop
+%{_datadir}/bash-completion/completions/kfractgen
 %{_mandir}/man1/kfractgen.1.gz
 
 
 %package clifractgen
 Summary: FractGen Fractal Generator (command-line) version)
 Group: Applications/Multimedia
-BuildArch: noarch
 Requires: %{name}-common = %{version}-%{release}
 Recommends: %{name}-examples = %{version}-%{release}
 Suggests: rsplib-tools
@@ -88,6 +91,7 @@ This is the KDE version of FractGen.
 
 %files clifractgen
 %{_bindir}/clifractgen
+%{_datadir}/bash-completion/completions/clifractgen
 %{_mandir}/man1/clifractgen.1.gz
 
 
@@ -110,7 +114,7 @@ versions of FractGen.
 %files common
 %{_datadir}/fractgen/*.qm
 %{_datadir}/icons/hicolor/512x512/apps/fractgen.png
-%{_datadir}/mime/packages/kfractgen.xml
+%{_datadir}/mime/packages/fractgen.xml
 
 
 %package example
