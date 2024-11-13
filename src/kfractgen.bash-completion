@@ -43,10 +43,8 @@ _kfractgen()
       cword="${COMP_CWORD}"
    fi
 
-   if [ "${cword}" -gt 1 ] ; then
-      _filedir '@(fsf)'
-      return
-   fi
+   _filedir '@(fsf)'
+   return
 
    return 0
 }
