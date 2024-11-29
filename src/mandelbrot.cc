@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,12 +23,18 @@
 #include "mandelbrot.h"
 
 
-Mandelbrot* Mandelbrot::Registration = new Mandelbrot();
+const QString Mandelbrot::Identifier(QStringLiteral("Mandelbrot"));
+const QString Mandelbrot::Description(QStringLiteral("Mandelbrot z[i+1]=z[i]^2-c"));
+const bool Mandelbrot::Registered =
+   FractalAlgorithmInterface::registerClass(
+      Mandelbrot::Identifier,
+      Mandelbrot::Description,
+      &Mandelbrot::makeNewInstance
+   );
 
 
 // ###### Constructor #######################################################
-Mandelbrot::Mandelbrot(const char* identifier, const char* name)
-   : FractalAlgorithmInterface(identifier, name)
+Mandelbrot::Mandelbrot()
 {
 }
 
@@ -39,17 +45,38 @@ Mandelbrot::~Mandelbrot()
 }
 
 
+// ###### Get identifier ####################################################
+const QString& Mandelbrot::getIdentifier() const
+{
+   return Mandelbrot::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& Mandelbrot::getDescription() const
+{
+   return Mandelbrot::Description;
+}
+
+
+// ###### Create new instance ###############################################
+FractalAlgorithmInterface* Mandelbrot::makeNewInstance()
+{
+   return new Mandelbrot();
+}
+
+
 // ###### Get default for C1 ################################################
 std::complex<double> Mandelbrot::defaultC1() const
 {
-   return(std::complex<double>(-1.5, 1.5));
+   return std::complex<double>(-1.5, 1.5);
 }
 
 
 // ###### Get default for C2 ################################################
 std::complex<double> Mandelbrot::defaultC2() const
 {
-   return(std::complex<double>(1.5, -1.5));
+   return std::complex<double>(1.5, -1.5);
 }
 
 
@@ -57,17 +84,18 @@ std::complex<double> Mandelbrot::defaultC2() const
 unsigned int Mandelbrot::calculatePoint(const unsigned int x,
                                         const unsigned int y)
 {
-   const std::complex<double> c = std::complex<double>(C1.real() + ((double)x * StepX),
-                                                       C1.imag() + ((double)y * StepY));
+   const std::complex<double> c =
+      std::complex<double>(C1.real() + ((double)x * StepX),
+                           C1.imag() + ((double)y * StepY));
    std::complex<double> z(0.0, 0.0);
    unsigned int         i;
 
    for(i = 0;i < MaxIterations;i++) {
       z = z*z - c;
       if(z.real() * z.real() + z.imag() * z.imag() >= 2.0) {
-         return(i);
+         return i;
       }
    }
 
-   return(i);
+   return i;
 }

@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,33 +23,46 @@
 #ifndef COLORSCHEMEINTERFACE_H
 #define COLORSCHEMEINTERFACE_H
 
-#include <qlist.h>
+#include "classregistry.h"
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class ColorSchemeInterface {
+   // ====== Constructor/Destructor =========================================
    public:
-   ColorSchemeInterface(const char* identifier, const char* name);
+   ColorSchemeInterface();
    virtual ~ColorSchemeInterface();
-   inline const char* getIdentifier() { return(Identifier); }
-   inline const char* getName() const { return(Name); }
 
-   virtual void configure(unsigned int* maxIterations);
+   // ====== Color scheme information =======================================
+   virtual const QString& getIdentifier()  const = 0;
+   virtual const QString& getDescription() const = 0;
+
+   // ====== Color scheme parameters ========================================
+   virtual void configure(const unsigned int* maxIterations);
+
+   // ====== The actual coloring rule =======================================
    virtual unsigned int getColor(const unsigned int value) = 0;
 
-   static ColorSchemeInterface* getColorScheme(const unsigned int index);
-   static ColorSchemeInterface* getColorSchemeByIdentifier(const char* identifier);
+   // ====== Color scheme registry ==========================================
+   inline static const QMap<QString, ClassRegistry::Registration*>& getColorSchemes() {
+      return Registry->getClassMap();
+   }
+   inline static ColorSchemeInterface* makeColorSchemeInstance(const QString& identifier) {
+      return (ColorSchemeInterface*)Registry->makeNewInstance(identifier);
+   }
 
+   // ====== Protected attributes ===========================================
    protected:
-   const char*   Name;
-   const char*   Identifier;
-   unsigned int* MaxIterations;
+   // ------ Color scheme registry ------------------------------------------
+   static bool registerClass(const QString& identifier,
+                             const QString& description,
+                             ColorSchemeInterface* (*makeInstanceFunction)());
 
+   // ------ Color scheme parameters ----------------------------------------
+   const unsigned int* MaxIterations;
+
+   // ====== Private attributes =============================================
    private:
-   static QList<ColorSchemeInterface*>* ColorSchemeList;
-   static bool                          Updated;
+   static ClassRegistry* Registry;
 };
 
 #endif

@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,27 +23,16 @@
 #include "fractalalgorithminterface.h"
 #include "uintconfigentry.h"
 
-#include <algorithm>
 
-QList<FractalAlgorithmInterface*>* FractalAlgorithmInterface::AlgorithmList = nullptr;
-bool                               FractalAlgorithmInterface::Updated       = false;
+ClassRegistry* FractalAlgorithmInterface::Registry = nullptr;
 
 
 // ###### Constructor #######################################################
-FractalAlgorithmInterface::FractalAlgorithmInterface(const char* identifier, const char* name)
+FractalAlgorithmInterface::FractalAlgorithmInterface()
 {
-   Updated    = true;
-   Identifier = identifier;
-   Name       = name;
-
-   if(AlgorithmList == nullptr) {
-      AlgorithmList = new QList<FractalAlgorithmInterface*>;
-   }
-   AlgorithmList->append(this);
-
    // When using this mechanism to allow configuration of own variables
    // in derived classes you need to make sure the string could be used in
-   // well-formed xml as a tag (i.e. no whitespaces)
+   // well-formed XML as a tag (i.e. no whitespaces)!
    ConfigEntries.append(new UIntConfigEntry(&MaxIterations, "MaxIterations"));
 }
 
@@ -51,23 +40,22 @@ FractalAlgorithmInterface::FractalAlgorithmInterface(const char* identifier, con
 // ###### Destructor ########################################################
 FractalAlgorithmInterface::~FractalAlgorithmInterface()
 {
-   AlgorithmList->removeAll(this);
 }
 
 
 // ###### Get default number of iterations ##################################
 int FractalAlgorithmInterface::defaultMaxIterations() const
 {
-   return(250);
+   return 250;
 }
 
 
 // ###### Configure algorithm ###############################################
-void FractalAlgorithmInterface::configure(unsigned int         width,
-                                          unsigned int         height,
-                                          std::complex<double> c1,
-                                          std::complex<double> c2,
-                                          unsigned int         maxIterations)
+void FractalAlgorithmInterface::configure(const unsigned int          width,
+                                          const unsigned int          height,
+                                          const std::complex<double>& c1,
+                                          const std::complex<double>& c2,
+                                          const unsigned int          maxIterations)
 {
    Width         = width;
    Height        = height;
@@ -88,43 +76,26 @@ void FractalAlgorithmInterface::configure(unsigned int         width,
 
 
 // ###### Change image size ##################################################
-void FractalAlgorithmInterface::changeSize(int X, int Y)
+void FractalAlgorithmInterface::changeSize(const unsigned int width,
+                                           const unsigned int height)
 {
-   Width  = X;
-   Height = Y;
+   Width  = width;
+   Height = height;
    StepX  = (C2.real() - C1.real()) / Width;
    StepY  = (C2.imag() - C1.imag()) / Height;
 }
 
 
-// ###### Comparison function for names ######################################
-static bool lessThan(const FractalAlgorithmInterface* f1,
-                     const FractalAlgorithmInterface* f2)
+// ###### Create new instance class #########################################
+bool FractalAlgorithmInterface::registerClass(const QString& identifier,
+                                              const QString& description,
+                                              FractalAlgorithmInterface* (*makeInstanceFunction)())
 {
-   return(strcmp(f1->getName(), f2->getName()) < 0);
-}
-
-
-// ###### Get algorithm by number #############################################
-FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithm(const unsigned int index)
-{
-   if(Updated) {
-      std::sort(AlgorithmList->begin(), AlgorithmList->end(), lessThan);
-      Updated = false;
-   }
-   return(AlgorithmList->value(index, nullptr));
-}
-
-
-// ###### Get algorithm by identifier #######################################
-FractalAlgorithmInterface* FractalAlgorithmInterface::getAlgorithmByIdentifier(const char* identifier)
-{
-   QListIterator<FractalAlgorithmInterface*> iterator(*AlgorithmList);
-   while(iterator.hasNext()) {
-      FractalAlgorithmInterface* algorithm = iterator.next();
-      if(strcmp(identifier, algorithm->getIdentifier()) == 0) {
-         return(algorithm);
-      }
-   }
-   return(nullptr);
+  if(Registry == nullptr) {
+      Registry = new ClassRegistry;
+      Q_CHECK_PTR(Registry);
+  }
+  return FractalAlgorithmInterface::Registry->registerClass(
+            identifier, description,
+            (void* (*)())makeInstanceFunction);
 }

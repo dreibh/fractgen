@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,22 +25,31 @@
 
 #include <colorschemeinterface.h>
 
-/**
-  *@author Thomas Dreibholz
-  */
+
 class SimpleRGB : public ColorSchemeInterface  {
+   // ====== Constructor/Destructor =========================================
    public:
-   SimpleRGB(const char* identifier = "SimpleRGB",
-             const char* name       = "Simple RGB");
+   SimpleRGB();
    ~SimpleRGB();
 
+   // ====== Color scheme information =======================================
+   virtual const QString& getIdentifier()  const override;
+   virtual const QString& getDescription() const override;
+
+   // ====== The actual coloring rule =======================================
    virtual unsigned int getColor(const unsigned int value) override;
 
+   // ====== Private attributes =============================================
    private:
+   static ColorSchemeInterface* makeNewInstance();
    static unsigned int rgbFromWaveLength(const double wave);
-   static SimpleRGB* Registration;
-   unsigned int*     ColorMap;
-   unsigned int      ColorMapSize;
+
+   static const QString Identifier;
+   static const QString Description;
+   static const bool    Registered;
+
+   unsigned int*        ColorMap;
+   unsigned int         ColorMapSize;
 };
 
 #endif

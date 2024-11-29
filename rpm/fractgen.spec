@@ -1,29 +1,41 @@
 Name: fractgen
-Version: 2.1.15~rc0
+Version: 2.2.0~beta3
 Release: 1
-Summary: Fractal Generator
+Summary: FractGen Fractal Generator (Qt version)
 Group: Applications/Multimedia
-License: GPL-3+
+License: GPL-3.0-or-later
 URL: https://www.nntb.no/~dreibh/fractalgenerator/
 Source: https://www.nntb.no/~dreibh/fractalgenerator/download/%{name}-%{version}.tar.xz
 
 AutoReqProv: on
 BuildRequires: cmake
-BuildRequires: qt5-linguist
-BuildRequires: qt5-qtbase-devel
+BuildRequires: extra-cmake-modules
+BuildRequires: kf6-kcoreaddons-devel
+BuildRequires: kf6-kxmlgui-devel
+BuildRequires: qt6-linguist
+BuildRequires: qt6-qtbase-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
+
+Requires: %{name}-common = %{version}-%{release}
+Recommends: %{name}-examples = %{version}-%{release}
+Recommends: rsplib-tools
 
 
 %description
-FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals. The image size is only limited by virtual memory. It is possible to zoom into images. Image parameters can be saved in XML files and loaded from XML files. Calculated images can be exported as PNG files. The intention of this program is to generate graphics to be post-processed by other image tools, e.g. in order to generate nice screen backgrounds or book covers.
-
-%global debug_package %{nil}
+FractGen is a simple Qt-based fractal generator program for Mandelbrot
+fractals. The image size is only limited by virtual memory. It is possible
+to zoom into images. Image parameters can be saved in XML files and loaded
+from XML files. Calculated images can be exported as PNG files.
+The intention of this program is to generate graphics to be post-processed
+by other image tools, e.g. in order to generate nice screen backgrounds or
+book covers.
+This is the Qt version of FractGen.
 
 %prep
 %setup -q
 
 %build
-%cmake -DCMAKE_INSTALL_PREFIX=/usr .
+%cmake -DCMAKE_INSTALL_PREFIX=/usr . -DWITH_KDE=1
 %cmake_build
 
 %install
@@ -32,11 +44,92 @@ FractGen is a simple Qt-based fractal generator program for Mandelbrot fractals.
 %files
 %{_bindir}/fractgen
 %{_datadir}/applications/fractgen.desktop
+%{_datadir}/bash-completion/completions/fractgen
+%{_mandir}/man1/fractgen.1.gz
+
+
+%package kfractgen
+Summary: FractGen Fractal Generator (KDE version)
+Group: Applications/Multimedia
+Requires: %{name}-common = %{version}-%{release}
+Recommends: %{name}-examples = %{version}-%{release}
+Recommends: rsplib-tools
+
+%description kfractgen
+FractGen is a simple Qt-based fractal generator program for Mandelbrot
+fractals. The image size is only limited by virtual memory. It is possible
+to zoom into images. Image parameters can be saved in XML files and loaded
+from XML files. Calculated images can be exported as PNG files.
+The intention of this program is to generate graphics to be post-processed
+by other image tools, e.g. in order to generate nice screen backgrounds or
+book covers.
+This is the KDE version of FractGen.
+
+%files kfractgen
+%{_bindir}/kfractgen
+%{_datadir}/applications/kfractgen.desktop
+%{_datadir}/bash-completion/completions/kfractgen
+%{_mandir}/man1/kfractgen.1.gz
+
+
+%package clifractgen
+Summary: FractGen Fractal Generator (command-line) version)
+Group: Applications/Multimedia
+Requires: %{name}-common = %{version}-%{release}
+Recommends: %{name}-examples = %{version}-%{release}
+Suggests: rsplib-tools
+
+%description clifractgen
+FractGen is a simple Qt-based fractal generator program for Mandelbrot
+fractals. The image size is only limited by virtual memory. It is possible
+to zoom into images. Image parameters can be saved in XML files and loaded
+from XML files. Calculated images can be exported as PNG files.
+The intention of this program is to generate graphics to be post-processed
+by other image tools, e.g. in order to generate nice screen backgrounds or
+book covers.
+This is the KDE version of FractGen.
+
+%files clifractgen
+%{_bindir}/clifractgen
+%{_datadir}/bash-completion/completions/clifractgen
+%{_mandir}/man1/clifractgen.1.gz
+
+
+%package common
+Summary: FractGen common files
+Group: Applications/Multimedia
+BuildArch: noarch
+
+%description common
+FractGen is a simple Qt-based fractal generator program for Mandelbrot
+fractals. The image size is only limited by virtual memory. It is possible
+to zoom into images. Image parameters can be saved in XML files and loaded
+from XML files. Calculated images can be exported as PNG files.
+The intention of this program is to generate graphics to be post-processed
+by other image tools, e.g. in order to generate nice screen backgrounds or
+book covers.
+This package contains commen files for the Qt, KDE and command-line
+versions of FractGen.
+
+%files common
 %{_datadir}/fractgen/*.qm
-%{_datadir}/fractgen/examples/*.fsf
 %{_datadir}/icons/hicolor/512x512/apps/fractgen.png
 %{_datadir}/mime/packages/fractgen.xml
-%{_mandir}/man1/fractgen.1.gz
+
+
+%package example
+Summary: FractGen example files
+Group: Applications/Multimedia
+BuildArch: noarch
+
+%description example
+This package contains some example input files for the fractal generator
+program FractGen. The example files contain the parameters for the
+fractal calculations. FractGen can perform the computations and display
+the resulting images.
+
+%files example
+%{_datadir}/fractgen/examples/*.fsf
 
 
 %changelog

@@ -4,205 +4,235 @@
 <context>
     <name>FractalGeneratorApp</name>
     <message>
-        <location filename="fractalgenerator.cc" line="63"/>
+        <location filename="fractalgenerator.cc" line="99"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="65"/>
+        <location filename="fractalgenerator.cc" line="101"/>
+        <source>&amp;New</source>
+        <translation>&amp;Neu</translation>
+    </message>
+    <message>
+        <location filename="fractalgenerator.cc" line="102"/>
         <source>&amp;Open</source>
         <translation>&amp;Öffnen</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="66"/>
+        <location filename="fractalgenerator.cc" line="103"/>
         <source>&amp;Save</source>
         <translation>&amp;Speichern</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="67"/>
+        <location filename="fractalgenerator.cc" line="104"/>
         <source>Save As ...</source>
         <oldsource>Save As</oldsource>
         <translation>Speichern unter ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="69"/>
+        <location filename="fractalgenerator.cc" line="106"/>
         <source>&amp;Export ...</source>
         <oldsource>&amp;Export Image</oldsource>
         <translation>&amp;Exportieren ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="70"/>
+        <location filename="fractalgenerator.cc" line="107"/>
         <source>&amp;Print ...</source>
         <oldsource>Print &amp;Image</oldsource>
         <translation>&amp;Drucken ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="72"/>
+        <location filename="fractalgenerator.cc" line="109"/>
         <source>&amp;Close</source>
         <translation>Schließe&amp;n</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="73"/>
+        <location filename="fractalgenerator.cc" line="110"/>
         <source>&amp;Quit</source>
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="75"/>
+        <location filename="fractalgenerator.cc" line="113"/>
         <source>&amp;View</source>
         <translation>&amp;Ansicht</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="77"/>
+        <location filename="fractalgenerator.cc" line="115"/>
+        <source>&amp;Copy</source>
+        <translation>Kopieren</translation>
+    </message>
+    <message>
+        <location filename="fractalgenerator.cc" line="116"/>
+        <source>Copy Selection</source>
+        <translation>Auswahl kopieren</translation>
+    </message>
+    <message>
+        <location filename="fractalgenerator.cc" line="119"/>
         <source>Zoom &amp;In</source>
-        <translation>Ver&amp;größern</translation>
+        <translation>Hineinzoomen</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="79"/>
+        <location filename="fractalgenerator.cc" line="121"/>
         <source>Zoom &amp;Back</source>
-        <translation>Ver&amp;kleinern</translation>
+        <translation>Herauszoomen</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="81"/>
+        <location filename="fractalgenerator.cc" line="124"/>
         <source>&amp;Reset Zoom</source>
-        <translation>Vergrößerung zu&amp;rücksetzen</translation>
+        <translation>Zoom zurücksetzen</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="83"/>
-        <location filename="fractalgenerator.cc" line="268"/>
-        <location filename="fractalgenerator.cc" line="280"/>
+        <location filename="fractalgenerator.cc" line="127"/>
+        <source>&amp;Format</source>
+        <translation>Format</translation>
+    </message>
+    <message>
+        <location filename="fractalgenerator.cc" line="130"/>
+        <source>Custom Image Size</source>
+        <translation>Bildgröße manuell setzen</translation>
+    </message>
+    <message>
+        <location filename="fractalgenerator.cc" line="133"/>
+        <source>Swap Width and Height</source>
+        <translation>Vertausche Breite und Höhe</translation>
+    </message>
+    <message>
+        <location filename="fractalgenerator.cc" line="421"/>
+        <location filename="fractalgenerator.cc" line="433"/>
         <source>Image Size</source>
         <translation>Bildgröße</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="85"/>
+        <location filename="fractalgenerator.cc" line="154"/>
         <source>&amp;Algorithm</source>
         <translation>&amp;Algorithmus</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="87"/>
+        <location filename="fractalgenerator.cc" line="156"/>
         <source>Configure Algorithm ...</source>
         <oldsource>Configure Algorithm</oldsource>
         <translation>Algorithmus konfigurieren ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="108"/>
+        <location filename="fractalgenerator.cc" line="176"/>
         <source>&amp;Color Scheme</source>
+        <translatorcomment>&amp;Fargevalg</translatorcomment>
         <translation>&amp;Farbschema</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="126"/>
+        <location filename="fractalgenerator.cc" line="196"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="128"/>
+        <location filename="fractalgenerator.cc" line="198"/>
         <source>&amp;About</source>
         <translation>&amp;Über</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="132"/>
+        <location filename="fractalgenerator.cc" line="203"/>
         <source>Fractal.pdf</source>
         <translation>Fraktal.pdf</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="134"/>
+        <location filename="fractalgenerator.cc" line="205"/>
         <source>Welcome to FractGen!</source>
         <oldsource>Welcome to Fractal Generator!</oldsource>
         <translation>Willkommen zu FractGen!</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="153"/>
+        <location filename="fractalgenerator.cc" line="235"/>
         <source>Opening file ...</source>
         <oldsource>Opening file...</oldsource>
         <translation>Öffne Datei ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="155"/>
+        <location filename="fractalgenerator.cc" line="237"/>
         <source>Open File ...</source>
         <translation>Öffnen ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="157"/>
-        <location filename="fractalgenerator.cc" line="172"/>
+        <location filename="fractalgenerator.cc" line="239"/>
+        <location filename="fractalgenerator.cc" line="273"/>
         <source>FractGen File (*.fsf)</source>
         <translation>FractGen-Datei (*.fsf)</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="251"/>
+        <location filename="fractalgenerator.cc" line="333"/>
         <source>&amp;Okay</source>
         <translation>&amp;Okay</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="280"/>
+        <location filename="fractalgenerator.cc" line="433"/>
         <source>Invalid image size!</source>
-        <translation></translation>
+        <translation>Ungültige Bildgröße!</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="161"/>
-        <location filename="fractalgenerator.cc" line="176"/>
-        <location filename="fractalgenerator.cc" line="195"/>
-        <location filename="fractalgenerator.cc" line="214"/>
-        <location filename="fractalgenerator.cc" line="235"/>
-        <location filename="fractalgenerator.cc" line="285"/>
+        <location filename="fractalgenerator.cc" line="243"/>
+        <location filename="fractalgenerator.cc" line="262"/>
+        <location filename="fractalgenerator.cc" line="277"/>
         <location filename="fractalgenerator.cc" line="296"/>
-        <location filename="fractalgenerator.cc" line="348"/>
+        <location filename="fractalgenerator.cc" line="317"/>
+        <location filename="fractalgenerator.cc" line="344"/>
+        <location filename="fractalgenerator.cc" line="396"/>
+        <location filename="fractalgenerator.cc" line="441"/>
         <source>Ready</source>
         <oldsource>Ready.</oldsource>
         <translation>Bereit</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="168"/>
+        <location filename="fractalgenerator.cc" line="269"/>
         <source>Saving file as ...</source>
         <translation>Speichere Datei unter ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="170"/>
+        <location filename="fractalgenerator.cc" line="271"/>
         <source>Save File ...</source>
         <translation>Datei speichern ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="183"/>
+        <location filename="fractalgenerator.cc" line="250"/>
         <source>Saving file...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="187"/>
+        <location filename="fractalgenerator.cc" line="254"/>
         <source>Overwrite existing file?</source>
         <oldsource>Overwrite existing file </oldsource>
         <translation>Bestehende Datei überschreiben?</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="202"/>
+        <location filename="fractalgenerator.cc" line="284"/>
         <source>Exporting Image ...</source>
         <translation>Exportiere Bild ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="204"/>
+        <location filename="fractalgenerator.cc" line="286"/>
         <source>Export Image</source>
         <translation>Bild exportieren</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="228"/>
+        <location filename="fractalgenerator.cc" line="310"/>
         <source>Printing...</source>
         <translation>Drucke ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="258"/>
+        <location filename="fractalgenerator.cc" line="411"/>
         <source>Changing Image Size ...</source>
         <translation>Ändere Bildgröße ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="269"/>
+        <location filename="fractalgenerator.cc" line="422"/>
         <source>Please enter new size in the format x*y:</source>
         <translation>Bitte neue Bildgröße im Format x*y eingeben:</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="292"/>
+        <location filename="fractalgenerator.cc" line="340"/>
         <source>Changing Options ...</source>
         <translation>Ändere Optionen ...</translation>
     </message>
     <message>
-        <location filename="fractalgenerator.cc" line="345"/>
+        <location filename="fractalgenerator.cc" line="393"/>
         <source>Click middle mouse button or choose &quot;View -&gt; Zoom In&quot; to magnify selected area!</source>
         <translation>Mittlere Maustaste drücken oder &quot;Ansicht -&gt; Vergößern&quot; wählen zum Vergrößern des ausgewählten Bereiches!</translation>
     </message>
@@ -216,8 +246,8 @@
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="79"/>
-        <location filename="fractalgeneratordoc.cc" line="99"/>
-        <location filename="fractalgeneratordoc.cc" line="116"/>
+        <location filename="fractalgeneratordoc.cc" line="95"/>
+        <location filename="fractalgeneratordoc.cc" line="109"/>
         <source>Open File Failure</source>
         <translation>Fehler beim Öffnen der Datei</translation>
     </message>
@@ -232,22 +262,22 @@
         <translation>Spalte:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="100"/>
+        <location filename="fractalgeneratordoc.cc" line="96"/>
         <source>Invalid AlgorithmName entry:</source>
         <translation>Ungültiger Eintrag für AlgorithmName:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="117"/>
+        <location filename="fractalgeneratordoc.cc" line="110"/>
         <source>Invalid ColorSchemeName entry:</source>
         <translation>Ungültiger Eintrag für ColorSchemeName:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="153"/>
+        <location filename="fractalgeneratordoc.cc" line="148"/>
         <source>Open File Warning</source>
         <translation>Warnung beim Öffnen der Datei</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="154"/>
+        <location filename="fractalgeneratordoc.cc" line="149"/>
         <source>Skipping unknown entry:</source>
         <translation>Überspringe unbekannten Eintrag:</translation>
     </message>
@@ -257,7 +287,7 @@
     <message>
         <location filename="optionsdialog.cc" line="34"/>
         <source>Fractal Algorithm Options</source>
-        <translation>Optionen für Fraktalalgorithmus</translation>
+        <translation>Einstellungen für Fraktalalgorithmus</translation>
     </message>
     <message>
         <location filename="optionsdialog.cc" line="42"/>

@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,41 +23,37 @@
 #ifndef FRACTALBUFFER_H
 #define FRACTALBUFFER_H
 
-
-// #include <stdio.h>
-// #include <stdlib.h>
-
-
-/**
-  *@author Thomas Dreibholz
-  */
 class FractalBuffer
 {
+   // ====== Constructor/Destructor =========================================
    public:
    FractalBuffer();
    ~FractalBuffer();
+
+   // ====== Access methods =================================================
    bool reset(const unsigned int width, const unsigned int height);
    void clear();
-   inline unsigned int getPoint(const unsigned int x, const unsigned int y) {
-      unsigned int pos = y * Width + x;
-      if(pos < BufferSize) {
-         return(Buffer[pos]);
+   inline unsigned int getPoint(const unsigned int x, const unsigned int y) const {
+      const unsigned int position = y * Width + x;
+      if(position < BufferSize) {
+         return Buffer[position];
       }
       // printf("ERROR: FractalBuffer::getPoint() - Illegal position: x=%d y=%d in w=%d h=%d\n", x, y, Width, Height);
       // abort();
-      return(~0);
+      return ~0;
    }
    inline void setPoint(const unsigned int x, const unsigned int y, const unsigned int value) {
-      unsigned int pos = y * Width + x;
-      if(pos < BufferSize) {
-         Buffer[pos] = value;
+      const unsigned int position = y * Width + x;
+      if(position < BufferSize) {
+         Buffer[position] = value;
       }
       // else {
-      //    printf("ERROR: FractalBuffer::setPoint() - Illegal position: x=%d y=%d in w=%d h=%d\n",x,y,Width,Height);
+      //    printf("ERROR: FractalBuffer::setPoint() - Illegal position: x=%d y=%d in w=%d h=%d\n", x, y, Width, Height);
       //    abort();
       // }
    }
 
+   // ====== Private attributes =============================================
    private:
    unsigned int* Buffer;
    unsigned int  BufferSize;

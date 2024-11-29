@@ -7,7 +7,7 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 	dh $@ --buildsystem=cmake
 
 override_dh_auto_configure:
-	dh_auto_configure -- -DENABLE_KDE=0
+	dh_auto_configure -- -DWITH_KDE=1
 
 # Use upstream ChangeLog for installation
 override_dh_installchangelogs:

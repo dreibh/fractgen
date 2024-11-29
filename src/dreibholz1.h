@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,28 +23,34 @@
 #ifndef DREIBHOLZ1_H
 #define DREIBHOLZ1_H
 
-
 #include <fractalalgorithminterface.h>
-#include <complex>
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class Dreibholz1 : public FractalAlgorithmInterface
 {
+   // ====== Constructor/Destructor =========================================
    public:
-   Dreibholz1(const char* identifier = "Dreibholz1",
-              const char* name       = "Dreibholz1 Test");
+   Dreibholz1();
    ~Dreibholz1();
+
+   // ====== Algorithm information ==========================================
+   virtual const QString& getIdentifier()  const override;
+   virtual const QString& getDescription() const override;
 
    virtual std::complex<double> defaultC1() const override;
    virtual std::complex<double> defaultC2() const override;
+
+   // ====== The actual calculation =========================================
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) override;
 
+   // ====== Private methods and attributes =================================
    private:
-   static Dreibholz1* Registration;
+   static FractalAlgorithmInterface* makeNewInstance();
+
+   static QString    Identifier;
+   static QString    Description;
+   static const bool Registered;
 };
 
 #endif

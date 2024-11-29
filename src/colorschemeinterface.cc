@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,70 +22,38 @@
 
 #include "colorschemeinterface.h"
 
-#include <string.h>
-
-#include <algorithm>
-
-QList<ColorSchemeInterface*>* ColorSchemeInterface::ColorSchemeList = nullptr;
-bool                          ColorSchemeInterface::Updated         = false;
+ClassRegistry* ColorSchemeInterface::Registry = nullptr;
 
 
 // ###### Constructor #######################################################
-ColorSchemeInterface::ColorSchemeInterface(const char* identifier, const char* name)
+ColorSchemeInterface::ColorSchemeInterface()
 {
-   Updated    = true;
-   Identifier = identifier;
-   Name       = name;
-
-   if(ColorSchemeInterface::ColorSchemeList == nullptr) {
-      ColorSchemeInterface::ColorSchemeList = new QList<ColorSchemeInterface*>;
-   }
-   ColorSchemeList->append(this);
-}
-
-
-// ###### Constructor #######################################################
-ColorSchemeInterface::~ColorSchemeInterface()
-{
-   ColorSchemeList->removeAll(this);
 }
 
 
 // ###### Destructor ########################################################
-void ColorSchemeInterface::configure(unsigned int* maxIterations)
+ColorSchemeInterface::~ColorSchemeInterface()
+{
+}
+
+
+// ###### Configure color scheme ############################################
+void ColorSchemeInterface::configure(const unsigned int* maxIterations)
 {
    MaxIterations = maxIterations;
 }
 
 
-// ###### Comparison function for names #####################################
-static bool lessThan(const ColorSchemeInterface* c1,
-                     const ColorSchemeInterface* c2)
+// ###### Create new instance class #########################################
+bool ColorSchemeInterface::registerClass(const QString& identifier,
+                                         const QString& description,
+                                         ColorSchemeInterface* (*makeInstanceFunction)())
 {
-   return(strcmp(c1->getName(), c2->getName()) < 0);
-}
-
-
-// ###### Get color scheme by number ########################################
-ColorSchemeInterface* ColorSchemeInterface::getColorScheme(const unsigned int index)
-{
-   if(Updated) {
-      std::sort(ColorSchemeList->begin(), ColorSchemeList->end(), lessThan);
-      Updated = false;
-   }
-   return(ColorSchemeList->value(index, nullptr));
-}
-
-
-// ###### Get color scheme by ID ############################################
-ColorSchemeInterface* ColorSchemeInterface::getColorSchemeByIdentifier(const char* identifier)
-{
-   QListIterator<ColorSchemeInterface*> iterator(*ColorSchemeList);
-   while(iterator.hasNext()) {
-      ColorSchemeInterface* colorScheme = iterator.next();
-      if(strcmp(identifier, colorScheme->getIdentifier()) == 0) {
-         return(colorScheme);
-      }
-   }
-   return(nullptr);
+  if(Registry == nullptr) {
+      Registry = new ClassRegistry;
+      Q_CHECK_PTR(Registry);
+  }
+  return ColorSchemeInterface::Registry->registerClass(
+            identifier, description,
+            (void* (*)())makeInstanceFunction);
 }

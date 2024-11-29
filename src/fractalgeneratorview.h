@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,101 +24,84 @@
 #define FRACTALGENERATORVIEW_H
 
 #include "imagedisplay.h"
-#include "fractalbuffer.h"
-#include "fractalalgorithminterface.h"
-#include "fractalcalculationthread.h"
-#include "colorschemeinterface.h"
+#include "fractalgeneratorviewbase.h"
 
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QScrollBar>
-#include <QtWidgets/QLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QScrollBar>
 #include <QtPrintSupport/QPrinter>
 #include <QResizeEvent>
-#include <QEvent>
-
 #ifdef WITH_KDE
-#include <KWidgetsAddons/KLed>
+#include <KLed>
 #endif
 
 
-class FractalGeneratorDoc;
-class FractalGeneratorApp;
-
-
-class FractalGeneratorView : public QWidget
+class FractalGeneratorView : public FractalGeneratorViewBase
 {
    Q_OBJECT
+   // ====== Constructor/Destructor =========================================
    public:
    FractalGeneratorView(QWidget* parent);
    ~FractalGeneratorView();
 
-   inline ImageDisplay* getDisplay() const { return(Display); }
-   inline FractalAlgorithmInterface* getAlgorithm() const { return(Algorithm); }
-   inline ColorSchemeInterface* getColorScheme() const { return(ColorScheme); }
-   inline int getSizeWidth() { return(SizeWidth); }
-   inline int getSizeHeight() { return(SizeHeight); }
-   inline bool isZoomInPossible() { return(Selection); }
-   inline bool isZoomBackPossible() { return(zoomList.size() > 0); }
+   // ====== Access methods =================================================
+   inline bool isZoomInPossible()    const { return Selection;           }
+   inline bool isZoomBackPossible()  const { return ZoomList.size() > 0; }
+   inline ImageDisplay* getDisplay() const { return Display;             }
+   void print(QPrinter* printer);
 
-   void print(QPrinter *printer);
-   void configChanged();
-   void changeSize(int X, int Y);
-   void changeAlgorithm(int index);
-   void changeColorScheme(int index);
-   void changeC1C2(std::complex<double> newC1, std::complex<double> newC2);
+   virtual void configChanged() override;
+   virtual void changeSize(const unsigned int width,
+                           const unsigned int height) override;
+   virtual void changeAlgorithm(const QString& identifier) override;
 
-
-   public Q_SLOTS:
-   void slotXScrollBarChange(int value);
-   void slotYScrollBarChange(int value);
-   void slotOffsetUpdate(int newOffsetX, int newOffsetY);
-   void slotSelectionUpdate(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2);
-   void zoomIn();
-   void zoomBack();
-   void zoomReset();
-
+   // ====== Signals ========================================================
    Q_SIGNALS:
    void updateZoomInPossible();
    void updateZoomBackPossible();
-   void updateFractalAlgorithm();
-   void updateColorScheme();
+
+   // ====== Slots ==========================================================
+   public Q_SLOTS:
+   void slotXScrollBarChange(int value);
+   void slotYScrollBarChange(int value);
+   void slotOffsetUpdate(const int newOffsetX, const int newOffsetY);
+   void slotSelectionUpdate(const unsigned int x1, const unsigned int y1,
+                            const unsigned int x2, const unsigned int y2);
+   void copyToClipboard();
+   void copySelectionToClipboard();
+   void zoomInToSelection();
+   void zoomAdjustment(const int deltaX, const int deltaY, const int deltaZoom);
+   void zoomBack();
+   void zoomReset();
+   virtual void calculationProgressed(FractalCalculationThread* thread,
+                                      bool                      finished) override;
 
    protected:
    void resizeEvent(QResizeEvent* resizeEvent) override;
-   bool eventFilter(QObject* object, QEvent* event) override;
 
+   // ====== Protected methods ==============================================
+   virtual void startCalculation(QImage* image) override;
+
+   // ====== Private methods and attributes =================================
    private:
    void updateScrollBars();
    void updateLED(const bool busy);
    void updateView();
-   void startCalculation();
-   void stopCalculation();
 
-   QScrollBar*                XScrollBar;
-   QScrollBar*                YScrollBar;
+   QScrollBar*          XScrollBar;
+   QScrollBar*          YScrollBar;
+   ImageDisplay*        Display;
 #ifndef WITH_KDE
-   QLabel*                    ControlLED;
+   QLabel*              ControlLED;
 #else
-   KLed*                      ControlLED;
+   KLed*                ControlLED;
 #endif
-   ImageDisplay*              Display;
-   FractalBuffer*             Buffer;
 
-   FractalCalculationThread*  Thread;
-   FractalAlgorithmInterface* Algorithm;
-   ColorSchemeInterface*      ColorScheme;
+   std::complex<double> SelectionC1;
+   std::complex<double> SelectionC2;
+   bool                 Selection;
 
-   unsigned int               ProgStep;
-   std::complex<double>       C1;
-   std::complex<double>       C2;
-   std::complex<double>       SelectionC1;
-   std::complex<double>       SelectionC2;
-   bool                       Selection;
-   int                        SizeWidth;
-   int                        SizeHeight;
-
-   std::list<std::pair<std::complex<double>, std::complex<double> > > zoomList;
+   std::list<std::pair<std::complex<double>,
+                       std::complex<double>>> ZoomList;
 };
 
-#endif // FRACTALGENERATORVIEW_H
+#endif

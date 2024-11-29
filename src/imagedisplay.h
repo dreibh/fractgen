@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,31 +32,33 @@
 #include <QMouseEvent>
 #include <QPaintEvent>
 
-
 class ImageDisplay : public QWidget {
    Q_OBJECT
+   // ====== Constructor/Destructor =========================================
    public:
    ImageDisplay(QWidget* parent);
    ~ImageDisplay();
 
+   // ====== Access methods =================================================
    bool reset(const unsigned int width, const unsigned int height);
-   inline void setPoint(const unsigned int x, const unsigned int y, const QRgb color) {
+   inline void setPoint(const unsigned int x, const unsigned int y,
+                        const QRgb color) {
       Image->setPixel(x, y, color);
    }
    inline QImage* image() {
-      return(Image);
+      return Image;
    }
    inline int imageWidth() {
-      return(Image->width());
+      return Image->width();
    }
    inline int imageHeight() {
-      return(Image->height());
+      return Image->height();
    }
    inline unsigned int offsetX() {
-      return(OffsetX);
+      return OffsetX;
    }
    inline unsigned int offsetY() {
-      return(OffsetY);
+      return OffsetY;
    }
    inline void setOffsetX(const unsigned int offsetX) {
       OffsetX = offsetX;
@@ -65,23 +67,37 @@ class ImageDisplay : public QWidget {
       OffsetY = offsetY;
    }
    inline bool saveImage(QString &path, const char *format) {
-       return Image->save(path, format); }
+       return Image->save(path, format);
+   }
 
+   // ====== Slots ==========================================================
+   void copyToClipboard();
+   void copySelectionToClipboard();
+
+   // ====== Signals ========================================================
    Q_SIGNALS:
    void offsetUpdate(int newOffsetX, int newOffsetY);
-   void selection(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2);
-   void zoom();
+   void selection(const unsigned int x1, const unsigned int y1,
+                  const unsigned int x2, const unsigned int y2);
+   void zoomInToSelection();
+   void zoomAdjustment(const int deltaX, const int deltaY, const int deltaZoom);
 
+   // ====== Protected methods ==============================================
    protected:
    void resizeEvent(QResizeEvent* resizeEvent) override;
    void paintEvent(QPaintEvent* paintEvent) override;
    void mousePressEvent(QMouseEvent* mouseEvent) override;
    void mouseReleaseEvent(QMouseEvent* mouseEvent) override;
    void mouseMoveEvent(QMouseEvent* mouseEvent) override;
+   void wheelEvent(QWheelEvent* wheelEvent) override;
 
+   // ====== Protected methods and attributes ===============================
    private:
    void getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y);
-   void drawMarkerRect(QPainter* painter, int x1, int y1, int x2, int y2, bool draw = true);
+   void drawMarkerRect(QPainter* painter,
+                       const int x1, const int y1,
+                       const int x2, const int y2,
+                       const bool draw = true);
 
    QImage*       Image;
    unsigned int  OffsetX;

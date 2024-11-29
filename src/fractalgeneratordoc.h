@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,43 +24,49 @@
 #define FRACTALGENERATORDOC_H
 
 #include <QObject>
-#include <QString>
-#include <QList>
 
 
-class FractalGeneratorView;
+class FractalGeneratorViewBase;
 class FractalGeneratorApp;
 
 
 class FractalGeneratorDoc : public QObject
 {
    Q_OBJECT
+   // ====== Constructor/Destructor =========================================
    public:
-
-   FractalGeneratorDoc(QWidget* parent, FractalGeneratorView* view);
+   FractalGeneratorDoc(QWidget* parent, FractalGeneratorViewBase* view);
    ~FractalGeneratorDoc();
 
-   inline const QString& getFileName() const { return(FileName); }
+   // ====== File settings ==================================================
+   inline void setModified(const bool modified) { Modified = modified; };
+   inline bool isModified() const               { return Modified;     };
+   inline const QString& getFileName() const    { return FileName;     }
    inline void setFileName(const QString& fileName) {
       FileName = fileName;
       emit updateFileName(FileName);
    }
-   inline void setModified(bool modified) { Modified = modified; };
-   inline bool isModified() { return Modified; };
+
+   // ====== File input/output ==============================================
    void newDocument();
    bool openDocument(const QString& fileName);
    bool saveDocument(const QString& fileName);
    bool saveModified();
    void closeDocument();
 
+   // ====== Signals ========================================================
    Q_SIGNALS:
    void updateFileName(const QString& fileName);
 
+   // ====== Private attributes =============================================
    private:
-   bool                  Modified;
-   QString               FileName;
-   FractalGeneratorApp*  Application;
-   FractalGeneratorView* View;
+   void showError(const QString& label,
+                  const QString& errorText);
+
+   FractalGeneratorApp*      Application;
+   FractalGeneratorViewBase* View;
+   QString                   FileName;
+   bool                      Modified;
 };
 
-#endif // FRACTALGENERATORDOC_H
+#endif

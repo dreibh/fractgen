@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,14 +26,20 @@
 #include <math.h>
 
 
-SimpleRGB* SimpleRGB::Registration = new SimpleRGB();
-
+const QString SimpleRGB::Identifier(QStringLiteral("SimpleRGB"));
+const QString SimpleRGB::Description(QStringLiteral("Simple RGB"));
+const bool SimpleRGB::Registered =
+   ColorSchemeInterface::registerClass(
+      SimpleRGB::Identifier,
+      SimpleRGB::Description,
+      &SimpleRGB::makeNewInstance
+   );
 
 #define INITAL_COLORMAP_SIZE 256
 
 
-SimpleRGB::SimpleRGB(const char* identifier, const char* name)
-   : ColorSchemeInterface(identifier, name)
+// ###### Constructor #######################################################
+SimpleRGB::SimpleRGB()
 {
    ColorMapSize = INITAL_COLORMAP_SIZE;
    ColorMap     = new unsigned int[ColorMapSize];
@@ -44,6 +50,7 @@ SimpleRGB::SimpleRGB(const char* identifier, const char* name)
 }
 
 
+// ###### Destructor ########################################################
 SimpleRGB::~SimpleRGB()
 {
    delete [] ColorMap;
@@ -51,6 +58,28 @@ SimpleRGB::~SimpleRGB()
 }
 
 
+// ###### Get identifier ####################################################
+const QString& SimpleRGB::getIdentifier() const
+{
+   return SimpleRGB::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& SimpleRGB::getDescription() const
+{
+   return SimpleRGB::Description;
+}
+
+
+// ###### Create new instance ###############################################
+ColorSchemeInterface* SimpleRGB::makeNewInstance()
+{
+   return new SimpleRGB();
+}
+
+
+// ###### Make color from wave-length #######################################
 unsigned int SimpleRGB::rgbFromWaveLength(const double wave)
 {
    double r = 0.0;
@@ -91,7 +120,8 @@ unsigned int SimpleRGB::rgbFromWaveLength(const double wave)
 }
 
 
+// ###### Get color for value ###############################################
 unsigned int SimpleRGB::getColor(const unsigned int value)
 {
-   return(ColorMap[value % ColorMapSize]);
+   return ColorMap[value % ColorMapSize];
 }

@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,8 @@
 
 #include "imagedisplay.h"
 
+#include <QApplication>
+#include <QClipboard>
 #include <QResizeEvent>
 #include <QMouseEvent>
 #include <QPaintEvent>
@@ -71,12 +73,33 @@ bool ImageDisplay::reset(const unsigned int width, const unsigned int height)
    MarkX2  = 0;
    MarkY2  = 0;
    Marking = false;
-   return(true);
+   return true;
 }
 
 
-// ###### Draw marking rect #################################################
-void ImageDisplay::drawMarkerRect(QPainter* painter, int x1, int y1, int x2, int y2, bool draw)
+// ###### Copy to clipboard #################################################
+void ImageDisplay::copyToClipboard()
+{
+   QApplication::clipboard()->setImage(*Image);
+}
+
+
+// ###### Copy selection to clipboard #######################################
+void ImageDisplay::copySelectionToClipboard()
+{
+   if(Marking) {
+      QImage selection(Image->copy(MarkX1, MarkY1,
+                                   MarkX2 - MarkX1, MarkY2 - MarkY1));
+      QApplication::clipboard()->setImage(selection);
+   }
+}
+
+
+// ###### Draw marking rectangle ############################################
+void ImageDisplay::drawMarkerRect(QPainter* painter,
+                                  const int x1, const int y1,
+                                  const int x2, const int y2,
+                                  const bool draw)
 {
    const int x  = std::min(x1, x2) - OffsetX;
    const int y  = std::min(y1, y2) - OffsetY;
@@ -159,7 +182,7 @@ void ImageDisplay::mouseReleaseEvent(QMouseEvent* mouseEvent)
       update();
    }
    if(mouseEvent->button() & Qt::MiddleButton) {
-      zoom();
+      emit zoomInToSelection();
    }
 }
 
@@ -168,19 +191,26 @@ void ImageDisplay::mouseReleaseEvent(QMouseEvent* mouseEvent)
 void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 {
    if((Marking) && (LastOffsetUpdate.elapsed() >= 50)) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+      const int mouseX = (int)mouseEvent->position().x();
+      const int mouseY = (int)mouseEvent->position().y();
+#else
+      const int mouseX = mouseEvent->x();
+      const int mouseY = mouseEvent->y();
+#endif
       int movex = 0;
       int movey = 0;
-      if(mouseEvent->x() < 0) {
-         movex = std::max(mouseEvent->x(), -((int)OffsetX));
+      if(mouseX < 0) {
+         movex = std::max(mouseX, -((int)OffsetX));
       }
-      else if(mouseEvent->x() >= width()) {
-         movex = std::min(mouseEvent->x() - width(), Image->width() - width() - (int)OffsetX);
+      else if(mouseX >= width()) {
+         movex = std::min(mouseX - width(), Image->width() - width() - (int)OffsetX);
       }
-      if(mouseEvent->y() < 0) {
-         movey = std::max(mouseEvent->y(), -((int)OffsetY));
+      if(mouseY < 0) {
+         movey = std::max(mouseY, -((int)OffsetY));
       }
-      else if(mouseEvent->y() >= height()) {
-         movey = std::min(mouseEvent->y() - height(), Image->height() - height() - (int)OffsetY);
+      else if(mouseY >= height()) {
+         movey = std::min(mouseY - height(), Image->height() - height() - (int)OffsetY);
       }
 
       if((movex != 0) || (movey != 0)) {
@@ -194,17 +224,44 @@ void ImageDisplay::mouseMoveEvent(QMouseEvent* mouseEvent)
 }
 
 
+// ###### Handle mouse wheel event for zooming #################################
+void ImageDisplay::wheelEvent(QWheelEvent* wheelEvent)
+{
+   const QPoint& wheelDelta = wheelEvent->pixelDelta();
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+   const int mouseX = (int)wheelEvent->position().x();
+   const int mouseY = (int)wheelEvent->position().y();
+#else
+   const int mouseX = wheelEvent->x();
+   const int mouseY = wheelEvent->y();
+#endif
+   // Mouse cursor's position relative to center of image display:
+   const int deltaX = (width()  / 2) - mouseX;
+   const int deltaY = (height() / 2) - mouseY;
+
+   emit zoomAdjustment(deltaX, deltaY, wheelDelta.y());
+   wheelEvent->accept();
+}
+
+
 // ###### Get (x,y)-position for marking rect ###############################
 void ImageDisplay::getMarkPosition(QMouseEvent* mouseEvent, int& x, int& y)
 {
-   x = mouseEvent->x() + (int)OffsetX;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+   const int mouseX = (int)mouseEvent->position().x();
+   const int mouseY = (int)mouseEvent->position().y();
+#else
+   const int mouseX = mouseEvent->x();
+   const int mouseY = mouseEvent->y();
+#endif
+   x = mouseX + (int)OffsetX;
    if(x < 0) {
       x = 0;
    }
    if(x >= Image->width()) {
       x = Image->width() - 1;
    }
-   y = mouseEvent->y() + (int)OffsetY;
+   y = mouseY + (int)OffsetY;
    if(y < 0) {
       y = 0;
    }

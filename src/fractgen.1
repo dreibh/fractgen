@@ -1,5 +1,5 @@
 .\" Fractal Generator
-.\" Copyright (C) 2003-2024 by Thomas Dreibholz
+.\" Copyright (C) 2003-2025 by Thomas Dreibholz
 .\"
 .\" This program is free software: you can redistribute it and/or modify
 .\" it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 .\" Contact: thomas.dreibholz@gmail.com
 .\"
 .\" ###### Setup ############################################################
-.Dd April 20, 2012
+.Dd November 12, 2024
 .Dt fractgen 1
 .Os fractgen
 .\" ###### Name #############################################################
@@ -27,6 +27,9 @@
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
 .Nm fractgen
+.Op fsf_file ...
+.Op Fl h | Fl Fl help
+.Op Fl v | Fl Fl version
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
 .Nm fractgen
@@ -38,7 +41,27 @@
  The intention of this program is to generate graphics to be post-processed
  by other image tools, e.g. in order to generate nice screen backgrounds or
  book covers.
+.br
+ This is the Qt version of FractGen.
 .Pp
+.\" ###### Arguments ########################################################
+.Sh ARGUMENTS
+The following argument may be provided:
+.Bl -tag -width indent
+.It Fl h | Fl Fl help
+Show arguments help and exit.
+.It Fl v | Fl Fl version
+Show version and exit.
+.El
+.\" ###### Examples #########################################################
+.Sh EXAMPLES
+.Bl -tag -width indent
+.It fractgen -h
+.It fractgen -v
+.It fractgen fractgen.fsf
+.It fractgen beta01.fsf beta02.fsf beta03.fsf
+.It fractgen examples/alpha*.fsf
+.El
 .\" ###### Authors ##########################################################
 .Sh AUTHORS
 Thomas Dreibholz

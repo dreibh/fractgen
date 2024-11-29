@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,16 +32,20 @@ FractalCalculationThread::FractalCalculationThread(QObject*                   pa
                                                    ColorSchemeInterface*      colorScheme,
                                                    FractalBuffer*             buffer,
                                                    QImage*                    image,
-                                                   unsigned int               progStep)
+                                                   const unsigned int         progStep,
+                                                   const unsigned int         interleave,
+                                                   const unsigned int         offset)
+ : Parent(parent),
+   Algorithm(algorithm),
+   ColorScheme(colorScheme),
+   Buffer(buffer),
+   Image(image),
+   ProgStep(progStep),
+   Interleave(interleave),
+   Offset(offset),
+   MaxIterations(*(Algorithm->getMaxIterations()))
 {
-   Parent        = parent;
-   Algorithm     = algorithm;
-   ColorScheme   = colorScheme;
-   Buffer        = buffer;
-   Image         = image;
-   ProgStep      = progStep;
-   MaxIterations = *Algorithm->getMaxIterations();
-   Stop          = false;
+   Stop = false;
 }
 
 
@@ -58,29 +62,32 @@ void FractalCalculationThread::run()
    const unsigned int width  = Image->width();
    const unsigned int height = Image->height();
 
-   for(unsigned int step = ProgStep;step >= 1;step /= 2) {
-      for(unsigned int y = 0;y < height;y += step) {
-         for(unsigned int x = 0;x < width;x += step) {
-            if(Buffer->getPoint(x, y) == (unsigned int)~0) {
-               const unsigned int value = Algorithm->calculatePoint(x, y);
-               Buffer->setPoint(x, y, value);
+   for(unsigned int step = ProgStep; step >= 1; step /= 2) {
+      for(unsigned int iy = Offset * ProgStep; iy < height; iy += ProgStep * Interleave) {
+         for(unsigned int y = iy; y < iy + ProgStep; y += step) {
+            for(unsigned int x = 0; x < width; x += step) {
+               if(Buffer->getPoint(x, y) == (unsigned int)~0) {
+                  const unsigned int value = Algorithm->calculatePoint(x, y);
+                  Buffer->setPoint(x, y, value);
 
-               const unsigned int rgb = ColorScheme->getColor(value);
-               for(unsigned int vy = y;vy < std::min(y + step, height);vy++) {
-                  for(unsigned int vx = x;vx < std::min(x + step, width);vx++) {
-                     Image->setPixel(vx, vy, rgb);
+                  const unsigned int rgb = ColorScheme->getColor(value);
+                  for(unsigned int vy = y; vy < std::min(y + step, height); vy++) {
+                     for(unsigned int vx = x; vx < std::min(x + step, width); vx++) {
+                        Image->setPixel(vx, vy, rgb);
+                     }
                   }
-               }
-               if(Stop) {
-                  goto finished;
+                  if(Stop) {
+                     goto finished;
+                  }
                }
             }
          }
       }
-      QCoreApplication::postEvent(Parent, new QEvent(QEvent::User));
+      emit calculationProgressed(this, false);
    }
+
 finished:
-   QCoreApplication::postEvent(Parent, new QEvent((QEvent::Type)(QEvent::User + 1)));
+   emit calculationProgressed(this, true);
 }
 
 

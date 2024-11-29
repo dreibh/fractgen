@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,15 +23,20 @@
 #include "mandelbrotn.h"
 #include "doubleconfigentry.h"
 
-#include <math.h>
+// #include <math.h>
 
-
-MandelbrotN* MandelbrotN::Registration = new MandelbrotN();
+const QString MandelbrotN::Identifier(QStringLiteral("MandelbrotN"));
+const QString MandelbrotN::Description(QStringLiteral("MandelbrotN z[i+1]=z[i]^N-c"));
+const bool MandelbrotN::Registered =
+   FractalAlgorithmInterface::registerClass(
+      MandelbrotN::Identifier,
+      MandelbrotN::Description,
+      &MandelbrotN::makeNewInstance
+   );
 
 
 // ###### Constructor #######################################################
-MandelbrotN::MandelbrotN(const char* identifier, const char* name)
-   : Mandelbrot(identifier, name)
+MandelbrotN::MandelbrotN()
 {
    N = 4.0;
    ConfigEntries.append(new DoubleConfigEntry(&N, "N"));
@@ -41,6 +46,26 @@ MandelbrotN::MandelbrotN(const char* identifier, const char* name)
 // ###### Destructor ########################################################
 MandelbrotN::~MandelbrotN()
 {
+}
+
+
+// ###### Get identifier ####################################################
+const QString& MandelbrotN::getIdentifier() const
+{
+   return MandelbrotN::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& MandelbrotN::getDescription() const
+{
+   return MandelbrotN::Description;
+}
+
+// ###### Create new instance ###############################################
+FractalAlgorithmInterface* MandelbrotN::makeNewInstance()
+{
+   return new MandelbrotN();
 }
 
 
@@ -56,8 +81,8 @@ unsigned int MandelbrotN::calculatePoint(const unsigned int x,
    for(i = 0;i < MaxIterations;i++) {
       z = pow(z, (int)rint(N)) - c;
       if(z.real() * z.real() + z.imag() * z.imag() >= 2.0) {
-         return(i);
+         return i;
       }
    }
-   return(i);
+   return i;
 }

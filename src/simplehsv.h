@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,19 +25,28 @@
 
 #include <colorschemeinterface.h>
 
-/**
-  *@author Thomas Dreibholz
-  */
+
 class SimpleHSV : public ColorSchemeInterface  {
+   // ====== Constructor/Destructor =========================================
    public:
-   SimpleHSV(const char* identifier = "SimpleHSV",
-             const char* name       = "Simple HSV");
+   SimpleHSV();
    ~SimpleHSV();
 
+   // ====== Color scheme information =======================================
+   virtual const QString& getIdentifier()  const override;
+   virtual const QString& getDescription() const override;
+
+   // ====== The actual coloring rule =======================================
    virtual unsigned int getColor(const unsigned int value) override;
 
+   // ====== Private attributes =============================================
    private:
-   static SimpleHSV* Registration;
+   static ColorSchemeInterface* makeNewInstance();
+   static unsigned int rgbFromWaveLength(const double wave);
+
+   static const QString Identifier;
+   static const QString Description;
+   static const bool    Registered;
 };
 
 #endif

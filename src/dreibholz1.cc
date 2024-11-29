@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,11 +21,6 @@
  */
 
 #include "dreibholz1.h"
-
-// #include <iostream>
-
-
-Dreibholz1* Dreibholz1::Registration = new Dreibholz1();
 
 /*
  ---- Tests ----
@@ -163,9 +158,18 @@ Dreibholz1* Dreibholz1::Registration = new Dreibholz1();
 */
 
 
+QString Dreibholz1::Identifier  = QStringLiteral("Dreibholz1");
+QString Dreibholz1::Description = QStringLiteral("Dreibholz1 Test");
+const bool Dreibholz1::Registered =
+   FractalAlgorithmInterface::registerClass(
+      Dreibholz1::Identifier,
+      Dreibholz1::Description,
+      &Dreibholz1::makeNewInstance
+   );
+
+
 // ###### Constructor #######################################################
-Dreibholz1::Dreibholz1(const char* identifier, const char* name)
-   : FractalAlgorithmInterface(identifier, name)
+Dreibholz1::Dreibholz1()
 {
    // ConfigEntries.append(new DoubleConfigEntry(&N, "N"));
 }
@@ -177,17 +181,38 @@ Dreibholz1::~Dreibholz1()
 }
 
 
+// ###### Get identifier ####################################################
+const QString& Dreibholz1::getIdentifier() const
+{
+   return Dreibholz1::Identifier;
+}
+
+
+// ###### Get description ###################################################
+const QString& Dreibholz1::getDescription() const
+{
+   return Dreibholz1::Description;
+}
+
+
+// ###### Create new instance ###############################################
+FractalAlgorithmInterface* Dreibholz1::makeNewInstance()
+{
+   return new Dreibholz1();
+}
+
+
 // ###### Get default for C1 ################################################
 std::complex<double> Dreibholz1::defaultC1() const
 {
-   return(std::complex<double>(-3.5, 3.5));
+   return std::complex<double>(-3.5, 3.5);
 }
 
 
 // ###### Get default for C2 ################################################
 std::complex<double> Dreibholz1::defaultC2() const
 {
-   return(std::complex<double>(3.5, -3.5));
+   return std::complex<double>(3.5, -3.5);
 }
 
 
@@ -222,9 +247,9 @@ unsigned int Dreibholz1::calculatePoint(const unsigned int x,
       z = cos(exp(z3));
 
       if(z.real() * z.real() + z.imag() * z.imag() >= 2.0) {
-         return(i);
+         return i;
       }
    }
 
-   return(i);
+   return i;
 }

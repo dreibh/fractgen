@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,57 +23,71 @@
 #ifndef FRACTALALGORITHMINTERFACE_H
 #define FRACTALALGORITHMINTERFACE_H
 
+#include "classregistry.h"
 #include "configentry.h"
 
-#include <QList>
 #include <complex>
 
 
-/**
-  *@author Thomas Dreibholz
-  */
 class FractalAlgorithmInterface {
+   // ====== Constructor/Destructor =========================================
    public:
-   FractalAlgorithmInterface(const char* identifier, const char* name);
+   FractalAlgorithmInterface();
    virtual ~FractalAlgorithmInterface();
-   inline const char* getIdentifier() { return(Identifier); }
-   inline const char* getName() const { return(Name); }
 
+   // ====== Algorithm information ==========================================
+   virtual const QString& getIdentifier()  const = 0;
+   virtual const QString& getDescription() const = 0;
+
+   // ====== Algorithm parameters ===========================================
    virtual std::complex<double> defaultC1() const = 0;
    virtual std::complex<double> defaultC2() const = 0;
-   virtual int defaultMaxIterations() const;
+   virtual int defaultMaxIterations()       const;
 
-   inline const std::complex<double> getC1() { return(C1); }
-   inline const std::complex<double> getC2() { return(C2); }
-   virtual void configure(unsigned int         width,
-                          unsigned int         height,
-                          std::complex<double> c1,
-                          std::complex<double> c2,
-                          unsigned int         maxIterations);
-   inline unsigned int* getMaxIterations() { return(&MaxIterations); }
-   inline QList<ConfigEntry*>* getConfigEntries() { return(&ConfigEntries); }
-   virtual void changeSize(int X, int Y);
+   inline const std::complex<double> getC1() { return C1; }
+   inline const std::complex<double> getC2() { return C2; }
+   virtual void configure(const unsigned int          width,
+                          const unsigned int          height,
+                          const std::complex<double>& c1,
+                          const std::complex<double>& c2,
+                          const unsigned int          maxIterations);
+   inline unsigned int*        getMaxIterations() { return &MaxIterations; }
+   inline QList<ConfigEntry*>* getConfigEntries() { return &ConfigEntries; }
+   virtual void changeSize(const unsigned int width,
+                           const unsigned int height);
+
+   // ====== The actual calculation =========================================
    virtual unsigned int calculatePoint(const unsigned int x,
                                        const unsigned int y) = 0;
 
-   static FractalAlgorithmInterface* getAlgorithm(const unsigned int index);
-   static FractalAlgorithmInterface* getAlgorithmByIdentifier(const char* name);
+   // ====== Algorithm registry =============================================
+   inline static const QMap<QString, ClassRegistry::Registration*>& getAlgorithms() {
+      return Registry->getClassMap();
+   }
+   inline static FractalAlgorithmInterface* makeAlgorithmInstance(const QString& identifier) {
+      return (FractalAlgorithmInterface*)Registry->makeNewInstance(identifier);
+   }
 
+   // ====== Protected methods and attributes ===============================
    protected:
-   const char*          Name;
-   const char*          Identifier;
-   unsigned int         Width;
-   unsigned int         Height;
-   unsigned int         MaxIterations;
-   std::complex<double> C1;
-   std::complex<double> C2;
-   double               StepX;
-   double               StepY;
-   QList<ConfigEntry*>  ConfigEntries;
+   // ------ Algorithm registry ---------------------------------------------
+   static bool registerClass(const QString& identifier,
+                             const QString& description,
+                             FractalAlgorithmInterface* (*makeInstanceFunction)());
 
+   // ------ Algorithm parameters -------------------------------------------
+   unsigned int          Width;
+   unsigned int          Height;
+   unsigned int          MaxIterations;
+   std::complex<double>  C1;
+   std::complex<double>  C2;
+   double                StepX;
+   double                StepY;
+   QList<ConfigEntry*>   ConfigEntries;
+
+   // ====== Private attributes =============================================
    private:
-   static QList<FractalAlgorithmInterface*>* AlgorithmList;
-   static bool                               Updated;
+   static ClassRegistry* Registry;
 };
 
 #endif

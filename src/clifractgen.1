@@ -1,0 +1,77 @@
+.\" Fractal Generator
+.\" Copyright (C) 2003-2025 by Thomas Dreibholz
+.\"
+.\" This program is free software: you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation, either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program.  If not, see <http://www.gnu.org/licenses/>.
+.\"
+.\" Contact: thomas.dreibholz@gmail.com
+.\"
+.\" ###### Setup ############################################################
+.Dd November 12, 2024
+.Dt clifractgen 1
+.Os clifractgen
+.\" ###### Name #############################################################
+.Sh NAME
+.Nm clifractgen
+.Nd Fractal Generator
+.\" ###### Synopsis #########################################################
+.Sh SYNOPSIS
+.Nm clifractgen
+.Op fsf_file output file
+.Op Fl h | Fl Fl help
+.Op Fl v | Fl Fl version
+.Op Fl W Ar image_width | Fl Fl width Ar image_width
+.Op Fl H Ar image_height | Fl Fl height Ar image_height
+.Op Fl M Ar max_iterations | Fl Fl maxIterations Ar max_iterations
+.\" ###### Description ######################################################
+.Sh DESCRIPTION
+.Nm clifractgen
+ FractGen is a simple Qt-based fractal generator program for Mandelbrot
+ fractals. The image size is only limited by virtual memory. It is possible
+ to zoom into images. Image parameters can be saved in XML files and loaded
+ from XML files. Calculated images can be exported as PNG files.
+.br
+ The intention of this program is to generate graphics to be post-processed
+ by other image tools, e.g. in order to generate nice screen backgrounds or
+ book covers.
+.br
+ This is the command-line version of FractGen. This program can be used to
+ calculate files created by FractGen on machines without GUI, e.g. to produce
+ high-resolution images on a powerful server.
+.Pp
+.\" ###### Arguments ########################################################
+.Sh ARGUMENTS
+The following argument may be provided:
+.Bl -tag -width indent
+.It Fl h | Fl Fl help
+Show arguments help and exit.
+.It Fl v | Fl Fl version
+Show version and exit.
+.El
+.\" ###### Examples #########################################################
+.Sh EXAMPLES
+.Bl -tag -width indent
+.It clifractgen -h
+.It clifractgen -v
+.It clifractgen fractgen.fsf fractgen-uhd.png -W 3840 -H 2160 -M 10000
+.It clifractgen alpha05.fsf alpha05.png --width 3840 --height 2160 --max-iterations 10000
+.It clifractgen beta07.fsf beta07-A3.png -W21000 -H14850 -M10000
+.El
+.\" ###### Authors ##########################################################
+.Sh AUTHORS
+Thomas Dreibholz
+.br
+https://www.nntb.no/~dreibh/fractalgenerator
+.br
+mailto://thomas.dreibholz@gmail.com
+.br

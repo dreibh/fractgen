@@ -2,7 +2,7 @@
  * ====                   FRACTAL GRAPHICS GENERATOR                     ====
  * ==========================================================================
  *
- * Copyright (C) 2003-2024 by Thomas Dreibholz
+ * Copyright (C) 2003-2025 by Thomas Dreibholz
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,16 +23,16 @@
 #ifndef FRACTALGENERATOR_H
 #define FRACTALGENERATOR_H
 
-
-#include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtPrintSupport/QPrinter>
 #ifdef WITH_KDE
-#include <KXmlGui/KXmlGuiWindow>
+#include <KXmlGuiWindow>
 #endif
+
 
 class FractalGeneratorDoc;
 class FractalGeneratorView;
+
 
 class FractalGeneratorApp
 #ifndef WITH_KDE
@@ -45,45 +45,49 @@ class FractalGeneratorApp
 
    friend class FractalGeneratorView;
 
+   // ====== Constructor/Destructor =========================================
    public:
    FractalGeneratorApp(QWidget* parent, const QString& fileName = QString());
    ~FractalGeneratorApp();
 
-   protected:
-   void initActions();
-   void initStatusBar();
-   void initDocument();
-   void initView();
-
+   // ====== Slots ==========================================================
    public Q_SLOTS:
+   void slotFileNew();
    void slotFileOpen();
    void slotFileSave();
-   void slotFileExportImage();
    void slotFileSaveAs();
+   void slotFileExportImage();
    void slotFileClose();
    void slotFilePrint();
    void slotFileQuit();
    void slotHelpAbout();
 
+   void slotCopyToClipboard();
    void slotViewSetImageSize();
+   void slotViewSetImageSize(QAction* action);
+   void slotViewSwapWidthHeight();
    void slotViewConfigureAlgorithm();
    void slotViewSetFractalAlgorithm(QAction* action);
    void slotViewSetColorScheme(QAction* action);
 
    void slotUpdateFileName(const QString& fileName);
-   void slotUpdateFractalAlgorithm();
+   void slotUpdateAlgorithm();
    void slotUpdateColorScheme();
    void slotUpdateZoomBackPossible();
    void slotUpdateZoomInPossible();
 
+   // ====== Private attributes =============================================
    private:
-   FractalGeneratorView* View;
    FractalGeneratorDoc*  Document;
+   FractalGeneratorView* View;
+   QAction*              ViewCopySelection;
    QAction*              ViewZoomIn;
    QAction*              ViewZoomBack;
    QList<QAction*>       FractalAlgorithmActionList;
    QList<QAction*>       ColorSchemeActionList;
    QPrinter              Printer;
+   QList<QAction*>       FormatItems;
+   QAction*              CustomSizeItem;
 };
 
-#endif // FRACTALGENERATOR_H
+#endif
