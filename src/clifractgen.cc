@@ -65,9 +65,9 @@ int main(int argc, char *argv[])
 
    QCommandLineOption maxIterationsOption(QStringList()
                                             << QStringLiteral("M")
-                                            << QStringLiteral("maxIterations"),
+                                            << QStringLiteral("max-iterations"),
                                           QCoreApplication::translate("main", "Max Interations"));
-   maxIterationsOption.setValueName(QStringLiteral("maxIterations"));
+   maxIterationsOption.setValueName(QStringLiteral("max-iterations"));
    maxIterationsOption.setDefaultValue(QStringLiteral("250"));
    parser.addOption(maxIterationsOption);
 
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
    parser.process(application);
    const QStringList  args          = parser.positionalArguments();
    if(args.size() < 2) {
-      std::cerr << "Usage: " << argv[0]  << " fsf_file output_file [-h | --help] [-v | --version] [-W image_width | --width image_width] [-H image_height | --height image_height] [-M max_iterations | --maxIterations max_iterations]\n";
+      std::cerr << "Usage: " << argv[0]  << " fsf_file output_file [-h | --help] [-v | --version] [-W image_width | --width image_width] [-H image_height | --height image_height] [-M max_iterations | --max-iterations max_iterations]\n";
       return 0;
    }
    const QString&     inputFile     = args[0];
