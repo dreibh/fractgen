@@ -1,2 +1,2 @@
 Tests: 10-clifractgen
-Depends: clifractgen
+Depends: clifractgen graphicsmagick

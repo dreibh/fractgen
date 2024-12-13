@@ -24,5 +24,6 @@
 set -eu
 
 clifractgen /usr/share/fractgen/examples/alpha05.fsf alpha05.png --width 640 --height 480 --max-iterations 256
+gm identify alpha05.png
 
 echo "Test passed!"
