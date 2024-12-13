@@ -1,1 +1,2 @@
-Tests:
+Tests: 10-clifractgen
+Depends: clifractgen
