@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 2.2.0~beta4
+Version: 2.2.0
 Release: 1
 Summary: FractGen Fractal Generator (Qt version)
 Group: Applications/Multimedia
@@ -140,6 +140,8 @@ the resulting images.
 
 
 %changelog
+* Fri Dec 13 2024 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 2.2.0
+- New upstream release.
 * Wed Dec 06 2023 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 2.1.14
 - New upstream release.
 * Sun Jan 22 2023 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 2.1.13
