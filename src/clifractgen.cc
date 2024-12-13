@@ -74,6 +74,10 @@ int main(int argc, char *argv[])
    // ====== Check command-line arguments ===================================
    parser.process(application);
    const QStringList  args          = parser.positionalArguments();
+   if(args.size() < 2) {
+      std::cerr << "Usage: " << argv[0]  << " fsf_file output_file [-h | --help] [-v | --version] [-W image_width | --width image_width] [-H image_height | --height image_height] [-M max_iterations | --maxIterations max_iterations]\n";
+      return 0;
+   }
    const QString&     inputFile     = args[0];
    const QString&     outputFile    = args[1];
    const unsigned int width         = parser.value(widthOption).toUInt();
@@ -106,6 +110,9 @@ int main(int argc, char *argv[])
       else {
          std::cout << "failed!\n";
       }
+   }
+   else {
+      std::cerr << "ERROR: Failed to open " << inputFile.toLocal8Bit().data() << "!\n";
    }
    return 1;
 }
