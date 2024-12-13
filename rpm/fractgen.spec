@@ -10,10 +10,17 @@ Source: https://www.nntb.no/~dreibh/fractalgenerator/download/%{name}-%{version}
 AutoReqProv: on
 BuildRequires: cmake
 BuildRequires: extra-cmake-modules
+%if 0%{?fedora_version} >= 40
 BuildRequires: kf6-kcoreaddons-devel
 BuildRequires: kf6-kxmlgui-devel
 BuildRequires: qt6-linguist
 BuildRequires: qt6-qtbase-devel
+%else
+BuildRequires: kf5-kcoreaddons-devel
+BuildRequires: kf5-kxmlgui-devel
+BuildRequires: qt5-linguist
+BuildRequires: qt5-qtbase-devel
+%endif
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 Requires: %{name}-common = %{version}-%{release}
