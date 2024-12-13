@@ -1,3 +1,9 @@
+commit 98da3d066eee198aa783e4d1d7f3955d8410dc98
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 13 21:32:35 2024 +0100
+
+    New release fractgen-2.2.0.
+
 commit 4758f0dec2ee601cbec588b33ed712bce54640b4
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Dec 13 18:05:09 2024 +0100
