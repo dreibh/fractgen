@@ -1,2 +1,2 @@
 Tests: 10-clifractgen
-Depends: clifractgen graphicsmagick
+Depends: clifractgen, fractgen-examples, graphicsmagick
