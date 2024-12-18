@@ -7,14 +7,11 @@ Vcs-Git: https://github.com/dreibh/fractgen.git
 Vcs-Browser: https://github.com/dreibh/fractgen
 Build-Depends: cmake,
                debhelper (>= 12),
-               extra-cmake-modules (<< 6.0.0) | libkf6coreaddons-dev,
-               extra-cmake-modules (<< 6.0.0) | libkf6xmlgui-dev,
-               extra-cmake-modules (<< 6.0.0) | qt6-base-dev,
-               extra-cmake-modules (<< 6.0.0) | qt6-l10n-tools,
-               extra-cmake-modules (>= 6.0.0) | libkf5coreaddons-dev,
-               extra-cmake-modules (>= 6.0.0) | libkf5xmlgui-dev,
-               extra-cmake-modules (>= 6.0.0) | qtbase5-dev,
-               extra-cmake-modules (>= 6.0.0) | qttools5-dev-tools
+               extra-cmake-modules,
+               libkf6coreaddons-dev,
+               libkf6xmlgui-dev,
+               qt6-base-dev,
+               qt6-l10n-tools
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
