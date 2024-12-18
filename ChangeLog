@@ -1,3 +1,40 @@
+commit da291e3447f0b6ec8aaff304ab10f4baf3ca634f
+Merge: ea642c0 befd9a7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 18 22:00:14 2024 +0100
+
+    Merge branch 'master' of https://github.com/dreibh/fractgen
+
+commit ea642c0bb58619ee0b9ead0138582558fdebd118
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 18 21:40:10 2024 +0100
+
+    Improved test.
+
+commit befd9a77a3a654f325a683ae108b77967e9b4fc0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 18 21:39:10 2024 +0100
+
+    Added some more examples.
+
+commit b249282803cf35e4a862eede82fba13ca5f39f62
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 18 20:30:33 2024 +0100
+
+    Bugfix: QTranslator.load() needs installation prefix to find the translation files.
+
+commit 1418976a0121f344d3c369e223aa465e22ab058a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 13 23:11:28 2024 +0100
+
+    Added example.
+
+commit 43f26f2f1165cc701e65cbdf7988652a220c8aee
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 13 22:57:52 2024 +0100
+
+    New release fractgen-3.0.0.
+
 commit 98da3d066eee198aa783e4d1d7f3955d8410dc98
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Dec 13 21:32:35 2024 +0100
