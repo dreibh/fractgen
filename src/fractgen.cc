@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
    QTranslator applicationTranslator;
    if(!applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name())) {
       if(!applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name(),
-                                     QStringLiteral("%%PREFIX%%/share/fractgen"))) {
+                                     QStringLiteral(FRACTGEN_INSTALL_PREFIX) + QStringLiteral("/share/fractgen"))) {
          puts("Failed to load translations!");
       }
    }
