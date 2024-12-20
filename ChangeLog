@@ -1,3 +1,27 @@
+commit 7673ec35eb7610e7c5d4933cc9d2cd2335510881
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 20 14:14:00 2024 +0100
+
+    Added some examples.
+
+commit e25fab71ab7062629e5c3a79db584a157535d35d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 20 14:10:41 2024 +0100
+
+    Configuration update.
+
+commit edaf6c1edda05ffb89c9d874cbcb4f94fd5a4339
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 18 22:20:34 2024 +0100
+
+    Debian dependency update.
+
+commit 61ddda27cbf9648dc0fbc56184df838914daf96f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 18 22:01:23 2024 +0100
+
+    New release fractgen-3.0.1.
+
 commit da291e3447f0b6ec8aaff304ab10f4baf3ca634f
 Merge: ea642c0 befd9a7
 Author: Thomas Dreibholz <dreibh@simula.no>
