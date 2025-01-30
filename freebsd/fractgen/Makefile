@@ -10,7 +10,9 @@ WWW=		https://www.nntb.no/~dreibh/fractalgenerator/
 LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		cmake compiler:c++14-lang desktop-file-utils shared-mime-info \
+BUILD_DEPENDS=  /usr/local/lib/qt6/bin/lrelease:devel/qt6-tools
+
+USES=		cmake compiler:c++17-lang desktop-file-utils shared-mime-info \
 		tar:xz qt:6
 USE_QT=		base
 
