@@ -11,9 +11,11 @@ LICENSE=	GPLv3+
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 BUILD_DEPENDS=  /usr/local/lib/qt6/bin/lrelease:devel/qt6-tools
+LIB_DEPENDS=	libGLX.so:graphics/libglvnd
 
 USES=		cmake compiler:c++17-lang desktop-file-utils shared-mime-info \
 		tar:xz qt:6
 USE_QT=		base
+USE_GL+=	gl opengl
 
 .include <bsd.port.mk>
