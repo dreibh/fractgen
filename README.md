@@ -36,7 +36,7 @@ sudo dnf install fractgen
 
 ### FreeBSD
 
-For ready-to-install FreeBSD packages of FractalGenerator, it is included in the ports collection, see [FreeBSD ports tree index of net/fractgen/](https://cgit.freebsd.org/ports/tree/net/fractgen/)!
+For ready-to-install FreeBSD packages of FractalGenerator, it is included in the ports collection, see [FreeBSD ports tree index of graphics/fractgen/](https://cgit.freebsd.org/ports/tree/graphics/fractgen/)!
 
 ```
 pkg install fractgen
@@ -45,7 +45,7 @@ pkg install fractgen
 Alternatively, to compile it from the ports sources:
 
 ```
-cd /usr/ports/net/fractgen
+cd /usr/ports/graphics/fractgen
 make
 make install
 ```
