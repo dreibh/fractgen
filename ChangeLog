@@ -1,3 +1,93 @@
+commit 560e4e6d44ff039615cfa18864d131f71008affb
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 12 22:45:38 2025 +0200
+
+    Updated year range in debian/copyright.
+
+commit 89efe2b6838ad3f059f180db812e0d9e31266739
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Apr 27 21:11:24 2025 +0200
+
+    Updated CI configuration
+
+commit f7b850de981b4150958bfb926955684fe80c5ff7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Apr 27 21:11:23 2025 +0200
+
+    Updated CI scripts
+
+commit 2152f5297d11d4f1177ce2c790dcd898b8f7acc3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Mar 5 13:46:08 2025 +0100
+
+    Fixed URLs.
+
+commit acff78c1944a1c98e4e8694759e348b07e4080e8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Mar 5 13:34:48 2025 +0100
+
+    Updated CI configuration
+
+commit 3b8b13b764b30df4433fbd75a7eb96f6f51bb1ef
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Mar 5 13:34:44 2025 +0100
+
+    Updated CI scripts
+
+commit b1ade536caba1d50fe7557db4a2ae665204ffb9f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Mar 5 13:20:40 2025 +0100
+
+    Improved README.md.
+
+commit 4245b8197ab169c00b384ccf44ca73aeade91ea5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Feb 17 20:53:56 2025 +0100
+
+    Another FreeBSD packaging update.
+
+commit 66a04cff6f7ce37ccad95cd4f9c66dd4e260280c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Feb 17 20:43:42 2025 +0100
+
+    FreeBSD packaging update.
+
+commit 24fc19a8a2684c464aa9f9b0d75ee4c1e9138bc0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jan 30 17:08:43 2025 +0100
+
+    FreeBSD packaging update.
+
+commit 501819357b54286e2310c5aa332f4173922e6378
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 20 16:11:51 2024 +0100
+
+    Updated test script.
+
+commit 5f1c39bbc764b347e26403564503d1ea26d19c32
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 20 16:11:09 2024 +0100
+
+    FreeBSD packaging update.
+
+commit b9fb133379b6f319c97bed490fc4fa7cce4ffcb3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 20 15:47:53 2024 +0100
+
+    A fix.
+
+commit 869cc9905b39786957d21b6003438bc49f2ce7cc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 20 15:46:48 2024 +0100
+
+    FreeBSD packaging update.
+
+commit 05badc89900c63f7942c058b22c75f7115c45a96
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 20 14:14:19 2024 +0100
+
+    New release fractgen-3.0.2.
+
 commit 7673ec35eb7610e7c5d4933cc9d2cd2335510881
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Dec 20 14:14:00 2024 +0100

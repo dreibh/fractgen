@@ -1,3 +1,10 @@
+fractgen (3.0.3-1ubuntu1) trixie; urgency=medium
+
+  * New upstream release.
+  * debian/control: Updated standards version to 4.7.2.
+
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Mon, 12 May 2025 22:50:45 +0200
+
 fractgen (3.0.2-1ubuntu1) trixie; urgency=medium
 
   * New upstream release.
