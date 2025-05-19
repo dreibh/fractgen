@@ -1,3 +1,29 @@
+commit ca0447d81e100c56230d52f14569a15dbcbd0f34
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 19 14:52:39 2025 -0400
+
+    Debian build fix for "pbuilder --twice":
+    * debian/source/include-binaries: added generated .qm files.
+    * debian/source/lintian-overrides: .qm files have very long lines.
+
+commit f548dd2d383521d8807d985926ceed82734449bd
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue May 13 11:40:49 2025 +0200
+
+    FreeBSD port update.
+
+commit 6d5b94ebd67e0be4f0ca33e1af72ad08d7027fc8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue May 13 11:35:12 2025 +0200
+
+    Updated FreeBSD port.
+
+commit 0bfa70acd17cb5c9ac314a0661082fef625508c2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 12 22:50:49 2025 +0200
+
+    New release fractgen-3.0.3.
+
 commit 560e4e6d44ff039615cfa18864d131f71008affb
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Mon May 12 22:45:38 2025 +0200
