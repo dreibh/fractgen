@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 3.0.3
+Version: 3.0.4~rc1
 Release: 1
 Summary: FractGen Fractal Generator (Qt version)
 Group: Applications/Multimedia

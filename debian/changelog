@@ -1,3 +1,11 @@
+fractgen (3.0.4~rc1-1ubuntu1) trixie; urgency=medium
+
+  * New upstream release.
+  * debian/source/include-binaries: added generated .qm files.
+  * debian/source/lintian-overrides: .qm files have very long lines.
+
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Mon, 19 May 2025 14:51:20 -0400
+
 fractgen (3.0.3-1ubuntu1) trixie; urgency=medium
 
   * New upstream release.
