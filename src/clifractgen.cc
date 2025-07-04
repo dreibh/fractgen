@@ -43,14 +43,14 @@ int main(int argc, char *argv[])
    parser.addHelpOption();
    parser.addVersionOption();
    parser.addPositionalArgument(QStringLiteral("input_file"),
-                                QCoreApplication::translate("main", "Input FSF file"));
+                                QCoreApplication::translate("main", "FSF input file."));
    parser.addPositionalArgument(QStringLiteral("output_file"),
-                                QCoreApplication::translate("main", "Output graphics file"));
+                                QCoreApplication::translate("main", "Graphics output file."));
 
    QCommandLineOption widthOption(QStringList()
                                      << QStringLiteral("W")
                                      << QStringLiteral("width"),
-                                  QCoreApplication::translate("main", "Width"));
+                                  QCoreApplication::translate("main", "Width."));
    widthOption.setValueName(QStringLiteral("width"));
    widthOption.setDefaultValue(QStringLiteral("1024"));
    parser.addOption(widthOption);
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
    QCommandLineOption heightOption(QStringList()
                                       << QStringLiteral("H")
                                       << QStringLiteral("height"),
-                                   QCoreApplication::translate("main", "Height"));
+                                   QCoreApplication::translate("main", "Height."));
    heightOption.setValueName(QStringLiteral("height"));
    heightOption.setDefaultValue(QStringLiteral("768"));
    parser.addOption(heightOption);
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
    QCommandLineOption maxIterationsOption(QStringList()
                                             << QStringLiteral("M")
                                             << QStringLiteral("max-iterations"),
-                                          QCoreApplication::translate("main", "Max Interations"));
+                                          QCoreApplication::translate("main", "Maximum number of iterations."));
    maxIterationsOption.setValueName(QStringLiteral("max-iterations"));
    maxIterationsOption.setDefaultValue(QStringLiteral("250"));
    parser.addOption(maxIterationsOption);

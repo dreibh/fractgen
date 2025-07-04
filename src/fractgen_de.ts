@@ -309,28 +309,33 @@
     <name>main</name>
     <message>
         <location filename="clifractgen.cc" line="46"/>
-        <source>Input FSF file</source>
-        <translation type="unfinished"></translation>
+        <source>FSF input file.</source>
+        <oldsource>FSF input file</oldsource>
+        <translation>FSF-Eingabedatei.</translation>
     </message>
     <message>
         <location filename="clifractgen.cc" line="48"/>
-        <source>Output graphics file</source>
-        <translation type="unfinished"></translation>
+        <source>Graphics output file.</source>
+        <oldsource>Graphics output file</oldsource>
+        <translation>Grafikausgabedatei.</translation>
     </message>
     <message>
         <location filename="clifractgen.cc" line="53"/>
-        <source>Width</source>
-        <translation type="unfinished"></translation>
+        <source>Width.</source>
+        <oldsource>Width</oldsource>
+        <translation>Breite.</translation>
     </message>
     <message>
         <location filename="clifractgen.cc" line="61"/>
-        <source>Height</source>
-        <translation type="unfinished"></translation>
+        <source>Height.</source>
+        <oldsource>Height</oldsource>
+        <translation>Höhe.</translation>
     </message>
     <message>
         <location filename="clifractgen.cc" line="69"/>
-        <source>Max Interations</source>
-        <translation type="unfinished"></translation>
+        <source>Maximum number of iterations.</source>
+        <oldsource>Maximum number of iterations</oldsource>
+        <translation>Maximale Anzahl von Iterationen.</translation>
     </message>
 </context>
 </TS>
