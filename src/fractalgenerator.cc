@@ -99,39 +99,39 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    // ====== Create File menu ===============================================
    QMenu* fileMenu = menuBar()->addMenu(tr("&File"));
    Q_CHECK_PTR(fileMenu);
-   fileMenu->addAction(tr("&New"), this, SLOT(slotFileNew()), QKeySequence(QKeySequence::New));
-   fileMenu->addAction(tr("&Open"), this, SLOT(slotFileOpen()), QKeySequence(QKeySequence::Open));
-   fileMenu->addAction(tr("&Save"), this, SLOT(slotFileSave()), QKeySequence(QKeySequence::Save));
-   fileMenu->addAction(tr("Save As ..."), this, SLOT(slotFileSaveAs()));
+   fileMenu->addAction(tr("&New"),        QKeySequence(QKeySequence::New),    this, SLOT(slotFileNew()));
+   fileMenu->addAction(tr("&Open"),       QKeySequence(QKeySequence::Open),   this, SLOT(slotFileOpen()));
+   fileMenu->addAction(tr("&Save"),       QKeySequence(QKeySequence::Save),   this, SLOT(slotFileSave()));
+   fileMenu->addAction(tr("Save As ..."), QKeySequence(QKeySequence::SaveAs), this, SLOT(slotFileSaveAs()));
    fileMenu->addSeparator();
-   fileMenu->addAction(tr("&Export ..."), this, SLOT(slotFileExportImage()), QKeySequence(Qt::CTRL | Qt::Key_X));
-   fileMenu->addAction(tr("&Print ..."), this, SLOT(slotFilePrint()), QKeySequence(QKeySequence::Print));
+   fileMenu->addAction(tr("&Export ..."), QKeySequence(Qt::CTRL | Qt::Key_X), this, SLOT(slotFileExportImage()));
+   fileMenu->addAction(tr("&Print ..."),  QKeySequence(QKeySequence::Print),  this, SLOT(slotFilePrint()));
    fileMenu->addSeparator();
-   fileMenu->addAction(tr("&Close"), this, SLOT(slotFileClose()), QKeySequence(QKeySequence::Close));
-   fileMenu->addAction(tr("&Quit"), this, SLOT(slotFileQuit()), QKeySequence(Qt::CTRL | Qt::Key_Q));
+   fileMenu->addAction(tr("&Close"),      QKeySequence(QKeySequence::Close),  this, SLOT(slotFileClose()));
+   fileMenu->addAction(tr("&Quit"),       QKeySequence(QKeySequence::Quit),   this, SLOT(slotFileQuit()));
 
    // ====== Create View menu ===============================================
    QMenu* viewMenu = menuBar()->addMenu(tr("&View"));
    Q_CHECK_PTR(viewMenu);
-   viewMenu->addAction(tr("&Copy"), View, SLOT(copyToClipboard()), QKeySequence(Qt::CTRL | Qt::Key_C));
-   ViewCopySelection = viewMenu->addAction(tr("Copy Selection"), View, SLOT(copySelectionToClipboard()), QKeySequence(Qt::CTRL | Qt::Key_X));
+   viewMenu->addAction(tr("&Copy"),       QKeySequence(QKeySequence::Copy),   View, SLOT(copyToClipboard()));
+   ViewCopySelection = viewMenu->addAction(tr("Copy Selection"), View, SLOT(copySelectionToClipboard()));
    ViewCopySelection->setEnabled(false);
    viewMenu->addSeparator();
-   ViewZoomIn = viewMenu->addAction(tr("Zoom &In"), View, SLOT(zoomInToSelection()), QKeySequence(Qt::CTRL | Qt::Key_I));
+   ViewZoomIn        = viewMenu->addAction(tr("Zoom &In"),   QKeySequence(QKeySequence::ZoomIn),  View, SLOT(zoomInToSelection()));
    ViewZoomIn->setEnabled(false);
-   ViewZoomBack = viewMenu->addAction(tr("Zoom &Back"), View, SLOT(zoomBack()), QKeySequence(QKeySequence::Undo));
+   ViewZoomBack      = viewMenu->addAction(tr("Zoom &Back"), QKeySequence(QKeySequence::ZoomOut), View, SLOT(zoomBack()));
    ViewZoomBack->setEnabled(false);
    viewMenu->addSeparator();
-   viewMenu->addAction(tr("&Reset Zoom"), View, SLOT(zoomReset()), QKeySequence(Qt::CTRL | Qt::Key_R));
+   viewMenu->addAction(tr("&Reset Zoom"), QKeySequence(Qt::CTRL | Qt::Key_R), View, SLOT(zoomReset()));
 
    // ====== Create menu with image size settings ===========================
    QMenu* formatMenu = menuBar()->addMenu(tr("&Format"));
    Q_CHECK_PTR(formatMenu);
 
-   CustomSizeItem = formatMenu->addAction(tr("Custom Image Size"), this, SLOT(slotViewSetImageSize()), QKeySequence(Qt::Key_F3));
+   CustomSizeItem = formatMenu->addAction(tr("Custom Image Size"), QKeySequence(Qt::Key_F3), this, SLOT(slotViewSetImageSize()));
    CustomSizeItem->setCheckable(true);
    CustomSizeItem->setChecked(true);
-   formatMenu->addAction(tr("Swap Width and Height"), this, SLOT(slotViewSwapWidthHeight()), QKeySequence(Qt::Key_F10));
+   formatMenu->addAction(tr("Swap Width and Height"), QKeySequence(Qt::Key_F10), this, SLOT(slotViewSwapWidthHeight()));
    formatMenu->addSeparator();
 
    QActionGroup* formatGroup = new QActionGroup(this);
@@ -154,7 +154,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    // ====== Create menu with the algorithms ================================
    QMenu* fractalAlgorithmMenu = menuBar()->addMenu(tr("&Algorithm"));
    Q_CHECK_PTR(fractalAlgorithmMenu);
-   fractalAlgorithmMenu->addAction(tr("Configure Algorithm ..."), this, SLOT(slotViewConfigureAlgorithm()), QKeySequence(Qt::Key_F2));
+   fractalAlgorithmMenu->addAction(tr("Configure Algorithm ..."), QKeySequence(Qt::Key_F2), this, SLOT(slotViewConfigureAlgorithm()));
    fractalAlgorithmMenu->addSeparator();
 
    QActionGroup* fractalAlgorithmGroup = new QActionGroup(this);
