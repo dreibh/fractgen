@@ -197,11 +197,7 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    QMenu* helpMenu = menuBar()->addMenu(tr("&Help"));
    Q_CHECK_PTR(helpMenu);
    helpMenu->addAction(tr("&About"),    this, SLOT(slotHelpAbout()));
-#ifndef WITH_KDE
    helpMenu->addAction(tr("About &Qt"), this, SLOT(slotHelpAboutQt()));
-#else
-   helpMenu->addAction(tr("About &KDE"), this, SLOT(slotHelpAboutKDE()));
-#endif
 
    // ====== Further setup ==================================================
    Printer.setColorMode(QPrinter::Color);
@@ -340,7 +336,7 @@ void FractalGeneratorApp::slotHelpAbout()
    about.setText(QStringLiteral(
       "<p><center><strong>%1 %2</strong></center></p>"
       "<p>%3</p>"
-      "<p><a href=\"%3\">%4</a></p>").arg(
+      "<p><a href=\"%4\">%4</a></p>").arg(
          QStringLiteral("FractGen"),
          QStringLiteral(FRACTGEN_VERSION),
          QStringLiteral("Copyright (C) 2003-2025 by Thomas Dreibholz"),
