@@ -86,10 +86,10 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    View = new FractalGeneratorView(this);
    Q_CHECK_PTR(View);
    setCentralWidget(View);
-   connect(View, SIGNAL(updateAlgorithm()), this, SLOT(slotUpdateAlgorithm()));
-   connect(View, SIGNAL(updateColorScheme()), this, SLOT(slotUpdateColorScheme()));
+   connect(View, SIGNAL(updateAlgorithm()),        this, SLOT(slotUpdateAlgorithm()));
+   connect(View, SIGNAL(updateColorScheme()),      this, SLOT(slotUpdateColorScheme()));
    connect(View, SIGNAL(updateZoomBackPossible()), this, SLOT(slotUpdateZoomBackPossible()));
-   connect(View, SIGNAL(updateZoomInPossible()), this, SLOT(slotUpdateZoomInPossible()));
+   connect(View, SIGNAL(updateZoomInPossible()),   this, SLOT(slotUpdateZoomInPossible()));
 
    Document = new FractalGeneratorDoc(this, View);
    Q_CHECK_PTR(Document);
@@ -196,7 +196,12 @@ FractalGeneratorApp::FractalGeneratorApp(QWidget*       parent,
    // ====== Create Help menu ===============================================
    QMenu* helpMenu = menuBar()->addMenu(tr("&Help"));
    Q_CHECK_PTR(helpMenu);
-   helpMenu->addAction(tr("&About"), this, SLOT(slotHelpAbout()));
+   helpMenu->addAction(tr("&About"),    this, SLOT(slotHelpAbout()));
+#ifndef WITH_KDE
+   helpMenu->addAction(tr("About &Qt"), this, SLOT(slotHelpAboutQt()));
+#else
+   helpMenu->addAction(tr("About &KDE"), this, SLOT(slotHelpAboutKDE()));
+#endif
 
    // ====== Further setup ==================================================
    Printer.setColorMode(QPrinter::Color);
@@ -251,7 +256,7 @@ void FractalGeneratorApp::slotFileSave()
    statusBar()->showMessage(tr("Saving file..."));
    bool overwrite = true;
    if(QFile::exists(Document->getFileName())) {
-      if(QMessageBox::warning(this, QStringLiteral("FractGen II"),
+      if(QMessageBox::warning(this, QStringLiteral("FractGen"),
                               tr("Overwrite existing file?"),
                               QMessageBox::Save|QMessageBox::Cancel, QMessageBox::Save) == QMessageBox::Cancel) {
          overwrite = false;
@@ -329,10 +334,27 @@ void FractalGeneratorApp::slotFileQuit()
 // ###### About #############################################################
 void FractalGeneratorApp::slotHelpAbout()
 {
-   QMessageBox::information(this, QStringLiteral("FractGen"),
-      QStringLiteral("FractGen ") + QStringLiteral(FRACTGEN_VERSION) +
-      QStringLiteral("\nCopyright (C) 2003-2025 by Thomas Dreibholz\nhttps://www.nntb.no/~dreibh/fractalgenerator/"),
-      tr("&Okay"));
+   QMessageBox about(this);
+   about.setWindowTitle(QStringLiteral("FractGen"));
+   about.setTextFormat(Qt::RichText);
+   about.setText(QStringLiteral(
+      "<p><center><strong>%1 %2</strong></center></p>"
+      "<p>%3</p>"
+      "<p><a href=\"%3\">%4</a></p>").arg(
+         QStringLiteral("FractGen"),
+         QStringLiteral(FRACTGEN_VERSION),
+         QStringLiteral("Copyright (C) 2003-2025 by Thomas Dreibholz"),
+         QStringLiteral("https://www.nntb.no/~dreibh/fractalgenerator/")
+      )
+   );
+   about.exec();
+}
+
+
+// ###### About Qt ##########################################################
+void FractalGeneratorApp::slotHelpAboutQt()
+{
+   QMessageBox::aboutQt(this, QStringLiteral("FractGen"));
 }
 
 
@@ -374,7 +396,7 @@ void FractalGeneratorApp::slotUpdateColorScheme()
 // ###### Update file name ##################################################
 void FractalGeneratorApp::slotUpdateFileName(const QString& fileName)
 {
-   setWindowTitle(fileName + QStringLiteral(" - FractGen II"));
+   setWindowTitle(fileName + QStringLiteral(" - FractGen"));
 }
 
 

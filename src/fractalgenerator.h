@@ -61,6 +61,7 @@ class FractalGeneratorApp
    void slotFilePrint();
    void slotFileQuit();
    void slotHelpAbout();
+   void slotHelpAboutQt();
 
    void slotCopyToClipboard();
    void slotViewSetImageSize();
