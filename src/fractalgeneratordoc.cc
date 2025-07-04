@@ -87,7 +87,17 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
    }
 
    // ====== Parse XML document =============================================
-   QDomDocument doc(QStringLiteral("XMLFractalSave"));
+    QDomDocument doc(QStringLiteral("XMLFractalSave"));
+#if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
+    QDomDocument::ParseResult result = doc.setContent(&file);
+    if (!result.errorMessage.isEmpty()) {
+      showError(tr("Open File Failure"),
+                result.errorMessage + QLatin1Char('\n') +
+                tr("Line: ") + QString().setNum(result.errorLine) + QLatin1Char('\n') +
+                tr("Column: ") + QString().setNum(result.errorColumn));
+      return false;
+   }
+#else
    QString      errorText;
    int          line, column;
    if(!doc.setContent(&file, false, &errorText, &line, &column)) {
@@ -97,6 +107,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
                 tr("Column: ") + QString().setNum(column));
       return false;
    }
+#endif
 
    // ====== Get fractal configuration ======================================
    // ------ Get algorithm --------------------------------------------------
