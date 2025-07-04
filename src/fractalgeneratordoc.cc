@@ -98,8 +98,8 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
       return false;
    }
 #else
-   QString      errorText;
-   int          line, column;
+   QString errorText;
+   int     line, column;
    if(!doc.setContent(&file, false, &errorText, &line, &column)) {
       showError(tr("Open File Failure"),
                 errorText + QLatin1Char('\n') +
