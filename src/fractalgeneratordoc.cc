@@ -90,7 +90,7 @@ bool FractalGeneratorDoc::openDocument(const QString& fileName)
     QDomDocument doc(QStringLiteral("XMLFractalSave"));
 #if QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
     QDomDocument::ParseResult result = doc.setContent(&file);
-    if (!result.errorMessage.isEmpty()) {
+    if(!result.errorMessage.isEmpty()) {
       showError(tr("Open File Failure"),
                 result.errorMessage + QLatin1Char('\n') +
                 tr("Line: ") + QString().setNum(result.errorLine) + QLatin1Char('\n') +
