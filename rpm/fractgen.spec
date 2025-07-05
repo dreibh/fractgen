@@ -1,7 +1,7 @@
 Name: fractgen
-Version: 3.0.5~rc0
+Version: 3.0.5
 Release: 1
-Summary: FractGen Fractal Generator (Qt version)
+Summary: Fractal Generator
 Group: Applications/Multimedia
 License: GPL-3.0-or-later
 URL: https://www.nntb.no/~dreibh/fractalgenerator/
@@ -133,6 +133,8 @@ the resulting images.
 
 
 %changelog
+* Sat Jul 05 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 3.0.5
+- New upstream release.
 * Mon May 19 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 3.0.4
 - New upstream release.
 * Mon May 12 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 3.0.3

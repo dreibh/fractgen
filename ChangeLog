@@ -1,3 +1,75 @@
+commit 8f28f807016885330af25600b7b5e0b0f7b85e22
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 5 11:04:33 2025 +0200
+
+    Fixed typo.
+
+commit e637f6d6b6ded230faa388d43e2bc57889c22594
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 5 11:03:58 2025 +0200
+
+    RPM update: Fedora < 40 is obsolete.
+
+commit ee6d0514ed1b4b000c20ccf2ab9937aefa436b24
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 23:46:29 2025 +0200
+
+    Packaging update.
+
+commit 675bcedfc065d6797fd4a7206e27ea0dc239934a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 23:24:42 2025 +0200
+
+    Indentation fix.
+
+commit 8ed6e7fc203b39465c852842327e8f3ba6004878
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 23:22:17 2025 +0200
+
+    Fixed typo.
+
+commit a21eaff279ab1849a2ce526142aabea691bd593e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 23:18:29 2025 +0200
+
+    Replaced deprecated QDomDocument::setContent() usage.
+
+commit 5759f49eb49603dcfc4270a34ef0c7d74a494433
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 22:57:27 2025 +0200
+
+    Fixed typo.
+
+commit 6a4aa403c9da04879b7f78863f6e3430910b006a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 22:56:09 2025 +0200
+
+    Added missing translations.
+
+commit 02dc0b9c3fc0a462ccd11068ef40dee5ee3a2f4a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 22:45:45 2025 +0200
+
+    Some clean-ups.
+
+commit dff6eaccba079282f20e2be85b0ce3292d8dae92
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 22:35:31 2025 +0200
+
+    Improved about dialog, not using deprecated functions any more.
+
+commit a22a4f8309ca0b702e1e59f3e8d5b7a851a7e4e1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jul 4 21:28:52 2025 +0200
+
+    Replaced deprecated methods.
+
+commit e2b83a521067e4166aa10e6e0a4ddba73e5b08dc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 19 14:59:54 2025 -0400
+
+    New release fractgen-3.0.4.
+
 commit ca0447d81e100c56230d52f14569a15dbcbd0f34
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Mon May 19 14:52:39 2025 -0400
