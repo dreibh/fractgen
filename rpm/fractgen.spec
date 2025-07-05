@@ -108,7 +108,7 @@ from XML files. Calculated images can be exported as PNG files.
 The intention of this program is to generate graphics to be post-processed
 by other image tools, e.g. in order to generate nice screen backgrounds or
 book covers.
-This package contains commen files for the Qt, KDE and command-line
+This package contains common files for the Qt, KDE and command-line
 versions of FractGen.
 
 %files common
