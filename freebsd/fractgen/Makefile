@@ -1,6 +1,5 @@
 PORTNAME=	fractgen
 DISTVERSION=	3.0.5
-PORTREVISION=	1
 CATEGORIES=	graphics
 MASTER_SITES=	https://www.nntb.no/~dreibh/fractalgenerator/download/
 
