@@ -1,11 +1,16 @@
 fractgen (3.0.5-1) UNRELEASED; urgency=medium
 
+  [ Thomas Dreibholz ]
   * New upstream release.
-  * debian/source/include-binaries: added generated .qm files.
-  * debian/source/lintian-overrides: .qm files have very long lines.
-  * debian/control: Updated standards version to 4.7.2.
+  * debian/control:
+    + Updated standards version to 4.7.2.
+    + Split into multiple binary packages
 
- -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Sat, 05 Jul 2025 16:35:47 +0200
+  [ Nilesh Patra ]
+  * Move -examples package to suggests
+  * Run wrap-and-sort -ast
+
+ -- Nilesh Patra <nilesh@debian.org>  Tue, 05 Aug 2025 20:06:28 +0530
 
 fractgen (2.1.13-1) unstable; urgency=medium
 
