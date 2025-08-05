@@ -103,6 +103,9 @@ Package: fractgen-examples
 Architecture: all
 Depends:
  ${misc:Depends},
+Breaks: fractgen (<< 3.0.5-1)
+Replaces: fractgen (<< 3.0.5-1)
+Recommends: fractgen
 Description: example files for FractGen
  This package contains some example input files for the fractal generator
  program FractGen. The example files contain the parameters for the

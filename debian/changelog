@@ -9,6 +9,8 @@ fractgen (3.0.5-1) UNRELEASED; urgency=medium
   [ Nilesh Patra ]
   * Move -examples package to suggests
   * Run wrap-and-sort -ast
+  * Add Breaks+Replaces for fractgen in fractgen-examples
+    package.
 
  -- Nilesh Patra <nilesh@debian.org>  Tue, 05 Aug 2025 20:06:28 +0530
 
