@@ -7,7 +7,7 @@
   <C2Real>1.1350044265964243095368146896362304687500000000000000000000000000e-1</C2Real>
   <C2Imag>8.9255749146741436561569571495056152343750000000000000000000000000e-1</C2Imag>
   <Useroptions>
-   <MaxIterations>5000</MaxIterations>
+   <MaxIterations>2500</MaxIterations>
   </Useroptions>
  </Algorithm>
  <ColorScheme>

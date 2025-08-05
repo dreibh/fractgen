@@ -1,1 +1,4 @@
-Tests:
+Tests: 10-clifractgen
+Depends: clifractgen,
+         fractgen-examples,
+         graphicsmagick
