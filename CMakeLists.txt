@@ -1,9 +1,30 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.0.2)
+# ==========================================================================
+# ====                   FRACTAL GRAPHICS GENERATOR                     ====
+# ==========================================================================
+#
+# Copyright (C) 2003-2024 by Thomas Dreibholz
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Contact: thomas.dreibholz@gmail.com
+
+CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
 PROJECT(fractgen LANGUAGES C CXX)
 
-SET(BUILD_MAJOR "2")
-SET(BUILD_MINOR "1")
-SET(BUILD_PATCH "13")
+SET(BUILD_MAJOR "3")
+SET(BUILD_MINOR "0")
+SET(BUILD_PATCH "5")
 SET(BUILD_VERSION ${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH})
 
 
@@ -21,9 +42,15 @@ INCLUDE(GNUInstallDirs)
 
 SET(CPACK_SOURCE_GENERATOR "TXZ")
 SET(CPACK_SOURCE_PACKAGE_FILE_NAME
-   "${CMAKE_PROJECT_NAME}-${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH}")
-SET(CPACK_SOURCE_IGNORE_FILES
-   "${PROJECT_SOURCE_DIR}/${CMAKE_PROJECT_NAME}-*;${PROJECT_SOURCE_DIR}/${CMAKE_PROJECT_NAME}_*;/build/;/.git/;/config.log;/CMakeFiles/;CMakeCache.txt$;.cmake$;.tar.gz$;/_CPack_Packages;/Makefile$;~$;/build-deb;/clean-deb;/filter-empty-entries;/make-symbols;/make-ppa;/make-deb;/debian.conf;/make-rpm;/rpm.conf;${CPACK_SOURCE_IGNORE_FILES}")
+    "${CMAKE_PROJECT_NAME}-${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH}")
+SET(CPACK_SOURCE_IGNORE_FILES "\\\\.git;\\\\.swp$;~$;\\\\.\\\\#;/\\\\#")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/${CMAKE_PROJECT_NAME}[_-]")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "\\\\.cmake$|\\\\.make$|\\\\.log$")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/CMakeCache\\\\.txt$")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/(CMakeFiles|CMakeScripts|_CPack_Packages)/")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/package-version\\\\.h$")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/packaging\\\\.conf$")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/(po.*/|src.*/|)Makefile$")
 INCLUDE(CPack)
 
 ADD_CUSTOM_TARGET(dist COMMAND ${CMAKE_MAKE_PROGRAM} clean package_source)
@@ -65,16 +92,40 @@ ENDIF()
 
 
 #############################################################################
+#### OPTIONS                                                             ####
+#############################################################################
+
+OPTION(WITH_QT  "Build the Qt version"           1)
+OPTION(WITH_KDE "Build the KDE version"          0)
+OPTION(WITH_CLI "Build the command-line version" 1)
+
+
+
+#############################################################################
 #### REQUIREMENTS                                                        ####
 #############################################################################
 
 # ###### Qt #################################################################
 SET(CMAKE_AUTOMOC ON)
-FIND_PACKAGE(Qt5 5.3.0 COMPONENTS Core LinguistTools PrintSupport Widgets Xml REQUIRED)
+FIND_PACKAGE(QT NAMES Qt6 COMPONENTS Core Network Widgets Xml PrintSupport)
+IF (NOT QT_FOUND)
+   FIND_PACKAGE(QT NAMES Qt5 REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
+ENDIF()
+MESSAGE("Using Qt version ${QT_VERSION_MAJOR}!")
+FIND_PACKAGE(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
+FIND_PROGRAM(LRELEASE lrelease PATHS /usr/local/lib/qt${QT_VERSION_MAJOR}/bin
+                                     /usr/lib64/qt${QT_VERSION_MAJOR}/bin
+                                     /usr/lib/qt${QT_VERSION_MAJOR}/bin
+                                     /usr/bin
+                               REQUIRED)
+MESSAGE("Using LRelease ${LRELEASE}!")
 
 # ###### KDE ################################################################
-OPTION(ENABLE_KDE "Include KDE version" 0)
-IF (ENABLE_KDE)
+IF (WITH_KDE)
+   # Needed:
+   # KDE5: libkf5coreaddons-dev libkf5xmlgui-dev
+   # KDE6: libkf6coreaddons-dev libkf6xmlgui-dev
+
    FIND_PACKAGE(ECM "1.0.0" NO_MODULE REQUIRED)
    SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
@@ -83,33 +134,11 @@ IF (ENABLE_KDE)
    INCLUDE(KDECompilerSettings NO_POLICY_SCOPE)
    INCLUDE(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
-   FIND_PACKAGE(KF5 "5.2.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui)
+   FIND_PACKAGE(KF${QT_VERSION_MAJOR} "${QT_VERSION_MAJOR}.0.0" REQUIRED COMPONENTS CoreAddons WidgetsAddons XmlGui)
 ENDIF()
 
 INCLUDE(FeatureSummary)
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
-
-
-#############################################################################
-#### COMPILER FLAGS                                                      ####
-#############################################################################
-
-SET(CMAKE_CXX_STANDARD 14)
-SET(CMAKE_CXX_STANDARD_REQUIRED ON)
-SET(CMAKE_CXX_EXTENSIONS OFF)
-
-SET(CMAKE_C_STANDARD 11)
-SET(CMAKE_C_STANDARD_REQUIRED ON)
-SET(CMAKE_C_EXTENSIONS OFF)
-
-SET(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall -Werror")
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
-
-IF (CMAKE_BUILD_TYPE MATCHES DEBUG)
-    MESSAGE(STATUS "Building in DEBUG mode")
-    # _FORTIFY_SOURCE requires compiling with optimization
-    SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O")
-ENDIF()
 
 
 #############################################################################
