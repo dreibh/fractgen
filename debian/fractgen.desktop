@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=fractgen
-Comment=Extensible Fractal Generator
-Keywords=Images;Mandelbrot;Complex;Mathematics;
-Exec=/usr/bin/fractgen
-Terminal=false
-Categories=Graphics;Science;Math;

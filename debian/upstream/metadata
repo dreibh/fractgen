@@ -1,7 +1,6 @@
----
-Archive: GitHub
-Bug-Database: https://github.com/dreibh/fractgen/issues
-Bug-Submit: https://github.com/dreibh/fractgen/issues/new
-Changelog: https://www.nntb.no/~dreibh/fractalgenerator/index.html
-Repository: https://github.com/dreibh/fractgen.git 
+Name: FractGen
+Repository: https://github.com/dreibh/fractgen.git
 Repository-Browse: https://github.com/dreibh/fractgen
+Bug-Submit: https://github.com/dreibh/fractgen/issues
+Contact: Thomas Dreibholz <thomas.dreibholz@gmail.com>
+Security-Contact: Thomas Dreibholz <thomas.dreibholz@gmail.com>

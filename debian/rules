@@ -1,12 +1,14 @@
 #!/usr/bin/make -f
 
+# export DH_VERBOSE = 1
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-# Force use of Qt5
-export QT_SELECT = 5
-
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
 
-execute_before_dh_auto_build:
-	@echo 'blhc: ignore-line-regexp: /usr/(bin|lib)/(ccache/)?c\+\+ -std.*-dM -E.*'
+override_dh_auto_configure:
+	dh_auto_configure -- -DWITH_KDE=1
+
+# Use upstream ChangeLog for installation
+override_dh_installchangelogs:
+	dh_installchangelogs -k ChangeLog
