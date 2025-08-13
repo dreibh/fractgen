@@ -63,7 +63,7 @@ jobs:
     container:
       # Using Fedora 39 here, due to problems with Mock!
       # => https://github.com/rpm-software-management/mock/issues/1487
-      image: fedora:39
+      image: fedora:42
       options: --privileged --cap-add=SYS_ADMIN
     steps:
       - uses: actions/checkout@v4
