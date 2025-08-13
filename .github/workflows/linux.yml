@@ -43,10 +43,6 @@ jobs:
             image: debian:trixie
             cc: gcc
             cxx: g++
-          - label: "Debian 12 (Bookworm) with GCC"
-            image: debian:bookworm
-            cc: gcc
-            cxx: g++
 
           # ====== Fedora Linux =============================================
           - label: "Fedora 42 with Clang"
