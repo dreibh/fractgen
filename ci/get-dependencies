@@ -179,6 +179,8 @@ elif system == 'fedora':
       sys.stdout.write('\n')
 
       if runInstall == True:
+         print("CALL:")
+         print(dnfCall)
          subprocess.call(dnfCall)
 
    else:
