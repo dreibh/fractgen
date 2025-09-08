@@ -11,6 +11,72 @@
 
 FractGen (Fractal Generator) is a Qt/KDE-based program to generate fractal images (e.g.&nbsp;the Mandelbrot set). The size of the calculated images is only limited by the computer's virtual memory. That is, images may use the full printer resolution! I created this program as an example for object-oriented programming and writing Qt/KDE applications for our Linux Workshop&nbsp;2003. The goal of this workshop was to continue this basic application as an Open Source project.
 
+The package consists of 3&nbsp;programs:
+
+- [FractGen](#fractgen) (Qt version of the FractGen),
+- [KFractGen](#kfractgen) (KDE version of the FractGen),
+- [CLIFractGen](#clifractgen) (command-line version of the FractGen),
+
+
+# 📚 FractGen
+
+FractGen is the [Qt](https://doc.qt.io/) version of the fractal generator program. That is, it provides a Qt-based GUI.
+It can simply be started via the GUI menu (depending on the desktop environment), or from the command-line:
+
+<pre>
+fractgen
+</pre>
+
+Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt>[alpha01.fsf](src/examples/alpha01.fsf)</tt>, <tt>[epsilon10.fsf](src/examples/epsilon10.fsf)</tt>, <tt>[gamma05.fsf](src/examples/gamma05.fsf)</tt>). These input files will then be loaded:
+
+<pre>
+fractgen alpha01.fsf epsilon10.fsf gamma05.fsf
+</pre>
+
+
+# 📚 KFractGen
+
+FractGen is the [KDE](https://develop.kde.org/) version of the fractal generator program. That is, it provides a KDE-based GUI (which itself is based on Qt).
+It can simply be started via the GUI menu (depending on the desktop environment), or from the command-line:
+
+<pre>
+kfractgen
+</pre>
+
+Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt>[gamma01.fsf](src/examples/gamma01.fsf)</tt>, <tt>[delta03.fsf](src/examples/delta03.fsf)</tt>, <tt>[kappa02.fsf](src/examples/kappa02.fsf)</tt>). These input files will then be loaded:
+
+<pre>
+kfractgen gamma01.fsf delta03.fsf kappa02.fsf
+</pre>
+
+
+# 📚 CLIFractGen
+
+CLIFractGen is the command-line version of the fractal generator program. That is, does not provide a GUI and can be used to process FractGen input files via scripts.
+
+* Process <tt>[epsilon10.fsf](src/examples/epsilon10.fsf)</tt> and generate 1920x1080 (Full HD resolution) in PNG output format with a maximum of 2500&nbsp;iterations:
+  <pre>
+  clifractgen -W 1920 -H 1080 -M 2500 epsilon10.fsf epsilon10.png
+  </pre>
+
+* Process <tt>[gamma05.fsf](src/examples/gamma05.fsf)</tt> and generate 3840x2160 (Ultra-HD resolution) in WebP output format with a maximum of 5000&nbsp;iterations:
+
+  <pre>
+  clifractgen -W 3840 -H 2160 -M 5000 gamma05.fsf gamma05.webp
+  </pre>
+
+* Find all files matching pattern <tt>*.fsf</tt> in the local directory (e.g.&nbsp;using the examples from [src/examples](src/examples), and compute 3840x2160 WebP output format:
+
+  <pre>
+  find . -name "*.fsf" | xargs -i§ clifractgen -W 3840 -H 2160 -M 5000 § §.webp
+  </pre>
+
+* The manpage of CLIFractGen contains details and further examples:
+
+  <pre>
+  man clifractgen
+  </pre>
+
 
 # 😀 Screenshots
 
