@@ -10,5 +10,5 @@ HEIGHT=1080
 
 find . -name "*.fsf" | \
    sed -e 's/\.fsf$//' | \
-   xargs -i§ \
-      clifractgen -W ${WIDTH} -H ${HEIGHT} -M ${ITERATIONS} §.fsf §.webp
+   xargs -I{} \
+      clifractgen -W ${WIDTH} -H ${HEIGHT} -M ${ITERATIONS} {}.fsf {}.webp
