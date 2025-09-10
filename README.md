@@ -27,10 +27,10 @@ It can simply be started via the GUI menu (depending on the desktop environment)
 fractgen
 </pre>
 
-Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt>[alpha01.fsf](src/examples/alpha01.fsf)</tt>, <tt>[epsilon10.fsf](src/examples/epsilon10.fsf)</tt>, <tt>[gamma05.fsf](src/examples/gamma05.fsf)</tt>). These input files will then be loaded:
+Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt>[alpha01.fsf](src/examples/alpha01.fsf)</tt>, <tt>[beta04.fsf](src/examples/beta04.fsf)</tt>, <tt>[delta07.fsf](src/examples/delta07.fsf)</tt>). These input files will then be loaded:
 
 <pre>
-fractgen alpha01.fsf epsilon10.fsf gamma05.fsf
+fractgen alpha01.fsf beta04.fsf delta07.fsf
 </pre>
 
 
