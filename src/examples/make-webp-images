@@ -3,12 +3,15 @@
 set -eu
 
 ITERATIONS=5000
-# WIDTH=1920
-# HEIGHT=1080
-WIDTH=3840
-HEIGHT=2160
+# RESOLUTION=1920x1080   # Full-HD
+# RESOLUTION=3840x2160   # Ultra-HD 4K
+RESOLUTION=7680x4320   # Ultra-HD 8K
+FORMAT=webp
 
+width="${RESOLUTION/x*/}"
+height="${RESOLUTION/*x/}"
+echo "Computing resolution ${width} x ${height}:"
 find . -name "*.fsf" | \
    sed -e 's/\.fsf$//' | \
    xargs -I{} \
-      clifractgen -W ${WIDTH} -H ${HEIGHT} -M ${ITERATIONS} {}.fsf {}.webp
+      clifractgen -W "${width}" -H "${height}" -M ${ITERATIONS} "{}.fsf" "{}-${width}x${height}.${FORMAT}"
