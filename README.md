@@ -27,7 +27,7 @@ It can simply be started via the GUI menu (depending on the desktop environment)
 fractgen
 </pre>
 
-Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt>[alpha01.fsf](src/examples/alpha01.fsf)</tt>, <tt>[beta04.fsf](src/examples/beta04.fsf)</tt>, <tt>[delta07.fsf](src/examples/delta07.fsf)</tt>). These input files will then be loaded:
+Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt><a type="application/x-fractgen" href="src/examples/alpha01.fsf">alpha01.fsf</a></tt>, <tt><a type="application/x-fractgen" href="src/examples/beta04.fsf">beta04.fsf</a></tt>, <tt><a type="application/x-fractgen" href="src/examples/delta07.fsf">delta07.fsf</a></tt>). These input files will then be loaded:
 
 <pre>
 fractgen alpha01.fsf beta04.fsf delta07.fsf
@@ -43,7 +43,7 @@ It can simply be started via the GUI menu (depending on the desktop environment)
 kfractgen
 </pre>
 
-Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt>[gamma01.fsf](src/examples/gamma01.fsf)</tt>, <tt>[delta03.fsf](src/examples/delta03.fsf)</tt>, <tt>[kappa02.fsf](src/examples/kappa02.fsf)</tt>). These input files will then be loaded:
+Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<tt><a type="application/x-fractgen" href="src/examples/gamma01.fsf">gamma01.fsf</a></tt>, <tt><a type="application/x-fractgen" href="src/examples/delta03.fsf">delta03.fsf</a></tt>, <tt><a type="application/x-fractgen" href="src/examples/kappa02.fsf">kappa02.fsf</a></tt>). These input files will then be loaded:
 
 <pre>
 kfractgen gamma01.fsf delta03.fsf kappa02.fsf
@@ -54,18 +54,18 @@ kfractgen gamma01.fsf delta03.fsf kappa02.fsf
 
 CLIFractGen is the command-line version of the fractal generator program. That is, does not provide a GUI and can be used to process FractGen input files via scripts.
 
-* Process <tt>[epsilon10.fsf](src/examples/epsilon10.fsf)</tt> and generate 1920x1080 (Full HD resolution) in PNG output format with a maximum of 2500&nbsp;iterations:
+* Process <tt><a type="application/x-fractgen" href="src/examples/epsilon10.fsf">epsilon10.fsf</a></tt> and generate 1920x1080 (Full HD resolution) in PNG output format with a maximum of 2500&nbsp;iterations:
   <pre>
   clifractgen -W 1920 -H 1080 -M 2500 epsilon10.fsf epsilon10.png
   </pre>
 
-* Process <tt>[gamma05.fsf](src/examples/gamma05.fsf)</tt> and generate 3840x2160 (Ultra-HD 4K resolution) in WebP output format with a maximum of 5000&nbsp;iterations:
+* Process <tt><a type="application/x-fractgen" href="src/examples/gamma05.fsf">gamma05.fsf</a></tt> and generate 3840x2160 (Ultra-HD 4K resolution) in WebP output format with a maximum of 5000&nbsp;iterations:
 
   <pre>
   clifractgen -W 3840 -H 2160 -M 5000 gamma05.fsf gamma05.webp
   </pre>
 
-* Find all files matching pattern <tt>*.fsf</tt> in the local directory (e.g.&nbsp;using the examples from [src/examples](src/examples), and compute 3840x2160 WebP output format:
+* Find all files matching pattern <tt>*.fsf</tt> in the local directory (e.g.&nbsp;using the examples from <tt><a href="src/examples">src/examples</a></tt>, and compute 3840x2160 WebP output format:
 
   <pre>
   find . -name "*.fsf" | xargs -i§ clifractgen -W 3840 -H 2160 -M 5000 § §.webp
@@ -80,7 +80,7 @@ CLIFractGen is the command-line version of the fractal generator program. That i
 
 # 😀 Examples
 
-These and further example input files can be found in [src/examples](src/examples).
+These and further example input files can be found in <tt><a href="src/examples">src/examples</a></tt>.
 
 <table summary="System-Info Banner Examples">
  <tr>
