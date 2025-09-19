@@ -59,7 +59,7 @@ CLIFractGen is the command-line version of the fractal generator program. That i
   clifractgen -W 1920 -H 1080 -M 2500 epsilon10.fsf epsilon10.png
   </pre>
 
-* Process <tt>[gamma05.fsf](src/examples/gamma05.fsf)</tt> and generate 3840x2160 (Ultra-HD resolution) in WebP output format with a maximum of 5000&nbsp;iterations:
+* Process <tt>[gamma05.fsf](src/examples/gamma05.fsf)</tt> and generate 3840x2160 (Ultra-HD 4K resolution) in WebP output format with a maximum of 5000&nbsp;iterations:
 
   <pre>
   clifractgen -W 3840 -H 2160 -M 5000 gamma05.fsf gamma05.webp
@@ -80,28 +80,30 @@ CLIFractGen is the command-line version of the fractal generator program. That i
 
 # 😀 Examples
 
+These and further example input files can be found in [src/examples](src/examples).
+
 <table summary="System-Info Banner Examples">
  <tr>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/delta11.webp">
-      <img alt="Example delta11.fsf" src="src/figures/1280x720/delta11.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/delta11.webp">
+      <img alt="Example delta11.fsf" src="src/examples/1280x720/delta11.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/delta11.fsf">delta11.fsf</a></tt><br />
    </p>
   </td>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/epsilon06.webp">
-      <img alt="Example epsilon06.fsf" src="src/figures/1280x720/epsilon06.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/epsilon06.webp">
+      <img alt="Example epsilon06.fsf" src="src/examples/1280x720/epsilon06.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/epsilon06.fsf">epsilon06.fsf</a></tt><br />
    </p>
   </td>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/gamma08.webp">
-      <img alt="Example gamma08.fsf" src="src/figures/1280x720/gamma08.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/gamma08.webp">
+      <img alt="Example gamma08.fsf" src="src/examples/1280x720/gamma08.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/gamma08.fsf">gamma08.fsf</a></tt><br />
    </p>
@@ -111,24 +113,24 @@ CLIFractGen is the command-line version of the fractal generator program. That i
  <tr>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/gamma10.webp">
-      <img alt="Example gamma10.fsf" src="src/figures/1280x720/gamma10.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/gamma10.webp">
+      <img alt="Example gamma10.fsf" src="src/examples/1280x720/gamma10.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/gamma10.fsf">gamma10.fsf</a></tt><br />
    </p>
   </td>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/kappa11.webp">
-      <img alt="Example kappa11.fsf" src="src/figures/1280x720/kappa11.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/kappa11.webp">
+      <img alt="Example kappa11.fsf" src="src/examples/1280x720/kappa11.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/kappa11.fsf">kappa11.fsf</a></tt><br />
    </p>
   </td>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/lambda01.webp">
-      <img alt="Example lambda01.fsf" src="src/figures/1280x720/lambda01.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/lambda01.webp">
+      <img alt="Example lambda01.fsf" src="src/examples/1280x720/lambda01.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/lambda01.fsf">lambda01.fsf</a></tt><br />
    </p>
@@ -138,24 +140,24 @@ CLIFractGen is the command-line version of the fractal generator program. That i
  <tr>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/nu08.webp">
-      <img alt="Example nu08.fsf" src="src/figures/1280x720/nu08.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/nu08.webp">
+      <img alt="Example nu08.fsf" src="src/examples/1280x720/nu08.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/nu08.fsf">nu08.fsf</a></tt><br />
     </p>
   </td>
   <td style="vertical-align: center;">
     <p align="center">
-    <a href="src/figures/7680x4320/phi04.webp">
-      <img alt="Example phi04.fsf" src="src/figures/1280x720/phi04.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/phi04.webp">
+      <img alt="Example phi04.fsf" src="src/examples/1280x720/phi04.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/phi04.fsf">phi04.fsf</a></tt><br />
    </p>
   </td>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/psi09.webp">
-      <img alt="Example psi09.fsf" src="src/figures/1280x720/psi09.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/psi09.webp">
+      <img alt="Example psi09.fsf" src="src/examples/1280x720/psi09.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/psi09.fsf">psi09.fsf</a></tt><br />
    </p>
@@ -165,24 +167,24 @@ CLIFractGen is the command-line version of the fractal generator program. That i
  <tr>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/sigma06.webp">
-      <img alt="Example sigma06.fsf" src="src/figures/1280x720/sigma06.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/sigma06.webp">
+      <img alt="Example sigma06.fsf" src="src/examples/1280x720/sigma06.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/sigma06.fsf">sigma06.fsf</a></tt><br />
    </p>
   </td>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/theta04.webp">
-      <img alt="Example theta04.fsf" src="src/figures/1280x720/theta04.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/theta04.webp">
+      <img alt="Example theta04.fsf" src="src/examples/1280x720/theta04.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/theta04.fsf">theta04.fsf</a></tt><br />
    </p>
   </td>
   <td style="vertical-align: center;">
    <p align="center">
-    <a href="src/figures/7680x4320/tau06.webp">
-      <img alt="Example tau06.fsf" src="src/figures/1280x720/tau06.webp" width="100%" height="100%" />
+    <a href="src/examples/7680x4320/tau06.webp">
+      <img alt="Example tau06.fsf" src="src/examples/1280x720/tau06.webp" width="100%" height="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/tau06.fsf">tau06.fsf</a></tt><br />
    </p>
