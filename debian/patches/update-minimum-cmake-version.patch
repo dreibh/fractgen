@@ -1,0 +1,11 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,7 +19,7 @@
+ #
+ # Contact: thomas.dreibholz@gmail.com
+ 
+-CMAKE_MINIMUM_REQUIRED(VERSION 3.16)
++CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+ PROJECT(fractgen LANGUAGES C CXX)
+ 
+ SET(BUILD_MAJOR "3")
