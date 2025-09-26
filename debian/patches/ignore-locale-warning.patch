@@ -1,0 +1,17 @@
+Description: The locale parse logic does not look correct and it will likely fail
+ with even existing ones. Upstream has been informed in a mail. Upstream is
+ also an uploader of this package.
+Author: Nilesh Patra <nilesh@iki.fi>
+Forwarded: yes, over email
+Last-Update: 2025-09-26
+--- a/src/fractgen.cc
++++ b/src/fractgen.cc
+@@ -42,7 +42,7 @@
+    if(!applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name())) {
+       if(!applicationTranslator.load(QLatin1String("fractgen_") + QLocale::system().name(),
+                                      QStringLiteral(FRACTGEN_INSTALL_PREFIX) + QStringLiteral("/share/fractgen"))) {
+-         puts("Failed to load translations!");
++         // puts("Failed to load translations!");
+       }
+    }
+    application.installTranslator(&applicationTranslator);

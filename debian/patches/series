@@ -1,1 +1,2 @@
 update-minimum-cmake-version.patch
+ignore-locale-warning.patch
