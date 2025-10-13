@@ -244,12 +244,11 @@ Please use the issue tracker at [https://github.com/dreibh/fractgen/issues](http
 
 The Git repository of the FractGen sources can be found at [https://github.com/dreibh/fractgen](https://github.com/dreibh/fractgen):
 
-```bash
-git clone https://github.com/dreibh/fractgen
-cd fractgen
-cmake .
-make
-```
+<pre><code><span class="fu">git</span> clone <a href="https://github.com/dreibh/fractgen">https://github.com/dreibh/fractgen</a>
+<span class="bu">cd</span> fractgen
+<span class="fu">cmake</span> .
+<span class="fu">make</span>
+</code></pre>
 
 Contributions:
 
