@@ -13,9 +13,9 @@ FractGen (Fractal Generator) is a Qt/KDE-based program to generate fractal image
 
 The package consists of 3&nbsp;programs:
 
-- [FractGen](#fractgen) (Qt version of the FractGen),
-- [KFractGen](#kfractgen) (KDE version of the FractGen),
-- [CLIFractGen](#clifractgen) (command-line version of the FractGen),
+- [FractGen](#-fractgen) (Qt version of the FractGen),
+- [KFractGen](#-kfractgen) (KDE version of the FractGen),
+- [CLIFractGen](#-clifractgen) (command-line version of the FractGen),
 
 
 # 📚 FractGen
