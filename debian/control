@@ -85,6 +85,7 @@ Depends:
  ${misc:Depends},
 Breaks: fractgen (<< 3.0.5-1)
 Replaces: fractgen (<< 3.0.5-1)
+Multi-Arch: foreign
 Description: common files for FractGen
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
@@ -105,6 +106,7 @@ Depends:
 Breaks: fractgen (<< 3.0.5-1)
 Replaces: fractgen (<< 3.0.5-1)
 Recommends: fractgen
+Multi-Arch: foreign
 Description: example files for FractGen
  This package contains some example input files for the fractal generator
  program FractGen. The example files contain the parameters for the
