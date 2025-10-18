@@ -15,7 +15,6 @@ Build-Depends:
  qt6-base-dev,
  qt6-l10n-tools,
 Standards-Version: 4.7.2
-Rules-Requires-Root: no
 
 Package: fractgen
 Architecture: any
