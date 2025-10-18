@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 3.0.5
+Version: 3.0.6
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
@@ -133,6 +133,8 @@ the resulting images.
 
 
 %changelog
+* Sun Sep 21 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 3.0.6-1
+- New upstream release.
 * Sat Jul 05 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 3.0.5
 - New upstream release.
 * Mon May 19 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 3.0.4
