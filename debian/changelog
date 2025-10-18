@@ -1,3 +1,14 @@
+fractgen (3.0.6-1) unstable; urgency=medium
+
+  * Team Upload.
+  * New upstream version 3.0.6
+  * Add d/gbp.conf
+  * Drop myself from uploaders
+  * Drop redundant "Rules-Requires-Root: no"
+  * Mark fractgen-common and fractgen-examples as M-A: foreign
+
+ -- Nilesh Patra <nilesh@debian.org>  Sat, 18 Oct 2025 21:05:32 +0530
+
 fractgen (3.0.5-1) unstable; urgency=medium
 
   [ Thomas Dreibholz ]
