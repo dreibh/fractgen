@@ -1,3 +1,9 @@
+fractgen (3.0.6-1ubuntu1) trixie; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Sun, 21 Sep 2025 17:55:34 +0200
+
 fractgen (3.0.5-1ubuntu1) trixie; urgency=medium
 
   * New upstream release.

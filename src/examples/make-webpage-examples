@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -eu
+
+INPUTS="
+   delta11.fsf
+   epsilon06.fsf
+   gamma08.fsf
+   gamma10.fsf
+   kappa11.fsf
+   lambda01.fsf
+   nu08.fsf
+   phi04.fsf
+   psi09.fsf
+   sigma06.fsf
+   tau06.fsf
+   theta04.fsf
+"
+
+ITERATIONS=5000
+# 360p:        640x360
+# 720p:        1280x720
+# Full-HD:     1920x1080
+# Ultra-HD 4K: 3840x2160
+# Ultra-HD 8K: 7680x4320
+RESOLUTIONS="1280x720 7680x4320"
+FORMAT="webp"
+
+for resolution in ${RESOLUTIONS} ; do
+   width="${resolution/x*/}"
+   height="${resolution/*x/}"
+   echo "Computing resolution ${width} × ${height}:"
+   mkdir -p "${resolution}"
+
+   for input in ${INPUTS} ; do
+      output="${resolution}/${input/.fsf/.${FORMAT}}"
+      clifractgen -W "${width}" -H "${height}" -M ${ITERATIONS} "${input}" "${output}"
+   done
+done

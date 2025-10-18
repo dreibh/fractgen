@@ -22,7 +22,7 @@ Depends: fractgen-common (>= ${source:Version}),
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
             rsplib-tools
-Description: fractal images calculation application (Qt version)
+Description: Fractal images calculation application (Qt version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -41,7 +41,7 @@ Depends: fractgen-common (>= ${source:Version}),
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
             rsplib-tools
-Description: fractal images calculation application (KDE version)
+Description: Fractal images calculation application (KDE version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -60,7 +60,7 @@ Depends: fractgen-common (>= ${source:Version}),
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version})
 Suggests: rsplib-tools
-Description: fractal images calculation application (command-line version)
+Description: Fractal images calculation application (command-line version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -75,7 +75,7 @@ Description: fractal images calculation application (command-line version)
 Package: fractgen-common
 Architecture: all
 Depends: ${misc:Depends}
-Description: common files for FractGen
+Description: Common files for FractGen
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
  to zoom into images. Image parameters can be saved in XML files and loaded
@@ -91,7 +91,7 @@ Description: common files for FractGen
 Package: fractgen-examples
 Architecture: all
 Depends: ${misc:Depends}
-Description: example files for FractGen
+Description: Example files for FractGen
  This package contains some example input files for the fractal generator
  program FractGen. The example files contain the parameters for the
  fractal calculations. FractGen can perform the computations and display
