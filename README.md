@@ -244,11 +244,15 @@ Please use the issue tracker at [https://github.com/dreibh/fractgen/issues](http
 
 The Git repository of the FractGen sources can be found at [https://github.com/dreibh/fractgen](https://github.com/dreibh/fractgen):
 
-<pre><code><span class="fu">git</span> clone <a href="https://github.com/dreibh/fractgen">https://github.com/dreibh/fractgen</a>
-<span class="bu">cd</span> fractgen
-<span class="fu">cmake</span> .
-<span class="fu">make</span>
-</code></pre>
+```bash
+git clone https://github.com/dreibh/fractgen
+cd fractgen
+sudo ci/get-dependencies --install
+cmake .
+make
+```
+
+Note: The script [`ci/get-dependencies`](https://github.com/dreibh/fractgen/blob/master/ci/get-dependencies) automatically installs the build dependencies for Debian/Ubuntu Linux, Fedora Linux, and FreeBSD. For manual handling of the build dependencies, see the packaging configuration in [debian/control](https://github.com/dreibh/fractgen/blob/master/debian/control) (Debian/Ubuntu Linux), [fractgen.spec](https://github.com/dreibh/fractgen/blob/master/rpm/fractgen.spec) (Fedora Linux), and [Makefile](https://github.com/dreibh/fractgen/blob/master/freebsd/fractgen/Makefile) FreeBSD.
 
 Contributions:
 
