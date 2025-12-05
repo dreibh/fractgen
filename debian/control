@@ -3,6 +3,8 @@ Section: graphics
 Priority: optional
 Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 Homepage: https://www.nntb.no/~dreibh/fractalgenerator/
+Vcs-Git: https://github.com/dreibh/fractgen.git
+Vcs-Browser: https://github.com/dreibh/fractgen
 Build-Depends: cmake,
                debhelper-compat (= 13),
                extra-cmake-modules,
