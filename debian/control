@@ -6,7 +6,7 @@ Homepage: https://www.nntb.no/~dreibh/fractalgenerator/
 Vcs-Git: https://github.com/dreibh/fractgen.git
 Vcs-Browser: https://github.com/dreibh/fractgen
 Build-Depends: cmake,
-               debhelper (>= 12),
+               debhelper-compat (= 13),
                extra-cmake-modules,
                libkf6coreaddons-dev,
                libkf6xmlgui-dev,
