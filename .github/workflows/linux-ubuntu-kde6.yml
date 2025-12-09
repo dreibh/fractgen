@@ -41,10 +41,10 @@ jobs:
             image: ubuntu:25.10
             cc: gcc
             cxx: g++
-          - label: "Ubuntu 24.04 (Noble Numbat) with GCC"
-            image: ubuntu:24.04
-            cc: gcc
-            cxx: g++
+          # - label: "Ubuntu 24.04 (Noble Numbat) with GCC"
+          #   image: ubuntu:24.04
+          #   cc: gcc
+          #   cxx: g++
 
     # ###### Build commands #################################################
     name: ${{ matrix.label }}
@@ -71,19 +71,19 @@ jobs:
       matrix:
         include:
           # ====== Ubuntu Linux =============================================
-          - label: "Ubuntu 24.04 (Noble Numbat) with Clang/ARMv8"
+          - label: "Ubuntu 25.10 (Noble Numbat) with Clang/ARMv8"
             arch: aarch64
-            distro: ubuntu24.04
+            distro: ubuntu25.10
             cc: clang
             cxx: clang++
-          - label: "Ubuntu 24.04 (Noble Numbat) with GCC/S390x"
+          - label: "Ubuntu 25.10 (Noble Numbat) with GCC/S390x"
             arch: s390x
-            distro: ubuntu24.04
+            distro: ubuntu25.10
             cc: gcc
             cxx: g++
-          - label: "Ubuntu 24.04 (Noble Numbat) with GCC/RISC-V"
+          - label: "Ubuntu 25.10 (Noble Numbat) with GCC/RISC-V"
             arch: riscv64
-            distro: ubuntu24.04
+            distro: ubuntu25.10
             cc: gcc
             cxx: g++
 
