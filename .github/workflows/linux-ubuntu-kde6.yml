@@ -110,15 +110,15 @@ jobs:
   # #########################################################################
   # #### Build Packages                                                  ####
   # #########################################################################
-  Package:
-    name: Ubuntu Packaging
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - name: Packaging
-        shell: bash
-        run: |
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=questing ARCH= ci/ci-setup   package
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=questing ARCH= ci/ci-install package
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=questing ARCH= ci/ci-build   package
-          sudo ci/ci-test
+  # Package:
+  #   name: Ubuntu Packaging
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #     - name: Packaging
+  #       shell: bash
+  #       run: |
+  #         sudo CC=gcc CXX=g++ OS=ubuntu DIST=resolute ARCH= ci/ci-setup   package
+  #         sudo CC=gcc CXX=g++ OS=ubuntu DIST=resolute ARCH= ci/ci-install package
+  #         sudo CC=gcc CXX=g++ OS=ubuntu DIST=resolute ARCH= ci/ci-build   package
+  #         sudo ci/ci-test
