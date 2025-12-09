@@ -112,7 +112,8 @@ jobs:
   # #########################################################################
   Package:
     name: Ubuntu Packaging
-    runs-on: ubuntu25.10
+    runs-on: ubuntu-latest
+    container: ubuntu:25.10
     steps:
       - uses: actions/checkout@v6
       - name: Packaging
