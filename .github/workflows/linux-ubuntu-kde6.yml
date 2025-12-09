@@ -113,13 +113,12 @@ jobs:
   Package:
     name: Ubuntu Packaging
     runs-on: ubuntu-latest
-    container: ubuntu:25.10
     steps:
       - uses: actions/checkout@v6
       - name: Packaging
         shell: bash
         run: |
-          CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-setup   package
-          CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-install package
-          CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-build   package
-          ci/ci-test
+          sudo CC=gcc CXX=g++ OS=ubuntu DIST=resolute ARCH= ci/ci-setup   package
+          sudo CC=gcc CXX=g++ OS=ubuntu DIST=resolute ARCH= ci/ci-install package
+          sudo CC=gcc CXX=g++ OS=ubuntu DIST=resolute ARCH= ci/ci-build   package
+          sudo ci/ci-test
