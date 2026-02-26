@@ -269,9 +269,14 @@ bool FractalGeneratorDoc::saveDocument(const QString& fileName)
       newFileName += QStringLiteral(".fsf");
    }
    QFile file(newFileName);
-   file.open(QIODevice::WriteOnly);
-   file.write(doc.toString().toLocal8Bit());
-   setFileName(newFileName);
+   if(file.open(QIODevice::WriteOnly)) {
+      file.write(doc.toString().toLocal8Bit());
+      setFileName(newFileName);
+   }
+   else {
+      showError(tr("Save File Failure"),
+                newFileName);
+   }
 
    Modified = false;
    return true;

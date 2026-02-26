@@ -246,40 +246,48 @@
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="94"/>
-        <location filename="fractalgeneratordoc.cc" line="110"/>
-        <location filename="fractalgeneratordoc.cc" line="124"/>
+        <location filename="fractalgeneratordoc.cc" line="104"/>
+        <location filename="fractalgeneratordoc.cc" line="121"/>
+        <location filename="fractalgeneratordoc.cc" line="135"/>
         <source>Open File Failure</source>
         <translation>Fehler beim Öffnen der Datei</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="96"/>
+        <location filename="fractalgeneratordoc.cc" line="106"/>
         <source>Line: </source>
         <translation>Zeile:</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="97"/>
+        <location filename="fractalgeneratordoc.cc" line="107"/>
         <source>Column: </source>
         <translation>Spalte:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="111"/>
+        <location filename="fractalgeneratordoc.cc" line="122"/>
         <source>Invalid AlgorithmName entry:</source>
         <translation>Ungültiger Eintrag für AlgorithmName:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="125"/>
+        <location filename="fractalgeneratordoc.cc" line="136"/>
         <source>Invalid ColorSchemeName entry:</source>
         <translation>Ungültiger Eintrag für ColorSchemeName:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="163"/>
+        <location filename="fractalgeneratordoc.cc" line="174"/>
         <source>Open File Warning</source>
         <translation>Warnung beim Öffnen der Datei</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="164"/>
+        <location filename="fractalgeneratordoc.cc" line="175"/>
         <source>Skipping unknown entry:</source>
         <translation>Überspringe unbekannten Eintrag:</translation>
+    </message>
+    <message>
+        <location filename="fractalgeneratordoc.cc" line="277"/>
+        <source>Save File Failure</source>
+        <translation>Fehler beim Schreiben der Datei</translation>
     </message>
 </context>
 <context>

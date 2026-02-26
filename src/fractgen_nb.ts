@@ -245,40 +245,48 @@
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="94"/>
-        <location filename="fractalgeneratordoc.cc" line="110"/>
-        <location filename="fractalgeneratordoc.cc" line="124"/>
+        <location filename="fractalgeneratordoc.cc" line="104"/>
+        <location filename="fractalgeneratordoc.cc" line="121"/>
+        <location filename="fractalgeneratordoc.cc" line="135"/>
         <source>Open File Failure</source>
         <translation>Feil ved åpning av fil</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="96"/>
+        <location filename="fractalgeneratordoc.cc" line="106"/>
         <source>Line: </source>
         <translation>Rad:</translation>
     </message>
     <message>
         <location filename="fractalgeneratordoc.cc" line="97"/>
+        <location filename="fractalgeneratordoc.cc" line="107"/>
         <source>Column: </source>
         <translation>Kolonne:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="111"/>
+        <location filename="fractalgeneratordoc.cc" line="122"/>
         <source>Invalid AlgorithmName entry:</source>
         <translation>Ugyldig AlgorithmName-oppføring:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="125"/>
+        <location filename="fractalgeneratordoc.cc" line="136"/>
         <source>Invalid ColorSchemeName entry:</source>
         <translation>Ugyldig ColorSchemeName-oppføring:</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="163"/>
+        <location filename="fractalgeneratordoc.cc" line="174"/>
         <source>Open File Warning</source>
         <translation>Advarsel ved åpning av fil</translation>
     </message>
     <message>
-        <location filename="fractalgeneratordoc.cc" line="164"/>
+        <location filename="fractalgeneratordoc.cc" line="175"/>
         <source>Skipping unknown entry:</source>
         <translation>Hopp over ukjent oppføring:</translation>
+    </message>
+    <message>
+        <location filename="fractalgeneratordoc.cc" line="277"/>
+        <source>Save File Failure</source>
+        <translation>Feil ved skriving av fil</translation>
     </message>
 </context>
 <context>
