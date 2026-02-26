@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>no.nntb.kfractgen</id>
+
+  <name>FractGen</name>
+  <summary>An Extensible Fractal Generator Software (KDE Version)</summary>
+
+  <developer id="no.nntb.dreibh">
+    <name>Thomas Dreibholz</name>
+  </developer>
+  <update_contact>thomas.dreibholz@gmail.com</update_contact>
+
+  <content_rating type="oars-1.1"/>
+
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+
+  <description>
+    <p>
+      FractGen (Fractal Generator) is a Qt/KDE-based program to generate fractal images (e.g. the Mandelbrot set). The size of the calculated images is only limited by the computer’s virtual memory. That is, images may use the full printer resolution! I created this program as an example for object-oriented programming and writing Qt/KDE applications for our Linux Workshop 2003. The goal of this workshop was to continue this basic application as an Open Source project.
+      KFractGen denotes the KDE version of the FractGen.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">kfractgen.desktop</launchable>
+
+  <url type="homepage">https://www.nntb.no/~dreibh/fractalgenerator/</url>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://www.nntb.no/~dreibh/fractalgenerator/figures/kfractgen-3.0.0.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/delta11.webp</image>
+    </screenshot>
+    <screenshot>
+      <image>https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/phi04.webp</image>
+    </screenshot>
+  </screenshots>
+</component>
