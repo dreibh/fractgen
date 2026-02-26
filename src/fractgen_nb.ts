@@ -121,7 +121,7 @@
     <message>
         <location filename="fractalgenerator.cc" line="177"/>
         <source>&amp;Color Scheme</source>
-        <translation></translation>
+        <translation>&amp;Fargevalg</translation>
     </message>
     <message>
         <location filename="fractalgenerator.cc" line="197"/>
