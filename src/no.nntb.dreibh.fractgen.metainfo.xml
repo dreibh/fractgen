@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>no.nntb.fractgen</id>
+  <id>no.nntb.dreibh.fractgen</id>
 
   <name>FractGen</name>
   <summary>An Extensible Fractal Generator Software (Qt Version)</summary>
@@ -12,7 +12,7 @@
 
   <content_rating type="oars-1.1"/>
 
-  <metadata_license>FSFAP</metadata_license>
+  <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
 
   <description>
@@ -33,10 +33,10 @@
       <image>https://www.nntb.no/~dreibh/fractalgenerator/figures/fractgen-3.0.0.png</image>
     </screenshot>
     <screenshot>
-      <image>https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/delta11.webp</image>
+      <image>https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/delta11.webp</image>
     </screenshot>
     <screenshot>
-      <image>https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/phi04.webp</image>
+      <image>https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/phi04.webp</image>
     </screenshot>
   </screenshots>
 </component>

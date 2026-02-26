@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 3.0.6
+Version: 3.0.7~rc0
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
@@ -45,6 +45,7 @@ This is the Qt version of FractGen.
 %{_bindir}/fractgen
 %{_datadir}/applications/fractgen.desktop
 %{_datadir}/bash-completion/completions/fractgen
+%{_datadir}/metainfo/no.nntb.dreibh.fractgen.metainfo.xml
 %{_mandir}/man1/fractgen.1.gz
 
 
@@ -69,6 +70,7 @@ This is the KDE version of FractGen.
 %{_bindir}/kfractgen
 %{_datadir}/applications/kfractgen.desktop
 %{_datadir}/bash-completion/completions/kfractgen
+%{_datadir}/metainfo/no.nntb.dreibh.kfractgen.metainfo.xml
 %{_mandir}/man1/kfractgen.1.gz
 
 

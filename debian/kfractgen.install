@@ -1,3 +1,4 @@
 usr/bin/kfractgen
 usr/share/applications/kfractgen.desktop
 usr/share/bash-completion/completions/kfractgen
+usr/share/metainfo/no.nntb.dreibh.kfractgen.metainfo.xml

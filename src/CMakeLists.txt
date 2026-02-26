@@ -76,6 +76,7 @@ INSTALL(TARGETS             fractgen
         BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})
 INSTALL(FILES fractgen.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 
+INSTALL(FILES no.nntb.dreibh.fractgen.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo)
 INSTALL(FILES fractgen.png     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/512x512/apps)
 INSTALL(FILES fractgen.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 INSTALL(FILES fractgen.xml     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/mime/packages)
@@ -113,7 +114,9 @@ IF (WITH_KDE)
            RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
            BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})
    INSTALL(FILES kfractgen.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
-   INSTALL(FILES kfractgen.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+
+   INSTALL(FILES no.nntb.dreibh.kfractgen.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo)
+   INSTALL(FILES kfractgen.desktop                     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
    INSTALL(FILES       kfractgen.bash-completion
            DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
            RENAME      kfractgen)

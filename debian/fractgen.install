@@ -1,3 +1,4 @@
 usr/bin/fractgen
 usr/share/applications/fractgen.desktop
 usr/share/bash-completion/completions/fractgen
+usr/share/metainfo/no.nntb.dreibh.fractgen.metainfo.xml
