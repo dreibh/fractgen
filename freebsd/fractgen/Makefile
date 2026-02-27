@@ -12,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 USES=		cmake compiler:c++17-lang desktop-file-utils gl qt:6 \
 		shared-mime-info tar:xz
-USE_GL=		gl opengl
+USE_GL=		opengl
 USE_QT=		base tools:build
 
 .include <bsd.port.mk>
