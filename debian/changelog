@@ -1,9 +1,10 @@
-fractgen (3.0.7~rc0-1ubuntu1) trixie; urgency=medium
+fractgen (3.0.7-1ubuntu1) unstable; urgency=medium
 
   * New upstream release.
   * debian/control: Updated standards version to 4.7.3.
+  * debian/copyright: Update for added .metainfo.xml files.
 
- -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Thu, 26 Feb 2026 11:46:01 +0100
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Fri, 27 Feb 2026 08:56:00 +0100
 
 fractgen (3.0.6-1ubuntu1) trixie; urgency=medium
 

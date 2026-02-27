@@ -1,3 +1,293 @@
+commit 428e75acd0ea0122aac8e6d46aa5ae2daec2f47f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Feb 26 13:37:37 2026 +0100
+
+    Translation fix.
+
+commit 51ef4fa7548410c1687e4b59a00a40ad59780e7b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Feb 26 13:35:33 2026 +0100
+
+    Improved error handling when saving a file.
+
+commit 1b3dc06ccdc1acbce5aaf2f4e7b0af63e42caba0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Feb 26 12:13:08 2026 +0100
+
+    Do not print misleading error if there are no translations for the current locale setting.
+
+commit f74f1d9cced0e194bdd9f7c47296e4a1ed8687f3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Feb 26 12:01:37 2026 +0100
+
+    Added AppStream metainfo.
+
+commit 7e042730917c2b3930f4df35f5d748a90bf747b0
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Feb 26 11:32:07 2026 +0100
+
+    Added metainfo files.
+
+commit bdf3c5d86f3ffcd96fdabc72f5cd65e1bc4bfa9f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 12 18:55:32 2025 +0100
+
+    Updated documentation.
+
+commit 6d20a496d1f3b5385a854a91a352fa7e77da4aa8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 16:20:03 2025 +0100
+
+    Updated CI scripts
+
+commit 860def4cb99856f24bff6dc36bfe637f444dc1be
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 16:19:40 2025 +0100
+
+    CI workflow should be okay now.
+
+commit a6076e7d03511af13b7508891d728ac6f56f8426
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 15:30:13 2025 +0100
+
+    One more try.
+
+commit 280f2be21a8cb67fa1b3714e36b12ba81462a003
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 15:10:50 2025 +0100
+
+    Another try.
+
+commit 563b9934db239c0b722d2d6d4fb1900345093f52
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 14:55:47 2025 +0100
+
+    Yet another try.
+
+commit 3e94cbaefb59012b056b0a3f562f12e1960eee9a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 14:54:22 2025 +0100
+
+    CI workflow update.
+
+commit 118d1fcb60db4923c929c49fe638172025dd45ab
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 11:51:09 2025 +0100
+
+    Another CI workflow update.
+
+commit 7d3074efeae9cfdd9df412699abfe630e81151b6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 11:21:19 2025 +0100
+
+    Updated CI workflows.
+
+commit 4a53f0b8652c6ec23418f602f0819a796746e005
+Merge: cdf9cd1 5e93ded
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 10:20:48 2025 +0100
+
+    Merge branch 'master' of https://github.com/dreibh/fractgen
+
+commit 5e93ded3fe6833a7eb6d2f16ba76aafa3041f6ae
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Dec 9 10:07:12 2025 +0100
+
+    Updated CI scripts
+
+commit 5b51619fac8b43600dd6114f7eca69d96a6b2156
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Dec 8 16:53:29 2025 +0100
+
+    LRelease path fix.
+
+commit cdf9cd1f01a472e98d5d511127a04f5f6e38afcd
+Merge: 775d785 d4a2c87
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Dec 8 16:51:51 2025 +0100
+
+    Merge branch 'master' of https://github.com/dreibh/fractgen
+
+commit d4a2c8787eaccd916953502170acb99ca18a1ad7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 5 15:47:47 2025 +0100
+
+    Updated CI scripts
+
+commit 6c77ae474882d178bf3a1db424e71baec206eda2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 5 15:46:19 2025 +0100
+
+    Packaging update.
+
+commit 96df2cddcba3d8afd6165bca5dde50b3f1ff8d57
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 5 13:36:55 2025 +0100
+
+    Updated CI configuration
+
+commit ff3e860fd47541b0123bc4fcf10e14cfc070f9eb
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 5 13:36:53 2025 +0100
+
+    Updated CI scripts
+
+commit ac6c30ac6eaee6c96e72f7b01d11dc4ee82e05f1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 5 11:37:09 2025 +0100
+
+    Updated build helper script.
+
+commit c2d7d1b764a41135023bffc3832411c5a3178a24
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 5 11:36:21 2025 +0100
+
+    Updated CI scripts
+
+commit e8bededf137cc6bb90e2369871513b5c3de333a7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 5 11:34:32 2025 +0100
+
+    Updated CI configuration
+
+commit 5c93456e639fa3bf0ec7a039eb79a053ebc35b31
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 17:57:10 2025 +0100
+
+    Updated CI scripts
+
+commit 0b08a0faf35b08706b8beedc8e0d6e63159aa8ce
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 17:24:02 2025 +0100
+
+    Updated CI configuration
+
+commit ac88ff4b0f9f8bb75113eaf84dfb3dac4562d29b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 15:37:09 2025 +0100
+
+    Header updates.
+
+commit e942916f779d9c61377f2a449ce237f6ad6203dd
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 15:31:39 2025 +0100
+
+    Updated header.
+
+commit 31532284c4a72fafd9ff8cacb7ae08b19342c1b1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 15:30:21 2025 +0100
+
+    Updated CI configuration
+
+commit 0de503ff7625e2fb904068bf128b294a6371b9c9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 15:30:20 2025 +0100
+
+    Updated CI scripts
+
+commit 73973a8f3a759f7c201e1557d6df892d9f67e2f3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 15:01:24 2025 +0100
+
+    Updated workflows.
+
+commit 5a5e8b235105a0476ed6aa3f02e0dca2bdced901
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Dec 4 12:50:24 2025 +0100
+
+    Packaging update.
+
+commit bd5ce87bb4e2a6eeced7df550dedab100d10dde5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Dec 3 15:46:40 2025 +0100
+
+    Updated CI scripts
+
+commit 9d63be9a2a9e607dce66855a202a4c6801892491
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 15:58:06 2025 +0100
+
+    Updated CI scripts
+
+commit 26c72178a59cd99a6a102df7ce6bd9d924705e80
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 11:27:07 2025 +0100
+
+    Updated CI configuration
+
+commit af6cf73397188c9a292eb1cddee51509596e7c90
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 11:27:04 2025 +0100
+
+    Updated CI scripts
+
+commit 9c9444154b6f10972b188d2b65efba648a8749ba
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 10:44:40 2025 +0100
+
+    Workflow update.
+
+commit 8a81fb30926859b5c4c35dc47b094bd2c8ba574f
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 3 13:04:14 2025 +0100
+
+    Yet another documentation update.
+
+commit 4f9702d1a2ba8a527cf6d92681d6760e24c94ff1
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 3 12:49:49 2025 +0100
+
+    Minor documentation update.
+
+commit 5157fd47788e01669b6f4a89816aff3e455d0679
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 3 12:45:22 2025 +0100
+
+    Improved documentation.
+
+commit 5b29b8734a6505e147f9171363543ebaebdb2e6d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Oct 14 20:38:35 2025 +0200
+
+    Fixed broken links.
+
+commit 72a7b5a5eb07e695d1d2f40d8083a0004b6799a5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Oct 14 20:34:00 2025 +0200
+
+    Fixed broken cross-references.
+
+commit 92a1f25e38b1b103517a5450cb49d0e505347240
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Oct 14 19:27:27 2025 +0200
+
+    Improved documentation.
+
+commit ebb58a7d95246de0c267238686307f794608480b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Oct 13 21:43:48 2025 +0200
+
+    Minor documentation update.
+
+commit dc0e0974c79933a92c4035d697062f965aa339c5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Oct 13 20:18:29 2025 +0200
+
+    Improved documentation.
+
+commit 775d7857c4f47af266b12093a02cdf92da3f3422
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Sep 25 17:13:16 2025 +0200
+
+    FreeBSD packaging update.
+
+commit b00d1dd6b206bf1c603cdc3a2b01abd9f3999e56
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Sep 21 17:55:36 2025 +0200
+
+    New release fractgen-3.0.6.
+
 commit c1031016e5da176d3511d7f976d394d7b383a6b0
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Sep 19 11:00:41 2025 +0200
