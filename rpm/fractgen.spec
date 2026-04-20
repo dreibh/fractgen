@@ -119,18 +119,18 @@ versions of FractGen.
 %{_datadir}/mime/packages/fractgen.xml
 
 
-%package example
+%package examples
 Summary: FractGen example files
 Group: Applications/Multimedia
 BuildArch: noarch
 
-%description example
+%description examples
 This package contains some example input files for the fractal generator
 program FractGen. The example files contain the parameters for the
 fractal calculations. FractGen can perform the computations and display
 the resulting images.
 
-%files example
+%files examples
 %{_datadir}/fractgen/examples/*.fsf
 
 
