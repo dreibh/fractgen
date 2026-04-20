@@ -75,8 +75,8 @@ Description: Fractal images calculation application (command-line version)
 
 Package: fractgen-common
 Architecture: all
-Depends: ${misc:Depends}
 Conflicts: fractgen (<< 3.0.0)
+Depends: ${misc:Depends}
 Description: Common files for FractGen
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
  fractals. The image size is only limited by virtual memory. It is possible
@@ -92,6 +92,7 @@ Description: Common files for FractGen
 
 Package: fractgen-examples
 Architecture: all
+Conflicts: fractgen (<< 3.0.0)
 Depends: ${misc:Depends}
 Description: Example files for FractGen
  This package contains some example input files for the fractal generator
