@@ -1,3 +1,45 @@
+commit a0263910f5cd66c0093fee64d6c00901a92333b2
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 09:47:22 2026 +0200
+
+    Another dependency fix.
+
+commit 813d92b7b140d516eea8364bde147d7aad45ffdd
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 09:38:24 2026 +0200
+
+    Fixed typo.
+
+commit b81dedd56fe71b4175fea4a8cce7f85069d86be3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 09:28:20 2026 +0200
+
+    Fixed Debian packaging conflict.
+
+commit 757e335719d082abc18d37cdd92321c63bc8f62b
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 09:22:59 2026 +0200
+
+    Updated CI scripts
+
+commit fcbcc2cccb5a2e9bc9267adbbc5158b48b2c4774
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Mar 12 11:13:14 2026 +0100
+
+    Updated URLs.
+
+commit 2f6020570436313ae235d8ed8f6b69f1c0a3ce65
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Feb 27 09:27:56 2026 +0100
+
+    Updated FreeBSD port.
+
+commit 3b5313b096d3c10404763ab19fc6e30975f23b99
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Feb 27 08:56:10 2026 +0100
+
+    New release fractgen-3.0.7.
+
 commit 428e75acd0ea0122aac8e6d46aa5ae2daec2f47f
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Thu Feb 26 13:37:37 2026 +0100
