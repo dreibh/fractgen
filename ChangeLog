@@ -1,3 +1,112 @@
+commit 0348d38f845a51182da822843d85563138446321
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 23:39:35 2026 +0200
+
+    Packaging updates.
+
+commit 3a6994945bb425807e2ba2d6143e983b55439697
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 23:14:27 2026 +0200
+
+    Updated manpages.
+
+commit d6508d530f3f8bb9a24705ecaa03b83d8243edfb
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 23:14:14 2026 +0200
+
+    Further parameter handling improvements.
+
+commit 92e7a83945689d81953019ce32d67818b3a5443a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 23:02:49 2026 +0200
+
+    Improved manpage.
+
+commit 7f6c81df21c9d1bc79dab9a589bc7c66dcc1da88
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 22:43:26 2026 +0200
+
+    Initialisation improvements, particularly now properly handling positional parameters.
+
+commit 79733145888a7a1466cd10c447111ad441faabca
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 22:37:30 2026 +0200
+
+    Minor documentation improvements.
+
+commit 47668d078c804855d85306fb0a032fbf88c59b73
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 22:21:58 2026 +0200
+
+    Improved documentation.
+
+commit f778a95a9ceae8e0910d47cb8a68860e8bc10dc6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 21:51:39 2026 +0200
+
+    Improved manpages.
+
+commit 4f0e83c5b3231f5fa373b455c86ec013c9769e90
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 21:48:45 2026 +0200
+
+    Improved shell completions.
+
+commit a6b6a32a776911a3a27d4cc4ac7a8a35672166cb
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 27 11:53:13 2026 +0200
+
+    Updated workflows.
+
+commit d0a60170b1d01ff024526bd243adf87c945e4ba5
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 27 11:51:38 2026 +0200
+
+    ShellCheck clean-up for shell completions.
+
+commit 016a49ecf5cff25e29336df5c042fe06c20e8fc9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 27 11:49:34 2026 +0200
+
+    Updated CI configuration
+
+commit 8cdecef92fd164285f52dea4d71d2655ab89251a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Apr 25 20:08:08 2026 +0200
+
+    Updated build script.
+
+commit 9694474e34f7ef8da0d0f6d30dddda683f4fd8e8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Apr 25 20:07:34 2026 +0200
+
+    Updated CI scripts
+
+commit 28f3b94aa578d8c64771d3511769f501ea19c276
+Merge: ea0c57a e7a9423
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 22:09:45 2026 +0200
+
+    Merge branch 'master' of github.com:dreibh/fractgen
+
+commit ea0c57acb953a64238f3af7435c9a65a85c92060
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 22:09:31 2026 +0200
+
+    RPM spec fix.
+
+commit e7a94231c7090df079011124ff97f24544584427
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 20:19:32 2026 +0200
+
+    Updated FreeBSD port.
+
+commit f616af1cc35e5df90d3ed3be774dc65f93f7de7e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Apr 20 20:10:08 2026 +0200
+
+    New release fractgen-3.0.8.
+
 commit a0263910f5cd66c0093fee64d6c00901a92333b2
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Mon Apr 20 09:47:22 2026 +0200
