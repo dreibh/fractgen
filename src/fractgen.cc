@@ -23,11 +23,11 @@
 #include "fractalgenerator.h"
 #include "package-version.h"
 
-#include <QFile>
-#include <QTranslator>
-#include <QtGlobal>
-#include <QtWidgets/QApplication>
 #include <QCommandLineParser>
+#include <QFile>
+#include <QtGlobal>
+#include <QTranslator>
+#include <QtWidgets/QApplication>
 
 
 // ###### Main program ######################################################
@@ -58,25 +58,34 @@ int main(int argc, char *argv[])
    parser.setApplicationDescription(QStringLiteral("Fractal Generator"));
    parser.addHelpOption();
    parser.addVersionOption();
+   parser.addPositionalArgument(QStringLiteral("fsf_file"),
+                                QStringLiteral("Input files to be loaded (*.fsf)."),
+                                QStringLiteral("[fsf_file ...]"));
    parser.process(application);
 
    // ====== Open files given as arguments ==================================
-   FractalGeneratorApp* fractalGeneratorApp = nullptr;
-   for(int i = 1;i < argc;i++) {
-      const QString fileName = QString::fromLocal8Bit(argv[i]);
-      if( (fileName.right(4) == QStringLiteral(".fsf")) &&
-          (QFile::exists(fileName)) ) {
+   bool openedAnyFile = false;
+
+   const QStringList arguments = parser.positionalArguments();
+   for(const QString& fileName : arguments) {
+      if(QFile::exists(fileName)) {
          // Open file provided by argument ...
-         fractalGeneratorApp = new FractalGeneratorApp(nullptr, fileName);
+         FractalGeneratorApp* fractalGeneratorApp =
+            new FractalGeneratorApp(nullptr, fileName);
          Q_CHECK_PTR(fractalGeneratorApp);
          fractalGeneratorApp->show();
+         openedAnyFile = true;
+      }
+      else {
+         qWarning("WARNING: File %s does not exist!", qPrintable(fileName));
       }
    }
 
    // ====== Start the application ==========================================
-   if(fractalGeneratorApp == nullptr) {
+   if(!openedAnyFile) {
       // Start new image, if no file has been opened.
-      fractalGeneratorApp = new FractalGeneratorApp(nullptr);
+      FractalGeneratorApp* fractalGeneratorApp =
+         new FractalGeneratorApp(nullptr);
       Q_CHECK_PTR(fractalGeneratorApp);
       fractalGeneratorApp->show();
    }
