@@ -17,7 +17,7 @@
 .\" Contact: thomas.dreibholz@gmail.com
 .\"
 .\" ###### Setup ############################################################
-.Dd December 13, 2024
+.Dd May 11, 2026
 .Dt clifractgen 1
 .Os clifractgen
 .\" ###### Name #############################################################
@@ -26,33 +26,50 @@
 .Nd Fractal Generator
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
+.Nm clifractgen Ar fsf\_file Ar output\_file
+.br
+.Op Fl W Ar image\_width | Fl Fl width Ar image\_width
+.br
+.Op Fl H Ar image\_height | Fl Fl height Ar image\_height
+.br
+.Op Fl M Ar max\_iterations | Fl Fl max-iterations Ar max\_iterations
 .Nm clifractgen
-fsf_file output_file
 .Op Fl h | Fl Fl help
+.Nm clifractgen
 .Op Fl v | Fl Fl version
-.Op Fl W Ar image_width | Fl Fl width Ar image_width
-.Op Fl H Ar image_height | Fl Fl height Ar image_height
-.Op Fl M Ar max_iterations | Fl Fl maxIterations Ar max_iterations
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
 .Nm clifractgen
- FractGen is a simple Qt-based fractal generator program for Mandelbrot
- fractals. The image size is only limited by virtual memory. It is possible
- to zoom into images. Image parameters can be saved in XML files and loaded
- from XML files. Calculated images can be exported as PNG files.
+is a simple Qt\-based fractal generator program for Mandelbrot fractals. The
+image size is only limited by virtual memory. It is possible to zoom into
+images. Image parameters can be saved in XML files and loaded from XML files.
+Calculated images can be exported as PNG files. The intention of this program is
+to generate graphics to be post\-processed by other image tools, e.g. in order
+to generate nice screen backgrounds or book covers.
 .br
- The intention of this program is to generate graphics to be post-processed
- by other image tools, e.g. in order to generate nice screen backgrounds or
- book covers.
-.br
- This is the command-line version of FractGen. This program can be used to
- calculate files created by FractGen on machines without GUI, e.g. to produce
- high-resolution images on a powerful server.
+This is the command\-line version of FractGen. This program can be used to
+calculate files created by FractGen on machines without GUI, e.g. to produce
+high\-resolution images on a powerful server.
 .Pp
+.\" ###### Exit status ######################################################
+.Sh EXIT STATUS
+The
+.Nm
+tool exits with 0 on success, and >0 in case of an error.
 .\" ###### Arguments ########################################################
 .Sh ARGUMENTS
 The following argument may be provided:
 .Bl -tag -width indent
+.It Ar fsf\_file
+Specifies the input file.
+.It Ar output\_file
+Specifies the output file.
+.It Fl W Ar image\_width | Fl Fl width Ar image\_width
+Specifies the image width in pixels. Default: 1024.
+.It Fl H Ar image\_height | Fl Fl height Ar image\_height
+Specifies the image height in pixels. Default: 768.
+.It Fl M Ar max\_iterations | Fl Fl max-iterations Ar max\_iterations
+Specifies the maximum number of interations. Default: 250.
 .It Fl h | Fl Fl help
 Show arguments help and exit.
 .It Fl v | Fl Fl version
@@ -61,17 +78,21 @@ Show version and exit.
 .\" ###### Examples #########################################################
 .Sh EXAMPLES
 .Bl -tag -width indent
-.It clifractgen -h
-.It clifractgen -v
-.It clifractgen fractgen.fsf fractgen-uhd.png -W 3840 -H 2160 -M 10000
-.It clifractgen alpha05.fsf alpha05.png --width 3840 --height 2160 --max-iterations 10000
-.It clifractgen beta07.fsf beta07-A3.png -W21000 -H14850 -M10000
+.It clifractgen \-h
+.It clifractgen \-v
+.It clifractgen fractgen.fsf fractgen\-uhd.png \-W 3840 \-H 2160 \-M 10000
+.It clifractgen alpha05.fsf alpha05.png \-\-width 3840 \-\-height 2160 \-\-max\-iterations 10000
+.It clifractgen beta07.fsf beta07\-A3.png \-W21000 \-H14850 \-M10000
 .El
+.\" ###### See also #########################################################
+.Sh SEE ALSO
+.Xr fractgen 1 ,
+.Xr kfractgen 1
+.\" ###### Notes ############################################################
+.Sh NOTES
+This program is part of FractGen. The latest version of FractGen can be found on the FractGen Homepage at
+.Lk https://www.nntb.no/\(tidreibh/fractalgenerator/ "FractGen Homepage" .
 .\" ###### Authors ##########################################################
 .Sh AUTHORS
-Thomas Dreibholz
-.br
-https://www.nntb.no/~dreibh/fractalgenerator
-.br
-mailto://thomas.dreibholz@gmail.com
-.br
+Thomas Dreibholz,
+.Lk https://www.nntb.no/\(tidreibh "Homepage"

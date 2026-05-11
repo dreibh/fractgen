@@ -17,7 +17,7 @@
 .\" Contact: thomas.dreibholz@gmail.com
 .\"
 .\" ###### Setup ############################################################
-.Dd December 13, 2024
+.Dd May 11, 2026
 .Dt fractgen 1
 .Os fractgen
 .\" ###### Name #############################################################
@@ -27,27 +27,31 @@
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
 .Nm fractgen
-.Op fsf_file ...
+.Op Ar fsf\_file Ar ...
+.Nm fractgen
 .Op Fl h | Fl Fl help
+.Nm fractgen
 .Op Fl v | Fl Fl version
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
 .Nm fractgen
- FractGen is a simple Qt-based fractal generator program for Mandelbrot
- fractals. The image size is only limited by virtual memory. It is possible
- to zoom into images. Image parameters can be saved in XML files and loaded
- from XML files. Calculated images can be exported as PNG files.
+is a simple Qt\-based fractal generator program for Mandelbrot fractals. The image size is only limited by virtual memory. It is possible to zoom into images. Image parameters can be saved in XML files and loaded from XML files. Calculated images can be exported as PNG files.
 .br
- The intention of this program is to generate graphics to be post-processed
- by other image tools, e.g. in order to generate nice screen backgrounds or
- book covers.
+The intention of this program is to generate graphics to be post\-processed by other image tools, e.g. in order to generate nice screen backgrounds or book covers.
 .br
- This is the Qt version of FractGen.
+This is the Qt version of FractGen.
 .Pp
+.\" ###### Exit status ######################################################
+.Sh EXIT STATUS
+The
+.Nm
+tool exits with 0 on success, and >0 in case of an error.
 .\" ###### Arguments ########################################################
 .Sh ARGUMENTS
 The following argument may be provided:
 .Bl -tag -width indent
+.It Ar fsf\_file Ar ...
+Specifies input files to be loaded.
 .It Fl h | Fl Fl help
 Show arguments help and exit.
 .It Fl v | Fl Fl version
@@ -56,17 +60,21 @@ Show version and exit.
 .\" ###### Examples #########################################################
 .Sh EXAMPLES
 .Bl -tag -width indent
-.It fractgen -h
-.It fractgen -v
+.It fractgen \-h
+.It fractgen \-v
 .It fractgen fractgen.fsf
 .It fractgen beta01.fsf beta02.fsf beta03.fsf
 .It fractgen examples/alpha*.fsf
 .El
+.\" ###### See also #########################################################
+.Sh SEE ALSO
+.Xr clifractgen 1 ,
+.Xr kfractgen 1
+.\" ###### Notes ############################################################
+.Sh NOTES
+This program is part of FractGen. The latest version of FractGen can be found on the FractGen Homepage at
+.Lk https://www.nntb.no/\(tidreibh/fractalgenerator/ "FractGen Homepage" .
 .\" ###### Authors ##########################################################
 .Sh AUTHORS
-Thomas Dreibholz
-.br
-https://www.nntb.no/~dreibh/fractalgenerator
-.br
-mailto://thomas.dreibholz@gmail.com
-.br
+Thomas Dreibholz,
+.Lk https://www.nntb.no/\(tidreibh "Homepage"
