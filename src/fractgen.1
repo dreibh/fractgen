@@ -27,7 +27,7 @@
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
 .Nm fractgen
-.Op Ar fsf\_file Ar ...
+.Op Ar file Ar ...
 .Nm fractgen
 .Op Fl h | Fl Fl help
 .Nm fractgen
@@ -35,9 +35,18 @@
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
 .Nm fractgen
-is a simple Qt\-based fractal generator program for Mandelbrot fractals. The image size is only limited by virtual memory. It is possible to zoom into images. Image parameters can be saved in XML files and loaded from XML files. Calculated images can be exported as PNG files.
+is a simple Qt\-based fractal generator program for Mandelbrot fractals. The
+image size is only limited by virtual memory. It is possible to zoom into
+images. Image parameters can be saved in and loaded from FractGen Settings
+Files (FSF). These files are encoded in XML. While the standard
+file extension is .fsf,
+.Nm
+detects the file type by reading its XML structure, meaning the extension is
+not strictly required.
 .br
-The intention of this program is to generate graphics to be post\-processed by other image tools, e.g. in order to generate nice screen backgrounds or book covers.
+The intention of this program is to generate graphics to be post\-processed
+by other image tools, e.g. in order to generate nice screen backgrounds or
+book covers.
 .br
 This is the Qt version of FractGen.
 .Pp
@@ -50,7 +59,7 @@ tool exits with 0 on success, and >0 in case of an error.
 .Sh ARGUMENTS
 The following argument may be provided:
 .Bl -tag -width indent
-.It Ar fsf\_file Ar ...
+.It Ar file Ar ...
 Specifies input files to be loaded.
 .It Fl h | Fl Fl help
 Show arguments help and exit.
