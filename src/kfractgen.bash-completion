@@ -43,9 +43,19 @@ _kfractgen()
       cword="${COMP_CWORD}"
    fi
 
-   _filedir '@(fsf)'
-   return
+   if [[ "${cur}" != -* ]] ; then
+      _filedir '@(fsf)'
+      return
+   fi
 
+   # ====== All options =====================================================
+   local opts="
+-h
+--help
+-v
+--version
+"
+   mapfile -t COMPREPLY < <(compgen -W "${opts}" -- "${cur}" )
    return 0
 }
 

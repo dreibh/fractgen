@@ -31,7 +31,7 @@ _fractgen()
    elif type -t _init_completion >/dev/null; then
       _init_completion || return
    else
-     # Manual initialization for older bash completion versions:
+      # Manual initialization for older bash completion versions:
       COMPREPLY=()
       # shellcheck disable=SC2034
       cur="${COMP_WORDS[COMP_CWORD]}"
@@ -41,11 +41,21 @@ _fractgen()
       words="${COMP_WORDS[@]}"
       # shellcheck disable=SC2034
       cword="${COMP_CWORD}"
-    fi
+   fi
 
-   _filedir '@(fsf)'
-   return
+   if [[ "${cur}" != -* ]] ; then
+      _filedir '@(fsf)'
+      return
+   fi
 
+   # ====== All options =====================================================
+   local opts="
+-h
+--help
+-v
+--version
+"
+   mapfile -t COMPREPLY < <(compgen -W "${opts}" -- "${cur}" )
    return 0
 }
 

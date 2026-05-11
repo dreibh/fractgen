@@ -43,12 +43,30 @@ _clifractgen()
       cword="${COMP_CWORD}"
     fi
 
-   if [ "${cword}" -gt 1 ] ; then
+   if [ "${cword}" -eq 1 ] ; then
       _filedir '@(fsf)'
       return
-   elif [ "${cword}" -gt 2 ] ; then
+   elif [ "${cword}" -eq 2 ] ; then
       _filedir
       return
+   else
+      case "${prev}" in
+         -W | --width)
+            compopt -o nosort 2>/dev/null || true   # No sorting (Bash >= 4.4)
+            mapfile -t COMPREPLY < <(compgen -W "320 640 1024 1280 1920 3840" -- "${cur}")
+            return
+            ;;
+         -H | --height)
+            compopt -o nosort 2>/dev/null || true   # No sorting (Bash >= 4.4)
+            mapfile -t COMPREPLY < <(compgen -W "200 256 480 768 900 1080 2160" -- "${cur}")
+            return
+            ;;
+         -M | --maxIterations)
+            compopt -o nosort 2>/dev/null || true   # No sorting (Bash >= 4.4)
+            mapfile -t COMPREPLY < <(compgen -W "100 250 1000 2500 5000 7500 10000" -- "${cur}")
+            return
+            ;;
+      esac
    fi
 
    local opts="
