@@ -3,7 +3,6 @@ fractgen (3.0.8-1ubuntu1) unstable; urgency=medium
   * New upstream release.
   * debian/control: Fixed conflict with old version (Closes: #1133243).
   * debian/control: Updated standards version to 4.7.4.
-  * debian/control: Updated standards version to 4.7.3.
 
  -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Mon, 20 Apr 2026 20:10:06 +0200
 
