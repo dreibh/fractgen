@@ -1,6 +1,6 @@
 <h1 align="center">
  FractGen<br />
- <span style="font-size: 75%">An Extensible Fractal Generator</span><br />
+ <span style="font-size: 75%;">An Extensible Fractal Generator</span><br />
  <a href="https://www.nntb.no/~dreibh/fractalgenerator/">
   <span style="font-size: 75%;">https://www.nntb.no/~dreibh/fractalgenerator</span>
  </a>
@@ -9,13 +9,13 @@
 
 # 💡 What is FractGen?
 
-FractGen (Fractal Generator) is a Qt/KDE-based program to generate fractal images (e.g.&nbsp;the Mandelbrot set). The size of the calculated images is only limited by the computer's virtual memory. That is, images may use the full printer resolution! I created this program as an example for object-oriented programming and writing Qt/KDE applications for our Linux Workshop&nbsp;2003. The goal of this workshop was to continue this basic application as an Open Source project.
+The FractGen (Fractal Generator) software suite is a collection of Qt/KDE-based programs to generate fractal images (e.g.&nbsp;the Mandelbrot set). The size of the calculated images is only limited by the computer's virtual memory. That is, images may use the full printer resolution! I created this program as an example of object-oriented programming and writing Qt/KDE applications for our Linux Workshop&nbsp;2003. The goal of this workshop was to continue this basic application as an Open Source project.
 
 The package consists of 3&nbsp;programs:
 
-- [FractGen](#-fractgen) (Qt version of the FractGen),
-- [KFractGen](#-kfractgen) (KDE version of the FractGen),
-- [CLIFractGen](#-clifractgen) (command-line version of the FractGen),
+- [FractGen](#-fractgen) (Qt version of FractGen)
+- [KFractGen](#-kfractgen) (KDE version of FractGen)
+- [CLIFractGen](#-clifractgen) (command-line version of FractGen)
 
 
 # 📚 FractGen
@@ -36,7 +36,7 @@ fractgen alpha01.fsf beta04.fsf delta07.fsf
 
 # 📚 KFractGen
 
-FractGen is the [KDE](https://develop.kde.org/) version of the fractal generator program. That is, it provides a KDE-based GUI (which itself is based on Qt).
+KFractGen is the [KDE](https://develop.kde.org/) version of the fractal generator program. That is, it provides a KDE-based GUI (which itself is based on Qt).
 It can simply be started via the GUI menu (depending on the desktop environment), or from the command-line:
 
 ```bash
@@ -52,7 +52,7 @@ kfractgen gamma01.fsf delta03.fsf kappa02.fsf
 
 # 📚 CLIFractGen
 
-CLIFractGen is the command-line version of the fractal generator program. That is, does not provide a GUI and can be used to process FractGen input files via scripts.
+CLIFractGen is the command-line version of the fractal generator program. That is, it does not provide a GUI and can be used to process FractGen input files via scripts.
 
 * Process <a type="application/x-fractgen" href="src/examples/epsilon10.fsf">`epsilon10.fsf`</a> and generate 1920x1080 (Full HD resolution) in PNG output format with a maximum of 2500&nbsp;iterations:
   ```bash
@@ -65,10 +65,10 @@ CLIFractGen is the command-line version of the fractal generator program. That i
   clifractgen -W 3840 -H 2160 -M 5000 gamma05.fsf gamma05.webp
   ```
 
-* Find all files matching pattern `*.fsf<` in the local directory (e.g.&nbsp;using the examples from [`src/examples`](src/examples), and compute 3840x2160 WebP output format:
+* Find all files matching pattern `*.fsf` in the local directory (e.g.&nbsp;using the examples from [`src/examples`](src/examples), and generate 3840x2160 WebP images:
 
   ```bash
-  find . -name "*.fsf" | xargs -i§ clifractgen -W 3840 -H 2160 -M 5000 § §.webp
+  find . -name "*.fsf" | xargs -I§ clifractgen -W 3840 -H 2160 -M 5000 § §.webp
   ```
 
 * The manpage of CLIFractGen contains details and further examples:
@@ -82,28 +82,28 @@ CLIFractGen is the command-line version of the fractal generator program. That i
 
 These and further example input files can be found in [`src/examples`](src/examples).
 
-<table summary="System-Info Banner Examples">
+<table summary="Fractal Generation Examples">
  <tr>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle; width: 33.33%;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/delta11.webp">
-      <img alt="Example delta11.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/delta11.webp" width="100%" height="100%" />
+      <img alt="Example delta11.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/delta11.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/delta11.fsf">delta11.fsf</a></tt><br />
    </p>
   </td>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle; width: 33.33%;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/epsilon06.webp">
-      <img alt="Example epsilon06.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/epsilon06.webp" width="100%" height="100%" />
+      <img alt="Example epsilon06.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/epsilon06.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/epsilon06.fsf">epsilon06.fsf</a></tt><br />
    </p>
   </td>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle; width: 33.33%;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/gamma08.webp">
-      <img alt="Example gamma08.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/gamma08.webp" width="100%" height="100%" />
+      <img alt="Example gamma08.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/gamma08.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/gamma08.fsf">gamma08.fsf</a></tt><br />
    </p>
@@ -111,26 +111,26 @@ These and further example input files can be found in [`src/examples`](src/examp
  </tr>
 
  <tr>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/gamma10.webp">
-      <img alt="Example gamma10.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/gamma10.webp" width="100%" height="100%" />
+      <img alt="Example gamma10.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/gamma10.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/gamma10.fsf">gamma10.fsf</a></tt><br />
    </p>
   </td>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/kappa11.webp">
-      <img alt="Example kappa11.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/kappa11.webp" width="100%" height="100%" />
+      <img alt="Example kappa11.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/kappa11.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/kappa11.fsf">kappa11.fsf</a></tt><br />
    </p>
   </td>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/lambda01.webp">
-      <img alt="Example lambda01.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/lambda01.webp" width="100%" height="100%" />
+      <img alt="Example lambda01.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/lambda01.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/lambda01.fsf">lambda01.fsf</a></tt><br />
    </p>
@@ -138,26 +138,26 @@ These and further example input files can be found in [`src/examples`](src/examp
  </tr>
 
  <tr>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/nu08.webp">
-      <img alt="Example nu08.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/nu08.webp" width="100%" height="100%" />
+      <img alt="Example nu08.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/nu08.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/nu08.fsf">nu08.fsf</a></tt><br />
-    </p>
+   </p>
   </td>
-  <td style="vertical-align: center;">
-    <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/phi04.webp">
-      <img alt="Example phi04.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/phi04.webp" width="100%" height="100%" />
+      <img alt="Example phi04.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/phi04.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/phi04.fsf">phi04.fsf</a></tt><br />
    </p>
   </td>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/psi09.webp">
-      <img alt="Example psi09.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/psi09.webp" width="100%" height="100%" />
+      <img alt="Example psi09.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/psi09.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/psi09.fsf">psi09.fsf</a></tt><br />
    </p>
@@ -165,26 +165,26 @@ These and further example input files can be found in [`src/examples`](src/examp
  </tr>
 
  <tr>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/sigma06.webp">
-      <img alt="Example sigma06.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/sigma06.webp" width="100%" height="100%" />
+      <img alt="Example sigma06.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/sigma06.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/sigma06.fsf">sigma06.fsf</a></tt><br />
    </p>
   </td>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/theta04.webp">
-      <img alt="Example theta04.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/theta04.webp" width="100%" height="100%" />
+      <img alt="Example theta04.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/theta04.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/theta04.fsf">theta04.fsf</a></tt><br />
    </p>
   </td>
-  <td style="vertical-align: center;">
-   <p align="center">
+  <td style="vertical-align: middle;">
+   <p style="text-align: center;">
     <a href="https://www.nntb.no/~dreibh/fractalgenerator/examples/7680x4320/tau06.webp">
-      <img alt="Example tau06.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/tau06.webp" width="100%" height="100%" />
+      <img alt="Example tau06.fsf" src="https://www.nntb.no/~dreibh/fractalgenerator/examples/1280x720/tau06.webp" width="100%" />
     </a><br />
     <tt><a type="application/x-fractgen" href="src/examples/tau06.fsf">tau06.fsf</a></tt><br />
    </p>
@@ -219,7 +219,7 @@ sudo dnf install fractgen
 
 ## FreeBSD
 
-For ready-to-install FreeBSD packages of FractGen, it is included in the ports collection, see [FreeBSD ports tree index of benchmarks/fractgen/](https://cgit.freebsd.org/ports/tree/graphics/fractgen/)!
+For ready-to-install FreeBSD packages of FractGen, it is included in the ports collection, see [FreeBSD ports tree index of graphics/fractgen/](https://cgit.freebsd.org/ports/tree/graphics/fractgen/)!
 
 ```bash
 sudo pkg install fractgen
@@ -236,7 +236,7 @@ sudo make install
 
 # 💾 Build from Sources
 
-FractGen is released under the [GNU General Public Licence&nbsp;(GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).
+FractGen is released under the [GNU General Public License&nbsp;(GPL)](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text).
 
 Please use the issue tracker at [https://github.com/dreibh/fractgen/issues](https://github.com/dreibh/fractgen/issues) to report bugs and issues!
 
@@ -258,7 +258,7 @@ Optionally, for installation to the standard paths (usually under `/usr/local`):
 sudo make install
 ```
 
-Note: The script [`ci/get-dependencies`](https://github.com/dreibh/fractgen/blob/master/ci/get-dependencies) automatically  installs the build dependencies under Debian/Ubuntu Linux, Fedora Linux, and FreeBSD. For manual handling of the build dependencies, see the packaging configuration in [`debian/control`](https://github.com/dreibh/fractgen/blob/master/debian/control) (Debian/Ubuntu Linux), [`fractgen.spec`](https://github.com/dreibh/fractgen/blob/master/rpm/fractgen.spec) (Fedora Linux), and [`Makefile`](https://github.com/dreibh/fractgen/blob/master/freebsd/fractgen/Makefile) FreeBSD.
+Note: The script [`ci/get-dependencies`](https://github.com/dreibh/fractgen/blob/master/ci/get-dependencies) automatically installs the build dependencies under Debian/Ubuntu Linux, Fedora Linux, and FreeBSD. For manual handling of the build dependencies, see the packaging configuration in [`debian/control`](https://github.com/dreibh/fractgen/blob/master/debian/control) (Debian/Ubuntu Linux), [`fractgen.spec`](https://github.com/dreibh/fractgen/blob/master/rpm/fractgen.spec) (Fedora Linux), and [`Makefile`](https://github.com/dreibh/fractgen/blob/master/freebsd/fractgen/Makefile) for FreeBSD.
 
 Contributions:
 
