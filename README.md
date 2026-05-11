@@ -17,6 +17,8 @@ The package consists of 3&nbsp;programs:
 - [KFractGen](#-kfractgen) (KDE version of FractGen)
 - [CLIFractGen](#-clifractgen) (command-line version of FractGen)
 
+FractGen provides internationalisation&nbsp;(i18n) support. That is, translation files for the output of the programs are supported. You can support the project by contributing translations for your language.
+
 
 # 📚 FractGen
 
@@ -82,7 +84,7 @@ CLIFractGen is the command-line version of the fractal generator program. That i
 
 These and further example input files can be found in [`src/examples`](src/examples).
 
-<table summary="Fractal Generation Examples">
+<table summary="Fractal Generation Examples" style="table-layout: fixed; width: 100%;">
  <tr>
   <td style="vertical-align: middle; width: 33.33%;">
    <p style="text-align: center;">
