@@ -26,7 +26,7 @@
 .Nd Fractal Generator
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
-.Nm clifractgen Ar fsf\_file Ar output\_file
+.Nm clifractgen Ar input\_file Ar output\_file
 .br
 .Op Fl W Ar image\_width | Fl Fl width Ar image\_width
 .br
@@ -42,10 +42,16 @@
 .Nm clifractgen
 is a simple Qt\-based fractal generator program for Mandelbrot fractals. The
 image size is only limited by virtual memory. It is possible to zoom into
-images. Image parameters can be saved in XML files and loaded from XML files.
-Calculated images can be exported as PNG files. The intention of this program is
-to generate graphics to be post\-processed by other image tools, e.g. in order
-to generate nice screen backgrounds or book covers.
+images. Image parameters can be saved in and loaded from FractGen Settings
+Files (FSF). These files are encoded in XML. While the standard
+file extension is .fsf,
+.Nm
+detects the file type by reading its XML structure, meaning the extension is
+not strictly required.
+.br
+The intention of this program is to generate graphics to be post\-processed
+by other image tools, e.g. in order to generate nice screen backgrounds or
+book covers.
 .br
 This is the command\-line version of FractGen. This program can be used to
 calculate files created by FractGen on machines without GUI, e.g. to produce
@@ -60,7 +66,7 @@ tool exits with 0 on success, and >0 in case of an error.
 .Sh ARGUMENTS
 The following argument may be provided:
 .Bl -tag -width indent
-.It Ar fsf\_file
+.It Ar input\_file
 Specifies the input file.
 .It Ar output\_file
 Specifies the output file.
@@ -69,7 +75,7 @@ Specifies the image width in pixels. Default: 1024.
 .It Fl H Ar image\_height | Fl Fl height Ar image\_height
 Specifies the image height in pixels. Default: 768.
 .It Fl M Ar max\_iterations | Fl Fl max-iterations Ar max\_iterations
-Specifies the maximum number of interations. Default: 250.
+Specifies the maximum number of iterations. Default: 250.
 .It Fl h | Fl Fl help
 Show arguments help and exit.
 .It Fl v | Fl Fl version
