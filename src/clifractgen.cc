@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
    parser.addHelpOption();
    parser.addVersionOption();
    parser.addPositionalArgument(QStringLiteral("input_file"),
-                                QCoreApplication::translate("main", "FSF input file."));
+                                QCoreApplication::translate("main", "Input file."));
    parser.addPositionalArgument(QStringLiteral("output_file"),
                                 QCoreApplication::translate("main", "Graphics output file."));
 
@@ -74,17 +74,18 @@ int main(int argc, char *argv[])
    // ====== Check command-line arguments ===================================
    parser.process(application);
    const QStringList  args          = parser.positionalArguments();
-   if(args.size() < 2) {
-      std::cerr << "Usage: " << argv[0]  << " fsf_file output_file [-h | --help] [-v | --version] [-W image_width | --width image_width] [-H image_height | --height image_height] [-M max_iterations | --max-iterations max_iterations]\n";
-      return 0;
+   if(args.size() != 2) {
+      parser.showHelp(1);
    }
    const QString&     inputFile     = args[0];
    const QString&     outputFile    = args[1];
    const unsigned int width         = parser.value(widthOption).toUInt();
    const unsigned int height        = parser.value(heightOption).toUInt();
    const unsigned int maxIterations = parser.value(maxIterationsOption).toUInt();
-   if( (width  < 1) || (width  > 65536) || (height < 1) || (height > 65536) ) {
-      std::cerr << "ERROR: Bad width/height settings!\n";
+   if( (width  < 1) || (width  > 65536) ||
+       (height < 1) || (height > 65536) ||
+       (maxIterations < 1) ) {
+      std::cerr << "ERROR: Bad width/height and max-iterations settings!\n";
       return 1;
    }
 

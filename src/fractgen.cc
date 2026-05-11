@@ -58,16 +58,15 @@ int main(int argc, char *argv[])
    parser.setApplicationDescription(QStringLiteral("Fractal Generator"));
    parser.addHelpOption();
    parser.addVersionOption();
-   parser.addPositionalArgument(QStringLiteral("fsf_file"),
-                                QStringLiteral("Input files to be loaded (*.fsf)."),
-                                QStringLiteral("[fsf_file ...]"));
+   parser.addPositionalArgument(QStringLiteral("input_file"),
+                                QStringLiteral("Input file."),
+                                QStringLiteral("[input_file ...]"));
    parser.process(application);
 
    // ====== Open files given as arguments ==================================
-   bool openedAnyFile = false;
-
-   const QStringList arguments = parser.positionalArguments();
-   for(const QString& fileName : arguments) {
+   bool  openedAnyFile    = false;
+   const QStringList args = parser.positionalArguments();
+   for(const QString& fileName : args) {
       if(QFile::exists(fileName)) {
          // Open file provided by argument ...
          FractalGeneratorApp* fractalGeneratorApp =
