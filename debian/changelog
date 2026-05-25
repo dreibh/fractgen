@@ -1,3 +1,12 @@
+fractgen (3.0.10~rc0-1ubuntu1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    Added "Recommends:" for qt6-image-formats-plugins, to e.g.
+    allow WebP and other image formats.
+
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Mon, 25 May 2026 23:30:34 +0200
+
 fractgen (3.0.9-1ubuntu1) unstable; urgency=medium
 
   * New upstream release.

@@ -21,6 +21,7 @@ Depends: fractgen-common (>= ${source:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
+            qt6-image-formats-plugins,
             rsplib-tools
 Description: Fractal images calculation application (Qt version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
@@ -41,6 +42,7 @@ Depends: fractgen-common (>= ${source:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fractgen-examples (>= ${source:Version}),
+            qt6-image-formats-plugins,
             rsplib-tools
 Description: Fractal images calculation application (KDE version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot
@@ -60,7 +62,8 @@ Architecture: any
 Depends: fractgen-common (>= ${source:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
-Recommends: fractgen-examples (>= ${source:Version})
+Recommends: fractgen-examples (>= ${source:Version}),
+            qt6-image-formats-plugins
 Suggests: rsplib-tools
 Description: Fractal images calculation application (command-line version)
  FractGen is a simple Qt-based fractal generator program for Mandelbrot

@@ -1,5 +1,5 @@
 Name: fractgen
-Version: 3.0.9
+Version: 3.0.10~rc0
 Release: 1
 Summary: Fractal Generator
 Group: Applications/Multimedia
@@ -18,6 +18,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 Requires: %{name}-common = %{version}-%{release}
 Recommends: %{name}-examples = %{version}-%{release}
+Recommends: qt6-qtimageformats
 Recommends: rsplib-tools
 
 
@@ -55,6 +56,7 @@ Summary: FractGen Fractal Generator (KDE version)
 Group: Applications/Multimedia
 Requires: %{name}-common = %{version}-%{release}
 Recommends: %{name}-examples = %{version}-%{release}
+Recommends: qt6-qtimageformats
 Recommends: rsplib-tools
 
 %description kfractgen
@@ -81,6 +83,7 @@ Summary: FractGen Fractal Generator (command-line version)
 Group: Applications/Multimedia
 Requires: %{name}-common = %{version}-%{release}
 Recommends: %{name}-examples = %{version}-%{release}
+Recommends: qt6-qtimageformats
 Suggests: rsplib-tools
 
 %description clifractgen
