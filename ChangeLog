@@ -1,3 +1,15 @@
+commit 4e6543bc07370158ace37fe4bcbcb32bf7b45e50
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 25 23:41:22 2026 +0200
+
+    Dependency improvement: weak dependency on Qt6 imageformats plug-ins, to allow e.g. WebP output.
+
+commit c919a08b4d2eb18f5a20917a2414ba0393c17421
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon May 11 23:53:03 2026 +0200
+
+    New release fractgen-3.0.9.
+
 commit 0348d38f845a51182da822843d85563138446321
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Mon May 11 23:39:35 2026 +0200
