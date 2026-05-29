@@ -1,3 +1,27 @@
+commit c66b487f050dda31ce95f7060fff8eec6642e6d8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri May 29 19:03:15 2026 +0200
+
+    Minor CMakeLists.txt improvement.
+
+commit ade9f61b64525ebba8a0c834c5e4e6790ee44241
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri May 29 18:52:27 2026 +0200
+
+    Improved FreeBSD port.
+
+commit d27ba4469d76edabc397e4aafd939cc2fa600e51
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri May 29 18:36:32 2026 +0200
+
+    FreeBSD port improvements.
+
+commit 79f30a2bd355b73512b708a8c7aba4a82fb307c6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu May 28 16:15:33 2026 +0200
+
+    New release fractgen-3.0.10.
+
 commit 4e6543bc07370158ace37fe4bcbcb32bf7b45e50
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Mon May 25 23:41:22 2026 +0200
