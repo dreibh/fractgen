@@ -95,10 +95,10 @@ ENDIF()
 #### OPTIONS                                                             ####
 #############################################################################
 
-OPTION(WITH_QT  "Build the Qt version"           1)
-OPTION(WITH_KDE "Build the KDE version"          0)
-OPTION(WITH_CLI "Build the command-line version" 1)
-
+OPTION(WITH_QT       "Build the Qt version"           ON)
+OPTION(WITH_KDE      "Build the KDE version"          OFF)
+OPTION(WITH_CLI      "Build the command-line version" ON)
+OPTION(WITH_EXAMPLES "Include example files"          ON)
 
 
 #############################################################################
@@ -139,7 +139,7 @@ IF (WITH_KDE)
 ENDIF()
 
 INCLUDE(FeatureSummary)
-feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
+FEATURE_SUMMARY(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 
 #############################################################################

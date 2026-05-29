@@ -1,3 +1,5 @@
+%%DATADIR%%/fractgen_de.qm
+%%DATADIR%%/fractgen_nb.qm
 %%EXAMPLES%%%%DATADIR%%/examples/alpha01.fsf
 %%EXAMPLES%%%%DATADIR%%/examples/alpha02.fsf
 %%EXAMPLES%%%%DATADIR%%/examples/alpha03.fsf
@@ -290,11 +292,16 @@
 %%EXAMPLES%%%%DATADIR%%/examples/zeta10.fsf
 %%EXAMPLES%%%%DATADIR%%/examples/zeta11.fsf
 %%EXAMPLES%%%%DATADIR%%/examples/zeta12.fsf
-%%EXAMPLES%%%%DATADIR%%/fractgen_de.qm
-%%EXAMPLES%%%%DATADIR%%/fractgen_nb.qm
 %%FRACTGEN_CLI%%bin/clifractgen
 %%FRACTGEN_CLI%%share/bash-completion/completions/clifractgen
 %%FRACTGEN_CLI%%share/man/man1/clifractgen.1.gz
+%%FRACTGEN_KDE%%bin/kfractgen
+%%FRACTGEN_KDE%%share/applications/kfractgen.desktop
+%%FRACTGEN_KDE%%share/bash-completion/completions/kfractgen
+%%FRACTGEN_KDE%%share/icons/hicolor/512x512/apps/kfractgen.png
+%%FRACTGEN_KDE%%share/man/man1/kfractgen.1.gz
+%%FRACTGEN_KDE%%share/metainfo/no.nntb.dreibh.kfractgen.metainfo.xml
+%%FRACTGEN_KDE%%share/mime/packages/kfractgen.xml
 %%FRACTGEN_QT%%bin/fractgen
 %%FRACTGEN_QT%%share/applications/fractgen.desktop
 %%FRACTGEN_QT%%share/bash-completion/completions/fractgen

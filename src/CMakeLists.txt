@@ -62,28 +62,8 @@ SET(guiSourceFiles
    optionsdialog.cc
 )
 
-# ====== Qt version =========================================================
-ADD_EXECUTABLE(fractgen ${guiSourceFiles})
-TARGET_LINK_LIBRARIES(fractgen
-   Qt${QT_VERSION_MAJOR}::Core
-   Qt${QT_VERSION_MAJOR}::PrintSupport
-   Qt${QT_VERSION_MAJOR}::Widgets
-   Qt${QT_VERSION_MAJOR}::Xml
-)
 
-INSTALL(TARGETS             fractgen
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})
-INSTALL(FILES fractgen.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
-
-INSTALL(FILES no.nntb.dreibh.fractgen.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo)
-INSTALL(FILES fractgen.png     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/512x512/apps)
-INSTALL(FILES fractgen.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
-INSTALL(FILES fractgen.xml     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/mime/packages)
-INSTALL(FILES       fractgen.bash-completion
-        DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
-        RENAME      fractgen)
-
+# ==== Translations =========================================================
 FILE(GLOB FRACTGEN_TS_FILES  "fractgen_*.ts")
 SET(FRACTGEN_QM_FILES "")
 FOREACH(tsFile IN LISTS FRACTGEN_TS_FILES)
@@ -95,6 +75,31 @@ FOREACH(tsFile IN LISTS FRACTGEN_TS_FILES)
    LIST(APPEND FRACTGEN_QM_FILES ${qmFile})
 ENDFOREACH()
 INSTALL(FILES ${FRACTGEN_QM_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen)
+
+
+# ====== Qt version =========================================================
+IF (WITH_QT)
+   ADD_EXECUTABLE(fractgen ${guiSourceFiles})
+   TARGET_LINK_LIBRARIES(fractgen
+      Qt${QT_VERSION_MAJOR}::Core
+      Qt${QT_VERSION_MAJOR}::PrintSupport
+      Qt${QT_VERSION_MAJOR}::Widgets
+      Qt${QT_VERSION_MAJOR}::Xml
+   )
+
+   INSTALL(TARGETS             fractgen
+         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+         BUNDLE DESTINATION  ${CMAKE_INSTALL_BINDIR})
+   INSTALL(FILES fractgen.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
+
+   INSTALL(FILES no.nntb.dreibh.fractgen.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo)
+   INSTALL(FILES fractgen.png     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/512x512/apps)
+   INSTALL(FILES fractgen.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+   INSTALL(FILES fractgen.xml     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/mime/packages)
+   INSTALL(FILES       fractgen.bash-completion
+           DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
+           RENAME      fractgen)
+ENDIF()
 
 
 # ====== KDE version ========================================================
@@ -146,5 +151,7 @@ ENDIF()
 
 
 # ==== Examples =============================================================
-FILE(GLOB fractgen_examples "examples/*.fsf")
-INSTALL(FILES ${fractgen_examples} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen/examples)
+IF (WITH_EXAMPLES)
+   FILE(GLOB fractgen_examples "examples/*.fsf")
+   INSTALL(FILES ${fractgen_examples} DESTINATION ${CMAKE_INSTALL_DATADIR}/fractgen/examples)
+ENDIF()
