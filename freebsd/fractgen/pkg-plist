@@ -298,14 +298,12 @@
 %%FRACTGEN_KDE%%bin/kfractgen
 %%FRACTGEN_KDE%%share/applications/kfractgen.desktop
 %%FRACTGEN_KDE%%share/bash-completion/completions/kfractgen
-%%FRACTGEN_KDE%%share/icons/hicolor/512x512/apps/kfractgen.png
 %%FRACTGEN_KDE%%share/man/man1/kfractgen.1.gz
 %%FRACTGEN_KDE%%share/metainfo/no.nntb.dreibh.kfractgen.metainfo.xml
-%%FRACTGEN_KDE%%share/mime/packages/kfractgen.xml
 %%FRACTGEN_QT%%bin/fractgen
 %%FRACTGEN_QT%%share/applications/fractgen.desktop
 %%FRACTGEN_QT%%share/bash-completion/completions/fractgen
-%%FRACTGEN_QT%%share/icons/hicolor/512x512/apps/fractgen.png
 %%FRACTGEN_QT%%share/man/man1/fractgen.1.gz
 %%FRACTGEN_QT%%share/metainfo/no.nntb.dreibh.fractgen.metainfo.xml
 %%FRACTGEN_QT%%share/mime/packages/fractgen.xml
+share/icons/hicolor/512x512/apps/fractgen.png

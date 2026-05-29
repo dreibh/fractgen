@@ -23,7 +23,7 @@ OPTIONS_DEFINE=			FRACTGEN_CLI \
 				FRACTGEN_QT \
 				EXAMPLES
 
-OPTIONS_DEFAULT=		${OPTIONS_DEFINE}
+OPTIONS_DEFAULT=		${OPTIONS_DEFINE:NFRACTGEN_KDE}
 OPTIONS_SUB=			yes
 
 FRACTGEN_CLI_DESC=		Build the command-line version
@@ -34,6 +34,11 @@ EXAMPLES_DESC=			Include example files
 FRACTGEN_CLI_CMAKE_BOOL=	WITH_CLI
 
 FRACTGEN_KDE_CMAKE_BOOL=	WITH_KDE
+FRACTGEN_KDE_LIB_DEPENDS=	libKF6ConfigWidgets.so:x11-toolkits/kf6-kconfigwidgets \
+				libKF6ColorScheme.so:x11-themes/kf6-kcolorscheme \
+				libKF6ConfigGui.so:devel/kf6-kconfig \
+				libKF6ConfigCore.so:devel/kf6-kconfig \
+				libKF6GuiAddons.so:x11-toolkits/kf6-kguiaddons
 FRACTGEN_KDE_USES=		desktop-file-utils kde:6 shared-mime-info
 FRACTGEN_KDE_USE=		KDE=ecm:build,coreaddons,widgetsaddons,xmlgui
 
