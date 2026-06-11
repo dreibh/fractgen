@@ -28,11 +28,19 @@ SET(BUILD_PATCH "11")
 SET(BUILD_VERSION ${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH})
 
 
+INCLUDE(CheckIncludeFile)
+INCLUDE(CheckStructHasMember)
+
+
 #############################################################################
-#### INSTALLATION_DIRECTORIES                                            ####
+#### CMAKE INCLUDES                                                      ####
 #############################################################################
 
-# See: https://cmake.org/cmake/help/v3.0/module/GNUInstallDirs.html
+INCLUDE(CheckCCompilerFlag)
+INCLUDE(CheckCSourceCompiles)
+INCLUDE(CheckCSourceRuns)
+INCLUDE(CheckIncludeFile)
+INCLUDE(CheckStructHasMember)
 INCLUDE(GNUInstallDirs)
 
 
@@ -45,37 +53,30 @@ SET(CPACK_SOURCE_PACKAGE_FILE_NAME
     "${CMAKE_PROJECT_NAME}-${BUILD_MAJOR}.${BUILD_MINOR}.${BUILD_PATCH}")
 SET(CPACK_SOURCE_IGNORE_FILES "\\\\.git;\\\\.swp$;~$;\\\\.\\\\#;/\\\\#")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/${CMAKE_PROJECT_NAME}[_-]")
-LIST(APPEND CPACK_SOURCE_IGNORE_FILES "\\\\.cmake$|\\\\.make$|\\\\.log$")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "\\\\.make$|\\\\.log$")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/CMakeCache\\\\.txt$")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/(CMakeFiles|CMakeScripts|_CPack_Packages)/")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/package-version\\\\.h$")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/packaging\\\\.conf$")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/(po.*/|src.*/|)Makefile$")
+LIST(APPEND CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/(po.*|src.*|[^/]*)\\\\.cmake$")
 INCLUDE(CPack)
 
 ADD_CUSTOM_TARGET(dist COMMAND ${CMAKE_MAKE_PROGRAM} clean package_source)
 
 
-INCLUDE(CheckIncludeFile)
-INCLUDE(CheckStructHasMember)
-
-
 #############################################################################
-#### OS DEPENDENT                                                        ####
+#### UNINSTALL                                                           ####
 #############################################################################
 
-IF (CMAKE_SYSTEM_NAME MATCHES "Linux")
-   MESSAGE(STATUS "${CMAKE_SYSTEM_NAME} supported")
-ELSEIF (CMAKE_SYSTEM_NAME MATCHES "FreeBSD")
-   MESSAGE(STATUS "${CMAKE_SYSTEM_NAME} supported")
-ELSEIF (CMAKE_SYSTEM_NAME MATCHES "NetBSD")
-   MESSAGE(STATUS "${CMAKE_SYSTEM_NAME} supported")
-ELSEIF (CMAKE_SYSTEM_NAME MATCHES "OpenBSD")
-   MESSAGE(STATUS "${CMAKE_SYSTEM_NAME} supported")
-ELSEIF (CMAKE_SYSTEM_NAME MATCHES "Darwin")
-   MESSAGE(STATUS "${CMAKE_SYSTEM_NAME} supported")
-ELSE()
-   MESSAGE(FATAL_ERROR "${CMAKE_SYSTEM_NAME} not supported (yet?)")
+IF(NOT TARGET uninstall)
+   CONFIGURE_FILE(
+      "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
+      "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+      IMMEDIATE @ONLY)
+
+   ADD_CUSTOM_TARGET(uninstall
+      COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 ENDIF()
 
 
