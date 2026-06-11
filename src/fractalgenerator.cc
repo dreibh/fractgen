@@ -47,7 +47,7 @@ struct StandardImageSize {
    unsigned int Height;
 };
 
-// https://en.wikipedia.org/wiki/Display_resolution_standards
+// Reference: https://www.rtings.com/monitor/tests/inputs/resolution-size
 static const StandardImageSize StandardImageSizes [] = {
    { QStringLiteral("640x480 (VGA, 4:3)"),                                  640,      480 },
    { QStringLiteral("1024x768 (XGA, 4:3)"),                                 1024,     768 },
