@@ -1,3 +1,51 @@
+commit 4c80053e994be0e83e04b96b0cf3165741911baa
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 18:28:29 2026 +0200
+
+    Updated build helper script.
+
+commit 80d3808be118a393fe43da78b00aecefded2a547
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 12:48:50 2026 +0200
+
+    Updated comment.
+
+commit 7dac555b4c8ffecb43bbf5fe00639dc79efce645
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 11:32:12 2026 +0200
+
+    Improved CMakeLists.txt.
+
+commit 596d85fe2ce4aeee2552bb0d19bdd25682d52363
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Jun 9 08:46:10 2026 +0200
+
+    CMakeLists.txt clean-ups.
+
+commit 3c0b87f146b4c7b31fee9f5508f422ec89ac9e6e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Jun 9 08:46:03 2026 +0200
+
+    Updated build script.
+
+commit f977aa1939d2284fc5e24e99d8f8f84857203e74
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Jun 9 08:45:40 2026 +0200
+
+    Updated CI scripts
+
+commit ed55730ac6e4c54eb023fb05643dcf7956069efe
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri May 29 19:32:46 2026 +0200
+
+    Updated FreeBSD port.
+
+commit 2fa8c24df618cd603af5d746421d87798ee943c9
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri May 29 19:05:19 2026 +0200
+
+    New release fractgen-3.0.11.
+
 commit c66b487f050dda31ce95f7060fff8eec6642e6d8
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri May 29 19:03:15 2026 +0200
