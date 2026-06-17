@@ -12,9 +12,8 @@ BuildRequires: cmake
 BuildRequires: extra-cmake-modules
 BuildRequires: kf6-kcoreaddons-devel
 BuildRequires: kf6-kxmlgui-devel
-BuildRequires: qt6-linguist
-BuildRequires: qt6-qtbase-devel
-BuildRoot: %{_tmppath}/%{name}-%{version}-build
+BuildRequires: (qt6-qtbase-devel or qt6-base-devel)
+BuildRequires: (qt6-linguist or qt6-linguist-devel)
 
 Requires: %{name}-common = %{version}-%{release}
 Recommends: %{name}-examples = %{version}-%{release}
@@ -121,6 +120,7 @@ This package contains common files for the Qt, KDE and command-line
 versions of FractGen.
 
 %files common
+%dir %attr(0755, root, root) %{_datadir}/fractgen
 %{_datadir}/fractgen/*.qm
 %{_datadir}/icons/hicolor/512x512/apps/fractgen.png
 %{_datadir}/mime/packages/fractgen.xml
@@ -146,6 +146,7 @@ fractal calculations. FractGen can perform the computations and display
 the resulting images.
 
 %files examples
+%dir %attr(0755, root, root) %{_datadir}/fractgen/examples
 %{_datadir}/fractgen/examples/*.fsf
 
 
