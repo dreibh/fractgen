@@ -36,7 +36,7 @@ This is the Qt version of FractGen.
 %setup -q
 
 %build
-%cmake -DCMAKE_INSTALL_PREFIX=/usr . -DWITH_KDE=1
+%cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_KDE=1
 %cmake_build
 
 %install
