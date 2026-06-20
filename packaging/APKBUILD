@@ -78,7 +78,7 @@ _lang() {
 	pkgdesc="FractGen natural language translation files"
 	
 	mkdir -p "$subpkgdir/usr/share/fractgen"
-	mv "$pkgdir/usr/share/fractgen/*.qm" "$subpkgdir/usr/share/fractgen/"
+	mv "$pkgdir"/usr/share/fractgen/*.qm "$subpkgdir/usr/share/fractgen/" || true
 }
 
 examples() {
