@@ -10,13 +10,14 @@ depends="$pkgname-common=$pkgver-r$pkgrel"
 makedepends="
 	cmake
 	extra-cmake-modules
-	kf6-kcoreaddons-dev
-	kf6-kxmlgui-dev
+	kcoreaddons-dev
+	kxmlgui-dev
 	ninja
 	qt6-qtbase-dev
 	qt6-qttools-dev
 "
 subpackages="
+	$pkgname-lang:_lang:noarch
 	$pkgname-kfractgen:_kfractgen
 	$pkgname-clifractgen:_clifractgen
 	$pkgname-common:common:noarch
@@ -61,7 +62,7 @@ _clifractgen() {
 }
 
 common() {
-	pkgdesc="FractGen common files (Mime, Icons, and Translations)"
+	pkgdesc="FractGen common files"
 
 	mkdir -p "$subpkgdir"/usr/share/icons \
 		"$subpkgdir"/usr/share/mime \
@@ -69,6 +70,12 @@ common() {
 
 	mv "$pkgdir/usr/share/icons/hicolor" "$subpkgdir/usr/share/icons/"
 	mv "$pkgdir/usr/share/mime/packages" "$subpkgdir/usr/share/mime/"
+}
+
+_lang() {
+	pkgdesc="FractGen natural language translation files"
+	
+	mkdir -p "$subpkgdir/usr/share/fractgen"
 	mv "$pkgdir/usr/share/fractgen/*.qm" "$subpkgdir/usr/share/fractgen/"
 }
 
