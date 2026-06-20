@@ -44,28 +44,30 @@ package() {
 _kfractgen() {
 	pkgdesc="FractGen Fractal Generator (KDE GUI version)"
 
-	mkdir -p "$subpkgdir"/usr/bin \
-		"$subpkgdir"/usr/share/applications \
-		"$subpkgdir"/usr/share/metainfo
+	mkdir -p \
+		"$subpkgdir/usr/bin" \
+		"$subpkgdir/usr/share/applications" \
+		"$subpkgdir/usr/share/metainfo"
 
-	mv "$pkgdir"/usr/bin/kfractgen "$subpkgdir"/usr/bin/
-	mv "$pkgdir"/usr/share/applications/kfractgen.desktop "$subpkgdir"/usr/share/applications/
-	mv "$pkgdir"/usr/share/metainfo/no.nntb.dreibh.kfractgen.metainfo.xml "$subpkgdir"/usr/share/metainfo/
+	mv "$pkgdir/usr/bin/kfractgen"                                        "$subpkgdir/usr/bin/"
+	mv "$pkgdir/usr/share/applications/kfractgen.desktop"                 "$subpkgdir/usr/share/applications/"
+	mv "$pkgdir/usr/share/metainfo/no.nntb.dreibh.kfractgen.metainfo.xml" "$subpkgdir/usr/share/metainfo/"
 }
 
 _clifractgen() {
 	pkgdesc="FractGen Fractal Generator (Command-Line version)"
 
-	mkdir -p "$subpkgdir"/usr/bin
-	mv "$pkgdir"/usr/bin/clifractgen "$subpkgdir"/usr/bin/
+	mkdir -p "$subpkgdir/usr/bin"
+	mv "$pkgdir/usr/bin/clifractgen" "$subpkgdir/usr/bin/"
 }
 
 common() {
 	pkgdesc="FractGen common files (Mime, Icons, and Translations)"
 
-	mkdir -p "$subpkgdir"/usr/share/icons \
-		"$subpkgdir"/usr/share/mime \
-		"$subpkgdir"/usr/share/fractgen
+	mkdir -p \
+		"$subpkgdir/usr/share/icons" \
+		"$subpkgdir/usr/share/mime" \
+		"$subpkgdir/usr/share/fractgen"
 
 	mv "$pkgdir/usr/share/icons/hicolor" "$subpkgdir/usr/share/icons/"
 	mv "$pkgdir/usr/share/mime/packages" "$subpkgdir/usr/share/mime/"
