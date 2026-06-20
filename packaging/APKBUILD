@@ -1,0 +1,84 @@
+# Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
+pkgname=fractgen
+pkgver=3.0.12
+pkgrel=1
+pkgdesc="Simple Qt/KDE-based fractal generator for Mandelbrot fractals"
+url="https://www.nntb.no/~dreibh/fractalgenerator/"
+arch="all"
+license="GPL-3.0-or-later"
+depends="$pkgname-common=$pkgver-r$pkgrel"
+makedepends="
+	cmake
+	extra-cmake-modules
+	kf6-kcoreaddons-dev
+	kf6-kxmlgui-dev
+	ninja
+	qt6-qtbase-dev
+	qt6-qttools-dev
+"
+subpackages="
+	$pkgname-kfractgen:_kfractgen
+	$pkgname-clifractgen:_clifractgen
+	$pkgname-common:common:noarch
+	$pkgname-examples:examples:noarch
+	$pkgname-bash-completion
+	$pkgname-doc
+"
+source="https://www.nntb.no/~dreibh/fractalgenerator/download/$pkgname-$pkgver.tar.xz"
+builddir="$srcdir/$pkgname-$pkgver"
+
+build() {
+	cd "$builddir"
+	cmake -B build -G Ninja \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DWITH_KDE=1 \
+		-DCMAKE_BUILD_TYPE=None .
+	cmake --build build
+}
+
+package() {
+	cd "$builddir"
+	DESTDIR="$pkgdir" cmake --install build
+}
+
+_kfractgen() {
+	pkgdesc="FractGen Fractal Generator (KDE GUI version)"
+
+	mkdir -p "$subpkgdir"/usr/bin \
+		"$subpkgdir"/usr/share/applications \
+		"$subpkgdir"/usr/share/metainfo
+
+	mv "$pkgdir"/usr/bin/kfractgen "$subpkgdir"/usr/bin/
+	mv "$pkgdir"/usr/share/applications/kfractgen.desktop "$subpkgdir"/usr/share/applications/
+	mv "$pkgdir"/usr/share/metainfo/no.nntb.dreibh.kfractgen.metainfo.xml "$subpkgdir"/usr/share/metainfo/
+}
+
+_clifractgen() {
+	pkgdesc="FractGen Fractal Generator (Command-Line version)"
+
+	mkdir -p "$subpkgdir"/usr/bin
+	mv "$pkgdir"/usr/bin/clifractgen "$subpkgdir"/usr/bin/
+}
+
+common() {
+	pkgdesc="FractGen common files (Mime, Icons, and Translations)"
+
+	mkdir -p "$subpkgdir"/usr/share/icons \
+		"$subpkgdir"/usr/share/mime \
+		"$subpkgdir"/usr/share/fractgen
+
+	mv "$pkgdir/usr/share/icons/hicolor" "$subpkgdir/usr/share/icons/"
+	mv "$pkgdir/usr/share/mime/packages" "$subpkgdir/usr/share/mime/"
+	mv "$pkgdir/usr/share/fractgen/*.qm" "$subpkgdir/usr/share/fractgen/"
+}
+
+examples() {
+	pkgdesc="FractGen example parameter configuration files"
+
+	mkdir -p "$subpkgdir/usr/share/fractgen"
+	mv "$pkgdir/usr/share/fractgen/examples" "$subpkgdir/usr/share/fractgen/"
+}
+
+sha512sums="
+7aa4f282444f417a745ef3bc57ad889b393d4606257fd34e177415aa67939588d6c73c7d3a23f1618d3b1d7cd6eba352e43c488ce80e69e1aac0687e2d02753f  fractgen-3.0.12.tar.xz
+"
