@@ -6,7 +6,7 @@ pkgdesc="Simple Qt/KDE-based fractal generator for Mandelbrot fractals"
 url="https://www.nntb.no/~dreibh/fractalgenerator/"
 arch="all"
 license="GPL-3.0-or-later"
-depends="$pkgname-common=$pkgver-r$pkgrel"
+depends=""
 makedepends="
 	cmake
 	extra-cmake-modules
@@ -65,6 +65,8 @@ _clifractgen() {
 common() {
 	pkgdesc="FractGen common files"
 
+	install_if="$pkgname-common=$pkgver-r$pkgrel"
+
 	mkdir -p \
 		"$subpkgdir/usr/share/icons" \
 		"$subpkgdir/usr/share/mime" \
@@ -76,7 +78,7 @@ common() {
 
 _lang() {
 	pkgdesc="FractGen natural language translation files"
-	
+
 	mkdir -p "$subpkgdir/usr/share/fractgen"
 	mv "$pkgdir"/usr/share/fractgen/*.qm "$subpkgdir/usr/share/fractgen/" || true
 }
