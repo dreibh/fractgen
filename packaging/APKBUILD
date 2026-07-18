@@ -6,7 +6,7 @@ pkgdesc="Simple Qt/KDE-based fractal generator for Mandelbrot fractals"
 url="https://www.nntb.no/~dreibh/fractalgenerator/"
 arch="all"
 license="GPL-3.0-or-later"
-depends="$pkgname-common=$pkgver-r$pkgrel"
+depends=""
 makedepends="
 	cmake
 	extra-cmake-modules
