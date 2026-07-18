@@ -113,7 +113,8 @@ IF (NOT QT_FOUND)
 ENDIF()
 MESSAGE("Using Qt version ${QT_VERSION_MAJOR}!")
 FIND_PACKAGE(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Network Widgets Xml PrintSupport)
-FIND_PROGRAM(LRELEASE lrelease PATHS /usr/local/lib/qt${QT_VERSION_MAJOR}/bin
+FIND_PROGRAM(LRELEASE lrelease PATHS /usr/pkg/qt${QT_VERSION_MAJOR}/bin
+                                     /usr/local/lib/qt${QT_VERSION_MAJOR}/bin
                                      /usr/lib64/qt${QT_VERSION_MAJOR}/bin
                                      /usr/lib/qt${QT_VERSION_MAJOR}/bin
                                      /usr/bin
