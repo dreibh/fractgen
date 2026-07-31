@@ -1,3 +1,126 @@
+commit c1eabec16d86c5de954e27adaf801c5f68812925
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 16:44:14 2026 +0200
+
+    Updated build helper script.
+
+commit f8cb18f26d4a6ac852455b31edd01ff0a9ee9157
+Merge: 18ef6ac 17b4955
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 15:27:27 2026 +0200
+
+    Merge branch 'master' of github.com:dreibh/fractgen
+
+commit 18ef6acdbcba595250fb03f89716f983b7b4ec2e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 15:26:49 2026 +0200
+
+    Further NetBSD improvements in CMakeLists.txt.
+
+commit 17b4955bc6c137ad45719b0d9dc9ac555d358724
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 15:21:37 2026 +0200
+
+    NetBSD build fix.
+
+commit b9acc4cab6282f9a13afaf6e4c4a7e172291e51a
+Merge: 505e7db 6af5366
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 15:14:43 2026 +0200
+
+    Merge branch 'master' of github.com:dreibh/fractgen
+
+commit 505e7dbe434d2f8bbda128dcc435d4ffc72d0aef
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 15:13:05 2026 +0200
+
+    Updated build helper script.
+
+commit da1a15a7d96dd4c607de717c239c2a295531b125
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 15:11:41 2026 +0200
+
+    Updated CI scripts
+
+commit 1a563ce5e4da242df7011907a35497c6034627d8
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jul 18 15:00:58 2026 +0200
+
+    CMakeLists.txt fix for NetBSD: need to set CMAKE_INSTALL_RPATH_USE_LINK_PATH if necessary.
+
+commit 6af5366f03648de1d0e6b34cb122287045424742
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Jun 30 13:53:56 2026 +0200
+
+    Improved APKBUILD file.
+
+commit dbb923ff685b06dea9a3bd5f328ccae7d8124eba
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Jun 29 15:42:23 2026 +0200
+
+    Updated CI configuration
+
+commit 1d054b1ad54e60adac8b70d1e93e7c791b21d9e3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Jun 29 15:42:22 2026 +0200
+
+    Updated CI scripts
+
+commit cde8cd8f462ed4bd21f3bc44ca1a3d2631635c92
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Jun 29 15:41:52 2026 +0200
+
+    Updated FreeBSD workflow.
+
+commit 13cc6dfb461a36864ef4acf886cc90da9eb3feee
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jun 20 21:20:02 2026 +0000
+
+    Minor update.
+
+commit 55077f539e1070cc507248d6a9ada50114edf6fd
+Merge: 1e2dc60 7c03b4a
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jun 20 22:52:33 2026 +0200
+
+    Merge branch 'master' of github.com:dreibh/fractgen
+
+commit 1e2dc606d82ff7db8f5778e9d74432f6ea497919
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jun 20 22:52:25 2026 +0200
+
+    APKBUILD clean-ups.
+
+commit 7c03b4ab6fa2a417afe20a4f8d51d6904eb24e54
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jun 20 20:52:04 2026 +0000
+
+    Some improvements.
+
+commit 2d06a98a7c1a664062b29db70eb6d6c14e3e82ce
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Jun 20 22:29:09 2026 +0200
+
+    Added APKBUILD file.
+
+commit eaa8e73b8f90a10921a141ad61f5b6bbd3078b07
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 18 17:51:56 2026 +0200
+
+    Yet another RPM spec update.
+
+commit 61f24a2c7b4b07b7afc7d44ebd2d9701fe60cb0c
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Jun 17 17:02:29 2026 +0200
+
+    Improved RPM spec to support OpenSUSE.
+
+commit 3080e1b8bb3feffb9c4ec797dbabc440290b36ee
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Jun 12 17:58:21 2026 +0200
+
+    New release fractgen-3.0.12.
+
 commit 4c80053e994be0e83e04b96b0cf3165741911baa
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Thu Jun 11 18:28:29 2026 +0200

@@ -1,3 +1,9 @@
+fractgen (3.0.13-1ubuntu1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Thomas Dreibholz <thomas.dreibholz@gmail.com>  Fri, 31 Jul 2026 13:17:15 +0200
+
 fractgen (3.0.12-1ubuntu1) unstable; urgency=medium
 
   * New upstream release.

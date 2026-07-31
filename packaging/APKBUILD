@@ -65,7 +65,7 @@ _clifractgen() {
 common() {
 	pkgdesc="FractGen common files"
 
-	install_if="$pkgname-common=$pkgver-r$pkgrel"
+	install_if="$pkgname=$pkgver-r$pkgrel"
 
 	mkdir -p \
 		"$subpkgdir/usr/share/icons" \
