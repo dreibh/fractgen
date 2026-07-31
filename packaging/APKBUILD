@@ -1,6 +1,6 @@
 # Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 pkgname=fractgen
-pkgver=3.0.12
+pkgver=3.0.13
 pkgrel=1
 pkgdesc="Simple Qt/KDE-based fractal generator for Mandelbrot fractals"
 url="https://www.nntb.no/~dreibh/fractalgenerator/"
@@ -91,5 +91,5 @@ examples() {
 }
 
 sha512sums="
-7aa4f282444f417a745ef3bc57ad889b393d4606257fd34e177415aa67939588d6c73c7d3a23f1618d3b1d7cd6eba352e43c488ce80e69e1aac0687e2d02753f  fractgen-3.0.12.tar.xz
+ef2e4c8654a00f5dfe6998ad6473abbac4ecdb93081bdec068114251216f5a19e16dfca857cb45e7f8c8f4841737f47e66b2ffeada0ade211aa221b3cf87b6ca  fractgen-3.0.13.tar.xz
 "
