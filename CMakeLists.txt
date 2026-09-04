@@ -107,7 +107,7 @@ OPTION(WITH_EXAMPLES "Include example files"          ON)
 #############################################################################
 
 # ====== Qt =================================================================
-FIND_PROGRAM(QMAKE NAMES qmake6 qmake-qt6 qmake PATHS /usr/lib/qt/*/bin)
+FIND_PROGRAM(QMAKE NAMES qmake6 qmake-qt5 qmake6 qmake-qt5 qmake PATHS /usr/lib/qt/*/bin)
 IF (QMAKE)
    EXECUTE_PROCESS(
      COMMAND "${QMAKE}" -query QT_INSTALL_PREFIX
