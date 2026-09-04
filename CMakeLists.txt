@@ -110,14 +110,11 @@ OPTION(WITH_EXAMPLES "Include example files"          ON)
 FIND_PROGRAM(QMAKE NAMES qmake6 qmake-qt6 qmake5 qmake-qt5 qmake PATHS /usr/lib/qt/*/bin)
 IF (QMAKE)
    EXECUTE_PROCESS(
-      COMMAND "${QMAKE}" -query QT_INSTALL_PREFIX
-      OUTPUT_VARIABLE QT_INSTALL_PREFIX
+      COMMAND "${QMAKE}" -query QT_INSTALL_LIBS
+      OUTPUT_VARIABLE QT_INSTALL_LIBS
       OUTPUT_STRIP_TRAILING_WHITESPACE
    )
-   LIST(APPEND CMAKE_PREFIX_PATH
-      "${QT_INSTALL_PREFIX}"
-      "${QT_INSTALL_PREFIX}/lib/amd64/cmake"
-   )
+   LIST(APPEND CMAKE_PREFIX_PATH "${QT_INSTALL_LIBS}/cmake")
 ENDIF()
 
 SET(CMAKE_AUTOMOC ON)
@@ -148,8 +145,7 @@ ENDIF()
 MESSAGE("Using Qt version ${QT_VERSION_MAJOR}!")
 
 FIND_PROGRAM(LRELEASE lrelease lrelease-qt${QT_VERSION_MAJOR}
-             PATHS ${QT_INSTALL_PREFIX}/bin
-                   /usr/pkg/qt${QT_VERSION_MAJOR}/bin
+             PATHS /usr/pkg/qt${QT_VERSION_MAJOR}/bin
                    /usr/local/lib/qt${QT_VERSION_MAJOR}/bin
                    /usr/lib64/qt${QT_VERSION_MAJOR}/bin
                    /usr/lib/qt${QT_VERSION_MAJOR}/bin
