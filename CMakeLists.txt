@@ -162,7 +162,7 @@ ELSE()
            " * FreeBSD:       sudo pkg install -y qt6-tools\n"
            " * NetBSD:        sudo pkgin -y install qt6-qttools\n"
            " * OpenBSD:       sudo pkg_add qt6-qttools\n"
-           " * Solaris:       sudo pkg install library/cups library/qt6\n"
+           " * Solaris:       sudo pkg install library/qt6\n"
            " * Apple:         brew install qt")
 ENDIF()
 
