@@ -122,12 +122,12 @@ IF (QMAKE)
 ENDIF()
 
 SET(CMAKE_AUTOMOC ON)
-FIND_PACKAGE(QT NAMES Qt6 COMPONENTS Core Network Widgets Xml PrintSupport)
-IF (NOT QT_FOUND)
+FIND_PACKAGE(Qt6 COMPONENTS Core Network Widgets Xml PrintSupport)
+IF (NOT Qt6_FOUND)
    # Try Qt5 instead:
-   FIND_PACKAGE(QT NAMES Qt5 COMPONENTS Core Network Widgets Xml PrintSupport)
+   FIND_PACKAGE(Qt5 COMPONENTS Core Network Widgets Xml PrintSupport)
 ENDIF()
-IF (NOT QT_FOUND)
+IF ((NOT Qt6_FOUND) AND (NOT Qt5_FOUND))
    MESSAGE(FATAL_ERROR
            "Cannot find Qt! Try:\n"
            " * Ubuntu/Debian: sudo apt install -y qt6-base-dev\n"
