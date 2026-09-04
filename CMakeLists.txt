@@ -110,14 +110,14 @@ OPTION(WITH_EXAMPLES "Include example files"          ON)
 FIND_PROGRAM(QMAKE NAMES qmake6 qmake-qt5 qmake6 qmake-qt5 qmake PATHS /usr/lib/qt/*/bin)
 IF (QMAKE)
    EXECUTE_PROCESS(
-     COMMAND "${QMAKE}" -query QT_INSTALL_PREFIX
-     OUTPUT_VARIABLE QT_INSTALL_PREFIX
-     OUTPUT_STRIP_TRAILING_WHITESPACE
+      COMMAND "${QMAKE}" -query QT_INSTALL_PREFIX
+      OUTPUT_VARIABLE QT_INSTALL_PREFIX
+      OUTPUT_STRIP_TRAILING_WHITESPACE
    )
    LIST(APPEND CMAKE_PREFIX_PATH
-        "${QT_INSTALL_PREFIX}"
-        "${QT_INSTALL_PREFIX}/lib/amd64"
-        "${QT_INSTALL_PREFIX}/lib/amd64/cmake"
+      "${QT_INSTALL_PREFIX}"
+      "${QT_INSTALL_PREFIX}/lib/amd64"
+      "${QT_INSTALL_PREFIX}/lib/amd64/cmake"
    )
 ENDIF()
 
