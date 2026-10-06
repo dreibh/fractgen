@@ -9,7 +9,7 @@
 
 # 💡 What is FractGen?
 
-The FractGen (Fractal Generator) software suite is a collection of Qt/KDE-based programs to generate fractal images (e.g.&nbsp;the Mandelbrot set). The size of the calculated images is only limited by the computer's virtual memory. That is, images may use the full printer resolution! I created this program as an example of object-oriented programming and writing Qt/KDE applications for our Linux Workshop&nbsp;2003. The goal of this workshop was to continue this basic application as an Open Source project.
+The FractGen (Fractal Generator) software suite is a collection of Qt/KDE-based programs to generate fractal images (e.g., the Mandelbrot set). The size of the calculated images is only limited by the computer's virtual memory. That is, images may use the full printer resolution! I created this program as an example of object-oriented programming and writing Qt/KDE applications for our Linux Workshop&nbsp;2003. The goal of this workshop was to continue this basic application as an Open Source project.
 
 The package consists of 3&nbsp;programs:
 
@@ -29,7 +29,7 @@ It can simply be started via the GUI menu (depending on the desktop environment)
 fractgen
 ```
 
-Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<a type="application/x-fractgen" href="src/examples/alpha01.fsf">`alpha01.fsf`</a>, <a type="application/x-fractgen" href="src/examples/beta04.fsf">`beta04.fsf`</a>, <a type="application/x-fractgen" href="src/examples/delta07.fsf">`delta07.fsf`</a>). These input files will then be loaded:
+Alternatively, it is also possible to specify one or more input files (e.g., <a type="application/x-fractgen" href="src/examples/alpha01.fsf">`alpha01.fsf`</a>, <a type="application/x-fractgen" href="src/examples/beta04.fsf">`beta04.fsf`</a>, <a type="application/x-fractgen" href="src/examples/delta07.fsf">`delta07.fsf`</a>). These input files will then be loaded:
 
 ```bash
 fractgen alpha01.fsf beta04.fsf delta07.fsf
@@ -45,7 +45,7 @@ It can simply be started via the GUI menu (depending on the desktop environment)
 kfractgen
 ```
 
-Alternatively, it is also possible to specify one or more input files (e.g.&nbsp;<a type="application/x-fractgen" href="src/examples/gamma01.fsf">`gamma01.fsf`</a>, <a type="application/x-fractgen" href="src/examples/delta03.fsf">`delta03.fsf`</a>, <a type="application/x-fractgen" href="src/examples/kappa02.fsf">`kappa02.fsf`</a>). These input files will then be loaded:
+Alternatively, it is also possible to specify one or more input files (e.g., <a type="application/x-fractgen" href="src/examples/gamma01.fsf">`gamma01.fsf`</a>, <a type="application/x-fractgen" href="src/examples/delta03.fsf">`delta03.fsf`</a>, <a type="application/x-fractgen" href="src/examples/kappa02.fsf">`kappa02.fsf`</a>). These input files will then be loaded:
 
 ```bash
 kfractgen gamma01.fsf delta03.fsf kappa02.fsf
@@ -67,7 +67,7 @@ CLIFractGen is the command-line version of the fractal generator program. That i
   clifractgen -W 3840 -H 2160 -M 5000 gamma05.fsf gamma05.webp
   ```
 
-* Find all files matching pattern `*.fsf` in the local directory (e.g.&nbsp;using the examples from [`src/examples`](src/examples), and generate 3840x2160 WebP images:
+* Find all files matching pattern `*.fsf` in the local directory (e.g., using the examples from [`src/examples`](src/examples), and generate 3840x2160 WebP images:
 
   ```bash
   find . -name "*.fsf" | xargs -I§ clifractgen -W 3840 -H 2160 -M 5000 § §.webp
@@ -202,7 +202,7 @@ Please use the issue tracker at [https://github.com/dreibh/fractgen/issues](http
 
 ## Ubuntu Linux
 
-For ready-to-install Ubuntu Linux packages of FractGen, see [Launchpad PPA for Thomas Dreibholz](https://launchpad.net/~dreibh/+archive/ubuntu/ppa/+packages?field.name_filter=fractgen&field.status_filter=published&field.series_filter=)!
+For ready-to-install [Ubuntu Linux](https://ubuntu.com/) packages of FractGen, see the [Launchpad PPA for Thomas Dreibholz](https://launchpad.net/~dreibh/+archive/ubuntu/ppa/+packages?field.name_filter=fractgen&field.status_filter=published&field.series_filter=)!
 
 ```bash
 sudo apt-add-repository -sy ppa:dreibh/ppa
@@ -210,18 +210,85 @@ sudo apt-get update
 sudo apt-get install fractgen
 ```
 
+## Debian Linux
+
+For ready-to-install [Debian Linux](https://www.debian.org/) packages of FractGen, see the [Open Build Service PPA for Thomas Dreibholz](https://build.opensuse.org/project/show/home:dreibh)!
+
+Add the PPA repository:
+
+```bash
+. /etc/os-release
+DISTRIBUTION="Debian_${VERSION_ID:-$([ "${VERSION_CODENAME:-}" = sid ] && echo Unstable || echo Testing)}"
+URL="https://download.opensuse.org/repositories/home:/dreibh/${DISTRIBUTION}"
+KEY="/etc/apt/keyrings/dreibh-obs.gpg"
+
+curl -fsSL "${URL}/Release.key" | sudo gpg --batch --yes --dearmor -o "${KEY}"
+printf "deb [signed-by=%s] %s/ /\ndeb-src [signed-by=%s] %s/ /\n" "${KEY}" "${URL}" "${KEY}" "${URL}" | \
+   sudo tee /etc/apt/sources.list.d/obs-dreibh.list
+sudo apt update
+```
+
+Then, install FractGen:
+
+```bash
+sudo apt-get install fractgen
+```
+
 ## Fedora Linux
 
-For ready-to-install Fedora Linux packages of FractGen, see [COPR PPA for Thomas Dreibholz](https://copr.fedorainfracloud.org/coprs/dreibh/ppa/package/fractgen/)!
+For ready-to-install [Fedora Linux](https://fedoraproject.org/) packages of FractGen, see the [COPR PPA for Thomas Dreibholz](https://copr.fedorainfracloud.org/coprs/dreibh/ppa/package/fractgen/)!
 
 ```bash
 sudo dnf copr enable -y dreibh/ppa
 sudo dnf install fractgen
 ```
 
+## OpenSUSE Linux
+
+For ready-to-install [OpenSUSE Linux](https://www.opensuse.org/) packages of FractGen, see the [Open Build Service PPA for Thomas Dreibholz](https://build.opensuse.org/project/show/home:dreibh)!
+
+Add the PPA repository:
+
+```bash
+. /etc/os-release
+[[ $VERSION_ID =~ ^[0-9]+\.[0-9]+$ ]] && DISTRIBUTION="${VERSION_ID}" || DISTRIBUTION="${NAME// /_}"
+URL="https://download.opensuse.org/repositories/home:/dreibh/${DISTRIBUTION}"
+rpm --import "${URL}/repodata/repomd.xml.key"
+zypper addrepo -f "${URL}/" dreibh-obs
+```
+
+Then, install FractGen:
+
+```bash
+sudo zypper install fractgen
+```
+
+## Alpine Linux
+
+For ready-to-install [Alpine Linux](https://alpinelinux.org/) packages of FractGen, see the [Open Build Service PPA for Thomas Dreibholz](https://build.opensuse.org/project/show/home:dreibh)!
+
+Add the PPA repository:
+
+```bash
+DISTRIBUTION="Alpine_Latest_community"
+URL="https://download.opensuse.org/repositories/home:/dreibh"
+wget -O \
+   /etc/apk/keys/home:dreibh@build.opensuse.org-527a4e72.rsa.pub \
+   "${URL}/${DISTRIBUTION}/x86_64/home:dreibh%40build.opensuse.org-527a4e72.rsa.pub"
+if ! grep -q "^${URL}/${DISTRIBUTION}" /etc/apk/repositories ; then
+   echo "${URL}/${DISTRIBUTION}" | sudo tee -a /etc/apk/repositories
+fi
+```
+
+Then, install FractGen:
+
+```bash
+sudo apk add fractgen
+```
+
 ## FreeBSD
 
-For ready-to-install FreeBSD packages of FractGen, it is included in the ports collection, see [FreeBSD ports tree index of graphics/fractgen/](https://cgit.freebsd.org/ports/tree/graphics/fractgen/)!
+For ready-to-install [FreeBSD](https://www.freebsd.org/) packages of FractGen, it is included in the ports collection; see [FreeBSD ports tree index of graphics/fractgen/](https://cgit.freebsd.org/ports/tree/graphics/fractgen/)!
 
 ```bash
 sudo pkg install fractgen
@@ -233,6 +300,39 @@ Alternatively, to compile it from the ports sources:
 cd /usr/ports/graphics/fractgen
 make
 sudo make install
+```
+
+## NetBSD
+
+FractGen supports [NetBSD](https://netbsd.org/). However, there is no NetBSD packaging yet. Just build from sources!
+
+## OpenBSD
+
+FractGen supports [OpenBSD](https://www.openbsd.org/). However, there is no OpenBSD packaging yet. Just build from sources!
+
+## Solaris (OpenIndiana)
+
+FractGen supports [Solaris (OpenIndiana)](https://www.openindiana.org/). However, there is no Solaris packaging yet. Just build from sources!
+
+## GNU Hurd
+
+FractGen supports [GNU Hurd](https://www.gnu.org/software/hurd/) ([Debian GNU/Hurd](https://www.debian.org/ports/hurd/)). However, there is no Debian GNU/Hurd PPA on Open Build Service available yet. Just build from sources!
+
+## Homebrew (Apple, Linux)
+
+For the [Homebrew](https://brew.sh/) formula of FractGen, see [Thomas Dreibholz's Homebrew Tap](https://github.com/dreibh/homebrew-tap)!
+
+Add tap:
+
+```bash
+brew tap dreibh/tap
+brew trust dreibh/tap
+```
+
+Then, install FractGen:
+
+```bash
+brew install fractgen
 ```
 
 
@@ -260,7 +360,13 @@ Optionally, for installation to the standard paths (usually under `/usr/local`):
 sudo make install
 ```
 
-Note: The script [`ci/get-dependencies`](https://github.com/dreibh/fractgen/blob/master/ci/get-dependencies) automatically installs the build dependencies under Debian/Ubuntu Linux, Fedora Linux, and FreeBSD. For manual handling of the build dependencies, see the packaging configuration in [`debian/control`](https://github.com/dreibh/fractgen/blob/master/debian/control) (Debian/Ubuntu Linux), [`fractgen.spec`](https://github.com/dreibh/fractgen/blob/master/rpm/fractgen.spec) (Fedora Linux), and [`Makefile`](https://github.com/dreibh/fractgen/blob/master/freebsd/fractgen/Makefile) for FreeBSD.
+Note: The script [`ci/get-dependencies`](https://github.com/dreibh/fractgen/blob/master/ci/get-dependencies) automatically installs the build dependencies under Debian/Ubuntu Linux, Fedora Linux, OpenSUSE Linux, Alpine Linux, FreeBSD, and Debian GNU/Hurd. For manual handling of the build dependencies, take a look at the packaging configuration files:
+
+* [`debian/control`](https://github.com/dreibh/fractgen/blob/master/debian/control) (Debian/Ubuntu Linux, Debian GNU/Hurd),
+* [`fractgen.spec`](https://github.com/dreibh/fractgen/blob/master/rpm/fractgen.spec) (Fedora Linux, OpenSUSE Linux),
+* [`APKBUILD`](https://github.com/dreibh/fractgen/blob/master/packaging/APKBUILD) (Alpine Linux),
+* [`Makefile`](https://github.com/dreibh/fractgen/blob/master/freebsd/fractgen/Makefile) (FreeBSD), and
+* [`fractgen.rb`](https://github.com/dreibh/fractgen/blob/master/packaging/fractgen.rb) (Homebrew).
 
 Contributions:
 
